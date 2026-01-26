@@ -5,6 +5,7 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed = 5f;
     public GameObject arrowPrefab;
     public float fireRate = 0.3f;
+    public Sword sword;
     
     private Rigidbody2D rb;
     private Vector2 movement;
@@ -28,28 +29,34 @@ public class PlayerController : MonoBehaviour
             movement = movement.normalized;
         }
         
-        // Mouse aiming - get direction from player to mouse cursor
         Vector3 mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
         mousePos.z = 0f;
         Vector2 aimDirection = (mousePos - transform.position).normalized;
         
-        // Update facing direction based on input type
         if (Input.GetMouseButton(0))
         {
-            // Mouse click - aim at cursor
             facingDirection = aimDirection;
         }
         else if (movement != Vector2.zero)
         {
-            // Keyboard/controller movement - face movement direction
             facingDirection = movement.normalized;
         }
         
+        // Shoot arrow - left click or space
         if ((Input.GetMouseButton(0) || Input.GetKey(KeyCode.Space) || Input.GetButton("Fire1")) 
             && Time.time >= nextFireTime)
         {
             Shoot();
             nextFireTime = Time.time + fireRate;
+        }
+        
+        // Swing sword - right click or F key
+        if (Input.GetMouseButtonDown(1) || Input.GetKeyDown(KeyCode.F))
+        {
+            if (sword != null)
+            {
+                sword.Swing(facingDirection);
+            }
         }
     }
 
