@@ -1581,7 +1581,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Sword
   swingDuration: 0.3
-  cooldown: 0.4
+  cooldown: 0.2
   damage: 1
   hitbox: {fileID: 497372217}
   hitboxDistance: 0.5
