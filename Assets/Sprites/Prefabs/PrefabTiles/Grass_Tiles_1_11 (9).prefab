@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 9136387477315456602}
   - component: {fileID: 4456365761461057250}
   m_Layer: 0
-  m_Name: Grass_Tiles_1_11 (3)
+  m_Name: Grass_Tiles_1_11 (9)
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 6759424428923105771}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.87, y: -1.98, z: 0}
+  m_LocalPosition: {x: -5.8650336, y: -0.5769324, z: 0}
   m_LocalScale: {x: 0.5015, y: 0.4749, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
