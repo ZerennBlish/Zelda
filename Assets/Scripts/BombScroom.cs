@@ -17,12 +17,14 @@ public class BoomShroom : MonoBehaviour
     private float wanderTimer;
     private bool isExploding = false;
     private SpriteRenderer spriteRenderer;
+    private Dropper dropper;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
         spriteRenderer = GetComponent<SpriteRenderer>();
+        dropper = GetComponent<Dropper>();
         PickNewWanderDirection();
     }
 
@@ -94,6 +96,11 @@ public class BoomShroom : MonoBehaviour
         if (explosionEffectPrefab != null)
         {
             Instantiate(explosionEffectPrefab, transform.position, Quaternion.identity);
+        }
+        
+        if (dropper != null)
+        {
+            dropper.Drop();
         }
         
         Destroy(gameObject);

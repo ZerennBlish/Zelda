@@ -4,6 +4,7 @@ public class Arrow : MonoBehaviour
 {
     public float speed = 10f;
     public float lifetime = 2f;
+    public int damage = 1;
     private Vector2 direction;
 
     void Start()
@@ -35,7 +36,15 @@ public class Arrow : MonoBehaviour
             }
             else
             {
-                Destroy(other.gameObject);
+                Destructible destructible = other.GetComponent<Destructible>();
+                if (destructible != null)
+                {
+                    destructible.TakeDamage(damage);
+                }
+                else
+                {
+                    Destroy(other.gameObject);
+                }
             }
             Destroy(gameObject);
         }

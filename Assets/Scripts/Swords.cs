@@ -46,7 +46,6 @@ public class Sword : MonoBehaviour
             hitbox.enabled = true;
         }
         
-        // Play swing animation
         float frameTime = swingDuration / swingSprites.Length;
         for (int i = 0; i < swingSprites.Length; i++)
         {
@@ -54,7 +53,6 @@ public class Sword : MonoBehaviour
             yield return new WaitForSeconds(frameTime);
         }
         
-        // Return to idle
         spriteRenderer.sprite = idleSprite;
         
         if (hitbox != null)
@@ -79,7 +77,15 @@ public class Sword : MonoBehaviour
             }
             else
             {
-                Destroy(other.gameObject);
+                Destructible destructible = other.GetComponent<Destructible>();
+                if (destructible != null)
+                {
+                    destructible.TakeDamage(damage);
+                }
+                else
+                {
+                    Destroy(other.gameObject);
+                }
             }
         }
     }
