@@ -7,16 +7,16 @@ public class Sword : MonoBehaviour
     public int damage = 1;
     public Collider2D hitbox;
     public float hitboxDistance = 0.5f;
+    public Sprite idleSprite;
+    public Sprite[] swingSprites;
     
     private bool canSwing = true;
     private bool isSwinging = false;
     private SpriteRenderer spriteRenderer;
-    private Animator animator;
 
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
-        animator = GetComponent<Animator>();
         
         if (hitbox != null)
         {
@@ -28,10 +28,8 @@ public class Sword : MonoBehaviour
     {
         if (!canSwing || isSwinging) return;
         
-        // Position hitbox in facing direction
         transform.localPosition = direction * hitboxDistance;
         
-        // Rotate sword to face direction
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         transform.localRotation = Quaternion.Euler(0, 0, angle);
         
@@ -48,12 +46,16 @@ public class Sword : MonoBehaviour
             hitbox.enabled = true;
         }
         
-        if (animator != null)
+        // Play swing animation
+        float frameTime = swingDuration / swingSprites.Length;
+        for (int i = 0; i < swingSprites.Length; i++)
         {
-            animator.SetTrigger("Swing");
+            spriteRenderer.sprite = swingSprites[i];
+            yield return new WaitForSeconds(frameTime);
         }
         
-        yield return new WaitForSeconds(swingDuration);
+        // Return to idle
+        spriteRenderer.sprite = idleSprite;
         
         if (hitbox != null)
         {

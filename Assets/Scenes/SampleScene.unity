@@ -1500,7 +1500,6 @@ GameObject:
   - component: {fileID: 497372219}
   - component: {fileID: 497372218}
   - component: {fileID: 497372217}
-  - component: {fileID: 497372220}
   m_Layer: 0
   m_Name: Sword
   m_TagString: Untagged
@@ -1586,6 +1585,17 @@ MonoBehaviour:
   damage: 1
   hitbox: {fileID: 497372217}
   hitboxDistance: 0.5
+  idleSprite: {fileID: 2601603839896418933, guid: 7ba0929d137c2cb45b83f0feeac5304b, type: 3}
+  swingSprites:
+  - {fileID: 5381698226662430329, guid: 9c53c58de323a4d488eaed8bbdaab660, type: 3}
+  - {fileID: 8439377768975851580, guid: 9c53c58de323a4d488eaed8bbdaab660, type: 3}
+  - {fileID: 6485580907234447507, guid: 9c53c58de323a4d488eaed8bbdaab660, type: 3}
+  - {fileID: -7426404687095283374, guid: 9c53c58de323a4d488eaed8bbdaab660, type: 3}
+  - {fileID: 9154493068417162251, guid: 9c53c58de323a4d488eaed8bbdaab660, type: 3}
+  - {fileID: 7784856454370334075, guid: 9c53c58de323a4d488eaed8bbdaab660, type: 3}
+  - {fileID: 9192417675352368991, guid: 9c53c58de323a4d488eaed8bbdaab660, type: 3}
+  - {fileID: 1008035726576534456, guid: 9c53c58de323a4d488eaed8bbdaab660, type: 3}
+  - {fileID: 3549261271536808469, guid: 9c53c58de323a4d488eaed8bbdaab660, type: 3}
 --- !u!212 &497372219
 SpriteRenderer:
   serializedVersion: 2
@@ -1645,28 +1655,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!95 &497372220
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 497372215}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 40e1fdaaa4cf4b74c8ec96214ff55926, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &503859231 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8621274275297371003, guid: 70f73ab55ecf451419960d93a8e6e156, type: 3}

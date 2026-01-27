@@ -42,16 +42,16 @@ public class PlayerController : MonoBehaviour
             facingDirection = movement.normalized;
         }
         
-        // Shoot arrow - left click or space
-        if ((Input.GetMouseButton(0) || Input.GetKey(KeyCode.Space) || Input.GetButton("Fire1")) 
+        // Shoot arrow - left click, space, or X button on controller
+        if ((Input.GetMouseButton(0) || Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.JoystickButton3)) 
             && Time.time >= nextFireTime)
         {
             Shoot();
             nextFireTime = Time.time + fireRate;
         }
         
-        // Swing sword - right click or F key
-        if (Input.GetMouseButtonDown(1) || Input.GetKeyDown(KeyCode.F))
+        // Swing sword - right click, F key, or Y button on controller
+        if (Input.GetMouseButtonDown(1) || Input.GetKeyDown(KeyCode.F) || Input.GetKeyDown(KeyCode.JoystickButton2))
         {
             if (sword != null)
             {
