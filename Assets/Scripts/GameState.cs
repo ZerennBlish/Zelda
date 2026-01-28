@@ -28,4 +28,19 @@ public class GameState : MonoBehaviour
             rupeeUI.UpdateRupees(rupees);
         }
     }
+    
+    public int StealRupees(int amount)
+    {
+        // Can only steal what the player has
+        int stolen = Mathf.Min(amount, rupees);
+        rupees -= stolen;
+        
+        if (rupeeUI != null)
+        {
+            rupeeUI.UpdateRupees(rupees);
+        }
+        
+        // Return how many were actually stolen
+        return stolen;
+    }
 }

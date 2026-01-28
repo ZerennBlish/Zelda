@@ -29,7 +29,6 @@ public class Arrow : MonoBehaviour
     {
         if (other.CompareTag("Enemy"))
         {
-            // Check for BoomShroom
             BoomShroom shroom = other.GetComponent<BoomShroom>();
             if (shroom != null)
             {
@@ -38,7 +37,6 @@ public class Arrow : MonoBehaviour
                 return;
             }
             
-            // Check for Slime
             Slime slime = other.GetComponent<Slime>();
             if (slime != null)
             {
@@ -47,7 +45,6 @@ public class Arrow : MonoBehaviour
                 return;
             }
             
-            // Check for GoblinArcher
             GoblinArcher archer = other.GetComponent<GoblinArcher>();
             if (archer != null)
             {
@@ -56,16 +53,47 @@ public class Arrow : MonoBehaviour
                 return;
             }
             
-            // Check for Destructible (bushes, etc)
+            GoblinMaceman maceman = other.GetComponent<GoblinMaceman>();
+            if (maceman != null)
+            {
+                maceman.TakeDamage(damage);
+                Destroy(gameObject);
+                return;
+            }
+            
+            GoblinSpearman spearman = other.GetComponent<GoblinSpearman>();
+            if (spearman != null)
+            {
+                spearman.TakeDamage(damage);
+                Destroy(gameObject);
+                return;
+            }
+            
+            GoblinThief thief = other.GetComponent<GoblinThief>();
+            if (thief != null)
+            {
+                thief.TakeDamage(damage);
+                Destroy(gameObject);
+                return;
+            }
+            
+            SkeletonMage mage = other.GetComponent<SkeletonMage>();
+            if (mage != null)
+            {
+                mage.TakeDamage(damage);
+                Destroy(gameObject);
+                return;
+            }
+            
             Destructible destructible = other.GetComponent<Destructible>();
             if (destructible != null)
             {
                 destructible.TakeDamage(damage);
+                Destroy(gameObject);
+                return;
             }
-            else
-            {
-                Destroy(other.gameObject);
-            }
+            
+            // Unknown enemy type - don't destroy it, just destroy arrow
             Destroy(gameObject);
         }
         

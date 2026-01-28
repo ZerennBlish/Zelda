@@ -70,7 +70,6 @@ public class Sword : MonoBehaviour
     {
         if (other.CompareTag("Enemy") && isSwinging)
         {
-            // Check for BoomShroom
             BoomShroom shroom = other.GetComponent<BoomShroom>();
             if (shroom != null)
             {
@@ -78,7 +77,6 @@ public class Sword : MonoBehaviour
                 return;
             }
             
-            // Check for Slime
             Slime slime = other.GetComponent<Slime>();
             if (slime != null)
             {
@@ -86,7 +84,6 @@ public class Sword : MonoBehaviour
                 return;
             }
             
-            // Check for GoblinArcher
             GoblinArcher archer = other.GetComponent<GoblinArcher>();
             if (archer != null)
             {
@@ -94,16 +91,42 @@ public class Sword : MonoBehaviour
                 return;
             }
             
-            // Check for Destructible
+            GoblinMaceman maceman = other.GetComponent<GoblinMaceman>();
+            if (maceman != null)
+            {
+                maceman.TakeDamage(damage);
+                return;
+            }
+            
+            GoblinSpearman spearman = other.GetComponent<GoblinSpearman>();
+            if (spearman != null)
+            {
+                spearman.TakeDamage(damage);
+                return;
+            }
+            
+            GoblinThief thief = other.GetComponent<GoblinThief>();
+            if (thief != null)
+            {
+                thief.TakeDamage(damage);
+                return;
+            }
+            
+            SkeletonMage mage = other.GetComponent<SkeletonMage>();
+            if (mage != null)
+            {
+                mage.TakeDamage(damage);
+                return;
+            }
+            
             Destructible destructible = other.GetComponent<Destructible>();
             if (destructible != null)
             {
                 destructible.TakeDamage(damage);
+                return;
             }
-            else
-            {
-                Destroy(other.gameObject);
-            }
+            
+            // Unknown enemy type - do nothing instead of destroying
         }
     }
 }
