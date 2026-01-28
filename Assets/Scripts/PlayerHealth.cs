@@ -39,6 +39,9 @@ public class PlayerHealth : MonoBehaviour
     {
         if (isInvincible) return;
         
+        // Set invincible immediately to block same-frame hits
+        isInvincible = true;
+        
         currentHealth -= damage;
         
         if (healthUI != null)
@@ -103,8 +106,6 @@ public class PlayerHealth : MonoBehaviour
     
     System.Collections.IEnumerator InvincibilityFrames()
     {
-        isInvincible = true;
-        
         float elapsed = 0f;
         while (elapsed < invincibilityTime)
         {

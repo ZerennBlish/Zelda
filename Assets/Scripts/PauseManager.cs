@@ -8,7 +8,10 @@ public class PauseManager : MonoBehaviour
 
     void Start()
     {
-        pauseMenu.SetActive(false);
+        if (pauseMenu != null)
+        {
+            pauseMenu.SetActive(false);
+        }
     }
 
     void Update()
@@ -16,6 +19,8 @@ public class PauseManager : MonoBehaviour
         // P key or Start button (controller)
         if (Input.GetKeyDown(KeyCode.P) || Input.GetKeyDown(KeyCode.JoystickButton7))
         {
+            if (pauseMenu == null) return;
+            
             if (isPaused)
                 ResumeGame();
             else
@@ -25,6 +30,8 @@ public class PauseManager : MonoBehaviour
 
     public void PauseGame()
     {
+        if (pauseMenu == null) return;
+        
         isPaused = true;
         pauseMenu.SetActive(true);
         Time.timeScale = 0f;
@@ -32,6 +39,8 @@ public class PauseManager : MonoBehaviour
 
     public void ResumeGame()
     {
+        if (pauseMenu == null) return;
+        
         isPaused = false;
         pauseMenu.SetActive(false);
         Time.timeScale = 1f;

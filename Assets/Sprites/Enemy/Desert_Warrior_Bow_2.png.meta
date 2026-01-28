@@ -1,202 +1,217 @@
 fileFormatVersion: 2
-guid: c1f74488fd9b5324ea19d01e1247d10d
+guid: cbf330090eeaf3f4fb5f717c15f84930
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3524723821547216882
-    second: Goblin_Maceman_0
+      213: -8869836705002771858
+    second: Desert_Warrior_Bow_2_0
   - first:
-      213: -1361103090080695432
-    second: Goblin_Maceman_1
+      213: 2030615525881651510
+    second: Desert_Warrior_Bow_2_1
   - first:
-      213: -8676867325715630207
-    second: Goblin_Maceman_2
+      213: 4062404365212842029
+    second: Desert_Warrior_Bow_2_2
   - first:
-      213: 292402002415259352
-    second: Goblin_Maceman_3
+      213: 7681495114361598333
+    second: Desert_Warrior_Bow_2_3
   - first:
-      213: 7436276546215839128
-    second: Goblin_Maceman_4
+      213: 3642353889757188069
+    second: Desert_Warrior_Bow_2_4
   - first:
-      213: -5533097642395587440
-    second: Goblin_Maceman_5
+      213: 8844392810308310150
+    second: Desert_Warrior_Bow_2_5
   - first:
-      213: 4240525403750061354
-    second: Goblin_Maceman_6
+      213: 8282286707956353976
+    second: Desert_Warrior_Bow_2_6
   - first:
-      213: 4576015477023682301
-    second: Goblin_Maceman_7
+      213: -3866010225091495502
+    second: Desert_Warrior_Bow_2_7
   - first:
-      213: -3796387952800886096
-    second: Goblin_Maceman_8
+      213: -6668134197678570957
+    second: Desert_Warrior_Bow_2_8
   - first:
-      213: -7891584848307931271
-    second: Goblin_Maceman_9
+      213: -1351210720342795174
+    second: Desert_Warrior_Bow_2_9
   - first:
-      213: -3769511961264592114
-    second: Goblin_Maceman_10
+      213: -8908357491946432336
+    second: Desert_Warrior_Bow_2_10
   - first:
-      213: -1415385461335524597
-    second: Goblin_Maceman_11
+      213: 6115716917041047006
+    second: Desert_Warrior_Bow_2_11
   - first:
-      213: -8693242463946442547
-    second: Goblin_Maceman_12
+      213: 1133002836773057239
+    second: Desert_Warrior_Bow_2_12
   - first:
-      213: 6022931721469099787
-    second: Goblin_Maceman_13
+      213: -6988843547049077238
+    second: Desert_Warrior_Bow_2_13
   - first:
-      213: 1173769578635562757
-    second: Goblin_Maceman_14
+      213: -3805190066416820649
+    second: Desert_Warrior_Bow_2_14
   - first:
-      213: 200449264001347436
-    second: Goblin_Maceman_15
+      213: 8528551306441503953
+    second: Desert_Warrior_Bow_2_15
   - first:
-      213: 120523174717218895
-    second: Goblin_Maceman_16
+      213: 4640623927870723413
+    second: Desert_Warrior_Bow_2_16
   - first:
-      213: -115298882574843265
-    second: Goblin_Maceman_17
+      213: -743869018269793116
+    second: Desert_Warrior_Bow_2_17
   - first:
-      213: -2160726408323964331
-    second: Goblin_Maceman_18
+      213: -432873561977530362
+    second: Desert_Warrior_Bow_2_18
   - first:
-      213: -4394030038774321108
-    second: Goblin_Maceman_19
+      213: -3403383099144159740
+    second: Desert_Warrior_Bow_2_19
   - first:
-      213: -2317655284008797502
-    second: Goblin_Maceman_20
+      213: 728953876784439411
+    second: Desert_Warrior_Bow_2_20
   - first:
-      213: -2587440904255864102
-    second: Goblin_Maceman_21
+      213: 652757688228376543
+    second: Desert_Warrior_Bow_2_21
   - first:
-      213: 4733417501250551654
-    second: Goblin_Maceman_22
+      213: -4925521492066496253
+    second: Desert_Warrior_Bow_2_22
   - first:
-      213: -3184973169071834130
-    second: Goblin_Maceman_23
+      213: 5636153608147107376
+    second: Desert_Warrior_Bow_2_23
   - first:
-      213: 9185234521070567741
-    second: Goblin_Maceman_24
+      213: -4476077244312197098
+    second: Desert_Warrior_Bow_2_24
   - first:
-      213: 740887979615750304
-    second: Goblin_Maceman_25
+      213: -1934451936851273536
+    second: Desert_Warrior_Bow_2_25
   - first:
-      213: 6930471648130586057
-    second: Goblin_Maceman_26
+      213: 8097780029173451654
+    second: Desert_Warrior_Bow_2_26
   - first:
-      213: 3341201662709912940
-    second: Goblin_Maceman_27
+      213: -940496118668450947
+    second: Desert_Warrior_Bow_2_27
   - first:
-      213: -8738413511418697280
-    second: Goblin_Maceman_28
+      213: -3751849319218712875
+    second: Desert_Warrior_Bow_2_28
   - first:
-      213: 8316835164055493658
-    second: Goblin_Maceman_29
+      213: 5146655896337193163
+    second: Desert_Warrior_Bow_2_29
   - first:
-      213: 3073960037129712350
-    second: Goblin_Maceman_30
+      213: 1608865872942649766
+    second: Desert_Warrior_Bow_2_30
   - first:
-      213: 7147254182994946244
-    second: Goblin_Maceman_31
+      213: -2048963148537887258
+    second: Desert_Warrior_Bow_2_31
   - first:
-      213: 4652804780435631221
-    second: Goblin_Maceman_32
+      213: -723010876202323248
+    second: Desert_Warrior_Bow_2_32
   - first:
-      213: 2931225921213888453
-    second: Goblin_Maceman_33
+      213: -1888616901348634349
+    second: Desert_Warrior_Bow_2_33
   - first:
-      213: 2364669463768366683
-    second: Goblin_Maceman_34
+      213: 3509529905670820934
+    second: Desert_Warrior_Bow_2_34
   - first:
-      213: 8578039019458351718
-    second: Goblin_Maceman_35
+      213: -67764731800612054
+    second: Desert_Warrior_Bow_2_35
   - first:
-      213: -170562227045332426
-    second: Goblin_Maceman_36
+      213: -858697084866377137
+    second: Desert_Warrior_Bow_2_36
   - first:
-      213: -5300659673821723689
-    second: Goblin_Maceman_37
+      213: -6618495490543134112
+    second: Desert_Warrior_Bow_2_37
   - first:
-      213: 3503127451643168253
-    second: Goblin_Maceman_38
+      213: -6847295188246513304
+    second: Desert_Warrior_Bow_2_38
   - first:
-      213: 4865507334554982425
-    second: Goblin_Maceman_39
+      213: 7003216480770719075
+    second: Desert_Warrior_Bow_2_39
   - first:
-      213: -5183036077714454897
-    second: Goblin_Maceman_40
+      213: -3948702496977302794
+    second: Desert_Warrior_Bow_2_40
   - first:
-      213: 359119944091355669
-    second: Goblin_Maceman_41
+      213: 4147332613535802461
+    second: Desert_Warrior_Bow_2_41
   - first:
-      213: 7654534083166615999
-    second: Goblin_Maceman_42
+      213: -8930428584271112994
+    second: Desert_Warrior_Bow_2_42
   - first:
-      213: -3990255122052785381
-    second: Goblin_Maceman_43
+      213: -474125173558606152
+    second: Desert_Warrior_Bow_2_43
   - first:
-      213: 6485908986561208204
-    second: Goblin_Maceman_44
+      213: -3484299259077547196
+    second: Desert_Warrior_Bow_2_44
   - first:
-      213: 1428771764797927414
-    second: Goblin_Maceman_45
+      213: -5484556126942534224
+    second: Desert_Warrior_Bow_2_45
   - first:
-      213: 4601549114895979560
-    second: Goblin_Maceman_46
+      213: 6663889487540123641
+    second: Desert_Warrior_Bow_2_46
   - first:
-      213: -2915964932490062401
-    second: Goblin_Maceman_47
+      213: 6902249332198977262
+    second: Desert_Warrior_Bow_2_47
   - first:
-      213: 8880458925411490757
-    second: Goblin_Maceman_48
+      213: -5272427117469978579
+    second: Desert_Warrior_Bow_2_48
   - first:
-      213: -7501674151997239201
-    second: Goblin_Maceman_49
+      213: -128495118586485908
+    second: Desert_Warrior_Bow_2_49
   - first:
-      213: 302793109617542910
-    second: Goblin_Maceman_50
+      213: -4470347208688248881
+    second: Desert_Warrior_Bow_2_50
   - first:
-      213: 1453503733158711143
-    second: Goblin_Maceman_51
+      213: -6915343258807212068
+    second: Desert_Warrior_Bow_2_51
   - first:
-      213: -3430603498628678380
-    second: Goblin_Maceman_52
+      213: 6282848113842872043
+    second: Desert_Warrior_Bow_2_52
   - first:
-      213: -7294762631008369356
-    second: Goblin_Maceman_53
+      213: 5994434587029815942
+    second: Desert_Warrior_Bow_2_53
   - first:
-      213: -2075950493095626568
-    second: Goblin_Maceman_54
+      213: 4307567607801965458
+    second: Desert_Warrior_Bow_2_54
   - first:
-      213: 8144308503314829990
-    second: Goblin_Maceman_55
+      213: -1447053310690702051
+    second: Desert_Warrior_Bow_2_55
   - first:
-      213: 8695644865012146900
-    second: Goblin_Maceman_56
+      213: -2581543706314030369
+    second: Desert_Warrior_Bow_2_56
   - first:
-      213: -729677322481783901
-    second: Goblin_Maceman_57
+      213: 4940989385528054341
+    second: Desert_Warrior_Bow_2_57
   - first:
-      213: -5180469312152124212
-    second: Goblin_Maceman_58
+      213: -8129392100774042639
+    second: Desert_Warrior_Bow_2_58
   - first:
-      213: -6500665659902103342
-    second: Goblin_Maceman_59
+      213: -8256936578643258491
+    second: Desert_Warrior_Bow_2_59
   - first:
-      213: 4540487006398588928
-    second: Goblin_Maceman_60
+      213: 5872649998537715281
+    second: Desert_Warrior_Bow_2_60
   - first:
-      213: -2921490265956796616
-    second: Goblin_Maceman_61
+      213: -3990991726876377789
+    second: Desert_Warrior_Bow_2_61
   - first:
-      213: -8166628579551331310
-    second: Goblin_Maceman_62
+      213: -2384754845010784461
+    second: Desert_Warrior_Bow_2_62
   - first:
-      213: -6713557403542195104
-    second: Goblin_Maceman_63
+      213: 6145716015741547322
+    second: Desert_Warrior_Bow_2_63
   - first:
-      213: -6316886582605444603
-    second: Goblin_Maceman_64
+      213: 4865372156559870583
+    second: Desert_Warrior_Bow_2_64
+  - first:
+      213: -2757199807144096887
+    second: Desert_Warrior_Bow_2_65
+  - first:
+      213: -3275590160523763252
+    second: Desert_Warrior_Bow_2_66
+  - first:
+      213: 6641372791166482611
+    second: Desert_Warrior_Bow_2_67
+  - first:
+      213: -5383780517926733532
+    second: Desert_Warrior_Bow_2_68
+  - first:
+      213: 6053666652763036367
+    second: Desert_Warrior_Bow_2_69
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -229,7 +244,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -243,7 +258,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -267,7 +282,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -305,13 +320,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Goblin_Maceman_0
+      name: Desert_Warrior_Bow_2_0
       rect:
         serializedVersion: 2
-        x: 6
-        y: 391
-        width: 18
-        height: 19
+        x: 22
+        y: 789
+        width: 19
+        height: 23
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -320,20 +335,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2ffdda214a55ae030800000000000000
-      internalID: 3524723821547216882
+      spriteID: e6aa69ed28208e480800000000000000
+      internalID: -8869836705002771858
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Maceman_1
+      name: Desert_Warrior_Bow_2_1
       rect:
         serializedVersion: 2
-        x: 38
-        y: 390
-        width: 18
-        height: 19
+        x: 86
+        y: 789
+        width: 19
+        height: 23
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -342,833 +357,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 87bbd0573f36c1de0800000000000000
-      internalID: -1361103090080695432
+      spriteID: 631a197ef023e2c10800000000000000
+      internalID: 2030615525881651510
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Maceman_2
+      name: Desert_Warrior_Bow_2_2
       rect:
         serializedVersion: 2
-        x: 70
-        y: 390
-        width: 18
-        height: 19
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 187b687a323959780800000000000000
-      internalID: -8676867325715630207
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Goblin_Maceman_3
-      rect:
-        serializedVersion: 2
-        x: 102
-        y: 391
-        width: 18
-        height: 19
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 8de039d6212de0400800000000000000
-      internalID: 292402002415259352
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Goblin_Maceman_4
-      rect:
-        serializedVersion: 2
-        x: 7
-        y: 359
-        width: 17
-        height: 18
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 89583c4ae16f23760800000000000000
-      internalID: 7436276546215839128
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Goblin_Maceman_5
-      rect:
-        serializedVersion: 2
-        x: 39
-        y: 358
-        width: 17
-        height: 18
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 09ca575820d7633b0800000000000000
-      internalID: -5533097642395587440
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Goblin_Maceman_6
-      rect:
-        serializedVersion: 2
-        x: 71
-        y: 358
-        width: 17
-        height: 18
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a25da8f236f59da30800000000000000
-      internalID: 4240525403750061354
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Goblin_Maceman_7
-      rect:
-        serializedVersion: 2
-        x: 103
-        y: 359
-        width: 17
-        height: 18
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: dfeafa2e4d5418f30800000000000000
-      internalID: 4576015477023682301
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Goblin_Maceman_8
-      rect:
-        serializedVersion: 2
-        x: 8
-        y: 327
-        width: 18
-        height: 18
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 0b21bb36545805bc0800000000000000
-      internalID: -3796387952800886096
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Goblin_Maceman_9
-      rect:
-        serializedVersion: 2
-        x: 40
-        y: 326
-        width: 18
-        height: 18
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 97730c154657b7290800000000000000
-      internalID: -7891584848307931271
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Goblin_Maceman_10
-      rect:
-        serializedVersion: 2
-        x: 72
-        y: 326
-        width: 18
-        height: 18
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: e0bec3cc7d000bbc0800000000000000
-      internalID: -3769511961264592114
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Goblin_Maceman_11
-      rect:
-        serializedVersion: 2
-        x: 104
-        y: 327
-        width: 18
-        height: 18
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: b0bf7d40c6a8b5ce0800000000000000
-      internalID: -1415385461335524597
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Goblin_Maceman_12
-      rect:
-        serializedVersion: 2
-        x: 6
-        y: 295
-        width: 18
-        height: 21
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: dc8712ea9066b5780800000000000000
-      internalID: -8693242463946442547
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Goblin_Maceman_13
-      rect:
-        serializedVersion: 2
-        x: 38
-        y: 295
-        width: 18
-        height: 20
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: b0ff8946d70c59350800000000000000
-      internalID: 6022931721469099787
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Goblin_Maceman_14
-      rect:
-        serializedVersion: 2
-        x: 70
-        y: 294
-        width: 18
-        height: 20
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 50f8bbe76311a4010800000000000000
-      internalID: 1173769578635562757
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Goblin_Maceman_15
-      rect:
-        serializedVersion: 2
-        x: 102
-        y: 295
-        width: 18
-        height: 21
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c6fe9482b8328c200800000000000000
-      internalID: 200449264001347436
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Goblin_Maceman_16
-      rect:
-        serializedVersion: 2
-        x: 134
-        y: 295
-        width: 18
-        height: 20
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: f40e838503f2ca100800000000000000
-      internalID: 120523174717218895
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Goblin_Maceman_17
-      rect:
-        serializedVersion: 2
-        x: 166
-        y: 294
-        width: 18
-        height: 20
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: f728025f640666ef0800000000000000
-      internalID: -115298882574843265
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Goblin_Maceman_18
-      rect:
-        serializedVersion: 2
-        x: 7
-        y: 263
-        width: 17
-        height: 20
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 5526b0797ce8302e0800000000000000
-      internalID: -2160726408323964331
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Goblin_Maceman_19
-      rect:
-        serializedVersion: 2
-        x: 39
-        y: 263
-        width: 17
-        height: 19
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c20f576d5f44503c0800000000000000
-      internalID: -4394030038774321108
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Goblin_Maceman_20
-      rect:
-        serializedVersion: 2
-        x: 71
-        y: 263
-        width: 17
-        height: 18
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 2ca39d47cc806dfd0800000000000000
-      internalID: -2317655284008797502
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Goblin_Maceman_21
-      rect:
-        serializedVersion: 2
-        x: 103
-        y: 263
-        width: 17
-        height: 20
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ad28388d430971cd0800000000000000
-      internalID: -2587440904255864102
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Goblin_Maceman_22
-      rect:
-        serializedVersion: 2
-        x: 135
-        y: 263
-        width: 17
-        height: 19
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 66ff7af732a70b140800000000000000
-      internalID: 4733417501250551654
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Goblin_Maceman_23
-      rect:
-        serializedVersion: 2
-        x: 167
-        y: 263
-        width: 17
-        height: 18
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: eebb25607c3bcc3d0800000000000000
-      internalID: -3184973169071834130
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Goblin_Maceman_24
-      rect:
-        serializedVersion: 2
-        x: 8
-        y: 231
-        width: 18
-        height: 20
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d310117a122887f70800000000000000
-      internalID: 9185234521070567741
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Goblin_Maceman_25
-      rect:
-        serializedVersion: 2
-        x: 40
-        y: 231
-        width: 18
-        height: 19
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 0a88a5b21b9284a00800000000000000
-      internalID: 740887979615750304
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Goblin_Maceman_26
-      rect:
-        serializedVersion: 2
-        x: 72
-        y: 231
-        width: 18
-        height: 18
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 9c55db8ae3bfd2060800000000000000
-      internalID: 6930471648130586057
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Goblin_Maceman_27
-      rect:
-        serializedVersion: 2
-        x: 104
-        y: 231
-        width: 18
-        height: 20
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c65d4c4b5355e5e20800000000000000
-      internalID: 3341201662709912940
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Goblin_Maceman_28
-      rect:
-        serializedVersion: 2
-        x: 136
-        y: 231
-        width: 18
-        height: 19
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 0c92a6f953beab680800000000000000
-      internalID: -8738413511418697280
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Goblin_Maceman_29
-      rect:
-        serializedVersion: 2
-        x: 168
-        y: 231
-        width: 18
-        height: 18
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a1c510964855b6370800000000000000
-      internalID: 8316835164055493658
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Goblin_Maceman_30
-      rect:
-        serializedVersion: 2
-        x: 6
-        y: 199
-        width: 18
-        height: 21
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ed2fcd20e56e8aa20800000000000000
-      internalID: 3073960037129712350
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Goblin_Maceman_31
-      rect:
-        serializedVersion: 2
-        x: 34
-        y: 199
-        width: 22
-        height: 19
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 4c8a6d8cfc5203360800000000000000
-      internalID: 7147254182994946244
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Goblin_Maceman_32
-      rect:
-        serializedVersion: 2
-        x: 65
-        y: 191
-        width: 31
-        height: 26
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 57cea13db45129040800000000000000
-      internalID: 4652804780435631221
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Goblin_Maceman_33
-      rect:
-        serializedVersion: 2
-        x: 104
-        y: 199
-        width: 23
-        height: 19
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 5c7fe5ee17ecda820800000000000000
-      internalID: 2931225921213888453
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Goblin_Maceman_34
-      rect:
-        serializedVersion: 2
-        x: 116
-        y: 193
-        width: 11
-        height: 11
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: b5e7027495ef0d020800000000000000
-      internalID: 2364669463768366683
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Goblin_Maceman_35
-      rect:
-        serializedVersion: 2
-        x: 136
-        y: 199
-        width: 16
-        height: 20
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 66251403a015b0770800000000000000
-      internalID: 8578039019458351718
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Goblin_Maceman_36
-      rect:
-        serializedVersion: 2
-        x: 166
-        y: 199
-        width: 18
-        height: 19
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 63a0dd4ee8a02adf0800000000000000
-      internalID: -170562227045332426
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Goblin_Maceman_37
-      rect:
-        serializedVersion: 2
-        x: 9
-        y: 167
-        width: 17
-        height: 18
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 7d34e9a5c164076b0800000000000000
-      internalID: -5300659673821723689
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Goblin_Maceman_38
-      rect:
-        serializedVersion: 2
-        x: 41
-        y: 167
-        width: 24
-        height: 17
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: df54c1e5bdb9d9030800000000000000
-      internalID: 3503127451643168253
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Goblin_Maceman_39
-      rect:
-        serializedVersion: 2
-        x: 66
-        y: 163
-        width: 54
+        x: 149
+        y: 789
+        width: 20
         height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -1178,20 +379,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 91815386421c58340800000000000000
-      internalID: 4865507334554982425
+      spriteID: d28f1822f3f806830800000000000000
+      internalID: 4062404365212842029
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Maceman_40
+      name: Desert_Warrior_Bow_2_3
       rect:
         serializedVersion: 2
-        x: 104
-        y: 163
-        width: 21
-        height: 8
+        x: 213
+        y: 789
+        width: 20
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1200,20 +401,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f86cbc1f5282218b0800000000000000
-      internalID: -5183036077714454897
+      spriteID: d71fb63bb172a9a60800000000000000
+      internalID: 7681495114361598333
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Maceman_41
+      name: Desert_Warrior_Bow_2_4
       rect:
         serializedVersion: 2
-        x: 133
-        y: 167
+        x: 278
+        y: 789
         width: 19
-        height: 19
+        height: 23
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1222,20 +423,42 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 51ac25bbfa9dbf400800000000000000
-      internalID: 359119944091355669
+      spriteID: 5ef4d31909d3c8230800000000000000
+      internalID: 3642353889757188069
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Maceman_42
+      name: Desert_Warrior_Bow_2_5
       rect:
         serializedVersion: 2
-        x: 167
-        y: 167
+        x: 342
+        y: 789
+        width: 19
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6841270c6689dba70800000000000000
+      internalID: 8844392810308310150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Desert_Warrior_Bow_2_6
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 725
         width: 17
-        height: 18
+        height: 23
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1244,20 +467,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fb93444713e5a3a60800000000000000
-      internalID: 7654534083166615999
+      spriteID: 8bb8da321e790f270800000000000000
+      internalID: 8282286707956353976
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Maceman_43
+      name: Desert_Warrior_Bow_2_7
       rect:
         serializedVersion: 2
-        x: 8
-        y: 135
-        width: 16
-        height: 18
+        x: 87
+        y: 725
+        width: 17
+        height: 23
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1266,20 +489,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b1b5cd69b14cf98c0800000000000000
-      internalID: -3990255122052785381
+      spriteID: 2b9b46bee2c295ac0800000000000000
+      internalID: -3866010225091495502
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Maceman_44
+      name: Desert_Warrior_Bow_2_8
       rect:
         serializedVersion: 2
-        x: 40
-        y: 135
-        width: 25
-        height: 19
+        x: 150
+        y: 725
+        width: 18
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1288,20 +511,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c8f9e750cd3920a50800000000000000
-      internalID: 6485908986561208204
+      spriteID: 3320cb8c6470673a0800000000000000
+      internalID: -6668134197678570957
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Maceman_45
+      name: Desert_Warrior_Bow_2_9
       rect:
         serializedVersion: 2
-        x: 64
-        y: 135
-        width: 31
-        height: 20
+        x: 214
+        y: 725
+        width: 18
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1310,19 +533,217 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6ff63e1a95404d310800000000000000
-      internalID: 1428771764797927414
+      spriteID: a5c944542098f3de0800000000000000
+      internalID: -1351210720342795174
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Maceman_46
+      name: Desert_Warrior_Bow_2_10
       rect:
         serializedVersion: 2
-        x: 96
-        y: 129
-        width: 24
+        x: 279
+        y: 725
+        width: 17
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b8d7504f082f5480800000000000000
+      internalID: -8908357491946432336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Desert_Warrior_Bow_2_11
+      rect:
+        serializedVersion: 2
+        x: 343
+        y: 725
+        width: 17
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed5241332246fd450800000000000000
+      internalID: 6115716917041047006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Desert_Warrior_Bow_2_12
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 661
+        width: 19
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d23e5fb31c39bf00800000000000000
+      internalID: 1133002836773057239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Desert_Warrior_Bow_2_13
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 661
+        width: 19
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a06db5b82d3a20f90800000000000000
+      internalID: -6988843547049077238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Desert_Warrior_Bow_2_14
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 661
+        width: 20
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 75e516c9bcf313bc0800000000000000
+      internalID: -3805190066416820649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Desert_Warrior_Bow_2_15
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 661
+        width: 20
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d4b32d1a308b5670800000000000000
+      internalID: 8528551306441503953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Desert_Warrior_Bow_2_16
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 661
+        width: 19
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 55599e410eec66040800000000000000
+      internalID: 4640623927870723413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Desert_Warrior_Bow_2_17
+      rect:
+        serializedVersion: 2
+        x: 344
+        y: 661
+        width: 19
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a44c9ea11f3da5f0800000000000000
+      internalID: -743869018269793116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Desert_Warrior_Bow_2_18
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 597
+        width: 19
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 608dba1f9cf1ef9f0800000000000000
+      internalID: -432873561977530362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Desert_Warrior_Bow_2_19
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 597
+        width: 19
         height: 24
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -1332,108 +753,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 82453e93a8cfbdf30800000000000000
-      internalID: 4601549114895979560
+      spriteID: 40eb1fc6a11c4c0d0800000000000000
+      internalID: -3403383099144159740
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Maceman_47
+      name: Desert_Warrior_Bow_2_20
       rect:
         serializedVersion: 2
-        x: 136
-        y: 135
-        width: 16
-        height: 20
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: fb51f65e7596887d0800000000000000
-      internalID: -2915964932490062401
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Goblin_Maceman_48
-      rect:
-        serializedVersion: 2
-        x: 168
-        y: 135
-        width: 18
-        height: 18
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 5cb599b875abd3b70800000000000000
-      internalID: 8880458925411490757
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Goblin_Maceman_49
-      rect:
-        serializedVersion: 2
-        x: 9
-        y: 103
-        width: 15
-        height: 18
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: f509975ba13b4e790800000000000000
-      internalID: -7501674151997239201
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Goblin_Maceman_50
-      rect:
-        serializedVersion: 2
-        x: 41
-        y: 103
-        width: 17
-        height: 18
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ef6803b9abcb33400800000000000000
-      internalID: 302793109617542910
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Goblin_Maceman_51
-      rect:
-        serializedVersion: 2
-        x: 73
-        y: 103
+        x: 150
+        y: 597
         width: 19
-        height: 16
+        height: 23
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1442,20 +775,504 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 76f01aeb1f1eb2410800000000000000
-      internalID: 1453503733158711143
+      spriteID: 370616350b3cd1a00800000000000000
+      internalID: 728953876784439411
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Maceman_52
+      name: Desert_Warrior_Bow_2_21
       rect:
         serializedVersion: 2
-        x: 105
-        y: 103
+        x: 214
+        y: 597
+        width: 19
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fdfe143b8af0f0900800000000000000
+      internalID: 652757688228376543
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Desert_Warrior_Bow_2_22
+      rect:
+        serializedVersion: 2
+        x: 278
+        y: 597
+        width: 19
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30113dbac4805abb0800000000000000
+      internalID: -4925521492066496253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Desert_Warrior_Bow_2_23
+      rect:
+        serializedVersion: 2
+        x: 342
+        y: 597
+        width: 19
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 03ef42158d3a73e40800000000000000
+      internalID: 5636153608147107376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Desert_Warrior_Bow_2_24
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 533
+        width: 17
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 618ef892677c1e1c0800000000000000
+      internalID: -4476077244312197098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Desert_Warrior_Bow_2_25
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 533
+        width: 17
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c8d9ec66327725e0800000000000000
+      internalID: -1934451936851273536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Desert_Warrior_Bow_2_26
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 533
+        width: 17
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 68bc22c5808116070800000000000000
+      internalID: 8097780029173451654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Desert_Warrior_Bow_2_27
+      rect:
+        serializedVersion: 2
+        x: 215
+        y: 533
+        width: 17
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d73222653cfa2f2f0800000000000000
+      internalID: -940496118668450947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Desert_Warrior_Bow_2_28
+      rect:
+        serializedVersion: 2
+        x: 279
+        y: 533
+        width: 17
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5de6d2d1ce0ceebc0800000000000000
+      internalID: -3751849319218712875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Desert_Warrior_Bow_2_29
+      rect:
+        serializedVersion: 2
+        x: 343
+        y: 533
+        width: 17
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc8195205489c6740800000000000000
+      internalID: 5146655896337193163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Desert_Warrior_Bow_2_30
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 469
+        width: 19
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a1deffbcf6d35610800000000000000
+      internalID: 1608865872942649766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Desert_Warrior_Bow_2_31
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 469
+        width: 19
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e5888d4fde9093e0800000000000000
+      internalID: -2048963148537887258
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Desert_Warrior_Bow_2_32
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 469
+        width: 19
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d27733507957f5f0800000000000000
+      internalID: -723010876202323248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Desert_Warrior_Bow_2_33
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 469
+        width: 19
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 311d05e3fe84ac5e0800000000000000
+      internalID: -1888616901348634349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Desert_Warrior_Bow_2_34
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 469
+        width: 19
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6449e1cdada54b030800000000000000
+      internalID: 3509529905670820934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Desert_Warrior_Bow_2_35
+      rect:
+        serializedVersion: 2
+        x: 344
+        y: 469
+        width: 19
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a2399b0e5504f0ff0800000000000000
+      internalID: -67764731800612054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Desert_Warrior_Bow_2_36
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 399
+        width: 18
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4a40e60d8b4514f0800000000000000
+      internalID: -858697084866377137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Desert_Warrior_Bow_2_37
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 404
+        width: 17
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06ad6aaea616624a0800000000000000
+      internalID: -6618495490543134112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Desert_Warrior_Bow_2_38
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 405
+        width: 17
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86933580e4589f0a0800000000000000
+      internalID: -6847295188246513304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Desert_Warrior_Bow_2_39
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 405
+        width: 18
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 36dff7dd84c603160800000000000000
+      internalID: 7003216480770719075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Desert_Warrior_Bow_2_40
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 405
+        width: 18
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6fa48f700046339c0800000000000000
+      internalID: -3948702496977302794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Desert_Warrior_Bow_2_41
+      rect:
+        serializedVersion: 2
+        x: 344
+        y: 405
+        width: 18
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d54a13bd9094e8930800000000000000
+      internalID: 4147332613535802461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Desert_Warrior_Bow_2_42
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 341
+        width: 24
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed4968e948eb01480800000000000000
+      internalID: -8930428584271112994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Desert_Warrior_Bow_2_43
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 341
         width: 22
-        height: 12
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1464,19 +1281,283 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 41d760b4b4c0460d0800000000000000
-      internalID: -3430603498628678380
+      spriteID: 8b608faaaa19b69f0800000000000000
+      internalID: -474125173558606152
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Maceman_53
+      name: Desert_Warrior_Bow_2_44
       rect:
         serializedVersion: 2
-        x: 6
-        y: 71
+        x: 151
+        y: 341
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 44ba683d84845afc0800000000000000
+      internalID: -3484299259077547196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Desert_Warrior_Bow_2_45
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 341
+        width: 21
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b5e5eec241f2e3b0800000000000000
+      internalID: -5484556126942534224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Desert_Warrior_Bow_2_46
+      rect:
+        serializedVersion: 2
+        x: 281
+        y: 341
+        width: 20
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f7f94f9e24ea7c50800000000000000
+      internalID: 6663889487540123641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Desert_Warrior_Bow_2_47
+      rect:
+        serializedVersion: 2
+        x: 345
+        y: 341
+        width: 20
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eeea5eca237b9cf50800000000000000
+      internalID: 6902249332198977262
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Desert_Warrior_Bow_2_48
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 277
         width: 18
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d20b01f987394d6b0800000000000000
+      internalID: -5272427117469978579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Desert_Warrior_Bow_2_49
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 277
+        width: 17
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c63e745de5e773ef0800000000000000
+      internalID: -128495118586485908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Desert_Warrior_Bow_2_50
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 277
+        width: 17
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc75a7b06e226f1c0800000000000000
+      internalID: -4470347208688248881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Desert_Warrior_Bow_2_51
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 277
+        width: 18
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd767e6f1f3c700a0800000000000000
+      internalID: -6915343258807212068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Desert_Warrior_Bow_2_52
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 277
+        width: 18
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bee56535219213750800000000000000
+      internalID: 6282848113842872043
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Desert_Warrior_Bow_2_53
+      rect:
+        serializedVersion: 2
+        x: 344
+        y: 277
+        width: 18
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6824a3d3f72803350800000000000000
+      internalID: 5994434587029815942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Desert_Warrior_Bow_2_54
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 213
+        width: 15
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 29be305baed87cb30800000000000000
+      internalID: 4307567607801965458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Desert_Warrior_Bow_2_55
+      rect:
+        serializedVersion: 2
+        x: 89
+        y: 213
+        width: 17
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d1d4a354ea80bebe0800000000000000
+      internalID: -1447053310690702051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Desert_Warrior_Bow_2_56
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 213
+        width: 19
         height: 19
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -1486,20 +1567,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 435c3f1590cc3ca90800000000000000
-      internalID: -7294762631008369356
+      spriteID: fd2c10d3da38c2cd0800000000000000
+      internalID: -2581543706314030369
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Maceman_54
+      name: Desert_Warrior_Bow_2_57
       rect:
         serializedVersion: 2
-        x: 38
-        y: 71
-        width: 18
-        height: 19
+        x: 217
+        y: 213
+        width: 19
+        height: 18
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1508,20 +1589,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8b8fcbf760eb033e0800000000000000
-      internalID: -2075950493095626568
+      spriteID: 542106beaabe19440800000000000000
+      internalID: 4940989385528054341
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Maceman_55
+      name: Desert_Warrior_Bow_2_58
       rect:
         serializedVersion: 2
-        x: 70
-        y: 71
-        width: 18
-        height: 19
+        x: 22
+        y: 149
+        width: 19
+        height: 23
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1530,20 +1611,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6a21641fe65660170800000000000000
-      internalID: 8144308503314829990
+      spriteID: 1f32f79a4f89e2f80800000000000000
+      internalID: -8129392100774042639
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Maceman_56
+      name: Desert_Warrior_Bow_2_59
       rect:
         serializedVersion: 2
-        x: 102
-        y: 71
-        width: 18
-        height: 19
+        x: 86
+        y: 149
+        width: 19
+        height: 23
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1552,20 +1633,64 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4d2aff7eee22da870800000000000000
-      internalID: 8695644865012146900
+      spriteID: 5831a09cde7796d80800000000000000
+      internalID: -8256936578643258491
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Maceman_57
+      name: Desert_Warrior_Bow_2_60
       rect:
         serializedVersion: 2
-        x: 7
-        y: 39
+        x: 150
+        y: 149
+        width: 19
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15ee90d1f08df7150800000000000000
+      internalID: 5872649998537715281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Desert_Warrior_Bow_2_61
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 149
+        width: 19
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34db20a6b262d98c0800000000000000
+      internalID: -3990991726876377789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Desert_Warrior_Bow_2_62
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 85
         width: 17
-        height: 18
+        height: 23
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1574,20 +1699,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3aba0d8575aafd5f0800000000000000
-      internalID: -729677322481783901
+      spriteID: 33f8dba7a16a7eed0800000000000000
+      internalID: -2384754845010784461
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Maceman_58
+      name: Desert_Warrior_Bow_2_63
       rect:
         serializedVersion: 2
-        x: 39
-        y: 39
+        x: 87
+        y: 85
         width: 17
-        height: 18
+        height: 23
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1596,20 +1721,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: cc44c5f9b964b18b0800000000000000
-      internalID: -5180469312152124212
+      spriteID: a3334b8a728f94550800000000000000
+      internalID: 6145716015741547322
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Maceman_59
+      name: Desert_Warrior_Bow_2_64
       rect:
         serializedVersion: 2
-        x: 71
-        y: 39
+        x: 151
+        y: 85
         width: 17
-        height: 18
+        height: 23
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1618,20 +1743,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2d074f9360ff8c5a0800000000000000
-      internalID: -6500665659902103342
+      spriteID: 77ac3d3d236458340800000000000000
+      internalID: 4865372156559870583
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Maceman_60
+      name: Desert_Warrior_Bow_2_65
       rect:
         serializedVersion: 2
-        x: 103
-        y: 39
+        x: 215
+        y: 85
         width: 17
-        height: 18
+        height: 23
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1640,20 +1765,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0082aa330ec030f30800000000000000
-      internalID: 4540487006398588928
+      spriteID: 98b866832657cb9d0800000000000000
+      internalID: -2757199807144096887
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Maceman_61
+      name: Desert_Warrior_Bow_2_66
       rect:
         serializedVersion: 2
-        x: 8
-        y: 7
-        width: 18
-        height: 18
+        x: 24
+        y: 21
+        width: 19
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1662,20 +1787,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 83732e2f418c477d0800000000000000
-      internalID: -2921490265956796616
+      spriteID: cc167349a14ca82d0800000000000000
+      internalID: -3275590160523763252
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Maceman_62
+      name: Desert_Warrior_Bow_2_67
       rect:
         serializedVersion: 2
-        x: 40
-        y: 7
-        width: 18
-        height: 18
+        x: 88
+        y: 21
+        width: 19
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1684,20 +1809,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 21c3a47539e4aae80800000000000000
-      internalID: -8166628579551331310
+      spriteID: 3b83c66bd55ea2c50800000000000000
+      internalID: 6641372791166482611
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Maceman_63
+      name: Desert_Warrior_Bow_2_68
       rect:
         serializedVersion: 2
-        x: 72
-        y: 7
-        width: 18
-        height: 18
+        x: 152
+        y: 21
+        width: 19
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1706,20 +1831,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0647ca68c17a4d2a0800000000000000
-      internalID: -6713557403542195104
+      spriteID: 429fe48b428f845b0800000000000000
+      internalID: -5383780517926733532
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Maceman_64
+      name: Desert_Warrior_Bow_2_69
       rect:
         serializedVersion: 2
-        x: 104
-        y: 7
-        width: 18
-        height: 18
+        x: 216
+        y: 21
+        width: 19
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1728,8 +1853,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 50a0f551f19e558a0800000000000000
-      internalID: -6316886582605444603
+      spriteID: fca919a3fb1f20450800000000000000
+      internalID: 6053666652763036367
       vertices: []
       indices: 
       edges: []
@@ -1748,71 +1873,76 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Goblin_Maceman_0: 3524723821547216882
-      Goblin_Maceman_1: -1361103090080695432
-      Goblin_Maceman_10: -3769511961264592114
-      Goblin_Maceman_11: -1415385461335524597
-      Goblin_Maceman_12: -8693242463946442547
-      Goblin_Maceman_13: 6022931721469099787
-      Goblin_Maceman_14: 1173769578635562757
-      Goblin_Maceman_15: 200449264001347436
-      Goblin_Maceman_16: 120523174717218895
-      Goblin_Maceman_17: -115298882574843265
-      Goblin_Maceman_18: -2160726408323964331
-      Goblin_Maceman_19: -4394030038774321108
-      Goblin_Maceman_2: -8676867325715630207
-      Goblin_Maceman_20: -2317655284008797502
-      Goblin_Maceman_21: -2587440904255864102
-      Goblin_Maceman_22: 4733417501250551654
-      Goblin_Maceman_23: -3184973169071834130
-      Goblin_Maceman_24: 9185234521070567741
-      Goblin_Maceman_25: 740887979615750304
-      Goblin_Maceman_26: 6930471648130586057
-      Goblin_Maceman_27: 3341201662709912940
-      Goblin_Maceman_28: -8738413511418697280
-      Goblin_Maceman_29: 8316835164055493658
-      Goblin_Maceman_3: 292402002415259352
-      Goblin_Maceman_30: 3073960037129712350
-      Goblin_Maceman_31: 7147254182994946244
-      Goblin_Maceman_32: 4652804780435631221
-      Goblin_Maceman_33: 2931225921213888453
-      Goblin_Maceman_34: 2364669463768366683
-      Goblin_Maceman_35: 8578039019458351718
-      Goblin_Maceman_36: -170562227045332426
-      Goblin_Maceman_37: -5300659673821723689
-      Goblin_Maceman_38: 3503127451643168253
-      Goblin_Maceman_39: 4865507334554982425
-      Goblin_Maceman_4: 7436276546215839128
-      Goblin_Maceman_40: -5183036077714454897
-      Goblin_Maceman_41: 359119944091355669
-      Goblin_Maceman_42: 7654534083166615999
-      Goblin_Maceman_43: -3990255122052785381
-      Goblin_Maceman_44: 6485908986561208204
-      Goblin_Maceman_45: 1428771764797927414
-      Goblin_Maceman_46: 4601549114895979560
-      Goblin_Maceman_47: -2915964932490062401
-      Goblin_Maceman_48: 8880458925411490757
-      Goblin_Maceman_49: -7501674151997239201
-      Goblin_Maceman_5: -5533097642395587440
-      Goblin_Maceman_50: 302793109617542910
-      Goblin_Maceman_51: 1453503733158711143
-      Goblin_Maceman_52: -3430603498628678380
-      Goblin_Maceman_53: -7294762631008369356
-      Goblin_Maceman_54: -2075950493095626568
-      Goblin_Maceman_55: 8144308503314829990
-      Goblin_Maceman_56: 8695644865012146900
-      Goblin_Maceman_57: -729677322481783901
-      Goblin_Maceman_58: -5180469312152124212
-      Goblin_Maceman_59: -6500665659902103342
-      Goblin_Maceman_6: 4240525403750061354
-      Goblin_Maceman_60: 4540487006398588928
-      Goblin_Maceman_61: -2921490265956796616
-      Goblin_Maceman_62: -8166628579551331310
-      Goblin_Maceman_63: -6713557403542195104
-      Goblin_Maceman_64: -6316886582605444603
-      Goblin_Maceman_7: 4576015477023682301
-      Goblin_Maceman_8: -3796387952800886096
-      Goblin_Maceman_9: -7891584848307931271
+      Desert_Warrior_Bow_2_0: -8869836705002771858
+      Desert_Warrior_Bow_2_1: 2030615525881651510
+      Desert_Warrior_Bow_2_10: -8908357491946432336
+      Desert_Warrior_Bow_2_11: 6115716917041047006
+      Desert_Warrior_Bow_2_12: 1133002836773057239
+      Desert_Warrior_Bow_2_13: -6988843547049077238
+      Desert_Warrior_Bow_2_14: -3805190066416820649
+      Desert_Warrior_Bow_2_15: 8528551306441503953
+      Desert_Warrior_Bow_2_16: 4640623927870723413
+      Desert_Warrior_Bow_2_17: -743869018269793116
+      Desert_Warrior_Bow_2_18: -432873561977530362
+      Desert_Warrior_Bow_2_19: -3403383099144159740
+      Desert_Warrior_Bow_2_2: 4062404365212842029
+      Desert_Warrior_Bow_2_20: 728953876784439411
+      Desert_Warrior_Bow_2_21: 652757688228376543
+      Desert_Warrior_Bow_2_22: -4925521492066496253
+      Desert_Warrior_Bow_2_23: 5636153608147107376
+      Desert_Warrior_Bow_2_24: -4476077244312197098
+      Desert_Warrior_Bow_2_25: -1934451936851273536
+      Desert_Warrior_Bow_2_26: 8097780029173451654
+      Desert_Warrior_Bow_2_27: -940496118668450947
+      Desert_Warrior_Bow_2_28: -3751849319218712875
+      Desert_Warrior_Bow_2_29: 5146655896337193163
+      Desert_Warrior_Bow_2_3: 7681495114361598333
+      Desert_Warrior_Bow_2_30: 1608865872942649766
+      Desert_Warrior_Bow_2_31: -2048963148537887258
+      Desert_Warrior_Bow_2_32: -723010876202323248
+      Desert_Warrior_Bow_2_33: -1888616901348634349
+      Desert_Warrior_Bow_2_34: 3509529905670820934
+      Desert_Warrior_Bow_2_35: -67764731800612054
+      Desert_Warrior_Bow_2_36: -858697084866377137
+      Desert_Warrior_Bow_2_37: -6618495490543134112
+      Desert_Warrior_Bow_2_38: -6847295188246513304
+      Desert_Warrior_Bow_2_39: 7003216480770719075
+      Desert_Warrior_Bow_2_4: 3642353889757188069
+      Desert_Warrior_Bow_2_40: -3948702496977302794
+      Desert_Warrior_Bow_2_41: 4147332613535802461
+      Desert_Warrior_Bow_2_42: -8930428584271112994
+      Desert_Warrior_Bow_2_43: -474125173558606152
+      Desert_Warrior_Bow_2_44: -3484299259077547196
+      Desert_Warrior_Bow_2_45: -5484556126942534224
+      Desert_Warrior_Bow_2_46: 6663889487540123641
+      Desert_Warrior_Bow_2_47: 6902249332198977262
+      Desert_Warrior_Bow_2_48: -5272427117469978579
+      Desert_Warrior_Bow_2_49: -128495118586485908
+      Desert_Warrior_Bow_2_5: 8844392810308310150
+      Desert_Warrior_Bow_2_50: -4470347208688248881
+      Desert_Warrior_Bow_2_51: -6915343258807212068
+      Desert_Warrior_Bow_2_52: 6282848113842872043
+      Desert_Warrior_Bow_2_53: 5994434587029815942
+      Desert_Warrior_Bow_2_54: 4307567607801965458
+      Desert_Warrior_Bow_2_55: -1447053310690702051
+      Desert_Warrior_Bow_2_56: -2581543706314030369
+      Desert_Warrior_Bow_2_57: 4940989385528054341
+      Desert_Warrior_Bow_2_58: -8129392100774042639
+      Desert_Warrior_Bow_2_59: -8256936578643258491
+      Desert_Warrior_Bow_2_6: 8282286707956353976
+      Desert_Warrior_Bow_2_60: 5872649998537715281
+      Desert_Warrior_Bow_2_61: -3990991726876377789
+      Desert_Warrior_Bow_2_62: -2384754845010784461
+      Desert_Warrior_Bow_2_63: 6145716015741547322
+      Desert_Warrior_Bow_2_64: 4865372156559870583
+      Desert_Warrior_Bow_2_65: -2757199807144096887
+      Desert_Warrior_Bow_2_66: -3275590160523763252
+      Desert_Warrior_Bow_2_67: 6641372791166482611
+      Desert_Warrior_Bow_2_68: -5383780517926733532
+      Desert_Warrior_Bow_2_69: 6053666652763036367
+      Desert_Warrior_Bow_2_7: -3866010225091495502
+      Desert_Warrior_Bow_2_8: -6668134197678570957
+      Desert_Warrior_Bow_2_9: -1351210720342795174
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

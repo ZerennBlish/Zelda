@@ -29,22 +29,42 @@ public class Arrow : MonoBehaviour
     {
         if (other.CompareTag("Enemy"))
         {
+            // Check for BoomShroom
             BoomShroom shroom = other.GetComponent<BoomShroom>();
             if (shroom != null)
             {
                 shroom.Explode();
+                Destroy(gameObject);
+                return;
+            }
+            
+            // Check for Slime
+            Slime slime = other.GetComponent<Slime>();
+            if (slime != null)
+            {
+                slime.TakeDamage(damage);
+                Destroy(gameObject);
+                return;
+            }
+            
+            // Check for GoblinArcher
+            GoblinArcher archer = other.GetComponent<GoblinArcher>();
+            if (archer != null)
+            {
+                archer.TakeDamage(damage);
+                Destroy(gameObject);
+                return;
+            }
+            
+            // Check for Destructible (bushes, etc)
+            Destructible destructible = other.GetComponent<Destructible>();
+            if (destructible != null)
+            {
+                destructible.TakeDamage(damage);
             }
             else
             {
-                Destructible destructible = other.GetComponent<Destructible>();
-                if (destructible != null)
-                {
-                    destructible.TakeDamage(damage);
-                }
-                else
-                {
-                    Destroy(other.gameObject);
-                }
+                Destroy(other.gameObject);
             }
             Destroy(gameObject);
         }

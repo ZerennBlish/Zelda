@@ -70,22 +70,39 @@ public class Sword : MonoBehaviour
     {
         if (other.CompareTag("Enemy") && isSwinging)
         {
+            // Check for BoomShroom
             BoomShroom shroom = other.GetComponent<BoomShroom>();
             if (shroom != null)
             {
                 shroom.Explode();
+                return;
+            }
+            
+            // Check for Slime
+            Slime slime = other.GetComponent<Slime>();
+            if (slime != null)
+            {
+                slime.TakeDamage(damage);
+                return;
+            }
+            
+            // Check for GoblinArcher
+            GoblinArcher archer = other.GetComponent<GoblinArcher>();
+            if (archer != null)
+            {
+                archer.TakeDamage(damage);
+                return;
+            }
+            
+            // Check for Destructible
+            Destructible destructible = other.GetComponent<Destructible>();
+            if (destructible != null)
+            {
+                destructible.TakeDamage(damage);
             }
             else
             {
-                Destructible destructible = other.GetComponent<Destructible>();
-                if (destructible != null)
-                {
-                    destructible.TakeDamage(damage);
-                }
-                else
-                {
-                    Destroy(other.gameObject);
-                }
+                Destroy(other.gameObject);
             }
         }
     }

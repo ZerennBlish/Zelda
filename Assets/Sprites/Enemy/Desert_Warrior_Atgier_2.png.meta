@@ -1,202 +1,220 @@
 fileFormatVersion: 2
-guid: c1f74488fd9b5324ea19d01e1247d10d
+guid: 8be152ab181d2bc4daa0b7eb653902db
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3524723821547216882
-    second: Goblin_Maceman_0
+      213: 5921172197295593146
+    second: Desert_Warrior_Atgier_2_0
   - first:
-      213: -1361103090080695432
-    second: Goblin_Maceman_1
+      213: -2424971234694881959
+    second: Desert_Warrior_Atgier_2_1
   - first:
-      213: -8676867325715630207
-    second: Goblin_Maceman_2
+      213: 6363416620588502367
+    second: Desert_Warrior_Atgier_2_2
   - first:
-      213: 292402002415259352
-    second: Goblin_Maceman_3
+      213: 730170809307313740
+    second: Desert_Warrior_Atgier_2_3
   - first:
-      213: 7436276546215839128
-    second: Goblin_Maceman_4
+      213: 9098659985514623805
+    second: Desert_Warrior_Atgier_2_4
   - first:
-      213: -5533097642395587440
-    second: Goblin_Maceman_5
+      213: -175958376588994183
+    second: Desert_Warrior_Atgier_2_5
   - first:
-      213: 4240525403750061354
-    second: Goblin_Maceman_6
+      213: -7570162555800086200
+    second: Desert_Warrior_Atgier_2_6
   - first:
-      213: 4576015477023682301
-    second: Goblin_Maceman_7
+      213: -2416702601383294173
+    second: Desert_Warrior_Atgier_2_7
   - first:
-      213: -3796387952800886096
-    second: Goblin_Maceman_8
+      213: 5899380604235649471
+    second: Desert_Warrior_Atgier_2_8
   - first:
-      213: -7891584848307931271
-    second: Goblin_Maceman_9
+      213: -7009993446734938889
+    second: Desert_Warrior_Atgier_2_9
   - first:
-      213: -3769511961264592114
-    second: Goblin_Maceman_10
+      213: -7937520930912586733
+    second: Desert_Warrior_Atgier_2_10
   - first:
-      213: -1415385461335524597
-    second: Goblin_Maceman_11
+      213: 8089786282695462432
+    second: Desert_Warrior_Atgier_2_11
   - first:
-      213: -8693242463946442547
-    second: Goblin_Maceman_12
+      213: -6864817960208954892
+    second: Desert_Warrior_Atgier_2_12
   - first:
-      213: 6022931721469099787
-    second: Goblin_Maceman_13
+      213: 849460560110693359
+    second: Desert_Warrior_Atgier_2_13
   - first:
-      213: 1173769578635562757
-    second: Goblin_Maceman_14
+      213: 8793465801232895718
+    second: Desert_Warrior_Atgier_2_14
   - first:
-      213: 200449264001347436
-    second: Goblin_Maceman_15
+      213: -8347674467007514145
+    second: Desert_Warrior_Atgier_2_15
   - first:
-      213: 120523174717218895
-    second: Goblin_Maceman_16
+      213: -8338489228245527511
+    second: Desert_Warrior_Atgier_2_16
   - first:
-      213: -115298882574843265
-    second: Goblin_Maceman_17
+      213: -4846786087818454155
+    second: Desert_Warrior_Atgier_2_17
   - first:
-      213: -2160726408323964331
-    second: Goblin_Maceman_18
+      213: -7688153066290457463
+    second: Desert_Warrior_Atgier_2_18
   - first:
-      213: -4394030038774321108
-    second: Goblin_Maceman_19
+      213: -5717732035607735366
+    second: Desert_Warrior_Atgier_2_19
   - first:
-      213: -2317655284008797502
-    second: Goblin_Maceman_20
+      213: -425387807347798941
+    second: Desert_Warrior_Atgier_2_20
   - first:
-      213: -2587440904255864102
-    second: Goblin_Maceman_21
+      213: -7944587821466391392
+    second: Desert_Warrior_Atgier_2_21
   - first:
-      213: 4733417501250551654
-    second: Goblin_Maceman_22
+      213: -2886772722733589891
+    second: Desert_Warrior_Atgier_2_22
   - first:
-      213: -3184973169071834130
-    second: Goblin_Maceman_23
+      213: -887395345051010763
+    second: Desert_Warrior_Atgier_2_23
   - first:
-      213: 9185234521070567741
-    second: Goblin_Maceman_24
+      213: -4387312432524591101
+    second: Desert_Warrior_Atgier_2_24
   - first:
-      213: 740887979615750304
-    second: Goblin_Maceman_25
+      213: 4090750842102031026
+    second: Desert_Warrior_Atgier_2_25
   - first:
-      213: 6930471648130586057
-    second: Goblin_Maceman_26
+      213: 4526782659924338035
+    second: Desert_Warrior_Atgier_2_26
   - first:
-      213: 3341201662709912940
-    second: Goblin_Maceman_27
+      213: -1022201800137454634
+    second: Desert_Warrior_Atgier_2_27
   - first:
-      213: -8738413511418697280
-    second: Goblin_Maceman_28
+      213: -8928176027290265315
+    second: Desert_Warrior_Atgier_2_28
   - first:
-      213: 8316835164055493658
-    second: Goblin_Maceman_29
+      213: 8190346299958562917
+    second: Desert_Warrior_Atgier_2_29
   - first:
-      213: 3073960037129712350
-    second: Goblin_Maceman_30
+      213: -531184101538891197
+    second: Desert_Warrior_Atgier_2_30
   - first:
-      213: 7147254182994946244
-    second: Goblin_Maceman_31
+      213: -5612492328852775680
+    second: Desert_Warrior_Atgier_2_31
   - first:
-      213: 4652804780435631221
-    second: Goblin_Maceman_32
+      213: -4293181078942957877
+    second: Desert_Warrior_Atgier_2_32
   - first:
-      213: 2931225921213888453
-    second: Goblin_Maceman_33
+      213: 2952227700763599998
+    second: Desert_Warrior_Atgier_2_33
   - first:
-      213: 2364669463768366683
-    second: Goblin_Maceman_34
+      213: -7888378313460231251
+    second: Desert_Warrior_Atgier_2_34
   - first:
-      213: 8578039019458351718
-    second: Goblin_Maceman_35
+      213: 1296245884331193055
+    second: Desert_Warrior_Atgier_2_35
   - first:
-      213: -170562227045332426
-    second: Goblin_Maceman_36
+      213: 156089095676472866
+    second: Desert_Warrior_Atgier_2_36
   - first:
-      213: -5300659673821723689
-    second: Goblin_Maceman_37
+      213: 7889968059076721858
+    second: Desert_Warrior_Atgier_2_37
   - first:
-      213: 3503127451643168253
-    second: Goblin_Maceman_38
+      213: 8629576532445326626
+    second: Desert_Warrior_Atgier_2_38
   - first:
-      213: 4865507334554982425
-    second: Goblin_Maceman_39
+      213: -6491136832160899099
+    second: Desert_Warrior_Atgier_2_39
   - first:
-      213: -5183036077714454897
-    second: Goblin_Maceman_40
+      213: 1335640957252209552
+    second: Desert_Warrior_Atgier_2_40
   - first:
-      213: 359119944091355669
-    second: Goblin_Maceman_41
+      213: -6421095465014488711
+    second: Desert_Warrior_Atgier_2_41
   - first:
-      213: 7654534083166615999
-    second: Goblin_Maceman_42
+      213: -8419085754151452500
+    second: Desert_Warrior_Atgier_2_42
   - first:
-      213: -3990255122052785381
-    second: Goblin_Maceman_43
+      213: -8098009744387341404
+    second: Desert_Warrior_Atgier_2_43
   - first:
-      213: 6485908986561208204
-    second: Goblin_Maceman_44
+      213: -6908402565783995502
+    second: Desert_Warrior_Atgier_2_44
   - first:
-      213: 1428771764797927414
-    second: Goblin_Maceman_45
+      213: 5170582615025946719
+    second: Desert_Warrior_Atgier_2_45
   - first:
-      213: 4601549114895979560
-    second: Goblin_Maceman_46
+      213: 7174469022687849253
+    second: Desert_Warrior_Atgier_2_46
   - first:
-      213: -2915964932490062401
-    second: Goblin_Maceman_47
+      213: 1424204630595303479
+    second: Desert_Warrior_Atgier_2_47
   - first:
-      213: 8880458925411490757
-    second: Goblin_Maceman_48
+      213: 7997747082893373355
+    second: Desert_Warrior_Atgier_2_48
   - first:
-      213: -7501674151997239201
-    second: Goblin_Maceman_49
+      213: 6567661701791652090
+    second: Desert_Warrior_Atgier_2_49
   - first:
-      213: 302793109617542910
-    second: Goblin_Maceman_50
+      213: -1287497456157930971
+    second: Desert_Warrior_Atgier_2_50
   - first:
-      213: 1453503733158711143
-    second: Goblin_Maceman_51
+      213: 6813503636199304597
+    second: Desert_Warrior_Atgier_2_51
   - first:
-      213: -3430603498628678380
-    second: Goblin_Maceman_52
+      213: 5846087119067046803
+    second: Desert_Warrior_Atgier_2_52
   - first:
-      213: -7294762631008369356
-    second: Goblin_Maceman_53
+      213: -2385917374392711040
+    second: Desert_Warrior_Atgier_2_53
   - first:
-      213: -2075950493095626568
-    second: Goblin_Maceman_54
+      213: -5801626076878975909
+    second: Desert_Warrior_Atgier_2_54
   - first:
-      213: 8144308503314829990
-    second: Goblin_Maceman_55
+      213: -8550072006031305063
+    second: Desert_Warrior_Atgier_2_55
   - first:
-      213: 8695644865012146900
-    second: Goblin_Maceman_56
+      213: 219289964197868331
+    second: Desert_Warrior_Atgier_2_56
   - first:
-      213: -729677322481783901
-    second: Goblin_Maceman_57
+      213: -6243131440696202656
+    second: Desert_Warrior_Atgier_2_57
   - first:
-      213: -5180469312152124212
-    second: Goblin_Maceman_58
+      213: 7421833590161675291
+    second: Desert_Warrior_Atgier_2_58
   - first:
-      213: -6500665659902103342
-    second: Goblin_Maceman_59
+      213: 5628671202631156293
+    second: Desert_Warrior_Atgier_2_59
   - first:
-      213: 4540487006398588928
-    second: Goblin_Maceman_60
+      213: 3057143610536026181
+    second: Desert_Warrior_Atgier_2_60
   - first:
-      213: -2921490265956796616
-    second: Goblin_Maceman_61
+      213: -3673341076811540208
+    second: Desert_Warrior_Atgier_2_61
   - first:
-      213: -8166628579551331310
-    second: Goblin_Maceman_62
+      213: 6722283002406726566
+    second: Desert_Warrior_Atgier_2_62
   - first:
-      213: -6713557403542195104
-    second: Goblin_Maceman_63
+      213: 7741074283867018125
+    second: Desert_Warrior_Atgier_2_63
   - first:
-      213: -6316886582605444603
-    second: Goblin_Maceman_64
+      213: -4572372161388138882
+    second: Desert_Warrior_Atgier_2_64
+  - first:
+      213: 6573344953153843839
+    second: Desert_Warrior_Atgier_2_65
+  - first:
+      213: 8578129639177222114
+    second: Desert_Warrior_Atgier_2_66
+  - first:
+      213: -3116901889302464407
+    second: Desert_Warrior_Atgier_2_67
+  - first:
+      213: 8334932677874495543
+    second: Desert_Warrior_Atgier_2_68
+  - first:
+      213: -8854458930051207460
+    second: Desert_Warrior_Atgier_2_69
+  - first:
+      213: 3470628888675227770
+    second: Desert_Warrior_Atgier_2_70
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -229,7 +247,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -243,7 +261,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -267,7 +285,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -305,13 +323,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Goblin_Maceman_0
+      name: Desert_Warrior_Atgier_2_0
       rect:
         serializedVersion: 2
-        x: 6
-        y: 391
-        width: 18
-        height: 19
+        x: 21
+        y: 789
+        width: 20
+        height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -320,20 +338,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2ffdda214a55ae030800000000000000
-      internalID: 3524723821547216882
+      spriteID: ab619b1edba3c2250800000000000000
+      internalID: 5921172197295593146
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Maceman_1
+      name: Desert_Warrior_Atgier_2_1
       rect:
         serializedVersion: 2
-        x: 38
-        y: 390
-        width: 18
-        height: 19
+        x: 85
+        y: 788
+        width: 20
+        height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -342,20 +360,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 87bbd0573f36c1de0800000000000000
-      internalID: -1361103090080695432
+      spriteID: 95d98759285c85ed0800000000000000
+      internalID: -2424971234694881959
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Maceman_2
+      name: Desert_Warrior_Atgier_2_2
       rect:
         serializedVersion: 2
-        x: 70
-        y: 390
-        width: 18
-        height: 19
+        x: 148
+        y: 788
+        width: 21
+        height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -364,20 +382,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 187b687a323959780800000000000000
-      internalID: -8676867325715630207
+      spriteID: f5d8efb93b56f4850800000000000000
+      internalID: 6363416620588502367
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Maceman_3
+      name: Desert_Warrior_Atgier_2_3
       rect:
         serializedVersion: 2
-        x: 102
-        y: 391
-        width: 18
-        height: 19
+        x: 212
+        y: 788
+        width: 21
+        height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -386,20 +404,64 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8de039d6212de0400800000000000000
-      internalID: 292402002415259352
+      spriteID: c463f128b76122a00800000000000000
+      internalID: 730170809307313740
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Maceman_4
+      name: Desert_Warrior_Atgier_2_4
       rect:
         serializedVersion: 2
-        x: 7
-        y: 359
+        x: 277
+        y: 788
+        width: 20
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d33f8a0dc0fe44e70800000000000000
+      internalID: 9098659985514623805
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Desert_Warrior_Atgier_2_5
+      rect:
+        serializedVersion: 2
+        x: 341
+        y: 789
+        width: 20
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 979982ce9cede8df0800000000000000
+      internalID: -175958376588994183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Desert_Warrior_Atgier_2_6
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 725
         width: 17
-        height: 18
+        height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -408,20 +470,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 89583c4ae16f23760800000000000000
-      internalID: 7436276546215839128
+      spriteID: 8499291934161f690800000000000000
+      internalID: -7570162555800086200
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Maceman_5
+      name: Desert_Warrior_Atgier_2_7
       rect:
         serializedVersion: 2
-        x: 39
-        y: 358
+        x: 87
+        y: 724
         width: 17
-        height: 18
+        height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -430,20 +492,64 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 09ca575820d7633b0800000000000000
-      internalID: -5533097642395587440
+      spriteID: 32b49ccc9c5267ed0800000000000000
+      internalID: -2416702601383294173
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Maceman_6
+      name: Desert_Warrior_Atgier_2_8
       rect:
         serializedVersion: 2
-        x: 71
-        y: 358
+        x: 150
+        y: 724
+        width: 18
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb19b4e376fced150800000000000000
+      internalID: 5899380604235649471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Desert_Warrior_Atgier_2_9
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 724
+        width: 18
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7fc3c89c91087be90800000000000000
+      internalID: -7009993446734938889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Desert_Warrior_Atgier_2_10
+      rect:
+        serializedVersion: 2
+        x: 279
+        y: 724
         width: 17
-        height: 18
+        height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -452,20 +558,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a25da8f236f59da30800000000000000
-      internalID: 4240525403750061354
+      spriteID: 3143ab3a4c248d190800000000000000
+      internalID: -7937520930912586733
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Maceman_7
+      name: Desert_Warrior_Atgier_2_11
       rect:
         serializedVersion: 2
-        x: 103
-        y: 359
+        x: 343
+        y: 725
         width: 17
-        height: 18
+        height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -474,20 +580,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: dfeafa2e4d5418f30800000000000000
-      internalID: 4576015477023682301
+      spriteID: 02e04e833c1b44070800000000000000
+      internalID: 8089786282695462432
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Maceman_8
+      name: Desert_Warrior_Atgier_2_12
       rect:
         serializedVersion: 2
-        x: 8
-        y: 327
-        width: 18
-        height: 18
+        x: 24
+        y: 661
+        width: 20
+        height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -496,20 +602,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0b21bb36545805bc0800000000000000
-      internalID: -3796387952800886096
+      spriteID: 4f90602cf644bb0a0800000000000000
+      internalID: -6864817960208954892
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Maceman_9
+      name: Desert_Warrior_Atgier_2_13
       rect:
         serializedVersion: 2
-        x: 40
-        y: 326
-        width: 18
-        height: 18
+        x: 88
+        y: 660
+        width: 20
+        height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -518,20 +624,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 97730c154657b7290800000000000000
-      internalID: -7891584848307931271
+      spriteID: feb2a18f0e3e9cb00800000000000000
+      internalID: 849460560110693359
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Maceman_10
+      name: Desert_Warrior_Atgier_2_14
       rect:
         serializedVersion: 2
-        x: 72
-        y: 326
-        width: 18
-        height: 18
+        x: 152
+        y: 660
+        width: 21
+        height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -540,20 +646,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e0bec3cc7d000bbc0800000000000000
-      internalID: -3769511961264592114
+      spriteID: 6ee48037e8aa80a70800000000000000
+      internalID: 8793465801232895718
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Maceman_11
+      name: Desert_Warrior_Atgier_2_15
       rect:
         serializedVersion: 2
-        x: 104
-        y: 327
-        width: 18
-        height: 18
+        x: 216
+        y: 660
+        width: 21
+        height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -562,20 +668,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b0bf7d40c6a8b5ce0800000000000000
-      internalID: -1415385461335524597
+      spriteID: fd93b65dc4a172c80800000000000000
+      internalID: -8347674467007514145
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Maceman_12
+      name: Desert_Warrior_Atgier_2_16
       rect:
         serializedVersion: 2
-        x: 6
-        y: 295
-        width: 18
-        height: 21
+        x: 280
+        y: 660
+        width: 20
+        height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -584,20 +690,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: dc8712ea9066b5780800000000000000
-      internalID: -8693242463946442547
+      spriteID: 9241103e93cb74c80800000000000000
+      internalID: -8338489228245527511
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Maceman_13
+      name: Desert_Warrior_Atgier_2_17
       rect:
         serializedVersion: 2
-        x: 38
-        y: 295
-        width: 18
-        height: 20
+        x: 344
+        y: 661
+        width: 20
+        height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -606,20 +712,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b0ff8946d70c59350800000000000000
-      internalID: 6022931721469099787
+      spriteID: 57b96458bb1ccbcb0800000000000000
+      internalID: -4846786087818454155
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Maceman_14
+      name: Desert_Warrior_Atgier_2_18
       rect:
         serializedVersion: 2
-        x: 70
-        y: 294
-        width: 18
-        height: 20
+        x: 21
+        y: 597
+        width: 20
+        height: 30
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -628,20 +734,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 50f8bbe76311a4010800000000000000
-      internalID: 1173769578635562757
+      spriteID: 9845de015813e4590800000000000000
+      internalID: -7688153066290457463
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Maceman_15
+      name: Desert_Warrior_Atgier_2_19
       rect:
         serializedVersion: 2
-        x: 102
-        y: 295
-        width: 18
-        height: 21
+        x: 85
+        y: 597
+        width: 20
+        height: 29
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -650,20 +756,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c6fe9482b8328c200800000000000000
-      internalID: 200449264001347436
+      spriteID: ab3dab8e10986a0b0800000000000000
+      internalID: -5717732035607735366
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Maceman_16
+      name: Desert_Warrior_Atgier_2_20
       rect:
         serializedVersion: 2
-        x: 134
-        y: 295
-        width: 18
-        height: 20
+        x: 149
+        y: 597
+        width: 20
+        height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -672,20 +778,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f40e838503f2ca100800000000000000
-      internalID: 120523174717218895
+      spriteID: 36c80430b08b81af0800000000000000
+      internalID: -425387807347798941
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Maceman_17
+      name: Desert_Warrior_Atgier_2_21
       rect:
         serializedVersion: 2
-        x: 166
-        y: 294
-        width: 18
-        height: 20
+        x: 213
+        y: 597
+        width: 20
+        height: 30
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -694,20 +800,64 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f728025f640666ef0800000000000000
-      internalID: -115298882574843265
+      spriteID: 0ace996f7772fb190800000000000000
+      internalID: -7944587821466391392
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Maceman_18
+      name: Desert_Warrior_Atgier_2_22
       rect:
         serializedVersion: 2
-        x: 7
-        y: 263
+        x: 277
+        y: 597
+        width: 20
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d7a5d22e08f10f7d0800000000000000
+      internalID: -2886772722733589891
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Desert_Warrior_Atgier_2_23
+      rect:
+        serializedVersion: 2
+        x: 341
+        y: 597
+        width: 20
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53936e2a2a65fa3f0800000000000000
+      internalID: -887395345051010763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Desert_Warrior_Atgier_2_24
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 533
         width: 17
-        height: 20
+        height: 30
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -716,20 +866,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5526b0797ce8302e0800000000000000
-      internalID: -2160726408323964331
+      spriteID: 30087bc66922d13c0800000000000000
+      internalID: -4387312432524591101
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Maceman_19
+      name: Desert_Warrior_Atgier_2_25
       rect:
         serializedVersion: 2
-        x: 39
-        y: 263
+        x: 87
+        y: 533
         width: 17
-        height: 19
+        height: 29
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -738,20 +888,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c20f576d5f44503c0800000000000000
-      internalID: -4394030038774321108
+      spriteID: 2b22f18973445c830800000000000000
+      internalID: 4090750842102031026
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Maceman_20
+      name: Desert_Warrior_Atgier_2_26
       rect:
         serializedVersion: 2
-        x: 71
-        y: 263
+        x: 151
+        y: 533
         width: 17
-        height: 18
+        height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -760,20 +910,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2ca39d47cc806dfd0800000000000000
-      internalID: -2317655284008797502
+      spriteID: 375203468dc52de30800000000000000
+      internalID: 4526782659924338035
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Maceman_21
+      name: Desert_Warrior_Atgier_2_27
       rect:
         serializedVersion: 2
-        x: 103
-        y: 263
+        x: 215
+        y: 533
         width: 17
-        height: 20
+        height: 30
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -782,20 +932,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ad28388d430971cd0800000000000000
-      internalID: -2587440904255864102
+      spriteID: 6dbca0ee0e860d1f0800000000000000
+      internalID: -1022201800137454634
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Maceman_22
+      name: Desert_Warrior_Atgier_2_28
       rect:
         serializedVersion: 2
-        x: 135
-        y: 263
+        x: 279
+        y: 533
         width: 17
-        height: 19
+        height: 29
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -804,20 +954,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 66ff7af732a70b140800000000000000
-      internalID: 4733417501250551654
+      spriteID: d199439e43fb81480800000000000000
+      internalID: -8928176027290265315
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Maceman_23
+      name: Desert_Warrior_Atgier_2_29
       rect:
         serializedVersion: 2
-        x: 167
-        y: 263
+        x: 343
+        y: 533
         width: 17
-        height: 18
+        height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -826,20 +976,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: eebb25607c3bcc3d0800000000000000
-      internalID: -3184973169071834130
+      spriteID: 5601774c094f9a170800000000000000
+      internalID: 8190346299958562917
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Maceman_24
+      name: Desert_Warrior_Atgier_2_30
       rect:
         serializedVersion: 2
-        x: 8
-        y: 231
-        width: 18
-        height: 20
+        x: 24
+        y: 469
+        width: 20
+        height: 30
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -848,20 +998,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d310117a122887f70800000000000000
-      internalID: 9185234521070567741
+      spriteID: 34a707dbfdad0a8f0800000000000000
+      internalID: -531184101538891197
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Maceman_25
+      name: Desert_Warrior_Atgier_2_31
       rect:
         serializedVersion: 2
-        x: 40
-        y: 231
-        width: 18
-        height: 19
+        x: 88
+        y: 469
+        width: 20
+        height: 29
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -870,20 +1020,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0a88a5b21b9284a00800000000000000
-      internalID: 740887979615750304
+      spriteID: 00d102296fb6c12b0800000000000000
+      internalID: -5612492328852775680
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Maceman_26
+      name: Desert_Warrior_Atgier_2_32
       rect:
         serializedVersion: 2
-        x: 72
-        y: 231
-        width: 18
-        height: 18
+        x: 152
+        y: 469
+        width: 20
+        height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -892,20 +1042,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9c55db8ae3bfd2060800000000000000
-      internalID: 6930471648130586057
+      spriteID: bce3d211e8e8b64c0800000000000000
+      internalID: -4293181078942957877
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Maceman_27
+      name: Desert_Warrior_Atgier_2_33
       rect:
         serializedVersion: 2
-        x: 104
-        y: 231
-        width: 18
-        height: 20
+        x: 216
+        y: 469
+        width: 20
+        height: 30
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -914,20 +1064,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c65d4c4b5355e5e20800000000000000
-      internalID: 3341201662709912940
+      spriteID: e742518c37b68f820800000000000000
+      internalID: 2952227700763599998
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Maceman_28
+      name: Desert_Warrior_Atgier_2_34
       rect:
         serializedVersion: 2
-        x: 136
-        y: 231
-        width: 18
-        height: 19
+        x: 280
+        y: 469
+        width: 20
+        height: 29
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -936,20 +1086,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0c92a6f953beab680800000000000000
-      internalID: -8738413511418697280
+      spriteID: da3de44e7b9d68290800000000000000
+      internalID: -7888378313460231251
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Maceman_29
+      name: Desert_Warrior_Atgier_2_35
       rect:
         serializedVersion: 2
-        x: 168
-        y: 231
-        width: 18
-        height: 18
+        x: 344
+        y: 469
+        width: 20
+        height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -958,20 +1108,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a1c510964855b6370800000000000000
-      internalID: 8316835164055493658
+      spriteID: fd27f1593c03df110800000000000000
+      internalID: 1296245884331193055
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Maceman_30
+      name: Desert_Warrior_Atgier_2_36
       rect:
         serializedVersion: 2
-        x: 6
-        y: 199
-        width: 18
-        height: 21
+        x: 21
+        y: 405
+        width: 20
+        height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -980,20 +1130,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ed2fcd20e56e8aa20800000000000000
-      internalID: 3073960037129712350
+      spriteID: 22eab1d943a8a2200800000000000000
+      internalID: 156089095676472866
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Maceman_31
+      name: Desert_Warrior_Atgier_2_37
       rect:
         serializedVersion: 2
-        x: 34
-        y: 199
+        x: 83
+        y: 400
         width: 22
-        height: 19
+        height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1002,20 +1152,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4c8a6d8cfc5203360800000000000000
-      internalID: 7147254182994946244
+      spriteID: 2cc327a952cce7d60800000000000000
+      internalID: 7889968059076721858
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Maceman_32
+      name: Desert_Warrior_Atgier_2_38
       rect:
         serializedVersion: 2
-        x: 65
-        y: 191
-        width: 31
-        height: 26
+        x: 147
+        y: 392
+        width: 22
+        height: 35
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1024,20 +1174,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 57cea13db45129040800000000000000
-      internalID: 4652804780435631221
+      spriteID: 22d6372822a62c770800000000000000
+      internalID: 8629576532445326626
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Maceman_33
+      name: Desert_Warrior_Atgier_2_39
       rect:
         serializedVersion: 2
-        x: 104
-        y: 199
+        x: 210
+        y: 392
         width: 23
-        height: 19
+        height: 35
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1046,20 +1196,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5c7fe5ee17ecda820800000000000000
-      internalID: 2931225921213888453
+      spriteID: 5ef58925179dae5a0800000000000000
+      internalID: -6491136832160899099
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Maceman_34
+      name: Desert_Warrior_Atgier_2_40
       rect:
         serializedVersion: 2
-        x: 116
-        y: 193
-        width: 11
-        height: 11
+        x: 274
+        y: 394
+        width: 23
+        height: 33
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1068,20 +1218,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b5e7027495ef0d020800000000000000
-      internalID: 2364669463768366683
+      spriteID: 09b0b74cf56298210800000000000000
+      internalID: 1335640957252209552
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Maceman_35
+      name: Desert_Warrior_Atgier_2_41
       rect:
         serializedVersion: 2
-        x: 136
-        y: 199
-        width: 16
-        height: 20
+        x: 341
+        y: 405
+        width: 20
+        height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1090,42 +1240,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 66251403a015b0770800000000000000
-      internalID: 8578039019458351718
+      spriteID: 97190fae1bfa3e6a0800000000000000
+      internalID: -6421095465014488711
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Maceman_36
+      name: Desert_Warrior_Atgier_2_42
       rect:
         serializedVersion: 2
-        x: 166
-        y: 199
-        width: 18
-        height: 19
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 63a0dd4ee8a02adf0800000000000000
-      internalID: -170562227045332426
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Goblin_Maceman_37
-      rect:
-        serializedVersion: 2
-        x: 9
-        y: 167
+        x: 23
+        y: 341
         width: 17
-        height: 18
+        height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1134,20 +1262,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7d34e9a5c164076b0800000000000000
-      internalID: -5300659673821723689
+      spriteID: ca04042ec16692b80800000000000000
+      internalID: -8419085754151452500
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Maceman_38
+      name: Desert_Warrior_Atgier_2_43
       rect:
         serializedVersion: 2
-        x: 41
-        y: 167
-        width: 24
-        height: 17
+        x: 85
+        y: 341
+        width: 21
+        height: 23
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1156,19 +1284,63 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: df54c1e5bdb9d9030800000000000000
-      internalID: 3503127451643168253
+      spriteID: 4a30426ea071e9f80800000000000000
+      internalID: -8098009744387341404
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Maceman_39
+      name: Desert_Warrior_Atgier_2_44
       rect:
         serializedVersion: 2
-        x: 66
-        y: 163
-        width: 54
+        x: 153
+        y: 340
+        width: 34
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 29b3c0df77c6020a0800000000000000
+      internalID: -6908402565783995502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Desert_Warrior_Atgier_2_45
+      rect:
+        serializedVersion: 2
+        x: 217
+        y: 340
+        width: 35
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f509e625e7991c740800000000000000
+      internalID: 5170582615025946719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Desert_Warrior_Atgier_2_46
+      rect:
+        serializedVersion: 2
+        x: 277
+        y: 341
+        width: 23
         height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -1178,19 +1350,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 91815386421c58340800000000000000
-      internalID: 4865507334554982425
+      spriteID: 52b6a5d6095d09360800000000000000
+      internalID: 7174469022687849253
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Maceman_40
+      name: Desert_Warrior_Atgier_2_47
       rect:
         serializedVersion: 2
-        x: 104
-        y: 163
-        width: 21
+        x: 298
+        y: 341
+        width: 16
         height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -1200,42 +1372,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f86cbc1f5282218b0800000000000000
-      internalID: -5183036077714454897
+      spriteID: 7387916d09ac3c310800000000000000
+      internalID: 1424204630595303479
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Maceman_41
+      name: Desert_Warrior_Atgier_2_48
       rect:
         serializedVersion: 2
-        x: 133
-        y: 167
-        width: 19
-        height: 19
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 51ac25bbfa9dbf400800000000000000
-      internalID: 359119944091355669
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Goblin_Maceman_42
-      rect:
-        serializedVersion: 2
-        x: 167
-        y: 167
+        x: 343
+        y: 341
         width: 17
-        height: 18
+        height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1244,20 +1394,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fb93444713e5a3a60800000000000000
-      internalID: 7654534083166615999
+      spriteID: bafa6471994bdfe60800000000000000
+      internalID: 7997747082893373355
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Maceman_43
+      name: Desert_Warrior_Atgier_2_49
       rect:
         serializedVersion: 2
-        x: 8
-        y: 135
-        width: 16
-        height: 18
+        x: 24
+        y: 277
+        width: 20
+        height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1266,20 +1416,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b1b5cd69b14cf98c0800000000000000
-      internalID: -3990255122052785381
+      spriteID: af89a345585052b50800000000000000
+      internalID: 6567661701791652090
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Maceman_44
+      name: Desert_Warrior_Atgier_2_50
       rect:
         serializedVersion: 2
-        x: 40
-        y: 135
-        width: 25
-        height: 19
+        x: 88
+        y: 276
+        width: 21
+        height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1288,20 +1438,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c8f9e750cd3920a50800000000000000
-      internalID: 6485908986561208204
+      spriteID: 52acc7492e3e12ee0800000000000000
+      internalID: -1287497456157930971
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Maceman_45
+      name: Desert_Warrior_Atgier_2_51
       rect:
         serializedVersion: 2
-        x: 64
-        y: 135
-        width: 31
-        height: 20
+        x: 152
+        y: 277
+        width: 21
+        height: 35
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1310,20 +1460,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6ff63e1a95404d310800000000000000
-      internalID: 1428771764797927414
+      spriteID: 59ded77257d6e8e50800000000000000
+      internalID: 6813503636199304597
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Maceman_46
+      name: Desert_Warrior_Atgier_2_52
       rect:
         serializedVersion: 2
-        x: 96
-        y: 129
-        width: 24
-        height: 24
+        x: 216
+        y: 277
+        width: 21
+        height: 35
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1332,20 +1482,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 82453e93a8cfbdf30800000000000000
-      internalID: 4601549114895979560
+      spriteID: 3936af9c249712150800000000000000
+      internalID: 5846087119067046803
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Maceman_47
+      name: Desert_Warrior_Atgier_2_53
       rect:
         serializedVersion: 2
-        x: 136
-        y: 135
-        width: 16
-        height: 20
+        x: 280
+        y: 276
+        width: 21
+        height: 34
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1354,20 +1504,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fb51f65e7596887d0800000000000000
-      internalID: -2915964932490062401
+      spriteID: 088c3e30ac483eed0800000000000000
+      internalID: -2385917374392711040
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Maceman_48
+      name: Desert_Warrior_Atgier_2_54
       rect:
         serializedVersion: 2
-        x: 168
-        y: 135
-        width: 18
-        height: 18
+        x: 344
+        y: 277
+        width: 20
+        height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1376,20 +1526,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5cb599b875abd3b70800000000000000
-      internalID: 8880458925411490757
+      spriteID: b5c4cf742db7c7fa0800000000000000
+      internalID: -5801626076878975909
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Maceman_49
+      name: Desert_Warrior_Atgier_2_55
       rect:
         serializedVersion: 2
-        x: 9
-        y: 103
+        x: 25
+        y: 213
         width: 15
-        height: 18
+        height: 23
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1398,20 +1548,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f509975ba13b4e790800000000000000
-      internalID: -7501674151997239201
+      spriteID: 9961e7c8fca085980800000000000000
+      internalID: -8550072006031305063
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Maceman_50
+      name: Desert_Warrior_Atgier_2_56
       rect:
         serializedVersion: 2
-        x: 41
-        y: 103
+        x: 89
+        y: 213
         width: 17
-        height: 18
+        height: 21
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1420,63 +1570,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ef6803b9abcb33400800000000000000
-      internalID: 302793109617542910
+      spriteID: b2372d28f031b0300800000000000000
+      internalID: 219289964197868331
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Maceman_51
+      name: Desert_Warrior_Atgier_2_57
       rect:
         serializedVersion: 2
-        x: 73
-        y: 103
+        x: 153
+        y: 213
         width: 19
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 76f01aeb1f1eb2410800000000000000
-      internalID: 1453503733158711143
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Goblin_Maceman_52
-      rect:
-        serializedVersion: 2
-        x: 105
-        y: 103
-        width: 22
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 41d760b4b4c0460d0800000000000000
-      internalID: -3430603498628678380
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Goblin_Maceman_53
-      rect:
-        serializedVersion: 2
-        x: 6
-        y: 71
-        width: 18
         height: 19
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -1486,20 +1592,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 435c3f1590cc3ca90800000000000000
-      internalID: -7294762631008369356
+      spriteID: 06aea3f3801fb59a0800000000000000
+      internalID: -6243131440696202656
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Maceman_54
+      name: Desert_Warrior_Atgier_2_58
       rect:
         serializedVersion: 2
-        x: 38
-        y: 71
-        width: 18
-        height: 19
+        x: 217
+        y: 213
+        width: 19
+        height: 18
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1508,20 +1614,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8b8fcbf760eb033e0800000000000000
-      internalID: -2075950493095626568
+      spriteID: b1416a3e356aff660800000000000000
+      internalID: 7421833590161675291
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Maceman_55
+      name: Desert_Warrior_Atgier_2_59
       rect:
         serializedVersion: 2
-        x: 70
-        y: 71
-        width: 18
-        height: 19
+        x: 21
+        y: 149
+        width: 20
+        height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1530,20 +1636,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6a21641fe65660170800000000000000
-      internalID: 8144308503314829990
+      spriteID: 5420d4603ae0d1e40800000000000000
+      internalID: 5628671202631156293
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Maceman_56
+      name: Desert_Warrior_Atgier_2_60
       rect:
         serializedVersion: 2
-        x: 102
-        y: 71
-        width: 18
-        height: 19
+        x: 85
+        y: 149
+        width: 20
+        height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1552,20 +1658,64 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4d2aff7eee22da870800000000000000
-      internalID: 8695644865012146900
+      spriteID: 540ea559ae72d6a20800000000000000
+      internalID: 3057143610536026181
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Maceman_57
+      name: Desert_Warrior_Atgier_2_61
       rect:
         serializedVersion: 2
-        x: 7
-        y: 39
+        x: 149
+        y: 149
+        width: 20
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0191cc9b0cba50dc0800000000000000
+      internalID: -3673341076811540208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Desert_Warrior_Atgier_2_62
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 149
+        width: 20
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ab691646c85a4d50800000000000000
+      internalID: 6722283002406726566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Desert_Warrior_Atgier_2_63
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 85
         width: 17
-        height: 18
+        height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1574,20 +1724,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3aba0d8575aafd5f0800000000000000
-      internalID: -729677322481783901
+      spriteID: d831ec51c02dd6b60800000000000000
+      internalID: 7741074283867018125
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Maceman_58
+      name: Desert_Warrior_Atgier_2_64
       rect:
         serializedVersion: 2
-        x: 39
-        y: 39
+        x: 87
+        y: 85
         width: 17
-        height: 18
+        height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1596,20 +1746,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: cc44c5f9b964b18b0800000000000000
-      internalID: -5180469312152124212
+      spriteID: e7e2393aebbab80c0800000000000000
+      internalID: -4572372161388138882
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Maceman_59
+      name: Desert_Warrior_Atgier_2_65
       rect:
         serializedVersion: 2
-        x: 71
-        y: 39
+        x: 151
+        y: 85
         width: 17
-        height: 18
+        height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1618,20 +1768,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2d074f9360ff8c5a0800000000000000
-      internalID: -6500665659902103342
+      spriteID: f7277d66866393b50800000000000000
+      internalID: 6573344953153843839
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Maceman_60
+      name: Desert_Warrior_Atgier_2_66
       rect:
         serializedVersion: 2
-        x: 103
-        y: 39
+        x: 215
+        y: 85
         width: 17
-        height: 18
+        height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1640,20 +1790,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0082aa330ec030f30800000000000000
-      internalID: 4540487006398588928
+      spriteID: 2e7786c3573ab0770800000000000000
+      internalID: 8578129639177222114
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Maceman_61
+      name: Desert_Warrior_Atgier_2_67
       rect:
         serializedVersion: 2
-        x: 8
-        y: 7
-        width: 18
-        height: 18
+        x: 24
+        y: 21
+        width: 20
+        height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1662,20 +1812,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 83732e2f418c477d0800000000000000
-      internalID: -2921490265956796616
+      spriteID: 968f168ee3a8eb4d0800000000000000
+      internalID: -3116901889302464407
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Maceman_62
+      name: Desert_Warrior_Atgier_2_68
       rect:
         serializedVersion: 2
-        x: 40
-        y: 7
-        width: 18
-        height: 18
+        x: 88
+        y: 21
+        width: 20
+        height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1684,20 +1834,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 21c3a47539e4aae80800000000000000
-      internalID: -8166628579551331310
+      spriteID: 73031833c11aba370800000000000000
+      internalID: 8334932677874495543
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Maceman_63
+      name: Desert_Warrior_Atgier_2_69
       rect:
         serializedVersion: 2
-        x: 72
-        y: 7
-        width: 18
-        height: 18
+        x: 152
+        y: 21
+        width: 20
+        height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1706,20 +1856,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0647ca68c17a4d2a0800000000000000
-      internalID: -6713557403542195104
+      spriteID: cde230c1484ae1580800000000000000
+      internalID: -8854458930051207460
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Maceman_64
+      name: Desert_Warrior_Atgier_2_70
       rect:
         serializedVersion: 2
-        x: 104
-        y: 7
-        width: 18
-        height: 18
+        x: 216
+        y: 21
+        width: 20
+        height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1728,8 +1878,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 50a0f551f19e558a0800000000000000
-      internalID: -6316886582605444603
+      spriteID: a7812b806962a2030800000000000000
+      internalID: 3470628888675227770
       vertices: []
       indices: 
       edges: []
@@ -1748,71 +1898,77 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Goblin_Maceman_0: 3524723821547216882
-      Goblin_Maceman_1: -1361103090080695432
-      Goblin_Maceman_10: -3769511961264592114
-      Goblin_Maceman_11: -1415385461335524597
-      Goblin_Maceman_12: -8693242463946442547
-      Goblin_Maceman_13: 6022931721469099787
-      Goblin_Maceman_14: 1173769578635562757
-      Goblin_Maceman_15: 200449264001347436
-      Goblin_Maceman_16: 120523174717218895
-      Goblin_Maceman_17: -115298882574843265
-      Goblin_Maceman_18: -2160726408323964331
-      Goblin_Maceman_19: -4394030038774321108
-      Goblin_Maceman_2: -8676867325715630207
-      Goblin_Maceman_20: -2317655284008797502
-      Goblin_Maceman_21: -2587440904255864102
-      Goblin_Maceman_22: 4733417501250551654
-      Goblin_Maceman_23: -3184973169071834130
-      Goblin_Maceman_24: 9185234521070567741
-      Goblin_Maceman_25: 740887979615750304
-      Goblin_Maceman_26: 6930471648130586057
-      Goblin_Maceman_27: 3341201662709912940
-      Goblin_Maceman_28: -8738413511418697280
-      Goblin_Maceman_29: 8316835164055493658
-      Goblin_Maceman_3: 292402002415259352
-      Goblin_Maceman_30: 3073960037129712350
-      Goblin_Maceman_31: 7147254182994946244
-      Goblin_Maceman_32: 4652804780435631221
-      Goblin_Maceman_33: 2931225921213888453
-      Goblin_Maceman_34: 2364669463768366683
-      Goblin_Maceman_35: 8578039019458351718
-      Goblin_Maceman_36: -170562227045332426
-      Goblin_Maceman_37: -5300659673821723689
-      Goblin_Maceman_38: 3503127451643168253
-      Goblin_Maceman_39: 4865507334554982425
-      Goblin_Maceman_4: 7436276546215839128
-      Goblin_Maceman_40: -5183036077714454897
-      Goblin_Maceman_41: 359119944091355669
-      Goblin_Maceman_42: 7654534083166615999
-      Goblin_Maceman_43: -3990255122052785381
-      Goblin_Maceman_44: 6485908986561208204
-      Goblin_Maceman_45: 1428771764797927414
-      Goblin_Maceman_46: 4601549114895979560
-      Goblin_Maceman_47: -2915964932490062401
-      Goblin_Maceman_48: 8880458925411490757
-      Goblin_Maceman_49: -7501674151997239201
-      Goblin_Maceman_5: -5533097642395587440
-      Goblin_Maceman_50: 302793109617542910
-      Goblin_Maceman_51: 1453503733158711143
-      Goblin_Maceman_52: -3430603498628678380
-      Goblin_Maceman_53: -7294762631008369356
-      Goblin_Maceman_54: -2075950493095626568
-      Goblin_Maceman_55: 8144308503314829990
-      Goblin_Maceman_56: 8695644865012146900
-      Goblin_Maceman_57: -729677322481783901
-      Goblin_Maceman_58: -5180469312152124212
-      Goblin_Maceman_59: -6500665659902103342
-      Goblin_Maceman_6: 4240525403750061354
-      Goblin_Maceman_60: 4540487006398588928
-      Goblin_Maceman_61: -2921490265956796616
-      Goblin_Maceman_62: -8166628579551331310
-      Goblin_Maceman_63: -6713557403542195104
-      Goblin_Maceman_64: -6316886582605444603
-      Goblin_Maceman_7: 4576015477023682301
-      Goblin_Maceman_8: -3796387952800886096
-      Goblin_Maceman_9: -7891584848307931271
+      Desert_Warrior_Atgier_2_0: 5921172197295593146
+      Desert_Warrior_Atgier_2_1: -2424971234694881959
+      Desert_Warrior_Atgier_2_10: -7937520930912586733
+      Desert_Warrior_Atgier_2_11: 8089786282695462432
+      Desert_Warrior_Atgier_2_12: -6864817960208954892
+      Desert_Warrior_Atgier_2_13: 849460560110693359
+      Desert_Warrior_Atgier_2_14: 8793465801232895718
+      Desert_Warrior_Atgier_2_15: -8347674467007514145
+      Desert_Warrior_Atgier_2_16: -8338489228245527511
+      Desert_Warrior_Atgier_2_17: -4846786087818454155
+      Desert_Warrior_Atgier_2_18: -7688153066290457463
+      Desert_Warrior_Atgier_2_19: -5717732035607735366
+      Desert_Warrior_Atgier_2_2: 6363416620588502367
+      Desert_Warrior_Atgier_2_20: -425387807347798941
+      Desert_Warrior_Atgier_2_21: -7944587821466391392
+      Desert_Warrior_Atgier_2_22: -2886772722733589891
+      Desert_Warrior_Atgier_2_23: -887395345051010763
+      Desert_Warrior_Atgier_2_24: -4387312432524591101
+      Desert_Warrior_Atgier_2_25: 4090750842102031026
+      Desert_Warrior_Atgier_2_26: 4526782659924338035
+      Desert_Warrior_Atgier_2_27: -1022201800137454634
+      Desert_Warrior_Atgier_2_28: -8928176027290265315
+      Desert_Warrior_Atgier_2_29: 8190346299958562917
+      Desert_Warrior_Atgier_2_3: 730170809307313740
+      Desert_Warrior_Atgier_2_30: -531184101538891197
+      Desert_Warrior_Atgier_2_31: -5612492328852775680
+      Desert_Warrior_Atgier_2_32: -4293181078942957877
+      Desert_Warrior_Atgier_2_33: 2952227700763599998
+      Desert_Warrior_Atgier_2_34: -7888378313460231251
+      Desert_Warrior_Atgier_2_35: 1296245884331193055
+      Desert_Warrior_Atgier_2_36: 156089095676472866
+      Desert_Warrior_Atgier_2_37: 7889968059076721858
+      Desert_Warrior_Atgier_2_38: 8629576532445326626
+      Desert_Warrior_Atgier_2_39: -6491136832160899099
+      Desert_Warrior_Atgier_2_4: 9098659985514623805
+      Desert_Warrior_Atgier_2_40: 1335640957252209552
+      Desert_Warrior_Atgier_2_41: -6421095465014488711
+      Desert_Warrior_Atgier_2_42: -8419085754151452500
+      Desert_Warrior_Atgier_2_43: -8098009744387341404
+      Desert_Warrior_Atgier_2_44: -6908402565783995502
+      Desert_Warrior_Atgier_2_45: 5170582615025946719
+      Desert_Warrior_Atgier_2_46: 7174469022687849253
+      Desert_Warrior_Atgier_2_47: 1424204630595303479
+      Desert_Warrior_Atgier_2_48: 7997747082893373355
+      Desert_Warrior_Atgier_2_49: 6567661701791652090
+      Desert_Warrior_Atgier_2_5: -175958376588994183
+      Desert_Warrior_Atgier_2_50: -1287497456157930971
+      Desert_Warrior_Atgier_2_51: 6813503636199304597
+      Desert_Warrior_Atgier_2_52: 5846087119067046803
+      Desert_Warrior_Atgier_2_53: -2385917374392711040
+      Desert_Warrior_Atgier_2_54: -5801626076878975909
+      Desert_Warrior_Atgier_2_55: -8550072006031305063
+      Desert_Warrior_Atgier_2_56: 219289964197868331
+      Desert_Warrior_Atgier_2_57: -6243131440696202656
+      Desert_Warrior_Atgier_2_58: 7421833590161675291
+      Desert_Warrior_Atgier_2_59: 5628671202631156293
+      Desert_Warrior_Atgier_2_6: -7570162555800086200
+      Desert_Warrior_Atgier_2_60: 3057143610536026181
+      Desert_Warrior_Atgier_2_61: -3673341076811540208
+      Desert_Warrior_Atgier_2_62: 6722283002406726566
+      Desert_Warrior_Atgier_2_63: 7741074283867018125
+      Desert_Warrior_Atgier_2_64: -4572372161388138882
+      Desert_Warrior_Atgier_2_65: 6573344953153843839
+      Desert_Warrior_Atgier_2_66: 8578129639177222114
+      Desert_Warrior_Atgier_2_67: -3116901889302464407
+      Desert_Warrior_Atgier_2_68: 8334932677874495543
+      Desert_Warrior_Atgier_2_69: -8854458930051207460
+      Desert_Warrior_Atgier_2_7: -2416702601383294173
+      Desert_Warrior_Atgier_2_70: 3470628888675227770
+      Desert_Warrior_Atgier_2_8: 5899380604235649471
+      Desert_Warrior_Atgier_2_9: -7009993446734938889
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
