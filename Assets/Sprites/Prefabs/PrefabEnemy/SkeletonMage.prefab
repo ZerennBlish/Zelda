@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4452792841673646985}
   - component: {fileID: 3717701791189887318}
   - component: {fileID: 1324691852105968022}
+  - component: {fileID: -1596140648881026983}
   m_Layer: 0
   m_Name: SkeletonMage
   m_TagString: Enemy
@@ -181,16 +182,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SkeletonMage
   patrolSpeed: 1
-  patrolRadius: 2
+  patrolChangeTime: 2
   detectRange: 6
-  teleportRange: 3
-  minTeleportDistance: 4
-  maxTeleportDistance: 6
-  teleportCooldown: 3
-  fadeDuration: 0.3
+  attackRange: 5
   fireRate: 2
-  magicProjectilePrefab: {fileID: 7273431733218437717, guid: 292af16128c662841aa5fa492ef043a0, type: 3}
+  projectilePrefab: {fileID: 0}
+  teleportCooldown: 3
+  teleportRange: 3
+  dangerRange: 2
   health: 2
+  stunColor: {r: 0.5, g: 0.5, b: 1, a: 1}
 --- !u!114 &1324691852105968022
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -205,3 +206,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Dropper
   possibleDrops: []
   dropChance: 0.2
+--- !u!114 &-1596140648881026983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9184432134422530788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b37c01471d01d40469da11a7f3a6d0e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MagicProjectile
+  speed: 6
+  homingStrength: 2
+  lifetime: 5
+  damage: 1
