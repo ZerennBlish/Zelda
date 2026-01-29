@@ -1,10 +1,16 @@
 fileFormatVersion: 2
-guid: 7362c1adba34da14f8bbd8af701020aa
+guid: 3e986fa3fc51b3d49bf8b6ca640a67a8
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 214158277229850874
-    second: Pear_Tree_0
+      213: -128286398814380579
+    second: Medium_Birch_Tree_0
+  - first:
+      213: -2044317885256534180
+    second: Medium_Birch_Tree_1
+  - first:
+      213: 4538106580201579253
+    second: Medium_Birch_Tree_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +57,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -75,7 +81,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -96,17 +102,43 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Pear_Tree_0
+      name: Medium_Birch_Tree_0
       rect:
         serializedVersion: 2
-        x: 1
-        y: 10
-        width: 29
-        height: 48
+        x: 12
+        y: 13
+        width: 9
+        height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +147,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: af0bef781d7d8f200800000000000000
-      internalID: 214158277229850874
+      spriteID: ddd9721333c383ef0800000000000000
+      internalID: -128286398814380579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Medium_Birch_Tree_1
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 10
+        width: 17
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c577e41f6bf11a3e0800000000000000
+      internalID: -2044317885256534180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Medium_Birch_Tree_2
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 18
+        width: 17
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f227c904e79afe30800000000000000
+      internalID: 4538106580201579253
       vertices: []
       indices: 
       edges: []
@@ -135,7 +211,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Pear_Tree_0: 214158277229850874
+      Medium_Birch_Tree_0: -128286398814380579
+      Medium_Birch_Tree_1: -2044317885256534180
+      Medium_Birch_Tree_2: 4538106580201579253
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
