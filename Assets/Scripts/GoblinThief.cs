@@ -3,55 +3,46 @@ using UnityEngine;
 public class GoblinThief : MonoBehaviour
 {
     [Header("Movement")]
-    public float wanderSpeed = 1f;
+    public float wanderSpeed = 1.5f;
     public float sneakSpeed = 2f;
-    public float dashSpeed = 10f;
-    public float fleeSpeed = 6f;
-    public float detectRange = 7f;
+    public float dashSpeed = 6f;
+    public float fleeSpeed = 4f;
+    
+    [Header("Ranges")]
+    public float detectRange = 6f;
     public float dashRange = 2f;
+    public float stealRange = 0.8f;
+    
+    [Header("Timing")]
+    public float dashDuration = 0.3f;
+    public float fleeDuration = 3f;
     
     [Header("Stealing")]
     public int stealAmount = 5;
-    public float dashDuration = 0.3f;
-    public GameObject rupeePickupPrefab;
-    
-    [Header("Visual Feedback")]
-    public Color fleeingWithLootColor = new Color(0.5f, 1f, 0.5f, 1f);
+    public int stolenRupees = 0;
     
     [Header("Health")]
     public int health = 1;
     
-    // States
-    private enum State { Wander, Sneak, Dash, Flee }
+    private enum State { Wander, Sneak, Dash, Steal, Flee }
     private State currentState = State.Wander;
     
-    // References
     private Transform player;
     private Rigidbody2D rb;
     private SpriteRenderer spriteRenderer;
     
-    // Wander variables
     private Vector2 wanderDirection;
     private float wanderTimer;
     private float wanderInterval = 2f;
     
-    // Dash variables
     private float stateTimer;
     private Vector2 dashDirection;
-    private bool hasStolen;
-    private int stolenRupees = 0;
-    
-    // Flee variables
-    private Vector2 fleeDirection;
-    
-    // Original color
-    private Color originalColor;
+    private bool hasStolen = false;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-        originalColor = spriteRenderer.color;
         
         GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
         if (playerObj != null)
@@ -72,8 +63,7 @@ public class GoblinThief : MonoBehaviour
         {
             case State.Wander:
                 Wander();
-                // Spot player and they have rupees?
-                if (distanceToPlayer < detectRange && GameState.Instance.rupees > 0)
+                if (distanceToPlayer < detectRange && !hasStolen)
                 {
                     currentState = State.Sneak;
                 }
@@ -81,17 +71,10 @@ public class GoblinThief : MonoBehaviour
                 
             case State.Sneak:
                 Sneak();
-                // Close enough to dash?
                 if (distanceToPlayer < dashRange)
                 {
                     StartDash();
                 }
-                // Player has no rupees? Go back to wandering
-                else if (GameState.Instance.rupees <= 0)
-                {
-                    currentState = State.Wander;
-                }
-                // Lost player?
                 else if (distanceToPlayer > detectRange * 1.5f)
                 {
                     currentState = State.Wander;
@@ -99,17 +82,25 @@ public class GoblinThief : MonoBehaviour
                 break;
                 
             case State.Dash:
-                rb.linearVelocity = dashDirection * dashSpeed;
+                Dash();
                 stateTimer -= Time.deltaTime;
-                if (stateTimer <= 0)
+                if (distanceToPlayer < stealRange)
                 {
-                    // Dash ended without hitting player, flee anyway
-                    StartFlee();
+                    Steal();
+                }
+                else if (stateTimer <= 0)
+                {
+                    currentState = State.Sneak;
                 }
                 break;
                 
             case State.Flee:
                 Flee();
+                stateTimer -= Time.deltaTime;
+                if (stateTimer <= 0 || distanceToPlayer > detectRange * 2f)
+                {
+                    currentState = State.Wander;
+                }
                 break;
         }
     }
@@ -123,6 +114,7 @@ public class GoblinThief : MonoBehaviour
         }
         
         rb.linearVelocity = wanderDirection * wanderSpeed;
+        UpdateFacing(wanderDirection);
     }
     
     void PickNewWanderDirection()
@@ -136,72 +128,47 @@ public class GoblinThief : MonoBehaviour
     {
         Vector2 direction = (player.position - transform.position).normalized;
         rb.linearVelocity = direction * sneakSpeed;
-        
-        if (direction.x != 0)
-        {
-            spriteRenderer.flipX = direction.x < 0;
-        }
+        UpdateFacing(direction);
     }
     
     void StartDash()
     {
         currentState = State.Dash;
         stateTimer = dashDuration;
-        hasStolen = false;
-        
         dashDirection = (player.position - transform.position).normalized;
-        
-        if (dashDirection.x != 0)
-        {
-            spriteRenderer.flipX = dashDirection.x < 0;
-        }
     }
     
-    void StartFlee()
+    void Dash()
     {
+        rb.linearVelocity = dashDirection * dashSpeed;
+    }
+    
+    void Steal()
+    {
+        GameState gameState = FindFirstObjectByType<GameState>();
+        if (gameState != null)
+        {
+            int stolen = gameState.StealRupees(stealAmount);
+            stolenRupees += stolen;
+        }
+        
+        hasStolen = true;
         currentState = State.Flee;
-        
-        // Flee away from player
-        fleeDirection = (transform.position - player.position).normalized;
-        
-        // Face flee direction
-        if (fleeDirection.x != 0)
-        {
-            spriteRenderer.flipX = fleeDirection.x < 0;
-        }
-        
-        // If we have loot, turn green to show "I got the goods"
-        if (stolenRupees > 0)
-        {
-            spriteRenderer.color = fleeingWithLootColor;
-        }
+        stateTimer = fleeDuration;
     }
     
     void Flee()
     {
-        // Keep updating flee direction away from player
-        fleeDirection = (transform.position - player.position).normalized;
-        rb.linearVelocity = fleeDirection * fleeSpeed;
-        
-        if (fleeDirection.x != 0)
-        {
-            spriteRenderer.flipX = fleeDirection.x < 0;
-        }
+        Vector2 direction = (transform.position - player.position).normalized;
+        rb.linearVelocity = direction * fleeSpeed;
+        UpdateFacing(direction);
     }
     
-    void OnCollisionEnter2D(Collision2D collision)
+    void UpdateFacing(Vector2 direction)
     {
-        if (currentState == State.Dash && !hasStolen)
+        if (direction.x != 0)
         {
-            if (collision.gameObject.CompareTag("Player"))
-            {
-                // Steal rupees!
-                stolenRupees = GameState.Instance.StealRupees(stealAmount);
-                hasStolen = true;
-                
-                // Immediately flee
-                StartFlee();
-            }
+            spriteRenderer.flipX = direction.x < 0;
         }
     }
     
@@ -217,19 +184,6 @@ public class GoblinThief : MonoBehaviour
     
     void Die()
     {
-        // Drop stolen rupees - kill him to get your money back!
-        if (stolenRupees > 0 && rupeePickupPrefab != null)
-        {
-            for (int i = 0; i < stolenRupees; i++)
-            {
-                // Spawn with slight random offset so they don't stack
-                Vector2 offset = Random.insideUnitCircle * 0.5f;
-                Vector3 spawnPos = transform.position + new Vector3(offset.x, offset.y, 0);
-                Instantiate(rupeePickupPrefab, spawnPos, Quaternion.identity);
-            }
-        }
-        
-        // Also drop normal loot
         Dropper dropper = GetComponent<Dropper>();
         if (dropper != null)
         {

@@ -1,29 +1,31 @@
 using UnityEngine;
 
-public class GoblinSpearman : MonoBehaviour
+public class GoblinSpearman : MonoBehaviour, IStunnable
 {
     [Header("Movement")]
     public float wanderSpeed = 1f;
-    public float chaseSpeed = 1.5f;
-    public float chaseRange = 6f;
-    public float chargeStartRange = 4f;
+    public float chaseSpeed = 2f;
+    public float chaseRange = 5f;
+    public float attackRange = 2.5f;
     
-    [Header("Charge Attack")]
-    public float windUpTime = 0.6f;
-    public float chargeSpeed = 12f;
-    public float chargeDuration = 0.5f;
-    public float slideDuration = 0.3f;
+    [Header("Attack")]
+    public float pullbackTime = 0.5f;
+    public float chargeSpeed = 8f;
+    public float chargeDuration = 0.4f;
     public float recoveryTime = 1f;
     public int damage = 1;
     
-    [Header("Wind-Up Effects")]
-    public float pullbackSpeed = 3f;
-    public Color windUpColor = new Color(1f, 0.3f, 0.3f, 1f);
+    [Header("Telegraph")]
+    public Color telegraphColor = Color.red;
+    public float pullbackDistance = 0.5f;
     
     [Header("Health")]
     public int health = 2;
     
-    private enum State { Wander, Chase, WindUp, Charging, Sliding, Recovery }
+    [Header("Stun")]
+    public Color stunColor = new Color(0.5f, 0.5f, 1f, 1f);
+    
+    private enum State { Wander, Chase, Pullback, Charging, Recovery, Stunned }
     private State currentState = State.Wander;
     
     private Transform player;
@@ -36,9 +38,10 @@ public class GoblinSpearman : MonoBehaviour
     
     private float stateTimer;
     private Vector2 chargeDirection;
-    private float slideStartSpeed;
+    private Vector3 pullbackStartPos;
     private bool hasHitPlayer;
     
+    private float stunTimer;
     private Color originalColor;
 
     void Start()
@@ -60,6 +63,18 @@ public class GoblinSpearman : MonoBehaviour
     {
         if (player == null) return;
         
+        if (currentState == State.Stunned)
+        {
+            rb.linearVelocity = Vector2.zero;
+            stunTimer -= Time.deltaTime;
+            if (stunTimer <= 0)
+            {
+                currentState = State.Wander;
+                spriteRenderer.color = originalColor;
+            }
+            return;
+        }
+        
         float distanceToPlayer = Vector2.Distance(transform.position, player.position);
         
         switch (currentState)
@@ -74,9 +89,9 @@ public class GoblinSpearman : MonoBehaviour
                 
             case State.Chase:
                 Chase();
-                if (distanceToPlayer < chargeStartRange)
+                if (distanceToPlayer < attackRange)
                 {
-                    StartWindUp();
+                    StartPullback();
                 }
                 else if (distanceToPlayer > chaseRange * 1.5f)
                 {
@@ -84,8 +99,8 @@ public class GoblinSpearman : MonoBehaviour
                 }
                 break;
                 
-            case State.WindUp:
-                WindUp();
+            case State.Pullback:
+                Pullback();
                 stateTimer -= Time.deltaTime;
                 if (stateTimer <= 0)
                 {
@@ -94,16 +109,7 @@ public class GoblinSpearman : MonoBehaviour
                 break;
                 
             case State.Charging:
-                rb.linearVelocity = chargeDirection * chargeSpeed;
-                stateTimer -= Time.deltaTime;
-                if (stateTimer <= 0)
-                {
-                    StartSlide();
-                }
-                break;
-                
-            case State.Sliding:
-                Slide();
+                Charge();
                 stateTimer -= Time.deltaTime;
                 if (stateTimer <= 0)
                 {
@@ -131,6 +137,7 @@ public class GoblinSpearman : MonoBehaviour
         }
         
         rb.linearVelocity = wanderDirection * wanderSpeed;
+        UpdateFacing(wanderDirection);
     }
     
     void PickNewWanderDirection()
@@ -144,31 +151,33 @@ public class GoblinSpearman : MonoBehaviour
     {
         Vector2 direction = (player.position - transform.position).normalized;
         rb.linearVelocity = direction * chaseSpeed;
-        
+        UpdateFacing(direction);
+    }
+    
+    void UpdateFacing(Vector2 direction)
+    {
         if (direction.x != 0)
         {
             spriteRenderer.flipX = direction.x < 0;
         }
     }
     
-    void StartWindUp()
+    void StartPullback()
     {
-        currentState = State.WindUp;
-        stateTimer = windUpTime;
+        currentState = State.Pullback;
+        stateTimer = pullbackTime;
         
         chargeDirection = (player.position - transform.position).normalized;
+        pullbackStartPos = transform.position;
         
-        if (chargeDirection.x != 0)
-        {
-            spriteRenderer.flipX = chargeDirection.x < 0;
-        }
-        
-        spriteRenderer.color = windUpColor;
+        spriteRenderer.color = telegraphColor;
     }
     
-    void WindUp()
+    void Pullback()
     {
-        rb.linearVelocity = -chargeDirection * pullbackSpeed;
+        Vector3 pullbackPos = pullbackStartPos - (Vector3)(chargeDirection * pullbackDistance);
+        transform.position = Vector3.Lerp(pullbackStartPos, pullbackPos, 1 - (stateTimer / pullbackTime));
+        rb.linearVelocity = Vector2.zero;
     }
     
     void StartCharge()
@@ -180,18 +189,9 @@ public class GoblinSpearman : MonoBehaviour
         spriteRenderer.color = originalColor;
     }
     
-    void StartSlide()
+    void Charge()
     {
-        currentState = State.Sliding;
-        stateTimer = slideDuration;
-        slideStartSpeed = chargeSpeed;
-    }
-    
-    void Slide()
-    {
-        float slideProgress = 1f - (stateTimer / slideDuration);
-        float currentSpeed = Mathf.Lerp(slideStartSpeed, 0f, slideProgress);
-        rb.linearVelocity = chargeDirection * currentSpeed;
+        rb.linearVelocity = chargeDirection * chargeSpeed;
     }
     
     void StartRecovery()
@@ -203,6 +203,8 @@ public class GoblinSpearman : MonoBehaviour
     
     void OnCollisionEnter2D(Collision2D collision)
     {
+        if (currentState == State.Stunned) return;
+        
         if (currentState == State.Charging && !hasHitPlayer)
         {
             if (collision.gameObject.CompareTag("Player"))
@@ -214,16 +216,18 @@ public class GoblinSpearman : MonoBehaviour
                     hasHitPlayer = true;
                 }
             }
-            
-            if (collision.gameObject.CompareTag("Wall"))
-            {
-                StartSlide();
-            }
+        }
+        
+        if (currentState == State.Charging && collision.gameObject.CompareTag("Wall"))
+        {
+            StartRecovery();
         }
     }
     
     void OnCollisionStay2D(Collision2D collision)
     {
+        if (currentState == State.Stunned) return;
+        
         if (currentState == State.Charging && !hasHitPlayer)
         {
             if (collision.gameObject.CompareTag("Player"))
@@ -236,6 +240,14 @@ public class GoblinSpearman : MonoBehaviour
                 }
             }
         }
+    }
+    
+    public void Stun(float duration)
+    {
+        currentState = State.Stunned;
+        stunTimer = duration;
+        rb.linearVelocity = Vector2.zero;
+        spriteRenderer.color = stunColor;
     }
     
     public void TakeDamage(int amount)

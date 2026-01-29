@@ -1,48 +1,48 @@
 using UnityEngine;
 
-public class SkeletonMage : MonoBehaviour
+public class SkeletonMage : MonoBehaviour, IStunnable
 {
     [Header("Movement")]
     public float patrolSpeed = 1f;
-    public float patrolRadius = 2f;
-    public float detectRange = 6f;
-    public float teleportRange = 3f;
+    public float patrolChangeTime = 2f;
+    
+    [Header("Combat")]
+    public float detectRange = 7f;
+    public float attackRange = 5f;
+    public float fireRate = 2f;
+    public GameObject projectilePrefab;
     
     [Header("Teleport")]
-    public float minTeleportDistance = 4f;
-    public float maxTeleportDistance = 6f;
     public float teleportCooldown = 3f;
-    public float fadeDuration = 0.3f;
-    
-    [Header("Attack")]
-    public float fireRate = 2f;
-    public GameObject magicProjectilePrefab;
+    public float teleportRange = 3f;
+    public float dangerRange = 2f;
     
     [Header("Health")]
     public int health = 2;
     
-    private enum State { Patrol, Attack, Teleporting }
+    [Header("Stun")]
+    public Color stunColor = new Color(0.5f, 0.5f, 1f, 1f);
+    
+    private enum State { Patrol, Combat, Stunned }
     private State currentState = State.Patrol;
     
     private Transform player;
     private Rigidbody2D rb;
     private SpriteRenderer spriteRenderer;
     
-    private Vector2 patrolCenter;
-    private Vector2 patrolTarget;
+    private Vector2 patrolDirection;
+    private float patrolTimer;
+    private float nextFireTime;
+    private float nextTeleportTime;
     
-    private float nextFireTime = 0f;
-    private float nextTeleportTime = 0f;
-    
-    private bool isFadingOut = false;
-    private bool isFadingIn = false;
-    private float fadeTimer = 0f;
+    private float stunTimer;
+    private Color originalColor;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-        patrolCenter = transform.position;
+        originalColor = spriteRenderer.color;
         
         GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
         if (playerObj != null)
@@ -50,151 +50,110 @@ public class SkeletonMage : MonoBehaviour
             player = playerObj.transform;
         }
         
-        PickNewPatrolTarget();
+        PickNewPatrolDirection();
     }
 
     void Update()
     {
         if (player == null) return;
         
-        // Handle fading
-        if (isFadingOut)
+        if (currentState == State.Stunned)
         {
-            fadeTimer -= Time.deltaTime;
-            SetAlpha(fadeTimer / fadeDuration);
-            
-            if (fadeTimer <= 0)
+            rb.linearVelocity = Vector2.zero;
+            stunTimer -= Time.deltaTime;
+            if (stunTimer <= 0)
             {
-                isFadingOut = false;
-                DoTeleport();
-                isFadingIn = true;
-                fadeTimer = fadeDuration;
-            }
-            return;
-        }
-        
-        if (isFadingIn)
-        {
-            fadeTimer -= Time.deltaTime;
-            SetAlpha(1f - (fadeTimer / fadeDuration));
-            
-            if (fadeTimer <= 0)
-            {
-                isFadingIn = false;
-                SetAlpha(1f);
-                currentState = State.Attack;
+                currentState = State.Patrol;
+                spriteRenderer.color = originalColor;
             }
             return;
         }
         
         float distanceToPlayer = Vector2.Distance(transform.position, player.position);
         
-        // Start teleport if player gets too close
-        if (distanceToPlayer < teleportRange && Time.time >= nextTeleportTime)
-        {
-            StartTeleport();
-            return;
-        }
-        
         if (distanceToPlayer < detectRange)
         {
-            currentState = State.Attack;
+            currentState = State.Combat;
+            Combat(distanceToPlayer);
         }
         else
         {
             currentState = State.Patrol;
-        }
-        
-        switch (currentState)
-        {
-            case State.Patrol:
-                Patrol();
-                break;
-                
-            case State.Attack:
-                rb.linearVelocity = Vector2.zero;
-                FacePlayer();
-                TryShoot();
-                break;
+            Patrol();
         }
     }
     
     void Patrol()
     {
-        if (Vector2.Distance(transform.position, patrolTarget) < 0.5f)
+        patrolTimer -= Time.deltaTime;
+        if (patrolTimer <= 0)
         {
-            PickNewPatrolTarget();
+            PickNewPatrolDirection();
         }
         
-        Vector2 direction = (patrolTarget - (Vector2)transform.position).normalized;
-        rb.linearVelocity = direction * patrolSpeed;
-        
-        if (direction.x != 0)
-        {
-            spriteRenderer.flipX = direction.x < 0;
-        }
+        rb.linearVelocity = patrolDirection * patrolSpeed;
+        UpdateFacing(patrolDirection);
     }
     
-    void PickNewPatrolTarget()
+    void PickNewPatrolDirection()
     {
-        float angle = Random.Range(0f, 360f) * Mathf.Deg2Rad;
-        patrolTarget = patrolCenter + new Vector2(Mathf.Cos(angle), Mathf.Sin(angle)) * patrolRadius;
+        float randomAngle = Random.Range(0f, 360f) * Mathf.Deg2Rad;
+        patrolDirection = new Vector2(Mathf.Cos(randomAngle), Mathf.Sin(randomAngle));
+        patrolTimer = patrolChangeTime;
     }
     
-    void FacePlayer()
+    void Combat(float distanceToPlayer)
     {
-        Vector2 direction = (player.position - transform.position).normalized;
-        if (direction.x != 0)
-        {
-            spriteRenderer.flipX = direction.x < 0;
-        }
-    }
-    
-    void SetAlpha(float alpha)
-    {
-        Color c = spriteRenderer.color;
-        c.a = alpha;
-        spriteRenderer.color = c;
-    }
-    
-    void StartTeleport()
-    {
-        currentState = State.Teleporting;
         rb.linearVelocity = Vector2.zero;
-        isFadingOut = true;
-        fadeTimer = fadeDuration;
-        nextTeleportTime = Time.time + teleportCooldown;
-    }
-    
-    void DoTeleport()
-    {
-        float angle = Random.Range(0f, 360f) * Mathf.Deg2Rad;
-        float distance = Random.Range(minTeleportDistance, maxTeleportDistance);
         
-        Vector2 offset = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle)) * distance;
-        Vector3 newPos = player.position + new Vector3(offset.x, offset.y, 0);
+        Vector2 directionToPlayer = (player.position - transform.position).normalized;
+        UpdateFacing(directionToPlayer);
         
-        transform.position = newPos;
-        patrolCenter = newPos;
-    }
-    
-    void TryShoot()
-    {
-        if (Time.time >= nextFireTime)
+        if (distanceToPlayer < dangerRange && Time.time >= nextTeleportTime)
+        {
+            Teleport();
+            nextTeleportTime = Time.time + teleportCooldown;
+        }
+        
+        if (distanceToPlayer <= attackRange && Time.time >= nextFireTime)
         {
             Shoot();
             nextFireTime = Time.time + fireRate;
         }
     }
     
+    void Teleport()
+    {
+        Vector2 randomOffset = Random.insideUnitCircle.normalized * teleportRange;
+        Vector3 newPosition = transform.position + new Vector3(randomOffset.x, randomOffset.y, 0);
+        
+        transform.position = newPosition;
+    }
+    
     void Shoot()
     {
-        if (magicProjectilePrefab == null) return;
+        if (projectilePrefab == null) return;
         
         Vector2 direction = (player.position - transform.position).normalized;
         Vector3 spawnPos = transform.position + (Vector3)(direction * 0.5f);
         
-        Instantiate(magicProjectilePrefab, spawnPos, Quaternion.identity);
+        Instantiate(projectilePrefab, spawnPos, Quaternion.identity);
+    }
+    
+    void UpdateFacing(Vector2 direction)
+    {
+        if (direction.x != 0)
+        {
+            spriteRenderer.flipX = direction.x < 0;
+        }
+    }
+    
+    public void Stun(float duration)
+    {
+        currentState = State.Stunned;
+        stunTimer = duration;
+        rb.linearVelocity = Vector2.zero;
+        spriteRenderer.color = stunColor;
     }
     
     public void TakeDamage(int amount)

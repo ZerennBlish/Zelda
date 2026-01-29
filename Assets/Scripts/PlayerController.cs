@@ -13,7 +13,6 @@ public class PlayerController : MonoBehaviour
     [Header("Boomerang")]
     public GameObject boomerangPrefab;
     public KeyCode boomerangKey = KeyCode.E;
-    public string boomerangButton = "Fire4";
     
     [Header("References")]
     public Sword sword;
@@ -62,8 +61,8 @@ public class PlayerController : MonoBehaviour
             facingDirection = movement.normalized;
         }
         
-        // Sword swing (Left Click / F / X button)
-        if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.F) || Input.GetButtonDown("Fire2"))
+        // Sword swing (Left Click / F / X button on controller)
+        if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.F) || Input.GetKeyDown(KeyCode.JoystickButton2))
         {
             if (sword != null)
             {
@@ -71,14 +70,14 @@ public class PlayerController : MonoBehaviour
             }
         }
         
-        // Boomerang (Right Click / E / RB)
-        if ((Input.GetMouseButtonDown(1) || Input.GetKeyDown(boomerangKey) || Input.GetButtonDown(boomerangButton)) && !boomerangOut)
+        // Boomerang (Right Click / E / RB on controller)
+        if ((Input.GetMouseButtonDown(1) || Input.GetKeyDown(boomerangKey) || Input.GetKeyDown(KeyCode.JoystickButton5)) && !boomerangOut)
         {
             ThrowBoomerang();
         }
         
-        // Shoot arrow (Middle Click / Space / Y button)
-        if ((Input.GetMouseButton(2) || Input.GetKey(KeyCode.Space) || Input.GetButton("Fire1")) 
+        // Shoot arrow (Middle Click / Space / Y button on controller)
+        if ((Input.GetMouseButton(2) || Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.JoystickButton3)) 
             && Time.time >= nextFireTime)
         {
             Shoot();

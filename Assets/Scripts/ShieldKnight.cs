@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ShieldKnight : MonoBehaviour
+public class ShieldKnight : MonoBehaviour, IStunnable
 {
     [Header("Movement")]
     public float wanderSpeed = 0.8f;
@@ -24,7 +24,10 @@ public class ShieldKnight : MonoBehaviour
     public Color blockFlashColor = new Color(0.5f, 0.5f, 1f, 1f);
     public float blockFlashDuration = 0.1f;
     
-    private enum State { Wander, Chase, Attack, Cooldown }
+    [Header("Stun")]
+    public Color stunColor = new Color(0.5f, 0.5f, 1f, 1f);
+    
+    private enum State { Wander, Chase, Attack, Cooldown, Stunned }
     private State currentState = State.Wander;
     
     private Transform player;
@@ -43,6 +46,7 @@ public class ShieldKnight : MonoBehaviour
     
     private Color originalColor;
     private Color originalShieldColor;
+    private float stunTimer;
 
     void Start()
     {
@@ -72,6 +76,22 @@ public class ShieldKnight : MonoBehaviour
     void Update()
     {
         if (player == null) return;
+        
+        if (currentState == State.Stunned)
+        {
+            rb.linearVelocity = Vector2.zero;
+            stunTimer -= Time.deltaTime;
+            if (stunTimer <= 0)
+            {
+                currentState = State.Wander;
+                spriteRenderer.color = originalColor;
+                if (shieldRenderer != null)
+                {
+                    shieldRenderer.color = originalShieldColor;
+                }
+            }
+            return;
+        }
         
         float distanceToPlayer = Vector2.Distance(transform.position, player.position);
         
@@ -179,6 +199,8 @@ public class ShieldKnight : MonoBehaviour
     
     void OnCollisionEnter2D(Collision2D collision)
     {
+        if (currentState == State.Stunned) return;
+        
         if (currentState == State.Attack && !hasHitPlayer)
         {
             if (collision.gameObject.CompareTag("Player"))
@@ -195,6 +217,8 @@ public class ShieldKnight : MonoBehaviour
     
     void OnCollisionStay2D(Collision2D collision)
     {
+        if (currentState == State.Stunned) return;
+        
         if (currentState == State.Attack && !hasHitPlayer)
         {
             if (collision.gameObject.CompareTag("Player"))
@@ -211,7 +235,8 @@ public class ShieldKnight : MonoBehaviour
     
     public void TakeDamage(int amount, Vector2 attackSource)
     {
-Vector2 attackDirection = (attackSource - (Vector2)transform.position).normalized;        float angle = Vector2.Angle(facingDirection, attackDirection);
+        Vector2 attackDirection = (attackSource - (Vector2)transform.position).normalized;
+        float angle = Vector2.Angle(facingDirection, attackDirection);
         
         if (angle < shieldArc / 2f)
         {
@@ -256,6 +281,18 @@ Vector2 attackDirection = (attackSource - (Vector2)transform.position).normalize
         if (shieldRenderer != null)
         {
             shieldRenderer.color = originalShieldColor;
+        }
+    }
+    
+    public void Stun(float duration)
+    {
+        currentState = State.Stunned;
+        stunTimer = duration;
+        rb.linearVelocity = Vector2.zero;
+        spriteRenderer.color = stunColor;
+        if (shieldRenderer != null)
+        {
+            shieldRenderer.color = stunColor;
         }
     }
     
