@@ -1,202 +1,181 @@
 fileFormatVersion: 2
-guid: baaae734c8b74514fa5defb847aeda8e
+guid: ef5dc78c3f22e1148b3f8521c8ff9fd2
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3973588016999555590
-    second: Spearman_0
+      213: 4450803085619924535
+    second: Cowling_Mage_2_0
   - first:
-      213: 797711674139509678
-    second: Spearman_1
+      213: 6547235059751300906
+    second: Cowling_Mage_2_1
   - first:
-      213: 7804131993981675866
-    second: Spearman_2
+      213: 4384230667362794323
+    second: Cowling_Mage_2_2
   - first:
-      213: -8018080006785996947
-    second: Spearman_3
+      213: -4448461447443594902
+    second: Cowling_Mage_2_3
   - first:
-      213: -6327304429809401463
-    second: Spearman_4
+      213: -7712624132489590425
+    second: Cowling_Mage_2_4
   - first:
-      213: -5469514643610989210
-    second: Spearman_5
+      213: -2196067837376200803
+    second: Cowling_Mage_2_5
   - first:
-      213: 459404887500652871
-    second: Spearman_6
+      213: -7447104359310272379
+    second: Cowling_Mage_2_6
   - first:
-      213: -3717858886803213111
-    second: Spearman_7
+      213: 7260637753163232852
+    second: Cowling_Mage_2_7
   - first:
-      213: 4579385971759967064
-    second: Spearman_8
+      213: -827074051461849933
+    second: Cowling_Mage_2_8
   - first:
-      213: -2384722493058704090
-    second: Spearman_9
+      213: 1068586102403125144
+    second: Cowling_Mage_2_9
   - first:
-      213: -709662367530969920
-    second: Spearman_10
+      213: -6235405704865779157
+    second: Cowling_Mage_2_10
   - first:
-      213: 7880374579948950357
-    second: Spearman_11
+      213: -2380602906021734204
+    second: Cowling_Mage_2_11
   - first:
-      213: -7201779063385498055
-    second: Spearman_12
+      213: -5218516451673668180
+    second: Cowling_Mage_2_12
   - first:
-      213: 7575566476982245813
-    second: Spearman_13
+      213: -2263373251729833008
+    second: Cowling_Mage_2_13
   - first:
-      213: 1029131608719575110
-    second: Spearman_14
+      213: -8999523556407220806
+    second: Cowling_Mage_2_14
   - first:
-      213: -72174265072819765
-    second: Spearman_15
+      213: 8493693552817160964
+    second: Cowling_Mage_2_15
   - first:
-      213: -121251428321683780
-    second: Spearman_16
+      213: -6051759736515327747
+    second: Cowling_Mage_2_16
   - first:
-      213: 4607461522305079151
-    second: Spearman_17
+      213: 385495484382858437
+    second: Cowling_Mage_2_17
   - first:
-      213: -4818841941293493994
-    second: Spearman_18
+      213: 6375499488567278411
+    second: Cowling_Mage_2_18
   - first:
-      213: 1223503074620260598
-    second: Spearman_19
+      213: 4445531680668006543
+    second: Cowling_Mage_2_19
   - first:
-      213: -1842869432366490460
-    second: Spearman_20
+      213: -2694018878156192742
+    second: Cowling_Mage_2_20
   - first:
-      213: -3333314165114806108
-    second: Spearman_21
+      213: -8344505471982556695
+    second: Cowling_Mage_2_21
   - first:
-      213: -1345101951841326585
-    second: Spearman_22
+      213: 7652858059396498829
+    second: Cowling_Mage_2_22
   - first:
-      213: -3966014693184796701
-    second: Spearman_23
+      213: 8610009665313790680
+    second: Cowling_Mage_2_23
   - first:
-      213: -319938456881640222
-    second: Spearman_24
+      213: -275432127838027026
+    second: Cowling_Mage_2_24
   - first:
-      213: -6822803339637735108
-    second: Spearman_25
+      213: -8317173512056507978
+    second: Cowling_Mage_2_25
   - first:
-      213: -9002352772843024741
-    second: Spearman_26
+      213: 2302874716602501420
+    second: Cowling_Mage_2_26
   - first:
-      213: -1326002379974721119
-    second: Spearman_27
+      213: -6341469084231620143
+    second: Cowling_Mage_2_27
   - first:
-      213: 2722791727640910569
-    second: Spearman_28
+      213: -2802545532277567707
+    second: Cowling_Mage_2_28
   - first:
-      213: -4672433499124777429
-    second: Spearman_29
+      213: -2989602949287124687
+    second: Cowling_Mage_2_29
   - first:
-      213: -4424793407036341902
-    second: Spearman_30
+      213: -5681416237411793630
+    second: Cowling_Mage_2_30
   - first:
-      213: 8334520316369409141
-    second: Spearman_31
+      213: -5364909402038850908
+    second: Cowling_Mage_2_31
   - first:
-      213: 8111828947431663823
-    second: Spearman_32
+      213: -5629472545498923301
+    second: Cowling_Mage_2_32
   - first:
-      213: 4977794501498434131
-    second: Spearman_33
+      213: 4978756287066179611
+    second: Cowling_Mage_2_33
   - first:
-      213: 2977499673909033908
-    second: Spearman_34
+      213: 8437301154197977363
+    second: Cowling_Mage_2_34
   - first:
-      213: -508024744639734699
-    second: Spearman_35
+      213: -8337170643888301161
+    second: Cowling_Mage_2_35
   - first:
-      213: -4592478939115803891
-    second: Spearman_36
+      213: -6538363716393073125
+    second: Cowling_Mage_2_36
   - first:
-      213: -1679672498543748273
-    second: Spearman_37
+      213: 252571644613128389
+    second: Cowling_Mage_2_37
   - first:
-      213: -6024556138054413421
-    second: Spearman_38
+      213: 2140207133810717500
+    second: Cowling_Mage_2_38
   - first:
-      213: -5346945557367669241
-    second: Spearman_39
+      213: 3221933887633942236
+    second: Cowling_Mage_2_39
   - first:
-      213: 7931089763796459291
-    second: Spearman_40
+      213: -2782039862769176062
+    second: Cowling_Mage_2_40
   - first:
-      213: -7410667263525510794
-    second: Spearman_41
+      213: -6949182180059505154
+    second: Cowling_Mage_2_41
   - first:
-      213: 2164367046787738594
-    second: Spearman_42
+      213: -56684932409059026
+    second: Cowling_Mage_2_42
   - first:
-      213: 2318010955100837059
-    second: Spearman_43
+      213: -1505346237647495045
+    second: Cowling_Mage_2_43
   - first:
-      213: -8700140885989714576
-    second: Spearman_44
+      213: 690177001568883068
+    second: Cowling_Mage_2_44
   - first:
-      213: -2182732202906409515
-    second: Spearman_45
+      213: -1800657918628670440
+    second: Cowling_Mage_2_45
   - first:
-      213: 7689437435074783616
-    second: Spearman_46
+      213: -7523849202854069696
+    second: Cowling_Mage_2_46
   - first:
-      213: 1522184222768288440
-    second: Spearman_47
+      213: -7353246011476090055
+    second: Cowling_Mage_2_47
   - first:
-      213: 1454174791171717351
-    second: Spearman_48
+      213: 7070600025207328254
+    second: Cowling_Mage_2_48
   - first:
-      213: 1577458245489906781
-    second: Spearman_49
+      213: 8103640130254007974
+    second: Cowling_Mage_2_49
   - first:
-      213: -8976889189193064192
-    second: Spearman_50
+      213: 4232512488676215150
+    second: Cowling_Mage_2_50
   - first:
-      213: 928601071672632695
-    second: Spearman_51
+      213: -1890090520210786225
+    second: Cowling_Mage_2_51
   - first:
-      213: -8454110401282771526
-    second: Spearman_52
+      213: -999825172936269017
+    second: Cowling_Mage_2_52
   - first:
-      213: 1734738755667074044
-    second: Spearman_53
+      213: 7356598009296368556
+    second: Cowling_Mage_2_53
   - first:
-      213: 4105060766014533800
-    second: Spearman_54
+      213: 8037528942008891837
+    second: Cowling_Mage_2_54
   - first:
-      213: -3031803368440764214
-    second: Spearman_55
+      213: -6926175205672445559
+    second: Cowling_Mage_2_55
   - first:
-      213: -2847823890548772236
-    second: Spearman_56
+      213: 828204608685672741
+    second: Cowling_Mage_2_56
   - first:
-      213: 8671994657465758107
-    second: Spearman_57
-  - first:
-      213: -8336471181443425112
-    second: Spearman_58
-  - first:
-      213: 5691110525382637083
-    second: Spearman_59
-  - first:
-      213: -63794720187234571
-    second: Spearman_60
-  - first:
-      213: 2845762390004666067
-    second: Spearman_61
-  - first:
-      213: 1131675443593368854
-    second: Spearman_62
-  - first:
-      213: -3240096154015833371
-    second: Spearman_63
-  - first:
-      213: -6631615593556163222
-    second: Spearman_64
+      213: 3064724561817731400
+    second: Cowling_Mage_2_57
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -229,7 +208,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -243,7 +222,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -267,7 +246,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -305,13 +284,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Spearman_0
+      name: Cowling_Mage_2_0
       rect:
         serializedVersion: 2
         x: 14
         y: 591
         width: 17
-        height: 26
+        height: 23
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -320,108 +299,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 602e10d9f35052730800000000000000
-      internalID: 3973588016999555590
+      spriteID: 73e869333dd64cd30800000000000000
+      internalID: 4450803085619924535
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spearman_1
+      name: Cowling_Mage_2_1
       rect:
         serializedVersion: 2
         x: 62
-        y: 590
-        width: 17
-        height: 27
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ea3844a8a8a021b00800000000000000
-      internalID: 797711674139509678
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Spearman_2
-      rect:
-        serializedVersion: 2
-        x: 109
-        y: 590
-        width: 18
-        height: 26
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a59e98153b8dd4c60800000000000000
-      internalID: 7804131993981675866
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Spearman_3
-      rect:
-        serializedVersion: 2
-        x: 157
-        y: 590
-        width: 18
-        height: 26
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d67ebd627be0ab090800000000000000
-      internalID: -8018080006785996947
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Spearman_4
-      rect:
-        serializedVersion: 2
-        x: 206
-        y: 590
-        width: 17
-        height: 27
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 98184730526e038a0800000000000000
-      internalID: -6327304429809401463
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Spearman_5
-      rect:
-        serializedVersion: 2
-        x: 254
         y: 591
         width: 17
-        height: 26
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -430,64 +321,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 66d05cd09616814b0800000000000000
-      internalID: -5469514643610989210
+      spriteID: a2fa57d19937cda50800000000000000
+      internalID: 6547235059751300906
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spearman_6
-      rect:
-        serializedVersion: 2
-        x: 15
-        y: 543
-        width: 16
-        height: 26
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 7410e87af42206600800000000000000
-      internalID: 459404887500652871
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Spearman_7
-      rect:
-        serializedVersion: 2
-        x: 63
-        y: 542
-        width: 16
-        height: 27
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 9c4b01f5a03876cc0800000000000000
-      internalID: -3717858886803213111
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Spearman_8
+      name: Cowling_Mage_2_2
       rect:
         serializedVersion: 2
         x: 110
-        y: 542
+        y: 591
         width: 17
-        height: 26
+        height: 21
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -496,20 +343,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 85be828574f3d8f30800000000000000
-      internalID: 4579385971759967064
+      spriteID: 35b7885309ae7dc30800000000000000
+      internalID: 4384230667362794323
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spearman_9
+      name: Cowling_Mage_2_3
       rect:
         serializedVersion: 2
         x: 158
-        y: 542
+        y: 591
         width: 17
-        height: 26
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -518,64 +365,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 62d1a510783c7eed0800000000000000
-      internalID: -2384722493058704090
+      spriteID: a61ca1ce1e3e342c0800000000000000
+      internalID: -4448461447443594902
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spearman_10
-      rect:
-        serializedVersion: 2
-        x: 207
-        y: 542
-        width: 16
-        height: 27
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 0c49ad036d5c626f0800000000000000
-      internalID: -709662367530969920
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Spearman_11
-      rect:
-        serializedVersion: 2
-        x: 255
-        y: 543
-        width: 16
-        height: 26
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 55310eeade6bc5d60800000000000000
-      internalID: 7880374579948950357
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Spearman_12
+      name: Cowling_Mage_2_4
       rect:
         serializedVersion: 2
         x: 16
-        y: 495
-        width: 17
-        height: 26
+        y: 543
+        width: 15
+        height: 23
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -584,20 +387,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 93edf0839142e0c90800000000000000
-      internalID: -7201779063385498055
+      spriteID: 7694ad8f63147f490800000000000000
+      internalID: -7712624132489590425
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spearman_13
+      name: Cowling_Mage_2_5
       rect:
         serializedVersion: 2
         x: 64
-        y: 494
-        width: 17
-        height: 27
+        y: 543
+        width: 15
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -606,20 +409,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5b952e0e291d12960800000000000000
-      internalID: 7575566476982245813
+      spriteID: d9ff78aefeff581e0800000000000000
+      internalID: -2196067837376200803
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spearman_14
+      name: Cowling_Mage_2_6
       rect:
         serializedVersion: 2
         x: 112
-        y: 494
-        width: 18
-        height: 26
+        y: 543
+        width: 15
+        height: 21
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -628,20 +431,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6484bdcdeb5384e00800000000000000
-      internalID: 1029131608719575110
+      spriteID: 5885c0aaa0296a890800000000000000
+      internalID: -7447104359310272379
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spearman_15
+      name: Cowling_Mage_2_7
       rect:
         serializedVersion: 2
         x: 160
-        y: 494
-        width: 18
-        height: 26
+        y: 543
+        width: 15
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -650,42 +453,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: bc1e86863e59ffef0800000000000000
-      internalID: -72174265072819765
+      spriteID: 456b5186197f2c460800000000000000
+      internalID: 7260637753163232852
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spearman_16
+      name: Cowling_Mage_2_8
       rect:
         serializedVersion: 2
-        x: 208
-        y: 494
-        width: 17
-        height: 27
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: cb69066e77a315ef0800000000000000
-      internalID: -121251428321683780
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Spearman_17
-      rect:
-        serializedVersion: 2
-        x: 256
+        x: 17
         y: 495
         width: 17
-        height: 26
+        height: 23
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -694,20 +475,86 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f675649d7ddf0ff30800000000000000
-      internalID: 4607461522305079151
+      spriteID: 3bc5caf3884a584f0800000000000000
+      internalID: -827074051461849933
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spearman_18
+      name: Cowling_Mage_2_9
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 495
+        width: 17
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89f48a5066164de00800000000000000
+      internalID: 1068586102403125144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cowling_Mage_2_10
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 495
+        width: 17
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b22f70b4c836779a0800000000000000
+      internalID: -6235405704865779157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cowling_Mage_2_11
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 495
+        width: 17
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c8df4b154666fed0800000000000000
+      internalID: -2380602906021734204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cowling_Mage_2_12
       rect:
         serializedVersion: 2
         x: 14
         y: 447
         width: 17
-        height: 28
+        height: 24
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -716,20 +563,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 611927429c8002db0800000000000000
-      internalID: -4818841941293493994
+      spriteID: ca58573afea1497b0800000000000000
+      internalID: -5218516451673668180
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spearman_19
+      name: Cowling_Mage_2_13
       rect:
         serializedVersion: 2
         x: 62
         y: 447
         width: 17
-        height: 27
+        height: 23
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -738,20 +585,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6f0c6506091caf010800000000000000
-      internalID: 1223503074620260598
+      spriteID: 0d3c588f402e690e0800000000000000
+      internalID: -2263373251729833008
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spearman_20
+      name: Cowling_Mage_2_14
       rect:
         serializedVersion: 2
         x: 110
         y: 447
         width: 17
-        height: 26
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -760,20 +607,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4ac9e54e300dc66e0800000000000000
-      internalID: -1842869432366490460
+      spriteID: ab56698c1054b1380800000000000000
+      internalID: -8999523556407220806
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spearman_21
+      name: Cowling_Mage_2_15
       rect:
         serializedVersion: 2
         x: 158
         y: 447
         width: 17
-        height: 28
+        height: 24
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -782,20 +629,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4a0ed8f6d60bdb1d0800000000000000
-      internalID: -3333314165114806108
+      spriteID: 40341b6e849afd570800000000000000
+      internalID: 8493693552817160964
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spearman_22
+      name: Cowling_Mage_2_16
       rect:
         serializedVersion: 2
         x: 206
         y: 447
         width: 17
-        height: 27
+        height: 23
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -804,20 +651,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 70a20d5c6ec355de0800000000000000
-      internalID: -1345101951841326585
+      spriteID: df80efe4594d30ca0800000000000000
+      internalID: -6051759736515327747
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spearman_23
+      name: Cowling_Mage_2_17
       rect:
         serializedVersion: 2
         x: 254
         y: 447
         width: 17
-        height: 26
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -826,152 +673,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3e78dbe36a2e5f8c0800000000000000
-      internalID: -3966014693184796701
+      spriteID: 5cc4821c91e895500800000000000000
+      internalID: 385495484382858437
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spearman_24
-      rect:
-        serializedVersion: 2
-        x: 15
-        y: 399
-        width: 16
-        height: 28
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 2ec45972ba95f8bf0800000000000000
-      internalID: -319938456881640222
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Spearman_25
-      rect:
-        serializedVersion: 2
-        x: 63
-        y: 399
-        width: 16
-        height: 27
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c314b88e2888051a0800000000000000
-      internalID: -6822803339637735108
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Spearman_26
-      rect:
-        serializedVersion: 2
-        x: 111
-        y: 399
-        width: 16
-        height: 26
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: b9e40ff79d7311380800000000000000
-      internalID: -9002352772843024741
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Spearman_27
-      rect:
-        serializedVersion: 2
-        x: 159
-        y: 399
-        width: 16
-        height: 28
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 1a1c8426cd7199de0800000000000000
-      internalID: -1326002379974721119
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Spearman_28
-      rect:
-        serializedVersion: 2
-        x: 207
-        y: 399
-        width: 16
-        height: 27
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 9ea986b76ac49c520800000000000000
-      internalID: 2722791727640910569
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Spearman_29
-      rect:
-        serializedVersion: 2
-        x: 255
-        y: 399
-        width: 16
-        height: 26
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: b2e3808fc7e282fb0800000000000000
-      internalID: -4672433499124777429
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Spearman_30
+      name: Cowling_Mage_2_18
       rect:
         serializedVersion: 2
         x: 16
-        y: 351
-        width: 18
-        height: 28
+        y: 399
+        width: 15
+        height: 24
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -980,20 +695,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 271cb1107d9f792c0800000000000000
-      internalID: -4424793407036341902
+      spriteID: b4bbcb981035a7850800000000000000
+      internalID: 6375499488567278411
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spearman_31
+      name: Cowling_Mage_2_19
       rect:
         serializedVersion: 2
         x: 64
-        y: 351
-        width: 18
-        height: 27
+        y: 399
+        width: 15
+        height: 23
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1002,20 +717,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 574997ec11a2aa370800000000000000
-      internalID: 8334520316369409141
+      spriteID: f8836f79283b1bd30800000000000000
+      internalID: 4445531680668006543
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spearman_32
+      name: Cowling_Mage_2_20
       rect:
         serializedVersion: 2
         x: 112
-        y: 351
-        width: 18
-        height: 26
+        y: 399
+        width: 15
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1024,20 +739,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fc8256a0371039070800000000000000
-      internalID: 8111828947431663823
+      spriteID: a14cd459a1cec9ad0800000000000000
+      internalID: -2694018878156192742
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spearman_33
+      name: Cowling_Mage_2_21
       rect:
         serializedVersion: 2
         x: 160
-        y: 351
-        width: 18
-        height: 28
+        y: 399
+        width: 15
+        height: 24
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1046,20 +761,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 352f4b2c9bda41540800000000000000
-      internalID: 4977794501498434131
+      spriteID: 9e92d2cfb7c523c80800000000000000
+      internalID: -8344505471982556695
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spearman_34
+      name: Cowling_Mage_2_22
       rect:
         serializedVersion: 2
         x: 208
-        y: 351
-        width: 18
-        height: 27
+        y: 399
+        width: 15
+        height: 23
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1068,20 +783,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4bb703e8d24325920800000000000000
-      internalID: 2977499673909033908
+      spriteID: d8540d2cbd9643a60800000000000000
+      internalID: 7652858059396498829
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spearman_35
+      name: Cowling_Mage_2_23
       rect:
         serializedVersion: 2
         x: 256
-        y: 351
-        width: 18
-        height: 26
+        y: 399
+        width: 15
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1090,20 +805,152 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 55cd3a6bf2223f8f0800000000000000
-      internalID: -508024744639734699
+      spriteID: 8da55bd3c26ec7770800000000000000
+      internalID: 8610009665313790680
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spearman_36
+      name: Cowling_Mage_2_24
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 351
+        width: 17
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee20c7460f77d2cf0800000000000000
+      internalID: -275432127838027026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cowling_Mage_2_25
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 351
+        width: 17
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b1759ec1c6739c80800000000000000
+      internalID: -8317173512056507978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cowling_Mage_2_26
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 351
+        width: 17
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2902558a5475ff10800000000000000
+      internalID: 2302874716602501420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cowling_Mage_2_27
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 351
+        width: 17
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d9a04867739ef7a0800000000000000
+      internalID: -6341469084231620143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cowling_Mage_2_28
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 351
+        width: 17
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 52fccb9dfab5b19d0800000000000000
+      internalID: -2802545532277567707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cowling_Mage_2_29
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 351
+        width: 17
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 131e74c05fbc286d0800000000000000
+      internalID: -2989602949287124687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cowling_Mage_2_30
       rect:
         serializedVersion: 2
         x: 14
         y: 303
         width: 17
-        height: 26
+        height: 23
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1112,150 +959,40 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d0b2a83acbc3440c0800000000000000
-      internalID: -4592478939115803891
+      spriteID: 2250fe3980e8721b0800000000000000
+      internalID: -5681416237411793630
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spearman_37
-      rect:
-        serializedVersion: 2
-        x: 60
-        y: 302
-        width: 19
-        height: 26
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: f4b9e4903ca90b8e0800000000000000
-      internalID: -1679672498543748273
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Spearman_38
-      rect:
-        serializedVersion: 2
-        x: 108
-        y: 292
-        width: 19
-        height: 36
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 3931ed5ac1a746ca0800000000000000
-      internalID: -6024556138054413421
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Spearman_39
-      rect:
-        serializedVersion: 2
-        x: 156
-        y: 292
-        width: 19
-        height: 36
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 70e3fbb4855dbc5b0800000000000000
-      internalID: -5346945557367669241
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Spearman_40
-      rect:
-        serializedVersion: 2
-        x: 204
-        y: 294
-        width: 19
-        height: 34
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: b1f13d49e14e01e60800000000000000
-      internalID: 7931089763796459291
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Spearman_41
-      rect:
-        serializedVersion: 2
-        x: 254
-        y: 303
-        width: 17
-        height: 26
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 67122f02365082990800000000000000
-      internalID: -7410667263525510794
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Spearman_42
-      rect:
-        serializedVersion: 2
-        x: 15
-        y: 255
-        width: 16
-        height: 26
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 2eb285b9c50690e10800000000000000
-      internalID: 2164367046787738594
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Spearman_43
+      name: Cowling_Mage_2_31
       rect:
         serializedVersion: 2
         x: 61
-        y: 255
+        y: 303
+        width: 18
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4aa2257c2530c85b0800000000000000
+      internalID: -5364909402038850908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cowling_Mage_2_32
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 303
         width: 18
         height: 25
       alignment: 0
@@ -1266,19 +1003,129 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3c4df3caeaa3b2020800000000000000
-      internalID: 2318010955100837059
+      spriteID: bdef8bccb8810e1b0800000000000000
+      internalID: -5629472545498923301
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spearman_44
+      name: Cowling_Mage_2_33
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 302
+        width: 20
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b1882d9e678181540800000000000000
+      internalID: 4978756287066179611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cowling_Mage_2_34
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 303
+        width: 17
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 319b6fe62b0571570800000000000000
+      internalID: 8437301154197977363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cowling_Mage_2_35
+      rect:
+        serializedVersion: 2
+        x: 248
+        y: 303
+        width: 23
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79b193bb87b6c4c80800000000000000
+      internalID: -8337170643888301161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cowling_Mage_2_36
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 255
+        width: 15
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b16861877d01345a0800000000000000
+      internalID: -6538363716393073125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cowling_Mage_2_37
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 255
+        width: 14
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c070859290518300800000000000000
+      internalID: 252571644613128389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cowling_Mage_2_38
       rect:
         serializedVersion: 2
         x: 113
         y: 255
-        width: 31
+        width: 14
         height: 25
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -1288,174 +1135,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0751bb2a5f3e24780800000000000000
-      internalID: -8700140885989714576
+      spriteID: c337b848c0b83bd10800000000000000
+      internalID: 2140207133810717500
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spearman_45
-      rect:
-        serializedVersion: 2
-        x: 161
-        y: 255
-        width: 32
-        height: 25
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 5d525f540a065b1e0800000000000000
-      internalID: -2182732202906409515
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Spearman_46
-      rect:
-        serializedVersion: 2
-        x: 205
-        y: 255
-        width: 20
-        height: 25
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 08929385b9e56ba60800000000000000
-      internalID: 7689437435074783616
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Spearman_47
-      rect:
-        serializedVersion: 2
-        x: 223
-        y: 256
-        width: 16
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 8b2dec85c72ef1510800000000000000
-      internalID: 1522184222768288440
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Spearman_48
-      rect:
-        serializedVersion: 2
-        x: 255
-        y: 255
-        width: 16
-        height: 26
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 7e83e1d94444e2410800000000000000
-      internalID: 1454174791171717351
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Spearman_49
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 207
-        width: 17
-        height: 26
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d54df62aae144e510800000000000000
-      internalID: 1577458245489906781
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Spearman_50
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 206
-        width: 18
-        height: 26
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 0016a1218deab6380800000000000000
-      internalID: -8976889189193064192
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Spearman_51
-      rect:
-        serializedVersion: 2
-        x: 112
-        y: 207
-        width: 18
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 775281731cd03ec00800000000000000
-      internalID: 928601071672632695
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Spearman_52
+      name: Cowling_Mage_2_39
       rect:
         serializedVersion: 2
         x: 160
-        y: 207
-        width: 18
-        height: 32
+        y: 254
+        width: 15
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1464,20 +1157,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ab5fa9fb167fcaa80800000000000000
-      internalID: -8454110401282771526
+      spriteID: cd6e63edccb96bc20800000000000000
+      internalID: 3221933887633942236
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spearman_53
+      name: Cowling_Mage_2_40
       rect:
         serializedVersion: 2
-        x: 208
-        y: 206
-        width: 18
-        height: 31
+        x: 209
+        y: 254
+        width: 14
+        height: 21
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1486,20 +1179,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: cfb93ad05b7031810800000000000000
-      internalID: 1734738755667074044
+      spriteID: 202baa41c753469d0800000000000000
+      internalID: -2782039862769176062
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spearman_54
+      name: Cowling_Mage_2_41
       rect:
         serializedVersion: 2
-        x: 256
-        y: 207
-        width: 17
-        height: 26
+        x: 253
+        y: 255
+        width: 19
+        height: 24
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1508,20 +1201,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8a070b3640b18f830800000000000000
-      internalID: 4105060766014533800
+      spriteID: efd141620ab8f8f90800000000000000
+      internalID: -6949182180059505154
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spearman_55
+      name: Cowling_Mage_2_42
       rect:
         serializedVersion: 2
         x: 17
-        y: 159
-        width: 14
-        height: 26
+        y: 207
+        width: 17
+        height: 23
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1530,18 +1223,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ac8614b46eedce5d0800000000000000
-      internalID: -3031803368440764214
+      spriteID: e2914a3ba5d963ff0800000000000000
+      internalID: -56684932409059026
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spearman_56
+      name: Cowling_Mage_2_43
       rect:
         serializedVersion: 2
         x: 65
-        y: 159
+        y: 207
         width: 16
         height: 24
       alignment: 0
@@ -1552,18 +1245,40 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 47238fc824f7a78d0800000000000000
-      internalID: -2847823890548772236
+      spriteID: b70ec01929feb1be0800000000000000
+      internalID: -1505346237647495045
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spearman_57
+      name: Cowling_Mage_2_44
       rect:
         serializedVersion: 2
         x: 113
-        y: 159
+        y: 207
+        width: 16
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c7158a28350049900800000000000000
+      internalID: 690177001568883068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cowling_Mage_2_45
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 207
         width: 18
         height: 22
       alignment: 0
@@ -1574,20 +1289,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b91f45cd13d195870800000000000000
-      internalID: 8671994657465758107
+      spriteID: 814d42ec927c207e0800000000000000
+      internalID: -1800657918628670440
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spearman_58
+      name: Cowling_Mage_2_46
       rect:
         serializedVersion: 2
-        x: 161
-        y: 159
-        width: 18
-        height: 20
+        x: 209
+        y: 207
+        width: 17
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1596,20 +1311,130 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8ac98c501a7ee4c80800000000000000
-      internalID: -8336471181443425112
+      spriteID: 04af648530be59790800000000000000
+      internalID: -7523849202854069696
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spearman_59
+      name: Cowling_Mage_2_47
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 207
+        width: 22
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 933e8e336b504f990800000000000000
+      internalID: -7353246011476090055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cowling_Mage_2_48
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 159
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: efdc953e241df1260800000000000000
+      internalID: 7070600025207328254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cowling_Mage_2_49
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 159
+        width: 17
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6aee36773c9e57070800000000000000
+      internalID: 8103640130254007974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cowling_Mage_2_50
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 159
+        width: 18
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e6943f20fa7ecba30800000000000000
+      internalID: 4232512488676215150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cowling_Mage_2_51
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 159
+        width: 19
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f48b08d9fac05c5e0800000000000000
+      internalID: -1890090520210786225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cowling_Mage_2_52
       rect:
         serializedVersion: 2
         x: 14
         y: 111
         width: 17
-        height: 26
+        height: 23
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1618,20 +1443,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b163beabed2eafe40800000000000000
-      internalID: 5691110525382637083
+      spriteID: 723e3a17d48ef12f0800000000000000
+      internalID: -999825172936269017
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spearman_60
+      name: Cowling_Mage_2_53
       rect:
         serializedVersion: 2
         x: 62
         y: 111
         width: 17
-        height: 26
+        height: 23
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1640,64 +1465,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5f6c1bc3a0b5d1ff0800000000000000
-      internalID: -63794720187234571
+      spriteID: ca3b47b99e2e71660800000000000000
+      internalID: 7356598009296368556
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spearman_61
-      rect:
-        serializedVersion: 2
-        x: 15
-        y: 63
-        width: 16
-        height: 26
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 3de0563f0dd2e7720800000000000000
-      internalID: 2845762390004666067
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Spearman_62
-      rect:
-        serializedVersion: 2
-        x: 63
-        y: 63
-        width: 16
-        height: 26
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 6155a60f1d484bf00800000000000000
-      internalID: 1131675443593368854
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Spearman_63
+      name: Cowling_Mage_2_54
       rect:
         serializedVersion: 2
         x: 16
-        y: 15
-        width: 17
-        height: 26
+        y: 63
+        width: 15
+        height: 23
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1706,20 +1487,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5e2e6c5f6bdd803d0800000000000000
-      internalID: -3240096154015833371
+      spriteID: db97c54fcf90b8f60800000000000000
+      internalID: 8037528942008891837
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spearman_64
+      name: Cowling_Mage_2_55
       rect:
         serializedVersion: 2
         x: 64
-        y: 15
-        width: 17
-        height: 26
+        y: 63
+        width: 15
+        height: 23
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1728,8 +1509,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a65c423e0c4c7f3a0800000000000000
-      internalID: -6631615593556163222
+      spriteID: 98996cdc85841ef90800000000000000
+      internalID: -6926175205672445559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cowling_Mage_2_56
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 15
+        width: 17
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5290d0e14bf5e7b00800000000000000
+      internalID: 828204608685672741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cowling_Mage_2_57
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 15
+        width: 17
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8418f8950c6188a20800000000000000
+      internalID: 3064724561817731400
       vertices: []
       indices: 
       edges: []
@@ -1748,71 +1573,64 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Spearman_0: 3973588016999555590
-      Spearman_1: 797711674139509678
-      Spearman_10: -709662367530969920
-      Spearman_11: 7880374579948950357
-      Spearman_12: -7201779063385498055
-      Spearman_13: 7575566476982245813
-      Spearman_14: 1029131608719575110
-      Spearman_15: -72174265072819765
-      Spearman_16: -121251428321683780
-      Spearman_17: 4607461522305079151
-      Spearman_18: -4818841941293493994
-      Spearman_19: 1223503074620260598
-      Spearman_2: 7804131993981675866
-      Spearman_20: -1842869432366490460
-      Spearman_21: -3333314165114806108
-      Spearman_22: -1345101951841326585
-      Spearman_23: -3966014693184796701
-      Spearman_24: -319938456881640222
-      Spearman_25: -6822803339637735108
-      Spearman_26: -9002352772843024741
-      Spearman_27: -1326002379974721119
-      Spearman_28: 2722791727640910569
-      Spearman_29: -4672433499124777429
-      Spearman_3: -8018080006785996947
-      Spearman_30: -4424793407036341902
-      Spearman_31: 8334520316369409141
-      Spearman_32: 8111828947431663823
-      Spearman_33: 4977794501498434131
-      Spearman_34: 2977499673909033908
-      Spearman_35: -508024744639734699
-      Spearman_36: -4592478939115803891
-      Spearman_37: -1679672498543748273
-      Spearman_38: -6024556138054413421
-      Spearman_39: -5346945557367669241
-      Spearman_4: -6327304429809401463
-      Spearman_40: 7931089763796459291
-      Spearman_41: -7410667263525510794
-      Spearman_42: 2164367046787738594
-      Spearman_43: 2318010955100837059
-      Spearman_44: -8700140885989714576
-      Spearman_45: -2182732202906409515
-      Spearman_46: 7689437435074783616
-      Spearman_47: 1522184222768288440
-      Spearman_48: 1454174791171717351
-      Spearman_49: 1577458245489906781
-      Spearman_5: -5469514643610989210
-      Spearman_50: -8976889189193064192
-      Spearman_51: 928601071672632695
-      Spearman_52: -8454110401282771526
-      Spearman_53: 1734738755667074044
-      Spearman_54: 4105060766014533800
-      Spearman_55: -3031803368440764214
-      Spearman_56: -2847823890548772236
-      Spearman_57: 8671994657465758107
-      Spearman_58: -8336471181443425112
-      Spearman_59: 5691110525382637083
-      Spearman_6: 459404887500652871
-      Spearman_60: -63794720187234571
-      Spearman_61: 2845762390004666067
-      Spearman_62: 1131675443593368854
-      Spearman_63: -3240096154015833371
-      Spearman_64: -6631615593556163222
-      Spearman_7: -3717858886803213111
-      Spearman_8: 4579385971759967064
-      Spearman_9: -2384722493058704090
+      Cowling_Mage_2_0: 4450803085619924535
+      Cowling_Mage_2_1: 6547235059751300906
+      Cowling_Mage_2_10: -6235405704865779157
+      Cowling_Mage_2_11: -2380602906021734204
+      Cowling_Mage_2_12: -5218516451673668180
+      Cowling_Mage_2_13: -2263373251729833008
+      Cowling_Mage_2_14: -8999523556407220806
+      Cowling_Mage_2_15: 8493693552817160964
+      Cowling_Mage_2_16: -6051759736515327747
+      Cowling_Mage_2_17: 385495484382858437
+      Cowling_Mage_2_18: 6375499488567278411
+      Cowling_Mage_2_19: 4445531680668006543
+      Cowling_Mage_2_2: 4384230667362794323
+      Cowling_Mage_2_20: -2694018878156192742
+      Cowling_Mage_2_21: -8344505471982556695
+      Cowling_Mage_2_22: 7652858059396498829
+      Cowling_Mage_2_23: 8610009665313790680
+      Cowling_Mage_2_24: -275432127838027026
+      Cowling_Mage_2_25: -8317173512056507978
+      Cowling_Mage_2_26: 2302874716602501420
+      Cowling_Mage_2_27: -6341469084231620143
+      Cowling_Mage_2_28: -2802545532277567707
+      Cowling_Mage_2_29: -2989602949287124687
+      Cowling_Mage_2_3: -4448461447443594902
+      Cowling_Mage_2_30: -5681416237411793630
+      Cowling_Mage_2_31: -5364909402038850908
+      Cowling_Mage_2_32: -5629472545498923301
+      Cowling_Mage_2_33: 4978756287066179611
+      Cowling_Mage_2_34: 8437301154197977363
+      Cowling_Mage_2_35: -8337170643888301161
+      Cowling_Mage_2_36: -6538363716393073125
+      Cowling_Mage_2_37: 252571644613128389
+      Cowling_Mage_2_38: 2140207133810717500
+      Cowling_Mage_2_39: 3221933887633942236
+      Cowling_Mage_2_4: -7712624132489590425
+      Cowling_Mage_2_40: -2782039862769176062
+      Cowling_Mage_2_41: -6949182180059505154
+      Cowling_Mage_2_42: -56684932409059026
+      Cowling_Mage_2_43: -1505346237647495045
+      Cowling_Mage_2_44: 690177001568883068
+      Cowling_Mage_2_45: -1800657918628670440
+      Cowling_Mage_2_46: -7523849202854069696
+      Cowling_Mage_2_47: -7353246011476090055
+      Cowling_Mage_2_48: 7070600025207328254
+      Cowling_Mage_2_49: 8103640130254007974
+      Cowling_Mage_2_5: -2196067837376200803
+      Cowling_Mage_2_50: 4232512488676215150
+      Cowling_Mage_2_51: -1890090520210786225
+      Cowling_Mage_2_52: -999825172936269017
+      Cowling_Mage_2_53: 7356598009296368556
+      Cowling_Mage_2_54: 8037528942008891837
+      Cowling_Mage_2_55: -6926175205672445559
+      Cowling_Mage_2_56: 828204608685672741
+      Cowling_Mage_2_57: 3064724561817731400
+      Cowling_Mage_2_6: -7447104359310272379
+      Cowling_Mage_2_7: 7260637753163232852
+      Cowling_Mage_2_8: -827074051461849933
+      Cowling_Mage_2_9: 1068586102403125144
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

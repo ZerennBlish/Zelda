@@ -14,11 +14,13 @@ public class PlayerHealth : MonoBehaviour
     public float blinkRate = 0.1f;
     private bool isInvincible = false;
     private SpriteRenderer spriteRenderer;
+    private PlayerShield playerShield;
     
     void Start()
     {
         currentHealth = maxHealth;
         spriteRenderer = GetComponent<SpriteRenderer>();
+        playerShield = GetComponentInChildren<PlayerShield>();
         
         if (SaveManager.Instance != null && SaveManager.Instance.HasSaveData())
         {
@@ -37,7 +39,18 @@ public class PlayerHealth : MonoBehaviour
     
     public void TakeDamage(int damage)
     {
+        TakeDamage(damage, transform.position);
+    }
+    
+    public void TakeDamage(int damage, Vector2 attackSource)
+    {
         if (isInvincible) return;
+        
+        // Check if shield blocks this attack
+        if (playerShield != null && playerShield.BlocksAttackFrom(attackSource))
+        {
+            return;
+        }
         
         // Set invincible immediately to block same-frame hits
         isInvincible = true;

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class GoblinArcher : MonoBehaviour
+public class GoblinArcher : MonoBehaviour, IStunnable
 {
     [Header("Movement")]
     public float patrolSpeed = 1f;
@@ -18,7 +18,14 @@ public class GoblinArcher : MonoBehaviour
     public int health = 2;
     public int contactDamage = 1;
     
+    [Header("Stun")]
+    public Color stunColor = new Color(0.5f, 0.5f, 1f, 1f);
+    
+    private enum State { Patrol, Combat, Stunned }
+    private State currentState = State.Patrol;
+    
     private Rigidbody2D rb;
+    private SpriteRenderer spriteRenderer;
     private Transform player;
     private Vector2 wanderDirection;
     private float wanderTimer;
@@ -26,10 +33,15 @@ public class GoblinArcher : MonoBehaviour
     private Vector3 startPosition;
     private Dropper dropper;
     private bool isDead = false;
+    
+    private float stunTimer;
+    private Color originalColor;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        originalColor = spriteRenderer.color;
         dropper = GetComponent<Dropper>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
         startPosition = transform.position;
@@ -40,24 +52,35 @@ public class GoblinArcher : MonoBehaviour
     {
         if (isDead) return;
         
+        if (currentState == State.Stunned)
+        {
+            rb.linearVelocity = Vector2.zero;
+            stunTimer -= Time.deltaTime;
+            if (stunTimer <= 0)
+            {
+                currentState = State.Patrol;
+                spriteRenderer.color = originalColor;
+            }
+            return;
+        }
+        
         float distanceToPlayer = Vector2.Distance(transform.position, player.position);
         
         if (distanceToPlayer <= detectRange)
         {
-            // Player detected
+            currentState = State.Combat;
+            
             if (distanceToPlayer <= fleeRange)
             {
-                // Too close - flee away from player
                 Vector2 fleeDirection = (transform.position - player.position).normalized;
                 rb.linearVelocity = fleeDirection * fleeSpeed;
+                UpdateFacing(-fleeDirection);
             }
             else
             {
-                // Good range - stop and shoot
                 rb.linearVelocity = Vector2.zero;
             }
             
-            // Shoot at player
             if (Time.time >= nextFireTime)
             {
                 Shoot();
@@ -66,7 +89,8 @@ public class GoblinArcher : MonoBehaviour
         }
         else
         {
-            // Patrol small area around start position
+            currentState = State.Patrol;
+            
             wanderTimer -= Time.deltaTime;
             if (wanderTimer <= 0f)
             {
@@ -74,8 +98,8 @@ public class GoblinArcher : MonoBehaviour
             }
             
             rb.linearVelocity = wanderDirection * patrolSpeed;
+            UpdateFacing(wanderDirection);
             
-            // Stay near start position
             float distanceFromStart = Vector2.Distance(transform.position, startPosition);
             if (distanceFromStart > patrolRadius)
             {
@@ -92,6 +116,14 @@ public class GoblinArcher : MonoBehaviour
         wanderTimer = patrolChangeTime;
     }
     
+    void UpdateFacing(Vector2 direction)
+    {
+        if (direction.x != 0)
+        {
+            spriteRenderer.flipX = direction.x < 0;
+        }
+    }
+    
     void Shoot()
     {
         if (arrowPrefab == null) return;
@@ -105,14 +137,24 @@ public class GoblinArcher : MonoBehaviour
     
     void OnCollisionEnter2D(Collision2D collision)
     {
+        if (currentState == State.Stunned) return;
+        
         if (collision.gameObject.CompareTag("Player"))
         {
             PlayerHealth playerHealth = collision.gameObject.GetComponent<PlayerHealth>();
             if (playerHealth != null)
             {
-                playerHealth.TakeDamage(contactDamage);
+                playerHealth.TakeDamage(contactDamage, transform.position);
             }
         }
+    }
+    
+    public void Stun(float duration)
+    {
+        currentState = State.Stunned;
+        stunTimer = duration;
+        rb.linearVelocity = Vector2.zero;
+        spriteRenderer.color = stunColor;
     }
     
     public void TakeDamage(int damage)

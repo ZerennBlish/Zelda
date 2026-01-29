@@ -1,7 +1,12 @@
 using UnityEngine;
 
-public class Slime : MonoBehaviour, IStunnable
+public class SlimeSplitter : MonoBehaviour
 {
+    public enum SlimeSize { Large, Medium, Small }
+    
+    [Header("Size")]
+    public SlimeSize currentSize = SlimeSize.Large;
+    
     [Header("Movement")]
     public float wanderSpeed = 1f;
     public float chaseSpeed = 2f;
@@ -14,10 +19,22 @@ public class Slime : MonoBehaviour, IStunnable
     [Header("Health")]
     public int health = 2;
     
-    [Header("Stun")]
-    public Color stunColor = new Color(0.5f, 0.5f, 1f, 1f);
+    [Header("Split Settings")]
+    public GameObject slimePrefab;
+    public int splitCount = 2;
+    public float splitSpread = 0.5f;
     
-    private enum State { Wander, Chase, Stunned }
+    [Header("Size Scales")]
+    public float largeScale = 0.6f;
+    public float mediumScale = 0.4f;
+    public float smallScale = 0.25f;
+    
+    [Header("Size Stats")]
+    public int largeHealth = 3;
+    public int mediumHealth = 2;
+    public int smallHealth = 1;
+    
+    private enum State { Wander, Chase }
     private State currentState = State.Wander;
     
     private Transform player;
@@ -28,15 +45,11 @@ public class Slime : MonoBehaviour, IStunnable
     private float wanderTimer;
     private float wanderInterval = 2f;
     private float damageTimer;
-    
-    private float stunTimer;
-    private Color originalColor;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-        originalColor = spriteRenderer.color;
         
         GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
         if (playerObj != null)
@@ -44,24 +57,36 @@ public class Slime : MonoBehaviour, IStunnable
             player = playerObj.transform;
         }
         
+        ApplySizeStats();
         PickNewWanderDirection();
+    }
+    
+    void ApplySizeStats()
+    {
+        float scale = largeScale;
+        
+        switch (currentSize)
+        {
+            case SlimeSize.Large:
+                scale = largeScale;
+                health = largeHealth;
+                break;
+            case SlimeSize.Medium:
+                scale = mediumScale;
+                health = mediumHealth;
+                break;
+            case SlimeSize.Small:
+                scale = smallScale;
+                health = smallHealth;
+                break;
+        }
+        
+        transform.localScale = new Vector3(scale, scale, 1f);
     }
 
     void Update()
     {
         if (player == null) return;
-        
-        if (currentState == State.Stunned)
-        {
-            rb.linearVelocity = Vector2.zero;
-            stunTimer -= Time.deltaTime;
-            if (stunTimer <= 0)
-            {
-                currentState = State.Wander;
-                spriteRenderer.color = originalColor;
-            }
-            return;
-        }
         
         float distanceToPlayer = Vector2.Distance(transform.position, player.position);
         
@@ -126,8 +151,6 @@ public class Slime : MonoBehaviour, IStunnable
     
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (currentState == State.Stunned) return;
-        
         if (collision.gameObject.CompareTag("Player") && damageTimer <= 0)
         {
             PlayerHealth playerHealth = collision.gameObject.GetComponent<PlayerHealth>();
@@ -141,8 +164,6 @@ public class Slime : MonoBehaviour, IStunnable
     
     void OnCollisionStay2D(Collision2D collision)
     {
-        if (currentState == State.Stunned) return;
-        
         if (collision.gameObject.CompareTag("Player") && damageTimer <= 0)
         {
             PlayerHealth playerHealth = collision.gameObject.GetComponent<PlayerHealth>();
@@ -152,14 +173,6 @@ public class Slime : MonoBehaviour, IStunnable
                 damageTimer = damageCooldown;
             }
         }
-    }
-    
-    public void Stun(float duration)
-    {
-        currentState = State.Stunned;
-        stunTimer = duration;
-        rb.linearVelocity = Vector2.zero;
-        spriteRenderer.color = stunColor;
     }
     
     public void TakeDamage(int amount)
@@ -174,10 +187,30 @@ public class Slime : MonoBehaviour, IStunnable
     
     void Die()
     {
-        Dropper dropper = GetComponent<Dropper>();
-        if (dropper != null)
+        if (currentSize != SlimeSize.Small && slimePrefab != null)
         {
-            dropper.Drop();
+            SlimeSize nextSize = (currentSize == SlimeSize.Large) ? SlimeSize.Medium : SlimeSize.Small;
+            
+            for (int i = 0; i < splitCount; i++)
+            {
+                Vector2 offset = Random.insideUnitCircle * splitSpread;
+                Vector3 spawnPos = transform.position + new Vector3(offset.x, offset.y, 0);
+                
+                GameObject newSlime = Instantiate(slimePrefab, spawnPos, Quaternion.identity);
+                SlimeSplitter splitter = newSlime.GetComponent<SlimeSplitter>();
+                if (splitter != null)
+                {
+                    splitter.currentSize = nextSize;
+                }
+            }
+        }
+        else
+        {
+            Dropper dropper = GetComponent<Dropper>();
+            if (dropper != null)
+            {
+                dropper.Drop();
+            }
         }
         
         Destroy(gameObject);

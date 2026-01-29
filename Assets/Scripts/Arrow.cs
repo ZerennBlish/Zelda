@@ -45,6 +45,14 @@ public class Arrow : MonoBehaviour
                 return;
             }
             
+            SlimeSplitter splitter = other.GetComponent<SlimeSplitter>();
+            if (splitter != null)
+            {
+                splitter.TakeDamage(damage);
+                Destroy(gameObject);
+                return;
+            }
+            
             GoblinArcher archer = other.GetComponent<GoblinArcher>();
             if (archer != null)
             {
@@ -85,6 +93,22 @@ public class Arrow : MonoBehaviour
                 return;
             }
             
+            ShieldKnight knight = other.GetComponent<ShieldKnight>();
+            if (knight != null)
+            {
+                knight.TakeDamage(damage, transform.position);
+                Destroy(gameObject);
+                return;
+            }
+            
+            FlyingSkull skull = other.GetComponent<FlyingSkull>();
+            if (skull != null)
+            {
+                skull.TakeDamage(damage);
+                Destroy(gameObject);
+                return;
+            }
+            
             Destructible destructible = other.GetComponent<Destructible>();
             if (destructible != null)
             {
@@ -93,7 +117,6 @@ public class Arrow : MonoBehaviour
                 return;
             }
             
-            // Unknown enemy type - don't destroy it, just destroy arrow
             Destroy(gameObject);
         }
         

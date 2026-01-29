@@ -89,7 +89,7 @@ public class BoomShroom : MonoBehaviour
             PlayerHealth playerHealth = player.GetComponent<PlayerHealth>();
             if (playerHealth != null)
             {
-                playerHealth.TakeDamage(explosionDamage);
+                playerHealth.TakeDamage(explosionDamage, transform.position);
             }
         }
         

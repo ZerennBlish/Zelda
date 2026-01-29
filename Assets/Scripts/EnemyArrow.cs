@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class EnemyArrow : MonoBehaviour
 {
-    public float speed = 6f;
+    public float speed = 8f;
     public float lifetime = 3f;
     public int damage = 1;
     private Vector2 direction;
@@ -32,7 +32,7 @@ public class EnemyArrow : MonoBehaviour
             PlayerHealth playerHealth = other.GetComponent<PlayerHealth>();
             if (playerHealth != null)
             {
-                playerHealth.TakeDamage(damage);
+                playerHealth.TakeDamage(damage, transform.position);
             }
             Destroy(gameObject);
         }

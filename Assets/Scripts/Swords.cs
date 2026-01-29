@@ -13,10 +13,12 @@ public class Sword : MonoBehaviour
     private bool canSwing = true;
     private bool isSwinging = false;
     private SpriteRenderer spriteRenderer;
+    private Transform player;
 
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+        player = transform.parent;
         
         if (hitbox != null)
         {
@@ -84,6 +86,13 @@ public class Sword : MonoBehaviour
                 return;
             }
             
+            SlimeSplitter splitter = other.GetComponent<SlimeSplitter>();
+            if (splitter != null)
+            {
+                splitter.TakeDamage(damage);
+                return;
+            }
+            
             GoblinArcher archer = other.GetComponent<GoblinArcher>();
             if (archer != null)
             {
@@ -119,14 +128,26 @@ public class Sword : MonoBehaviour
                 return;
             }
             
+            ShieldKnight knight = other.GetComponent<ShieldKnight>();
+            if (knight != null)
+            {
+                knight.TakeDamage(damage, player.position);
+                return;
+            }
+            
+            FlyingSkull skull = other.GetComponent<FlyingSkull>();
+            if (skull != null)
+            {
+                skull.TakeDamage(damage);
+                return;
+            }
+            
             Destructible destructible = other.GetComponent<Destructible>();
             if (destructible != null)
             {
                 destructible.TakeDamage(damage);
                 return;
             }
-            
-            // Unknown enemy type - do nothing instead of destroying
         }
     }
 }
