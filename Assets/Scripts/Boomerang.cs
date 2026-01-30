@@ -85,10 +85,20 @@ public class Boomerang : MonoBehaviour
             {
                 alreadyHit.Add(other.gameObject);
                 
-                IStunnable stunnable = other.GetComponent<IStunnable>();
-                if (stunnable != null)
+                // Kill bats
+                Bat bat = other.GetComponent<Bat>();
+                if (bat != null)
                 {
-                    stunnable.Stun(stunDuration);
+                    bat.TakeDamage(1);
+                }
+                else
+                {
+                    // Stun everything else
+                    IStunnable stunnable = other.GetComponent<IStunnable>();
+                    if (stunnable != null)
+                    {
+                        stunnable.Stun(stunDuration);
+                    }
                 }
             }
             

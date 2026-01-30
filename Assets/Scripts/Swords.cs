@@ -72,6 +72,13 @@ public class Sword : MonoBehaviour
     {
         if (other.CompareTag("Enemy") && isSwinging)
         {
+            Bat bat = other.GetComponent<Bat>();
+            if (bat != null)
+            {
+                bat.TakeDamage(damage);
+                return;
+            }
+            
             BoomShroom shroom = other.GetComponent<BoomShroom>();
             if (shroom != null)
             {

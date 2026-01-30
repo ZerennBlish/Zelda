@@ -29,6 +29,14 @@ public class Arrow : MonoBehaviour
     {
         if (other.CompareTag("Enemy"))
         {
+            Bat bat = other.GetComponent<Bat>();
+            if (bat != null)
+            {
+                bat.TakeDamage(damage);
+                Destroy(gameObject);
+                return;
+            }
+            
             BoomShroom shroom = other.GetComponent<BoomShroom>();
             if (shroom != null)
             {
