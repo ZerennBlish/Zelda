@@ -31,7 +31,16 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         mainCam = Camera.main;
         
-        currentArrows = maxArrows;
+        // Load saved arrows or use max
+        if (PlayerPrefs.HasKey("SavedArrows"))
+        {
+            currentArrows = PlayerPrefs.GetInt("SavedArrows");
+        }
+        else
+        {
+            currentArrows = maxArrows;
+        }
+        
         UpdateArrowUI();
     }
 

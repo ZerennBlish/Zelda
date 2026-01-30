@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class SlimeSplitter : MonoBehaviour, IStunnable
+public class SlimeSplitter : MonoBehaviour
 {
     public enum SlimeSize { Large, Medium, Small }
     
@@ -34,10 +34,7 @@ public class SlimeSplitter : MonoBehaviour, IStunnable
     public int mediumHealth = 2;
     public int smallHealth = 1;
     
-    [Header("Stun")]
-    public Color stunColor = new Color(0.5f, 0.5f, 1f, 1f);
-    
-    private enum State { Wander, Chase, Stunned }
+    private enum State { Wander, Chase }
     private State currentState = State.Wander;
     
     private Transform player;
@@ -48,15 +45,11 @@ public class SlimeSplitter : MonoBehaviour, IStunnable
     private float wanderTimer;
     private float wanderInterval = 2f;
     private float damageTimer;
-    
-    private float stunTimer;
-    private Color originalColor;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-        originalColor = spriteRenderer.color;
         
         GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
         if (playerObj != null)
@@ -94,18 +87,6 @@ public class SlimeSplitter : MonoBehaviour, IStunnable
     void Update()
     {
         if (player == null) return;
-        
-        if (currentState == State.Stunned)
-        {
-            rb.linearVelocity = Vector2.zero;
-            stunTimer -= Time.deltaTime;
-            if (stunTimer <= 0)
-            {
-                currentState = State.Wander;
-                spriteRenderer.color = originalColor;
-            }
-            return;
-        }
         
         float distanceToPlayer = Vector2.Distance(transform.position, player.position);
         
@@ -170,8 +151,6 @@ public class SlimeSplitter : MonoBehaviour, IStunnable
     
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (currentState == State.Stunned) return;
-        
         if (collision.gameObject.CompareTag("Player") && damageTimer <= 0)
         {
             PlayerHealth playerHealth = collision.gameObject.GetComponent<PlayerHealth>();
@@ -185,8 +164,6 @@ public class SlimeSplitter : MonoBehaviour, IStunnable
     
     void OnCollisionStay2D(Collision2D collision)
     {
-        if (currentState == State.Stunned) return;
-        
         if (collision.gameObject.CompareTag("Player") && damageTimer <= 0)
         {
             PlayerHealth playerHealth = collision.gameObject.GetComponent<PlayerHealth>();
@@ -196,14 +173,6 @@ public class SlimeSplitter : MonoBehaviour, IStunnable
                 damageTimer = damageCooldown;
             }
         }
-    }
-    
-    public void Stun(float duration)
-    {
-        currentState = State.Stunned;
-        stunTimer = duration;
-        rb.linearVelocity = Vector2.zero;
-        spriteRenderer.color = stunColor;
     }
     
     public void TakeDamage(int amount)

@@ -11,6 +11,8 @@ public class ShieldKnight : MonoBehaviour, IStunnable
     [Header("Attack")]
     public float attackCooldown = 1.5f;
     public int damage = 1;
+    public float bashDistance = 0.6f;
+    public float bashDuration = 0.2f;
     
     [Header("Shield")]
     public Transform shieldTransform;
@@ -42,10 +44,12 @@ public class ShieldKnight : MonoBehaviour, IStunnable
     private Vector2 facingDirection = Vector2.down;
     
     private float attackTimer;
+    private float bashTimer;
     private bool hasHitPlayer;
     
     private Color originalColor;
     private Color originalShieldColor;
+    
     private float stunTimer;
 
     void Start()
@@ -77,6 +81,7 @@ public class ShieldKnight : MonoBehaviour, IStunnable
     {
         if (player == null) return;
         
+        // Handle stunned state
         if (currentState == State.Stunned)
         {
             rb.linearVelocity = Vector2.zero;
@@ -119,6 +124,28 @@ public class ShieldKnight : MonoBehaviour, IStunnable
                 
             case State.Attack:
                 rb.linearVelocity = Vector2.zero;
+                bashTimer -= Time.deltaTime;
+                
+                // Animate shield bash
+                if (shieldTransform != null)
+                {
+                    float bashProgress = 1f - (bashTimer / bashDuration);
+                    if (bashProgress < 0.5f)
+                    {
+                        // Thrust forward
+                        shieldTransform.localPosition = facingDirection * (shieldDistance + bashDistance * (bashProgress * 2f));
+                    }
+                    else
+                    {
+                        // Pull back
+                        shieldTransform.localPosition = facingDirection * (shieldDistance + bashDistance * (1f - (bashProgress - 0.5f) * 2f));
+                    }
+                }
+                
+                if (bashTimer <= 0)
+                {
+                    EndAttack();
+                }
                 break;
                 
             case State.Cooldown:
@@ -176,6 +203,7 @@ public class ShieldKnight : MonoBehaviour, IStunnable
     void UpdateShieldPosition()
     {
         if (shieldTransform == null) return;
+        if (currentState == State.Attack) return; // Don't override during bash
         
         shieldTransform.localPosition = facingDirection * shieldDistance;
         
@@ -186,15 +214,23 @@ public class ShieldKnight : MonoBehaviour, IStunnable
     void StartAttack()
     {
         currentState = State.Attack;
+        bashTimer = bashDuration;
         hasHitPlayer = false;
         
-        Invoke("EndAttack", 0.3f);
+        // Face the player
+        facingDirection = (player.position - transform.position).normalized;
     }
     
     void EndAttack()
     {
         currentState = State.Cooldown;
         attackTimer = attackCooldown;
+        
+        // Reset shield position
+        if (shieldTransform != null)
+        {
+            shieldTransform.localPosition = facingDirection * shieldDistance;
+        }
     }
     
     void OnCollisionEnter2D(Collision2D collision)
@@ -233,8 +269,30 @@ public class ShieldKnight : MonoBehaviour, IStunnable
         }
     }
     
+    public void Stun(float duration)
+    {
+        currentState = State.Stunned;
+        stunTimer = duration;
+        rb.linearVelocity = Vector2.zero;
+        spriteRenderer.color = stunColor;
+        if (shieldRenderer != null)
+        {
+            shieldRenderer.color = stunColor;
+        }
+    }
+    
     public void TakeDamage(int amount, Vector2 attackSource)
     {
+        if (currentState == State.Stunned)
+        {
+            health -= amount;
+            if (health <= 0)
+            {
+                Die();
+            }
+            return;
+        }
+        
         Vector2 attackDirection = (attackSource - (Vector2)transform.position).normalized;
         float angle = Vector2.Angle(facingDirection, attackDirection);
         
@@ -281,18 +339,6 @@ public class ShieldKnight : MonoBehaviour, IStunnable
         if (shieldRenderer != null)
         {
             shieldRenderer.color = originalShieldColor;
-        }
-    }
-    
-    public void Stun(float duration)
-    {
-        currentState = State.Stunned;
-        stunTimer = duration;
-        rb.linearVelocity = Vector2.zero;
-        spriteRenderer.color = stunColor;
-        if (shieldRenderer != null)
-        {
-            shieldRenderer.color = stunColor;
         }
     }
     

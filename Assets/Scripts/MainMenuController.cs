@@ -8,7 +8,6 @@ public class MainMenuController : MonoBehaviour
     
     void Start()
     {
-        // Gray out Continue if no save exists
         if (continueButton != null)
         {
             continueButton.interactable = SaveManager.Instance != null && SaveManager.Instance.HasSaveData();
@@ -17,17 +16,23 @@ public class MainMenuController : MonoBehaviour
     
     public void NewGame()
     {
-        // Delete old save when starting new game
+        // Delete room/lives save
         if (SaveManager.Instance != null)
         {
             SaveManager.Instance.DeleteSave();
         }
+        
+        // Delete inventory save
+        PlayerPrefs.DeleteKey("SavedRupees");
+        PlayerPrefs.DeleteKey("SavedArrows");
+        PlayerPrefs.DeleteKey("SavedMaxHealth");
+        PlayerPrefs.Save();
+        
         SceneManager.LoadScene("SampleScene");
     }
     
     public void ContinueGame()
     {
-        // Load scene - RoomManager will read save data
         SceneManager.LoadScene("SampleScene");
     }
     

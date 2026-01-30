@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &9184432134422530788
+--- !u!1 &7804738890202484402
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,13 +8,12 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2221067685987587027}
-  - component: {fileID: 4541591474832302924}
-  - component: {fileID: 4936705010865954117}
-  - component: {fileID: 4452792841673646985}
-  - component: {fileID: 3717701791189887318}
-  - component: {fileID: 1324691852105968022}
-  - component: {fileID: -1596140648881026983}
+  - component: {fileID: 184502072303985638}
+  - component: {fileID: 3222789619216378542}
+  - component: {fileID: 2206218304417468541}
+  - component: {fileID: 4191738678151766511}
+  - component: {fileID: 1733419886538286135}
+  - component: {fileID: 4404740489440024945}
   m_Layer: 0
   m_Name: SkeletonMage
   m_TagString: Enemy
@@ -22,29 +21,29 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2221067685987587027
+--- !u!4 &184502072303985638
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9184432134422530788}
+  m_GameObject: {fileID: 7804738890202484402}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.63836, y: 0.00872, z: 0}
+  m_LocalPosition: {x: 2.6745, y: -0.16362, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &4541591474832302924
+--- !u!212 &3222789619216378542
 SpriteRenderer:
   serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9184432134422530788}
+  m_GameObject: {fileID: 7804738890202484402}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -96,13 +95,40 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!61 &4936705010865954117
+--- !u!50 &2206218304417468541
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7804738890202484402}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
+--- !u!61 &4191738678151766511
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9184432134422530788}
+  m_GameObject: {fileID: 7804738890202484402}
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
@@ -142,40 +168,13 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.9375, y: 1.5}
   m_EdgeRadius: 0
---- !u!50 &4452792841673646985
-Rigidbody2D:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9184432134422530788}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 4
---- !u!114 &3717701791189887318
+--- !u!114 &1733419886538286135
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9184432134422530788}
+  m_GameObject: {fileID: 7804738890202484402}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bf8f0cebe6bde2741b41b806d76990e6, type: 3}
@@ -183,42 +182,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SkeletonMage
   patrolSpeed: 1
   patrolChangeTime: 2
-  detectRange: 6
+  detectRange: 7
   attackRange: 5
   fireRate: 2
-  projectilePrefab: {fileID: 0}
+  projectilePrefab: {fileID: 7273431733218437717, guid: 292af16128c662841aa5fa492ef043a0, type: 3}
   teleportCooldown: 3
   teleportRange: 3
   dangerRange: 2
   health: 2
   stunColor: {r: 0.5, g: 0.5, b: 1, a: 1}
---- !u!114 &1324691852105968022
+--- !u!114 &4404740489440024945
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9184432134422530788}
+  m_GameObject: {fileID: 7804738890202484402}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c93f543d3e051774db70fbb0710de9f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Dropper
-  possibleDrops: []
+  possibleDrops:
+  - {fileID: 3512336262685269301, guid: e97917d19e6bdf64b98be276d9bd1f9e, type: 3}
+  - {fileID: 4432469671400731750, guid: b6c408d77be46014b8d5899b4c112c71, type: 3}
   dropChance: 0.2
---- !u!114 &-1596140648881026983
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9184432134422530788}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b37c01471d01d40469da11a7f3a6d0e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MagicProjectile
-  speed: 6
-  homingStrength: 2
-  lifetime: 5
-  damage: 1

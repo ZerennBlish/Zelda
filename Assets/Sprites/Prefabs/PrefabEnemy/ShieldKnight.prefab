@@ -275,15 +275,18 @@ MonoBehaviour:
   wanderSpeed: 0.8
   chaseSpeed: 1.5
   chaseRange: 5
-  attackRange: 1.2
+  attackRange: 1
   attackCooldown: 1.5
   damage: 1
+  bashDistance: 1
+  bashDuration: 0.2
   shieldTransform: {fileID: 2511783929547853236}
   shieldDistance: 0.3
   shieldArc: 120
   health: 3
   blockFlashColor: {r: 0.5, g: 0.5, b: 1, a: 1}
   blockFlashDuration: 0.1
+  stunColor: {r: 0.5, g: 0.5, b: 1, a: 1}
 --- !u!114 &6327398073049119537
 MonoBehaviour:
   m_ObjectHideFlags: 0

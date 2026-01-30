@@ -19,6 +19,18 @@ public class GameState : MonoBehaviour
         }
     }
     
+    void Start()
+    {
+        if (PlayerPrefs.HasKey("SavedRupees"))
+        {
+            rupees = PlayerPrefs.GetInt("SavedRupees");
+            if (rupeeUI != null)
+            {
+                rupeeUI.UpdateRupees(rupees);
+            }
+        }
+    }
+    
     public void AddRupees(int amount)
     {
         rupees += amount;
@@ -31,7 +43,6 @@ public class GameState : MonoBehaviour
     
     public int StealRupees(int amount)
     {
-        // Can only steal what the player has
         int stolen = Mathf.Min(amount, rupees);
         rupees -= stolen;
         
@@ -40,7 +51,6 @@ public class GameState : MonoBehaviour
             rupeeUI.UpdateRupees(rupees);
         }
         
-        // Return how many were actually stolen
         return stolen;
     }
 }

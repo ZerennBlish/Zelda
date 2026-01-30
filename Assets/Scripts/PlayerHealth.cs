@@ -18,9 +18,21 @@ public class PlayerHealth : MonoBehaviour
     
     void Start()
     {
-        currentHealth = maxHealth;
         spriteRenderer = GetComponent<SpriteRenderer>();
         playerShield = GetComponentInChildren<PlayerShield>();
+        
+        // Load saved max health or use default
+        if (PlayerPrefs.HasKey("SavedMaxHealth"))
+        {
+            maxHealth = PlayerPrefs.GetInt("SavedMaxHealth");
+        }
+        
+        currentHealth = maxHealth;
+        
+        if (healthUI != null)
+        {
+            healthUI.UpdateHearts(currentHealth);
+        }
         
         if (SaveManager.Instance != null && SaveManager.Instance.HasSaveData())
         {
@@ -46,13 +58,11 @@ public class PlayerHealth : MonoBehaviour
     {
         if (isInvincible) return;
         
-        // Check if shield blocks this attack
         if (playerShield != null && playerShield.BlocksAttackFrom(attackSource))
         {
             return;
         }
         
-        // Set invincible immediately to block same-frame hits
         isInvincible = true;
         
         currentHealth -= damage;
