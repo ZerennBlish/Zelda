@@ -202,8 +202,9 @@ MonoBehaviour:
   fleeSpeed: 6
   detectRange: 7
   dashRange: 2
-  stealAmount: 5
+  stealRange: 0.8
   dashDuration: 0.3
-  rupeePickupPrefab: {fileID: 0}
-  fleeingWithLootColor: {r: 0.5, g: 1, b: 0.5, a: 1}
+  fleeDuration: 3
+  stealAmount: 5
+  stolenRupees: 0
   health: 5

@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6759424428923105771
+--- !u!1 &7322728299637844444
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,41 +8,40 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2784102318512973168}
-  - component: {fileID: 9136387477315456602}
-  - component: {fileID: 4456365761461057250}
-  - component: {fileID: 3234820031043097895}
-  - component: {fileID: 1697702146015328226}
+  - component: {fileID: 6811521088832152957}
+  - component: {fileID: 5088771953677496807}
+  - component: {fileID: 331773612424145012}
+  - component: {fileID: 816633548550635174}
   m_Layer: 0
-  m_Name: Grass_Tiles_1_11 (10)
-  m_TagString: Enemy
+  m_Name: HeartContainer
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2784102318512973168
+--- !u!4 &6811521088832152957
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6759424428923105771}
+  m_GameObject: {fileID: 7322728299637844444}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.4270983, y: -0.56084234, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalPosition: {x: -17.57, y: -1.08, z: 0}
+  m_LocalScale: {x: 0.75, y: 0.75, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &9136387477315456602
+--- !u!212 &5088771953677496807
 SpriteRenderer:
   serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6759424428923105771}
+  m_GameObject: {fileID: 7322728299637844444}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -82,25 +81,25 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 1014634539, guid: b59e68657f033ca48bc082c1eeef2b00, type: 3}
+  m_Sprite: {fileID: 3980140487562858156, guid: b44fab11656a07144b8b61978e351bae, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.75, y: 1.8125}
+  m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!61 &4456365761461057250
-BoxCollider2D:
+--- !u!58 &331773612424145012
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6759424428923105771}
+  m_GameObject: {fileID: 7322728299637844444}
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
@@ -129,45 +128,19 @@ BoxCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.75, y: 1.8125}
-    newSize: {x: 1.75, y: 1.8125}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 1.75, y: 1.8125}
-  m_EdgeRadius: 0
---- !u!114 &3234820031043097895
+  m_Radius: 0.5
+--- !u!114 &816633548550635174
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6759424428923105771}
+  m_GameObject: {fileID: 7322728299637844444}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed33121d09687814dac2fb348036886e, type: 3}
+  m_Script: {fileID: 11500000, guid: d288a6766601ee6219732d3a66739a68, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Destructible
-  health: 1
---- !u!114 &1697702146015328226
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6759424428923105771}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c93f543d3e051774db70fbb0710de9f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Dropper
-  possibleDrops:
-  - {fileID: 3512336262685269301, guid: e97917d19e6bdf64b98be276d9bd1f9e, type: 3}
-  - {fileID: 4432469671400731750, guid: b6c408d77be46014b8d5899b4c112c71, type: 3}
-  - {fileID: 7510524216245386630, guid: eef13f045ebb81dc18265ad24e4ed364, type: 3}
-  - {fileID: 7510524216245386630, guid: eef13f045ebb81dc18265ad24e4ed364, type: 3}
-  dropChance: 0.5
+  m_EditorClassIdentifier: Assembly-CSharp::HeartContainer
+  bobSpeed: 2
+  bobHeight: 0.15
+  spinSpeed: 90

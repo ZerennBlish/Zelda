@@ -132,5 +132,10 @@ public class Arrow : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        
+        if (other.CompareTag("CrackedWall"))
+        {
+            Destroy(gameObject);
+        }
     }
 }

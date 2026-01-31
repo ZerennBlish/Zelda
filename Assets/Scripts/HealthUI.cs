@@ -17,8 +17,13 @@ public class HealthUI : MonoBehaviour
 
     public void UpdateHearts(int currentHealth, int maxHealth)
     {
+        Debug.Log($"UpdateHearts called: current={currentHealth}, max={maxHealth}");
+        Debug.Log($"heartPrefab is null? {heartPrefab == null}");
+        Debug.Log($"heartContainer is null? {heartContainer == null}");
+        
         while (heartImages.Count < maxHealth)
         {
+            Debug.Log($"Adding heart {heartImages.Count + 1}");
             AddHeart();
         }
         
@@ -36,6 +41,8 @@ public class HealthUI : MonoBehaviour
     void AddHeart()
     {
         GameObject newHeart = Instantiate(heartPrefab, heartContainer);
+        Debug.Log($"Created heart: {newHeart.name}");
+        
         Image heartImage = newHeart.GetComponent<Image>();
         
         RectTransform rect = newHeart.GetComponent<RectTransform>();

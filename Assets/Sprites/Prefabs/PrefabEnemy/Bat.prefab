@@ -188,5 +188,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c93f543d3e051774db70fbb0710de9f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Dropper
-  possibleDrops: []
-  dropChance: 5
+  possibleDrops:
+  - {fileID: 3512336262685269301, guid: e97917d19e6bdf64b98be276d9bd1f9e, type: 3}
+  - {fileID: 4649896040160936536, guid: 1e0b5f351a692d93db7b2c0ad6aeee98, type: 3}
+  - {fileID: 7510524216245386630, guid: eef13f045ebb81dc18265ad24e4ed364, type: 3}
+  dropChance: 0.5
