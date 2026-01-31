@@ -1,18 +1,56 @@
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections.Generic;
 
 public class HealthUI : MonoBehaviour
 {
-    public Image heart1;
-    public Image heart2;
-    public Image heart3;
+    [Header("Heart Sprites")]
     public Sprite fullHeart;
     public Sprite emptyHeart;
     
-    public void UpdateHearts(int currentHealth)
+    [Header("Heart Setup")]
+    public GameObject heartPrefab;
+    public Transform heartContainer;
+    public float heartSpacing = 40f;
+    
+    private List<Image> heartImages = new List<Image>();
+
+    public void UpdateHearts(int currentHealth, int maxHealth)
     {
-        heart1.sprite = currentHealth >= 1 ? fullHeart : emptyHeart;
-        heart2.sprite = currentHealth >= 2 ? fullHeart : emptyHeart;
-        heart3.sprite = currentHealth >= 3 ? fullHeart : emptyHeart;
+        while (heartImages.Count < maxHealth)
+        {
+            AddHeart();
+        }
+        
+        while (heartImages.Count > maxHealth)
+        {
+            RemoveHeart();
+        }
+        
+        for (int i = 0; i < heartImages.Count; i++)
+        {
+            heartImages[i].sprite = i < currentHealth ? fullHeart : emptyHeart;
+        }
+    }
+    
+    void AddHeart()
+    {
+        GameObject newHeart = Instantiate(heartPrefab, heartContainer);
+        Image heartImage = newHeart.GetComponent<Image>();
+        
+        RectTransform rect = newHeart.GetComponent<RectTransform>();
+        rect.anchoredPosition = new Vector2(heartImages.Count * heartSpacing, 0);
+        
+        heartImages.Add(heartImage);
+    }
+    
+    void RemoveHeart()
+    {
+        if (heartImages.Count > 0)
+        {
+            int lastIndex = heartImages.Count - 1;
+            Destroy(heartImages[lastIndex].gameObject);
+            heartImages.RemoveAt(lastIndex);
+        }
     }
 }

@@ -21,7 +21,6 @@ public class PlayerHealth : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         playerShield = GetComponentInChildren<PlayerShield>();
         
-        // Load saved max health or use default
         if (PlayerPrefs.HasKey("SavedMaxHealth"))
         {
             maxHealth = PlayerPrefs.GetInt("SavedMaxHealth");
@@ -31,7 +30,7 @@ public class PlayerHealth : MonoBehaviour
         
         if (healthUI != null)
         {
-            healthUI.UpdateHearts(currentHealth);
+            healthUI.UpdateHearts(currentHealth, maxHealth);
         }
         
         if (SaveManager.Instance != null && SaveManager.Instance.HasSaveData())
@@ -69,7 +68,7 @@ public class PlayerHealth : MonoBehaviour
         
         if (healthUI != null)
         {
-            healthUI.UpdateHearts(currentHealth);
+            healthUI.UpdateHearts(currentHealth, maxHealth);
         }
         
         if (currentHealth <= 0)
@@ -92,8 +91,44 @@ public class PlayerHealth : MonoBehaviour
         
         if (healthUI != null)
         {
-            healthUI.UpdateHearts(currentHealth);
+            healthUI.UpdateHearts(currentHealth, maxHealth);
         }
+    }
+    
+    public void IncreaseMaxHealth(int amount)
+    {
+        maxHealth += amount;
+        currentHealth += amount;
+        
+        if (healthUI != null)
+        {
+            healthUI.UpdateHearts(currentHealth, maxHealth);
+        }
+        
+        PlayerPrefs.SetInt("SavedMaxHealth", maxHealth);
+        PlayerPrefs.Save();
+    }
+    
+    public void DecreaseMaxHealth(int amount)
+    {
+        maxHealth -= amount;
+        if (maxHealth < 1)
+        {
+            maxHealth = 1;
+        }
+        
+        if (currentHealth > maxHealth)
+        {
+            currentHealth = maxHealth;
+        }
+        
+        if (healthUI != null)
+        {
+            healthUI.UpdateHearts(currentHealth, maxHealth);
+        }
+        
+        PlayerPrefs.SetInt("SavedMaxHealth", maxHealth);
+        PlayerPrefs.Save();
     }
     
     void LoseLife()
@@ -121,7 +156,7 @@ public class PlayerHealth : MonoBehaviour
         
         if (healthUI != null)
         {
-            healthUI.UpdateHearts(currentHealth);
+            healthUI.UpdateHearts(currentHealth, maxHealth);
         }
         
         StartCoroutine(InvincibilityFrames());
