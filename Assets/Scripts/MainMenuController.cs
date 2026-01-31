@@ -10,17 +10,16 @@ public class MainMenuController : MonoBehaviour
     {
         if (continueButton != null)
         {
-            continueButton.interactable = SaveManager.Instance != null && SaveManager.Instance.HasSaveData();
+            continueButton.interactable = PlayerPrefs.GetInt("HasSave", 0) == 1;
         }
     }
     
     public void NewGame()
     {
-        if (SaveManager.Instance != null)
-        {
-            SaveManager.Instance.DeleteSave();
-        }
-        
+        PlayerPrefs.DeleteKey("RoomX");
+        PlayerPrefs.DeleteKey("RoomY");
+        PlayerPrefs.DeleteKey("Lives");
+        PlayerPrefs.DeleteKey("HasSave");
         PlayerPrefs.DeleteKey("SavedRupees");
         PlayerPrefs.DeleteKey("SavedArrows");
         PlayerPrefs.DeleteKey("SavedMaxHealth");

@@ -189,4 +189,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Dropper
   possibleDrops: []
-  dropChance: 0.1
+  dropChance: 5

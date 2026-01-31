@@ -16,7 +16,6 @@ public class PauseManager : MonoBehaviour
 
     void Update()
     {
-        // P key or Start button (controller)
         if (Input.GetKeyDown(KeyCode.P) || Input.GetKeyDown(KeyCode.JoystickButton7))
         {
             if (pauseMenu == null) return;
@@ -48,7 +47,40 @@ public class PauseManager : MonoBehaviour
 
     public void QuitToMenu()
     {
+        SaveGame();
         Time.timeScale = 1f;
         SceneManager.LoadScene("MainMenu");
+    }
+    
+    void SaveGame()
+    {
+        // Save room and lives
+        if (SaveManager.Instance != null && RoomManager.Instance != null)
+        {
+            Vector2 room = RoomManager.Instance.GetCurrentRoom();
+            PlayerHealth health = FindFirstObjectByType<PlayerHealth>();
+            int lives = health != null ? health.currentLives : 3;
+            SaveManager.Instance.SaveGame((int)room.x, (int)room.y, lives);
+        }
+        
+        // Save inventory
+        if (GameState.Instance != null)
+        {
+            PlayerPrefs.SetInt("SavedRupees", GameState.Instance.rupees);
+        }
+        
+        PlayerController player = FindFirstObjectByType<PlayerController>();
+        if (player != null)
+        {
+            PlayerPrefs.SetInt("SavedArrows", player.currentArrows);
+        }
+        
+        PlayerHealth playerHealth = FindFirstObjectByType<PlayerHealth>();
+        if (playerHealth != null)
+        {
+            PlayerPrefs.SetInt("SavedMaxHealth", playerHealth.maxHealth);
+        }
+        
+        PlayerPrefs.Save();
     }
 }
