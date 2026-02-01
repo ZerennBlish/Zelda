@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &8099597051790110161
+--- !u!1 &3242041937817179949
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,42 +8,40 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8641983639833114366}
-  - component: {fileID: 158225115106655189}
-  - component: {fileID: 6945392687122824621}
-  - component: {fileID: 6245095081003066736}
-  - component: {fileID: 1459607096332756891}
-  - component: {fileID: 3958466682284703345}
+  - component: {fileID: 7891283588017486857}
+  - component: {fileID: 5898571993654734992}
+  - component: {fileID: 2155670502722935782}
+  - component: {fileID: 2971263918553790029}
   m_Layer: 0
-  m_Name: Goblin_Archer_0
-  m_TagString: Enemy
+  m_Name: Cave_Doorway_1_0 (1)
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &8641983639833114366
+--- !u!4 &7891283588017486857
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8099597051790110161}
+  m_GameObject: {fileID: 3242041937817179949}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.946782, y: 1.2565124, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -4.6, y: 4.5, z: 0}
+  m_LocalScale: {x: 0.55, y: 0.18, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &158225115106655189
+--- !u!212 &5898571993654734992
 SpriteRenderer:
   serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8099597051790110161}
+  m_GameObject: {fileID: 3242041937817179949}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -83,25 +81,25 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 1
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -4890684198348708189, guid: 03ae9f74312daf847834592172c254b3, type: 3}
+  m_Sprite: {fileID: -4994353214582124246, guid: cc3d5976ae11e3040ad11efd5c31de56, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.125, y: 1.125}
+  m_Size: {x: 2, y: 2.375}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!61 &6945392687122824621
+--- !u!61 &2155670502722935782
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8099597051790110161}
+  m_GameObject: {fileID: 3242041937817179949}
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
@@ -125,7 +123,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -133,81 +131,25 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.125, y: 1.125}
-    newSize: {x: 1.125, y: 1.125}
+    oldSize: {x: 2, y: 2.375}
+    newSize: {x: 2, y: 2.375}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.125, y: 1.125}
+  m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!50 &6245095081003066736
-Rigidbody2D:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8099597051790110161}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 4
---- !u!114 &1459607096332756891
+--- !u!114 &2971263918553790029
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8099597051790110161}
+  m_GameObject: {fileID: 3242041937817179949}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 907c3dd7e9a0f5b4ba6054e8004c0ca5, type: 3}
+  m_Script: {fileID: 11500000, guid: 7258f9494d4ddd24486b78c49791bc5f, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GoblinArcher
-  patrolSpeed: 1
-  fleeSpeed: 3
-  patrolRadius: 2
-  patrolChangeTime: 2
-  detectRange: 6
-  fleeRange: 4
-  fireRate: 1.5
-  arrowPrefab: {fileID: 5832339831849650477, guid: aaf015ad190f47e43a5388e38527a92b, type: 3}
-  health: 2
-  contactDamage: 1
-  stunColor: {r: 0.5, g: 0.5, b: 1, a: 1}
---- !u!114 &3958466682284703345
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8099597051790110161}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c93f543d3e051774db70fbb0710de9f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Dropper
-  possibleDrops:
-  - {fileID: 3512336262685269301, guid: e97917d19e6bdf64b98be276d9bd1f9e, type: 3}
-  - {fileID: 4432469671400731750, guid: b6c408d77be46014b8d5899b4c112c71, type: 3}
-  - {fileID: 7510524216245386630, guid: eef13f045ebb81dc18265ad24e4ed364, type: 3}
-  - {fileID: 4649896040160936536, guid: 1e0b5f351a692d93db7b2c0ad6aeee98, type: 3}
-  - {fileID: 7510524216245386630, guid: eef13f045ebb81dc18265ad24e4ed364, type: 3}
-  - {fileID: 2005234844499816987, guid: 5db0c1796d5a3f8459217c174820e6d3, type: 3}
-  dropChance: 0.3
+  m_EditorClassIdentifier: Assembly-CSharp::RoomTransition
+  direction: {x: 0, y: 1}
+  spawnOffset: {x: 0, y: -4}

@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Collectible : MonoBehaviour
 {
-    public enum CollectibleType { Heart, Rupee, Arrow }
+    public enum CollectibleType { Heart, Rupee, Arrow, Bomb }
     
     [SerializeField]
     public CollectibleType type = CollectibleType.Heart;
@@ -76,6 +76,14 @@ public class Collectible : MonoBehaviour
                 if (pc != null)
                 {
                     pc.AddArrows(value);
+                }
+                break;
+                
+            case CollectibleType.Bomb:
+                PlayerController pcBomb = player.GetComponent<PlayerController>();
+                if (pcBomb != null)
+                {
+                    pcBomb.AddBombs(value);
                 }
                 break;
         }

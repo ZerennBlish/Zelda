@@ -117,14 +117,11 @@ public class Arrow : MonoBehaviour
                 return;
             }
             
-            Destructible destructible = other.GetComponent<Destructible>();
-            if (destructible != null)
-            {
-                destructible.TakeDamage(damage);
-                Destroy(gameObject);
-                return;
-            }
-            
+            Destroy(gameObject);
+        }
+        
+        if (other.CompareTag("Destructible"))
+        {
             Destroy(gameObject);
         }
         

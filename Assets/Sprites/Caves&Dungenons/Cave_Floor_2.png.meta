@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: cc3d5976ae11e3040ad11efd5c31de56
+guid: b3415fbb01b77514dbb971189d1ed4ed
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4994353214582124246
-    second: Cave_Doorway_1_0
+      213: 225093811778024015
+    second: Cave_Floor_2_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Cave_Doorway_1_0
+      name: Cave_Floor_2_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 32
-        height: 96
+        width: 48
+        height: 80
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a21900a663e70bab0800000000000000
-      internalID: -4994353214582124246
+      spriteID: f42fa2411a1bf1300800000000000000
+      internalID: 225093811778024015
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Cave_Doorway_1_0: -4994353214582124246
+      Cave_Floor_2_0: 225093811778024015
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
