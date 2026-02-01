@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour
     [Header("References")]
     public Sword sword;
     public ArrowUI arrowUI;
+    public BombUI bombUI;
     
     private Rigidbody2D rb;
     private Vector2 movement;
@@ -56,6 +57,7 @@ public class PlayerController : MonoBehaviour
         }
         
         UpdateArrowUI();
+        UpdateBombUI();
     }
 
     void Update()
@@ -144,6 +146,7 @@ public class PlayerController : MonoBehaviour
         currentBombs--;
         PlayerPrefs.SetInt("SavedBombs", currentBombs);
         PlayerPrefs.Save();
+        UpdateBombUI();
         
         Instantiate(bombPrefab, transform.position, Quaternion.identity);
     }
@@ -172,6 +175,7 @@ public class PlayerController : MonoBehaviour
         }
         PlayerPrefs.SetInt("SavedBombs", currentBombs);
         PlayerPrefs.Save();
+        UpdateBombUI();
     }
     
     void UpdateArrowUI()
@@ -179,6 +183,14 @@ public class PlayerController : MonoBehaviour
         if (arrowUI != null)
         {
             arrowUI.UpdateCount(currentArrows);
+        }
+    }
+    
+    void UpdateBombUI()
+    {
+        if (bombUI != null)
+        {
+            bombUI.UpdateCount(currentBombs);
         }
     }
     

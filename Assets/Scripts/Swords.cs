@@ -148,12 +148,14 @@ public class Sword : MonoBehaviour
                 skull.TakeDamage(damage);
                 return;
             }
-            
+        }
+        
+        if (other.CompareTag("Destructible") && isSwinging)
+        {
             Destructible destructible = other.GetComponent<Destructible>();
             if (destructible != null)
             {
                 destructible.TakeDamage(damage);
-                return;
             }
         }
     }

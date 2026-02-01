@@ -11,11 +11,11 @@ GameObject:
   - component: {fileID: 2784102318512973168}
   - component: {fileID: 9136387477315456602}
   - component: {fileID: 4456365761461057250}
-  - component: {fileID: 3234820031043097895}
   - component: {fileID: 1697702146015328226}
+  - component: {fileID: -5666657318897007638}
   m_Layer: 0
   m_Name: Grass_Tiles_1_11 (10)
-  m_TagString: Enemy
+  m_TagString: Destructible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -140,19 +140,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.75, y: 1.8125}
   m_EdgeRadius: 0
---- !u!114 &3234820031043097895
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6759424428923105771}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed33121d09687814dac2fb348036886e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Destructible
-  health: 1
 --- !u!114 &1697702146015328226
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -169,5 +156,19 @@ MonoBehaviour:
   - {fileID: 3512336262685269301, guid: e97917d19e6bdf64b98be276d9bd1f9e, type: 3}
   - {fileID: 4432469671400731750, guid: b6c408d77be46014b8d5899b4c112c71, type: 3}
   - {fileID: 7510524216245386630, guid: eef13f045ebb81dc18265ad24e4ed364, type: 3}
-  - {fileID: 7510524216245386630, guid: eef13f045ebb81dc18265ad24e4ed364, type: 3}
+  - {fileID: 4649896040160936536, guid: 1e0b5f351a692d93db7b2c0ad6aeee98, type: 3}
+  - {fileID: 2005234844499816987, guid: 7115371ff2d0061dfb332b2b79f1e6d0, type: 3}
   dropChance: 0.5
+--- !u!114 &-5666657318897007638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6759424428923105771}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed33121d09687814dac2fb348036886e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Destructible
+  health: 1

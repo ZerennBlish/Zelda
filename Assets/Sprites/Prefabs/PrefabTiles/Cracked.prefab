@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 3861361874702662262}
   - component: {fileID: 2026482646712461086}
   - component: {fileID: 8924498032911436394}
+  - component: {fileID: -8415632548027748065}
   m_Layer: 0
   m_Name: Cracked
-  m_TagString: Breakable
+  m_TagString: CrackedWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -80,7 +81,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 4
   m_MaskInteraction: 0
   m_Sprite: {fileID: 2749842824629090958, guid: e2801fdf679df1340b12e3ccaa24dbcc, type: 3}
   m_Color: {r: 1, g: 0.8941177, b: 0.7098039, a: 1}
@@ -138,3 +139,17 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 2, y: 2}
   m_EdgeRadius: 0
+--- !u!114 &-8415632548027748065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5692293428212415029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e812c5b42031a269bf1db7d9c0df9e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CrackedWall
+  health: 1
+  revealedArea: {fileID: 0}
