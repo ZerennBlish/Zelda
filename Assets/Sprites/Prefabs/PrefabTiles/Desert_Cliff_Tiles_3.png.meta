@@ -1,28 +1,31 @@
 fileFormatVersion: 2
-guid: c03f647f5181c324ba417d168c548e07
+guid: e1f30e168a194764dba64b4ddf0c2467
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2258438323526965926
-    second: Desert_Cliff_Tiles_1_0
+      213: -1341048445930004764
+    second: Desert_Cliff_Tiles_3_0
   - first:
-      213: -1378923397154432219
-    second: Desert_Cliff_Tiles_1_1
+      213: 5199415446262366545
+    second: Desert_Cliff_Tiles_3_1
   - first:
-      213: -3890914770333172451
-    second: Desert_Cliff_Tiles_1_2
+      213: -140188659941749981
+    second: Desert_Cliff_Tiles_3_2
   - first:
-      213: -7314243036901196912
-    second: Desert_Cliff_Tiles_1_3
+      213: -2911617790462551004
+    second: Desert_Cliff_Tiles_3_3
   - first:
-      213: -8904190732776443752
-    second: Desert_Cliff_Tiles_1_4
+      213: -6127923986229171072
+    second: Desert_Cliff_Tiles_3_4
   - first:
-      213: -5159663026459681536
-    second: Desert_Cliff_Tiles_1_5
+      213: -8900712758278994182
+    second: Desert_Cliff_Tiles_3_5
   - first:
-      213: 7690258299452002944
-    second: Desert_Cliff_Tiles_1_6
+      213: -4286370546411358535
+    second: Desert_Cliff_Tiles_3_6
+  - first:
+      213: -7955251866213971611
+    second: Desert_Cliff_Tiles_3_7
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -55,7 +58,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -69,7 +72,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -93,7 +96,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -127,11 +130,24 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Desert_Cliff_Tiles_1_0
+      name: Desert_Cliff_Tiles_3_0
       rect:
         serializedVersion: 2
         x: 26
@@ -146,20 +162,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a55eb0b7f4a68a0e0800000000000000
-      internalID: -2258438323526965926
+      spriteID: 4ee90c92b83a36de0800000000000000
+      internalID: -1341048445930004764
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Desert_Cliff_Tiles_1_1
+      name: Desert_Cliff_Tiles_3_1
       rect:
         serializedVersion: 2
         x: 63
-        y: 79
-        width: 41
-        height: 66
+        y: 111
+        width: 34
+        height: 34
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -168,14 +184,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 52b9224e9741ddce0800000000000000
-      internalID: -1378923397154432219
+      spriteID: 151c52afcc8082840800000000000000
+      internalID: 5199415446262366545
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Desert_Cliff_Tiles_1_2
+      name: Desert_Cliff_Tiles_3_2
       rect:
         serializedVersion: 2
         x: 111
@@ -190,14 +206,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d1d78fe91a1b00ac0800000000000000
-      internalID: -3890914770333172451
+      spriteID: 32b42a21823fd0ef0800000000000000
+      internalID: -140188659941749981
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Desert_Cliff_Tiles_1_3
+      name: Desert_Cliff_Tiles_3_3
       rect:
         serializedVersion: 2
         x: 143
@@ -212,20 +228,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 09b31a0e5b69e7a90800000000000000
-      internalID: -7314243036901196912
+      spriteID: 42c95c5cb0bd797d0800000000000000
+      internalID: -2911617790462551004
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Desert_Cliff_Tiles_1_4
+      name: Desert_Cliff_Tiles_3_4
       rect:
         serializedVersion: 2
-        x: 27
-        y: 43
-        width: 28
-        height: 27
+        x: 74
+        y: 79
+        width: 30
+        height: 18
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -234,36 +250,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 890f88874b5fd6480800000000000000
-      internalID: -8904190732776443752
+      spriteID: 08ce6360a9d35faa0800000000000000
+      internalID: -6127923986229171072
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Desert_Cliff_Tiles_1_5
-      rect:
-        serializedVersion: 2
-        x: 63
-        y: 31
-        width: 34
-        height: 34
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 00d572380d13568b0800000000000000
-      internalID: -5159663026459681536
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Desert_Cliff_Tiles_1_6
+      name: Desert_Cliff_Tiles_3_5
       rect:
         serializedVersion: 2
         x: 111
@@ -278,8 +272,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 08216d9bd2949ba60800000000000000
-      internalID: 7690258299452002944
+      spriteID: af64ef287e05a7480800000000000000
+      internalID: -8900712758278994182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Desert_Cliff_Tiles_3_6
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 43
+        width: 28
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b6347db2b0c384c0800000000000000
+      internalID: -4286370546411358535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Desert_Cliff_Tiles_3_7
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 31
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5698d8f8394499190800000000000000
+      internalID: -7955251866213971611
       vertices: []
       indices: 
       edges: []
@@ -298,13 +336,14 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Desert_Cliff_Tiles_1_0: -2258438323526965926
-      Desert_Cliff_Tiles_1_1: -1378923397154432219
-      Desert_Cliff_Tiles_1_2: -3890914770333172451
-      Desert_Cliff_Tiles_1_3: -7314243036901196912
-      Desert_Cliff_Tiles_1_4: -8904190732776443752
-      Desert_Cliff_Tiles_1_5: -5159663026459681536
-      Desert_Cliff_Tiles_1_6: 7690258299452002944
+      Desert_Cliff_Tiles_3_0: -1341048445930004764
+      Desert_Cliff_Tiles_3_1: 5199415446262366545
+      Desert_Cliff_Tiles_3_2: -140188659941749981
+      Desert_Cliff_Tiles_3_3: -2911617790462551004
+      Desert_Cliff_Tiles_3_4: -6127923986229171072
+      Desert_Cliff_Tiles_3_5: -8900712758278994182
+      Desert_Cliff_Tiles_3_6: -4286370546411358535
+      Desert_Cliff_Tiles_3_7: -7955251866213971611
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

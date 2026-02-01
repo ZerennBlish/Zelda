@@ -18,7 +18,6 @@ public class RoomManager : MonoBehaviour
     
     void Start()
     {
-        // Check if we're loading from a save
         if (SaveManager.Instance != null && SaveManager.Instance.HasSaveData())
         {
             int roomX = SaveManager.Instance.GetSavedRoomX();
@@ -49,7 +48,27 @@ public class RoomManager : MonoBehaviour
         );
         player.position = roomCenter + (Vector3)spawnOffset;
         
-        // Save when entering a new room
+        SaveGame();
+    }
+    
+    public void TeleportToRoom(Vector2 targetRoom, Vector2 spawnOffset)
+    {
+        currentRoom = targetRoom;
+        
+        Vector3 newCamPos = new Vector3(
+            currentRoom.x * roomWidth,
+            currentRoom.y * roomHeight,
+            mainCamera.position.z
+        );
+        mainCamera.position = newCamPos;
+        
+        Vector3 roomCenter = new Vector3(
+            currentRoom.x * roomWidth,
+            currentRoom.y * roomHeight,
+            0
+        );
+        player.position = roomCenter + (Vector3)spawnOffset;
+        
         SaveGame();
     }
     
