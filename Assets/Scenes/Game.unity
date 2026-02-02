@@ -311,7 +311,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab6ad49c8fd97ca4ebdba259a0f29269, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PauseManager
-  pauseMenu: {fileID: 0}
+  pauseMenu: {fileID: 2019771505}
 --- !u!4 &17933447
 Transform:
   m_ObjectHideFlags: 0
@@ -14066,6 +14066,11 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 2, y: 2}
   m_EdgeRadius: 0
+--- !u!1 &1243399178 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6026694856211063050, guid: fc6e2e97b20c771a7b81700de5ccde7a, type: 3}
+  m_PrefabInstance: {fileID: 3686237858301391613}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1247349804
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24721,6 +24726,11 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!1 &2019771505 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8488156497343096441, guid: fc6e2e97b20c771a7b81700de5ccde7a, type: 3}
+  m_PrefabInstance: {fileID: 3686237858301391613}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2027251044 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8850456381145747934, guid: 29864e92772e8ab4e8db4733fb970b65, type: 3}
@@ -26116,7 +26126,7 @@ PrefabInstance:
     - target: {fileID: 5966172748924265891, guid: 68f2c59a08a9d7a44accffe364d3935b, type: 3}
       propertyPath: gameOverScreen
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1243399178}
     - target: {fileID: 7282810350277494170, guid: 68f2c59a08a9d7a44accffe364d3935b, type: 3}
       propertyPath: m_Name
       value: Player
@@ -26426,10 +26436,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 605993828910945669, guid: fc6e2e97b20c771a7b81700de5ccde7a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 17933446}
     - target: {fileID: 1165635399806566879, guid: fc6e2e97b20c771a7b81700de5ccde7a, type: 3}
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 1989498542327155297, guid: fc6e2e97b20c771a7b81700de5ccde7a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 17933446}
     - target: {fileID: 4844722775260221910, guid: fc6e2e97b20c771a7b81700de5ccde7a, type: 3}
       propertyPath: m_Pivot.x
       value: 0
