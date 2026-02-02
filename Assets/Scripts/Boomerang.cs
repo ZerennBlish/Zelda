@@ -78,14 +78,14 @@ public class Boomerang : MonoBehaviour
     
     void OnTriggerEnter2D(Collider2D other)
     {
-        // Stun enemies
+        // Handle enemies
         if (other.CompareTag("Enemy"))
         {
             if (!alreadyHit.Contains(other.gameObject))
             {
                 alreadyHit.Add(other.gameObject);
                 
-                // Kill bats
+                // Bats die in one hit
                 Bat bat = other.GetComponent<Bat>();
                 if (bat != null)
                 {
@@ -93,7 +93,7 @@ public class Boomerang : MonoBehaviour
                 }
                 else
                 {
-                    // Stun everything else
+                    // Everything else gets stunned
                     IStunnable stunnable = other.GetComponent<IStunnable>();
                     if (stunnable != null)
                     {

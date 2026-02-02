@@ -43,7 +43,7 @@ public class MagicProjectile : MonoBehaviour
             PlayerHealth playerHealth = other.GetComponent<PlayerHealth>();
             if (playerHealth != null)
             {
-                playerHealth.TakeDamage(damage);
+                playerHealth.TakeDamage(damage, transform.position);
             }
             Destroy(gameObject);
         }

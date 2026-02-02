@@ -1,7 +1,6 @@
 using UnityEngine;
 
-public class Bat : MonoBehaviour
-{
+public class Bat : MonoBehaviour, IDamageable{
     [Header("Movement")]
     public float wanderSpeed = 2f;
     public float chaseSpeed = 3f;

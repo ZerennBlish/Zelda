@@ -1,7 +1,6 @@
 using UnityEngine;
 
-public class Slime : MonoBehaviour, IStunnable
-{
+public class Slime : MonoBehaviour, IStunnable, IDamageable{
     [Header("Movement")]
     public float wanderSpeed = 1f;
     public float chaseSpeed = 2f;

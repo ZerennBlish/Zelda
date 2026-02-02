@@ -1,7 +1,6 @@
 using UnityEngine;
 
-public class GoblinArcher : MonoBehaviour, IStunnable
-{
+public class GoblinArcher : MonoBehaviour, IStunnable, IDamageable{
     [Header("Movement")]
     public float patrolSpeed = 1f;
     public float fleeSpeed = 3f;

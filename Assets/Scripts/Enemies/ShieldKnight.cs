@@ -1,7 +1,6 @@
 using UnityEngine;
 
-public class ShieldKnight : MonoBehaviour, IStunnable
-{
+public class ShieldKnight : MonoBehaviour, IStunnable, IDamageable{
     [Header("Movement")]
     public float wanderSpeed = 0.8f;
     public float chaseSpeed = 1.5f;

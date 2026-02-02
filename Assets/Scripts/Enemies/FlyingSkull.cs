@@ -1,7 +1,6 @@
 using UnityEngine;
 
-public class FlyingSkull : MonoBehaviour, IStunnable
-{
+public class FlyingSkull : MonoBehaviour, IStunnable, IDamageable{
     [Header("Movement")]
     public float wanderSpeed = 2f;
     public float swoopSpeed = 6f;

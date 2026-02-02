@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class GoblinMaceman : MonoBehaviour, IStunnable
+public class GoblinMaceman : MonoBehaviour, IStunnable, IDamageable
 {
     [Header("Movement")]
     public float wanderSpeed = 1f;

@@ -1,7 +1,6 @@
 using UnityEngine;
 
-public class SkeletonMage : MonoBehaviour, IStunnable
-{
+public class SkeletonMage : MonoBehaviour, IStunnable, IDamageable{
     [Header("Movement")]
     public float patrolSpeed = 1f;
     public float patrolChangeTime = 2f;

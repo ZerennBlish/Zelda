@@ -1,7 +1,6 @@
 using UnityEngine;
 
-public class GoblinThief : MonoBehaviour
-{
+public class GoblinThief : MonoBehaviour, IDamageable{
     [Header("Movement")]
     public float wanderSpeed = 1.5f;
     public float sneakSpeed = 2f;

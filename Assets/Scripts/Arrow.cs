@@ -29,78 +29,7 @@ public class Arrow : MonoBehaviour
     {
         if (other.CompareTag("Enemy"))
         {
-            Bat bat = other.GetComponent<Bat>();
-            if (bat != null)
-            {
-                bat.TakeDamage(damage);
-                Destroy(gameObject);
-                return;
-            }
-            
-            BoomShroom shroom = other.GetComponent<BoomShroom>();
-            if (shroom != null)
-            {
-                shroom.Explode();
-                Destroy(gameObject);
-                return;
-            }
-            
-            Slime slime = other.GetComponent<Slime>();
-            if (slime != null)
-            {
-                slime.TakeDamage(damage);
-                Destroy(gameObject);
-                return;
-            }
-            
-            SlimeSplitter splitter = other.GetComponent<SlimeSplitter>();
-            if (splitter != null)
-            {
-                splitter.TakeDamage(damage);
-                Destroy(gameObject);
-                return;
-            }
-            
-            GoblinArcher archer = other.GetComponent<GoblinArcher>();
-            if (archer != null)
-            {
-                archer.TakeDamage(damage);
-                Destroy(gameObject);
-                return;
-            }
-            
-            GoblinMaceman maceman = other.GetComponent<GoblinMaceman>();
-            if (maceman != null)
-            {
-                maceman.TakeDamage(damage);
-                Destroy(gameObject);
-                return;
-            }
-            
-            GoblinSpearman spearman = other.GetComponent<GoblinSpearman>();
-            if (spearman != null)
-            {
-                spearman.TakeDamage(damage);
-                Destroy(gameObject);
-                return;
-            }
-            
-            GoblinThief thief = other.GetComponent<GoblinThief>();
-            if (thief != null)
-            {
-                thief.TakeDamage(damage);
-                Destroy(gameObject);
-                return;
-            }
-            
-            SkeletonMage mage = other.GetComponent<SkeletonMage>();
-            if (mage != null)
-            {
-                mage.TakeDamage(damage);
-                Destroy(gameObject);
-                return;
-            }
-            
+            // Special case: ShieldKnight needs attack direction for blocking
             ShieldKnight knight = other.GetComponent<ShieldKnight>();
             if (knight != null)
             {
@@ -109,15 +38,14 @@ public class Arrow : MonoBehaviour
                 return;
             }
             
-            FlyingSkull skull = other.GetComponent<FlyingSkull>();
-            if (skull != null)
+            // All other enemies use the interface
+            IDamageable damageable = other.GetComponent<IDamageable>();
+            if (damageable != null)
             {
-                skull.TakeDamage(damage);
+                damageable.TakeDamage(damage);
                 Destroy(gameObject);
                 return;
             }
-            
-            Destroy(gameObject);
         }
         
         if (other.CompareTag("Destructible"))
