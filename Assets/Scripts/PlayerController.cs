@@ -12,11 +12,9 @@ public class PlayerController : MonoBehaviour
     
     [Header("Boomerang")]
     public GameObject boomerangPrefab;
-    public KeyCode boomerangKey = KeyCode.E;
     
     [Header("Bomb")]
     public GameObject bombPrefab;
-    public KeyCode bombKey = KeyCode.Q;
     public int maxBombs = 10;
     public int currentBombs = 10;
     
@@ -29,14 +27,12 @@ public class PlayerController : MonoBehaviour
     private Vector2 movement;
     private Vector2 facingDirection = Vector2.down;
     private float nextFireTime = 0f;
-    private Camera mainCam;
     
     private bool boomerangOut = false;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        mainCam = Camera.main;
         
         if (PlayerPrefs.HasKey("SavedArrows"))
         {
@@ -70,20 +66,14 @@ public class PlayerController : MonoBehaviour
             movement = movement.normalized;
         }
         
-        Vector3 mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
-        mousePos.z = 0f;
-        Vector2 aimDirection = (mousePos - transform.position).normalized;
-        
-        if (Input.GetMouseButton(0) || Input.GetMouseButton(1) || Input.GetMouseButton(2))
-        {
-            facingDirection = aimDirection;
-        }
-        else if (movement != Vector2.zero)
+        // Update facing direction based on movement
+        if (movement != Vector2.zero)
         {
             facingDirection = movement.normalized;
         }
         
-        if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.F) || Input.GetKeyDown(KeyCode.JoystickButton2))
+        // Sword - Space or Left Click
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
         {
             if (sword != null)
             {
@@ -91,19 +81,21 @@ public class PlayerController : MonoBehaviour
             }
         }
         
-        if ((Input.GetMouseButtonDown(1) || Input.GetKeyDown(boomerangKey) || Input.GetKeyDown(KeyCode.JoystickButton5)) && !boomerangOut)
+        // Boomerang - E or Right Click
+        if ((Input.GetKeyDown(KeyCode.E) || Input.GetMouseButtonDown(1)) && !boomerangOut)
         {
             ThrowBoomerang();
         }
         
-        if ((Input.GetMouseButton(2) || Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.JoystickButton3)) 
-            && Time.time >= nextFireTime)
+        // Arrow - F or Middle Click (hold to rapid fire)
+        if ((Input.GetKey(KeyCode.F) || Input.GetMouseButton(2)) && Time.time >= nextFireTime)
         {
             Shoot();
             nextFireTime = Time.time + fireRate;
         }
         
-        if (Input.GetKeyDown(bombKey) || Input.GetKeyDown(KeyCode.JoystickButton4))
+        // Bomb - Q
+        if (Input.GetKeyDown(KeyCode.Q))
         {
             PlaceBomb();
         }
