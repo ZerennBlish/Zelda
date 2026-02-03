@@ -10,6 +10,7 @@ TagManager:
   - Pickup
   - CrackedWall
   - Destructible
+  - GrapplePoint
   layers:
   - Default
   - TransparentFX

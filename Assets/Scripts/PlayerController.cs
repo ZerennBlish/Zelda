@@ -18,21 +18,50 @@ public class PlayerController : MonoBehaviour
     public int maxBombs = 10;
     public int currentBombs = 10;
     
+    [Header("Grappling Hook")]
+    public GameObject grapplingHookPrefab;
+    public float grapplePullSpeed = 12f;
+    
+    [Header("Mount")]
+    public Sprite horseSprite;
+    public float mountedSpeedMultiplier = 2.5f;
+    public int ramDamageToEnemy = 1;
+    public int ramDamageToPlayer = 1;
+    public float ramCooldown = 0.5f;
+    
     [Header("References")]
     public Sword sword;
     public ArrowUI arrowUI;
     public BombUI bombUI;
     
     private Rigidbody2D rb;
+    private Collider2D playerCollider;
+    private SpriteRenderer spriteRenderer;
     private Vector2 movement;
     private Vector2 facingDirection = Vector2.down;
     private float nextFireTime = 0f;
     
     private bool boomerangOut = false;
+    
+    // Grapple state
+    private bool isGrappling = false;
+    private bool isPullingPlayer = false;
+    private Vector3 grappleTarget;
+    private GameObject grappleHookInstance;
+    
+    // Mount state
+    private bool isMounted = false;
+    private Sprite normalSprite;
+    private float ramTimer = 0f;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        playerCollider = GetComponent<Collider2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        
+        // Store the normal player sprite so we can swap back
+        normalSprite = spriteRenderer.sprite;
         
         if (PlayerPrefs.HasKey("SavedArrows"))
         {
@@ -58,6 +87,34 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        // Ram cooldown ticks regardless of state
+        if (ramTimer > 0f)
+        {
+            ramTimer -= Time.deltaTime;
+        }
+        
+        // --- GRAPPLE STATE: block all other input ---
+        if (isGrappling)
+        {
+            if (isPullingPlayer)
+            {
+                transform.position = Vector3.MoveTowards(
+                    transform.position, 
+                    grappleTarget, 
+                    grapplePullSpeed * Time.deltaTime
+                );
+                
+                if (Vector2.Distance(transform.position, grappleTarget) < 0.1f)
+                {
+                    transform.position = grappleTarget;
+                    EndGrapple();
+                }
+            }
+            
+            return;
+        }
+        
+        // --- NORMAL INPUT ---
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
         
@@ -66,45 +123,230 @@ public class PlayerController : MonoBehaviour
             movement = movement.normalized;
         }
         
-        // Update facing direction based on movement
         if (movement != Vector2.zero)
         {
             facingDirection = movement.normalized;
         }
         
-        // Sword - Space or Left Click
-        if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
+        // --- MOUNT TOGGLE - M ---
+        if (Input.GetKeyDown(KeyCode.M))
         {
-            if (sword != null)
+            if (isMounted)
             {
-                sword.Swing(facingDirection);
+                Dismount();
+            }
+            else
+            {
+                Mount();
             }
         }
         
-        // Boomerang - E or Right Click
-        if ((Input.GetKeyDown(KeyCode.E) || Input.GetMouseButtonDown(1)) && !boomerangOut)
+        // --- WEAPON CONTROLS (blocked while mounted) ---
+        if (!isMounted)
         {
-            ThrowBoomerang();
-        }
-        
-        // Arrow - F or Middle Click (hold to rapid fire)
-        if ((Input.GetKey(KeyCode.F) || Input.GetMouseButton(2)) && Time.time >= nextFireTime)
-        {
-            Shoot();
-            nextFireTime = Time.time + fireRate;
-        }
-        
-        // Bomb - Q
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            PlaceBomb();
+            // Sword - Space or Left Click
+            if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
+            {
+                if (sword != null)
+                {
+                    sword.Swing(facingDirection);
+                }
+            }
+            
+            // Boomerang - E or Right Click
+            if ((Input.GetKeyDown(KeyCode.E) || Input.GetMouseButtonDown(1)) && !boomerangOut)
+            {
+                ThrowBoomerang();
+            }
+            
+            // Arrow - F or Middle Click (hold to rapid fire)
+            if ((Input.GetKey(KeyCode.F) || Input.GetMouseButton(2)) && Time.time >= nextFireTime)
+            {
+                Shoot();
+                nextFireTime = Time.time + fireRate;
+            }
+            
+            // Bomb - Q
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
+                PlaceBomb();
+            }
+            
+            // Grappling Hook - G
+            if (Input.GetKeyDown(KeyCode.G))
+            {
+                FireGrapple();
+            }
         }
     }
 
     void FixedUpdate()
     {
-        rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
+        if (isGrappling) return;
+        
+        float currentSpeed = isMounted ? moveSpeed * mountedSpeedMultiplier : moveSpeed;
+        rb.MovePosition(rb.position + movement * currentSpeed * Time.fixedDeltaTime);
     }
+
+    // --- MOUNT METHODS ---
+    
+    void Mount()
+    {
+        if (horseSprite == null) return;
+        
+        isMounted = true;
+        
+        // Swap player sprite to horse
+        spriteRenderer.sprite = horseSprite;
+        
+        // Hide sword
+        if (sword != null)
+        {
+            SpriteRenderer swordSR = sword.GetComponent<SpriteRenderer>();
+            if (swordSR != null)
+            {
+                swordSR.enabled = false;
+            }
+        }
+    }
+    
+    void Dismount()
+    {
+        isMounted = false;
+        
+        // Swap back to normal player sprite
+        spriteRenderer.sprite = normalSprite;
+        
+        // Show sword again
+        if (sword != null)
+        {
+            SpriteRenderer swordSR = sword.GetComponent<SpriteRenderer>();
+            if (swordSR != null)
+            {
+                swordSR.enabled = true;
+            }
+        }
+    }
+    
+    // --- MOUNT COLLISION (ram damage) ---
+    
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (!isMounted) return;
+        if (ramTimer > 0f) return;
+        
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            IDamageable damageable = collision.gameObject.GetComponent<IDamageable>();
+            if (damageable != null)
+            {
+                damageable.TakeDamage(ramDamageToEnemy);
+            }
+            
+            PlayerHealth playerHealth = GetComponent<PlayerHealth>();
+            if (playerHealth != null)
+            {
+                playerHealth.TakeDamage(ramDamageToPlayer);
+            }
+            
+            ramTimer = ramCooldown;
+        }
+    }
+    
+    void OnCollisionStay2D(Collision2D collision)
+    {
+        if (!isMounted) return;
+        if (ramTimer > 0f) return;
+        
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            IDamageable damageable = collision.gameObject.GetComponent<IDamageable>();
+            if (damageable != null)
+            {
+                damageable.TakeDamage(ramDamageToEnemy);
+            }
+            
+            PlayerHealth playerHealth = GetComponent<PlayerHealth>();
+            if (playerHealth != null)
+            {
+                playerHealth.TakeDamage(ramDamageToPlayer);
+            }
+            
+            ramTimer = ramCooldown;
+        }
+    }
+
+    // --- GRAPPLE METHODS ---
+    
+    void FireGrapple()
+    {
+        if (grapplingHookPrefab == null) return;
+        
+        isGrappling = true;
+        isPullingPlayer = false;
+        
+        movement = Vector2.zero;
+        rb.linearVelocity = Vector2.zero;
+        
+        Vector3 spawnPos = transform.position + (Vector3)(facingDirection * 0.5f);
+        grappleHookInstance = Instantiate(grapplingHookPrefab, spawnPos, Quaternion.identity);
+        grappleHookInstance.GetComponent<GrapplingHook>().Initialize(transform, facingDirection, this);
+    }
+    
+    public void GrappleLatched(Vector3 targetPosition)
+    {
+        isPullingPlayer = true;
+        grappleTarget = targetPosition;
+        
+        if (playerCollider != null)
+        {
+            playerCollider.enabled = false;
+        }
+        
+        rb.bodyType = RigidbodyType2D.Kinematic;
+        rb.linearVelocity = Vector2.zero;
+    }
+    
+    public void GrappleGrabbed()
+    {
+        isPullingPlayer = false;
+    }
+    
+    public void GrappleMissed()
+    {
+        isGrappling = false;
+        isPullingPlayer = false;
+        grappleHookInstance = null;
+    }
+    
+    public void GrappleFinished()
+    {
+        isGrappling = false;
+        isPullingPlayer = false;
+        grappleHookInstance = null;
+    }
+    
+    void EndGrapple()
+    {
+        if (playerCollider != null)
+        {
+            playerCollider.enabled = true;
+        }
+        
+        rb.bodyType = RigidbodyType2D.Dynamic;
+        rb.linearVelocity = Vector2.zero;
+        
+        isGrappling = false;
+        isPullingPlayer = false;
+        
+        if (grappleHookInstance != null)
+        {
+            Destroy(grappleHookInstance);
+            grappleHookInstance = null;
+        }
+    }
+    
+    // --- WEAPON METHODS ---
 
     void Shoot()
     {
@@ -148,6 +390,8 @@ public class PlayerController : MonoBehaviour
         boomerangOut = false;
     }
     
+    // --- INVENTORY METHODS ---
+    
     public void AddArrows(int amount)
     {
         currentArrows += amount;
@@ -189,5 +433,10 @@ public class PlayerController : MonoBehaviour
     public Vector2 GetFacingDirection()
     {
         return facingDirection;
+    }
+    
+    public bool IsMounted()
+    {
+        return isMounted;
     }
 }

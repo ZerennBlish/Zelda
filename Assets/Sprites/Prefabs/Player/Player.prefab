@@ -463,9 +463,20 @@ MonoBehaviour:
   maxArrows: 30
   currentArrows: 30
   boomerangPrefab: {fileID: 7328929867772883412, guid: ea5739f4726db2f4b926f6af9e9c1340, type: 3}
-  boomerangKey: 101
+  bombPrefab: {fileID: 2005234844499816987, guid: 7115371ff2d0061dfb332b2b79f1e6d0, type: 3}
+  maxBombs: 10
+  currentBombs: 10
+  grapplingHookPrefab: {fileID: 650404279585552501, guid: da2f3547349b7dd9886456df2e09f65c, type: 3}
+  grapplePullSpeed: 12
+  horsePrefab: {fileID: 7478332180402105955, guid: b49407f3533eed8538703eefb2d129e2, type: 3}
+  mountedSpeedMultiplier: 2.5
+  summonDistance: 1.5
+  ramDamageToEnemy: 1
+  ramDamageToPlayer: 1
+  ramCooldown: 0.5
   sword: {fileID: 7479679617738319981}
   arrowUI: {fileID: 0}
+  bombUI: {fileID: 0}
 --- !u!114 &5966172748924265891
 MonoBehaviour:
   m_ObjectHideFlags: 0
