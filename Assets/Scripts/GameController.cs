@@ -5,6 +5,15 @@ public class GameController : MonoBehaviour
 {
     void Update()
     {
+        // Temporary - find which button is which on your Xbox controller
+        for (int i = 0; i < 20; i++)
+        {
+            if (Input.GetKeyDown((KeyCode)(350 + i)))
+            {
+                Debug.Log("Joystick Button " + i + " pressed");
+            }
+        }
+        
         // Debug refill - O key
         if (Input.GetKeyDown(KeyCode.O))
         {
@@ -17,7 +26,8 @@ public class GameController : MonoBehaviour
             FullReset();
         }
         
-        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetButtonDown("Cancel"))
+        // Quit - Escape only
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             #if UNITY_EDITOR
                 UnityEditor.EditorApplication.isPlaying = false;

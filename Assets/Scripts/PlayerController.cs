@@ -128,8 +128,8 @@ public class PlayerController : MonoBehaviour
             facingDirection = movement.normalized;
         }
         
-        // --- MOUNT TOGGLE - M ---
-        if (Input.GetKeyDown(KeyCode.M))
+        // --- MOUNT TOGGLE - M / Back button ---
+        if (Input.GetKeyDown(KeyCode.M) || Input.GetKeyDown(KeyCode.JoystickButton6))
         {
             if (isMounted)
             {
@@ -144,8 +144,8 @@ public class PlayerController : MonoBehaviour
         // --- WEAPON CONTROLS (blocked while mounted) ---
         if (!isMounted)
         {
-            // Sword - Space or Left Click
-            if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
+            // Sword - Space / Left Click / X button
+            if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.JoystickButton2))
             {
                 if (sword != null)
                 {
@@ -153,27 +153,27 @@ public class PlayerController : MonoBehaviour
                 }
             }
             
-            // Boomerang - E or Right Click
-            if ((Input.GetKeyDown(KeyCode.E) || Input.GetMouseButtonDown(1)) && !boomerangOut)
+            // Boomerang - E / Right Click / Y button
+            if ((Input.GetKeyDown(KeyCode.E) || Input.GetMouseButtonDown(1) || Input.GetKeyDown(KeyCode.JoystickButton3)) && !boomerangOut)
             {
                 ThrowBoomerang();
             }
             
-            // Arrow - F or Middle Click (hold to rapid fire)
-            if ((Input.GetKey(KeyCode.F) || Input.GetMouseButton(2)) && Time.time >= nextFireTime)
+            // Arrow - F / Middle Click / RB (hold to rapid fire)
+            if ((Input.GetKey(KeyCode.F) || Input.GetMouseButton(2) || Input.GetKey(KeyCode.JoystickButton5)) && Time.time >= nextFireTime)
             {
                 Shoot();
                 nextFireTime = Time.time + fireRate;
             }
             
-            // Bomb - Q
-            if (Input.GetKeyDown(KeyCode.Q))
+            // Bomb - Q / LB
+            if (Input.GetKeyDown(KeyCode.Q) || Input.GetKeyDown(KeyCode.JoystickButton4))
             {
                 PlaceBomb();
             }
             
-            // Grappling Hook - G
-            if (Input.GetKeyDown(KeyCode.G))
+            // Grappling Hook - G / A button
+            if (Input.GetKeyDown(KeyCode.G) || Input.GetKeyDown(KeyCode.JoystickButton0))
             {
                 FireGrapple();
             }

@@ -10041,63 +10041,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1433138587}
   m_SourcePrefab: {fileID: 100100000, guid: 29864e92772e8ab4e8db4733fb970b65, type: 3}
---- !u!1001 &953158202
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1684797596344595253, guid: 7199ffc30f773db4da7bcf30ec2aca34, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -20.675669
-      objectReference: {fileID: 0}
-    - target: {fileID: 1684797596344595253, guid: 7199ffc30f773db4da7bcf30ec2aca34, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.69822156
-      objectReference: {fileID: 0}
-    - target: {fileID: 1684797596344595253, guid: 7199ffc30f773db4da7bcf30ec2aca34, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1684797596344595253, guid: 7199ffc30f773db4da7bcf30ec2aca34, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1684797596344595253, guid: 7199ffc30f773db4da7bcf30ec2aca34, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1684797596344595253, guid: 7199ffc30f773db4da7bcf30ec2aca34, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1684797596344595253, guid: 7199ffc30f773db4da7bcf30ec2aca34, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1684797596344595253, guid: 7199ffc30f773db4da7bcf30ec2aca34, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1684797596344595253, guid: 7199ffc30f773db4da7bcf30ec2aca34, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1684797596344595253, guid: 7199ffc30f773db4da7bcf30ec2aca34, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5643182192353840789, guid: 7199ffc30f773db4da7bcf30ec2aca34, type: 3}
-      propertyPath: m_Name
-      value: Slime_Small_Green
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 7199ffc30f773db4da7bcf30ec2aca34, type: 3}
 --- !u!1 &954476550
 GameObject:
   m_ObjectHideFlags: 0
@@ -27389,6 +27332,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 7479679617738319981, guid: 68f2c59a08a9d7a44accffe364d3935b, type: 3}
+      propertyPath: swordBeamPrefab
+      value: 
+      objectReference: {fileID: 3732556372911528445, guid: d7a5bd63b0da99f41b9991364d1b969c, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -28497,4 +28444,3 @@ SceneRoots:
   - {fileID: 1106546676}
   - {fileID: 1867873120}
   - {fileID: 406462456}
-  - {fileID: 953158202}

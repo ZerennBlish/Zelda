@@ -8,7 +8,7 @@ public class PlayerShield : MonoBehaviour
     
     [Header("Input")]
     public KeyCode blockKey = KeyCode.LeftShift;
-    public string blockButton = "Fire3";
+    public KeyCode blockButton = KeyCode.JoystickButton1; // Xbox B
     
     private SpriteRenderer spriteRenderer;
     private PlayerController playerController;
@@ -27,7 +27,7 @@ public class PlayerShield : MonoBehaviour
 
     void Update()
     {
-        isBlocking = Input.GetKey(blockKey) || Input.GetButton(blockButton);
+        isBlocking = Input.GetKey(blockKey) || Input.GetKey(blockButton);
         
         spriteRenderer.enabled = isBlocking;
         
@@ -66,7 +66,6 @@ public class PlayerShield : MonoBehaviour
         
         Vector2 toAttacker = (attackSource - (Vector2)playerTransform.position).normalized;
         float angle = Vector2.Angle(blockDirection, toAttacker);
-        
         
         return angle < shieldArc / 2f;
     }
