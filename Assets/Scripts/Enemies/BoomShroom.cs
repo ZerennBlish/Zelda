@@ -22,15 +22,22 @@ public class BoomShroom : MonoBehaviour, IDamageable
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        player = GameObject.FindGameObjectWithTag("Player").transform;
         spriteRenderer = GetComponent<SpriteRenderer>();
         dropper = GetComponent<Dropper>();
+        
+        GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
+        if (playerObj != null)
+        {
+            player = playerObj.transform;
+        }
+        
         PickNewWanderDirection();
     }
 
     void Update()
     {
         if (isExploding) return;
+        if (player == null) return;
         
         float distanceToPlayer = Vector2.Distance(transform.position, player.position);
         
@@ -90,17 +97,19 @@ public class BoomShroom : MonoBehaviour, IDamageable
     {
         if (isExploding && spriteRenderer != null && !spriteRenderer.enabled)
         {
-            // Already in explosion sequence, don't double-explode
             return;
         }
         
-        float distanceToPlayer = Vector2.Distance(transform.position, player.position);
-        if (distanceToPlayer <= explosionRadius)
+        if (player != null)
         {
-            PlayerHealth playerHealth = player.GetComponent<PlayerHealth>();
-            if (playerHealth != null)
+            float distanceToPlayer = Vector2.Distance(transform.position, player.position);
+            if (distanceToPlayer <= explosionRadius)
             {
-                playerHealth.TakeDamage(explosionDamage, transform.position);
+                PlayerHealth playerHealth = player.GetComponent<PlayerHealth>();
+                if (playerHealth != null)
+                {
+                    playerHealth.TakeDamage(explosionDamage, transform.position);
+                }
             }
         }
         

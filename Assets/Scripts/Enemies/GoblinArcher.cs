@@ -1,6 +1,7 @@
 using UnityEngine;
 
-public class GoblinArcher : MonoBehaviour, IStunnable, IDamageable{
+public class GoblinArcher : MonoBehaviour, IStunnable, IDamageable
+{
     [Header("Movement")]
     public float patrolSpeed = 1f;
     public float fleeSpeed = 3f;
@@ -42,14 +43,21 @@ public class GoblinArcher : MonoBehaviour, IStunnable, IDamageable{
         spriteRenderer = GetComponent<SpriteRenderer>();
         originalColor = spriteRenderer.color;
         dropper = GetComponent<Dropper>();
-        player = GameObject.FindGameObjectWithTag("Player").transform;
         startPosition = transform.position;
+        
+        GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
+        if (playerObj != null)
+        {
+            player = playerObj.transform;
+        }
+        
         PickNewPatrolDirection();
     }
 
     void Update()
     {
         if (isDead) return;
+        if (player == null) return;
         
         if (currentState == State.Stunned)
         {

@@ -41,8 +41,14 @@ public class OrcArcher : MonoBehaviour, IStunnable, IDamageable
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         originalColor = spriteRenderer.color;
-        player = GameObject.FindGameObjectWithTag("Player").transform;
         startPosition = transform.position;
+        
+        GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
+        if (playerObj != null)
+        {
+            player = playerObj.transform;
+        }
+        
         PickNewPatrolDirection();
     }
 

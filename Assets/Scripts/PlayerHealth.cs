@@ -48,11 +48,33 @@ public class PlayerHealth : MonoBehaviour
         }
     }
     
+    // No attack source — skip shield check entirely
+    // Used by hazards, environmental damage, or anything without a direction
     public void TakeDamage(int damage)
     {
-        TakeDamage(damage, transform.position);
+        if (isInvincible) return;
+        
+        isInvincible = true;
+        
+        currentHealth -= damage;
+        
+        if (healthUI != null)
+        {
+            healthUI.UpdateHearts(currentHealth, maxHealth);
+        }
+        
+        if (currentHealth <= 0)
+        {
+            LoseLife();
+        }
+        else
+        {
+            StartCoroutine(InvincibilityFrames());
+        }
     }
     
+    // Has attack source — shield can block if facing the right way
+    // Used by enemies, projectiles, anything with a position
     public void TakeDamage(int damage, Vector2 attackSource)
     {
         if (isInvincible) return;

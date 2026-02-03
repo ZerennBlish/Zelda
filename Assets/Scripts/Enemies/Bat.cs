@@ -1,6 +1,7 @@
 using UnityEngine;
 
-public class Bat : MonoBehaviour, IDamageable{
+public class Bat : MonoBehaviour, IDamageable
+{
     [Header("Movement")]
     public float wanderSpeed = 2f;
     public float chaseSpeed = 3f;
@@ -17,12 +18,19 @@ public class Bat : MonoBehaviour, IDamageable{
     
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").transform;
+        GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
+        if (playerObj != null)
+        {
+            player = playerObj.transform;
+        }
+        
         PickRandomDirection();
     }
     
     void Update()
     {
+        if (player == null) return;
+        
         float distanceToPlayer = Vector2.Distance(transform.position, player.position);
         
         if (distanceToPlayer <= chaseRange)
