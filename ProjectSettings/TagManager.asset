@@ -11,6 +11,7 @@ TagManager:
   - CrackedWall
   - Destructible
   - GrapplePoint
+  - Grappable
   layers:
   - Default
   - TransparentFX

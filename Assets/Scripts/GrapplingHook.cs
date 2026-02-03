@@ -11,6 +11,9 @@ public class GrapplingHook : MonoBehaviour
     [Header("Enemy Grab")]
     public float hookStunDuration = 1.5f;
     
+    [Header("Grappable Landing")]
+    public float grappableLandingOffset = 0.8f;
+    
     private enum HookState { Flying, PullPlayer, PullTarget, Missed }
     private HookState currentState = HookState.Flying;
     
@@ -172,7 +175,7 @@ public class GrapplingHook : MonoBehaviour
     {
         if (currentState != HookState.Flying) return;
         
-        // Priority 1: Grapple points — pull player across
+        // Priority 1: Dedicated grapple points — pull player across
         if (other.CompareTag("GrapplePoint"))
         {
             currentState = HookState.PullPlayer;
@@ -194,7 +197,23 @@ public class GrapplingHook : MonoBehaviour
             return;
         }
         
-        // Priority 2: Enemies — pull enemy to player (dangerous!)
+        // Priority 2: Environmental grappable objects — pull player to them
+        // Trees, stumps, posts, rocks — anything tagged "Grappable"
+        if (other.CompareTag("Grappable"))
+        {
+            currentState = HookState.PullPlayer;
+            transform.position = other.transform.position;
+            
+            // Land next to the object, offset back toward where the player fired from
+            // This prevents the player from ending up inside the tree/stump
+            Vector2 approachDirection = ((Vector2)other.transform.position - (Vector2)player.position).normalized;
+            Vector3 landingPos = other.transform.position - (Vector3)(approachDirection * grappableLandingOffset);
+            
+            playerController.GrappleLatched(landingPos);
+            return;
+        }
+        
+        // Priority 3: Enemies — pull enemy to player (dangerous!)
         if (other.CompareTag("Enemy"))
         {
             currentState = HookState.PullTarget;
@@ -213,7 +232,7 @@ public class GrapplingHook : MonoBehaviour
             return;
         }
         
-        // Priority 3: Pickups — pull item to player
+        // Priority 4: Pickups — pull item to player
         if (other.CompareTag("Pickup"))
         {
             currentState = HookState.PullTarget;
@@ -231,7 +250,7 @@ public class GrapplingHook : MonoBehaviour
             return;
         }
         
-        // Priority 4: Walls — miss
+        // Priority 5: Walls — miss
         if (other.CompareTag("Wall"))
         {
             playerController.GrappleMissed();
