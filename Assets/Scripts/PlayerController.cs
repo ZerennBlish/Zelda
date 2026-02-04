@@ -30,7 +30,7 @@ public class PlayerController : MonoBehaviour
     public float ramCooldown = 0.5f;
     
     [Header("References")]
-    public Sword sword;
+    public Melee melee;
     public ArrowUI arrowUI;
     public BombUI bombUI;
     
@@ -144,12 +144,12 @@ public class PlayerController : MonoBehaviour
         // --- WEAPON CONTROLS (blocked while mounted) ---
         if (!isMounted)
         {
-            // Sword - Space / Left Click / X button
+            // Melee - Space / Left Click / X button
             if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.JoystickButton2))
             {
-                if (sword != null)
+                if (melee != null)
                 {
-                    sword.Swing(facingDirection);
+                    melee.Swing(facingDirection);
                 }
             }
             
@@ -199,14 +199,10 @@ public class PlayerController : MonoBehaviour
         // Swap player sprite to horse
         spriteRenderer.sprite = horseSprite;
         
-        // Hide sword
-        if (sword != null)
+        // Disable melee while mounted
+        if (melee != null)
         {
-            SpriteRenderer swordSR = sword.GetComponent<SpriteRenderer>();
-            if (swordSR != null)
-            {
-                swordSR.enabled = false;
-            }
+            melee.gameObject.SetActive(false);
         }
     }
     
@@ -217,14 +213,10 @@ public class PlayerController : MonoBehaviour
         // Swap back to normal player sprite
         spriteRenderer.sprite = normalSprite;
         
-        // Show sword again
-        if (sword != null)
+        // Re-enable melee
+        if (melee != null)
         {
-            SpriteRenderer swordSR = sword.GetComponent<SpriteRenderer>();
-            if (swordSR != null)
-            {
-                swordSR.enabled = true;
-            }
+            melee.gameObject.SetActive(true);
         }
     }
     

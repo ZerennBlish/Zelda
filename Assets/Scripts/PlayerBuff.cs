@@ -15,7 +15,7 @@ public class PlayerBuff : MonoBehaviour
     // Stored originals for restoration
     private float originalSpeed;
     private int originalDamage;
-    private Sword swordRef;
+    private Melee meleeRef;
 
     public void Initialize(BuffType type)
     {
@@ -42,11 +42,11 @@ public class PlayerBuff : MonoBehaviour
                 
             case BuffType.Power:
                 timer = duration;
-                if (playerController != null && playerController.sword != null)
+                if (playerController != null && playerController.melee != null)
                 {
-                    swordRef = playerController.sword;
-                    originalDamage = swordRef.damage;
-                    swordRef.damage *= 2;
+                    meleeRef = playerController.melee;
+                    originalDamage = meleeRef.damage;
+                    meleeRef.damage *= 2;
                 }
                 ApplyTint(new Color(1f, 0.3f, 0.3f, 1f)); // Red
                 break;
@@ -128,9 +128,9 @@ public class PlayerBuff : MonoBehaviour
                 break;
                 
             case BuffType.Power:
-                if (swordRef != null)
+                if (meleeRef != null)
                 {
-                    swordRef.damage = originalDamage;
+                    meleeRef.damage = originalDamage;
                 }
                 break;
         }

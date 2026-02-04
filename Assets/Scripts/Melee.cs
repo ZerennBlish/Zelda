@@ -1,14 +1,12 @@
 using UnityEngine;
 
-public class Sword : MonoBehaviour
+public class Melee : MonoBehaviour
 {
     public float swingDuration = 0.3f;
     public float cooldown = 0.4f;
     public int damage = 1;
     public Collider2D hitbox;
     public float hitboxDistance = 0.5f;
-    public Sprite idleSprite;
-    public Sprite[] swingSprites;
     
     [Header("Sword Beam")]
     public GameObject swordBeamPrefab;
@@ -16,13 +14,11 @@ public class Sword : MonoBehaviour
     
     private bool canSwing = true;
     private bool isSwinging = false;
-    private SpriteRenderer spriteRenderer;
     private Transform player;
     private PlayerHealth playerHealth;
 
     void Start()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
         player = transform.parent;
         
         if (player != null)
@@ -80,14 +76,7 @@ public class Sword : MonoBehaviour
             hitbox.enabled = true;
         }
         
-        float frameTime = swingDuration / swingSprites.Length;
-        for (int i = 0; i < swingSprites.Length; i++)
-        {
-            spriteRenderer.sprite = swingSprites[i];
-            yield return new WaitForSeconds(frameTime);
-        }
-        
-        spriteRenderer.sprite = idleSprite;
+        yield return new WaitForSeconds(swingDuration);
         
         if (hitbox != null)
         {
