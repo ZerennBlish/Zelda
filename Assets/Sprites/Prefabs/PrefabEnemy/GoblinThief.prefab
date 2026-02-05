@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3659076296848115269}
   - component: {fileID: 6134127242571239272}
   - component: {fileID: 3133686028607922387}
+  - component: {fileID: 8913143415838665084}
   m_Layer: 0
   m_Name: GoblinThief
   m_TagString: Enemy
@@ -208,3 +209,17 @@ MonoBehaviour:
   stealAmount: 5
   stolenRupees: 0
   health: 5
+--- !u!114 &8913143415838665084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2722375310495243155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d30cfc04da48a9545972ee22bbcde903, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HitFlash
+  flashColor: {r: 0.2941177, g: 0, b: 0.509804, a: 1}
+  flashDuration: 0.2

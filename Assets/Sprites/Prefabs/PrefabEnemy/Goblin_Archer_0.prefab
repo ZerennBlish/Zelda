@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6245095081003066736}
   - component: {fileID: 1459607096332756891}
   - component: {fileID: 3958466682284703345}
+  - component: {fileID: 251759271849998509}
   m_Layer: 0
   m_Name: Goblin_Archer_0
   m_TagString: Enemy
@@ -211,3 +212,17 @@ MonoBehaviour:
   - {fileID: 7510524216245386630, guid: eef13f045ebb81dc18265ad24e4ed364, type: 3}
   - {fileID: 2005234844499816987, guid: 5db0c1796d5a3f8459217c174820e6d3, type: 3}
   dropChance: 0.3
+--- !u!114 &251759271849998509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8099597051790110161}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d30cfc04da48a9545972ee22bbcde903, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HitFlash
+  flashColor: {r: 0.2941177, g: 0, b: 0.509804, a: 1}
+  flashDuration: 0.2

@@ -229,5 +229,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d30cfc04da48a9545972ee22bbcde903, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HitFlash
-  flashColor: {r: 1, g: 1, b: 1, a: 1}
-  flashDuration: 0.1
+  flashColor: {r: 0.2941177, g: 0, b: 0.509804, a: 1}
+  flashDuration: 0.2

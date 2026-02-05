@@ -105,6 +105,7 @@ GameObject:
   - component: {fileID: 7942014254504475613}
   - component: {fileID: 7456208406566958289}
   - component: {fileID: 6327398073049119537}
+  - component: {fileID: 753626907575751096}
   m_Layer: 0
   m_Name: ShieldKnight
   m_TagString: Enemy
@@ -308,3 +309,17 @@ MonoBehaviour:
   - {fileID: 5426699805022184389, guid: 10f3748d53f620e7a91734a83c80e5e2, type: 3}
   - {fileID: 2005234844499816987, guid: 5db0c1796d5a3f8459217c174820e6d3, type: 3}
   dropChance: 0.5
+--- !u!114 &753626907575751096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5657818806231478693}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d30cfc04da48a9545972ee22bbcde903, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HitFlash
+  flashColor: {r: 0.2941177, g: 0, b: 0.509804, a: 1}
+  flashDuration: 0.2

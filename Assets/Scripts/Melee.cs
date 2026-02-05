@@ -141,6 +141,10 @@ public class Melee : MonoBehaviour
                 if (knight != null)
                 {
                     knight.TakeDamage(damage, player.position);
+                    
+                    HitFlash flash = hit.GetComponent<HitFlash>();
+                    if (flash != null) flash.Flash();
+                    
                     continue;
                 }
                 
@@ -148,6 +152,10 @@ public class Melee : MonoBehaviour
                 if (damageable != null)
                 {
                     damageable.TakeDamage(damage);
+                    
+                    HitFlash flash = hit.GetComponent<HitFlash>();
+                    if (flash != null) flash.Flash();
+                    
                     continue;
                 }
             }

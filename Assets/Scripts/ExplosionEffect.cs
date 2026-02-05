@@ -33,6 +33,9 @@ public class ExplosionEffect : MonoBehaviour
                 if (damageable != null)
                 {
                     damageable.TakeDamage(explosionDamage);
+                    
+                    HitFlash flash = hit.GetComponent<HitFlash>();
+                    if (flash != null) flash.Flash();
                 }
             }
             

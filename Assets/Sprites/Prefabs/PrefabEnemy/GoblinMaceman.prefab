@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8005983746523939564}
   - component: {fileID: 4910532133655944646}
   - component: {fileID: 7217059133362012224}
+  - component: {fileID: 434886215112517163}
   m_Layer: 0
   m_Name: GoblinMaceman
   m_TagString: Enemy
@@ -211,3 +212,17 @@ MonoBehaviour:
   - {fileID: 4888719525989047742, guid: 2d4780c3c7ea2a8018732b33df671b2d, type: 3}
   - {fileID: 2005234844499816987, guid: 5db0c1796d5a3f8459217c174820e6d3, type: 3}
   dropChance: 0.2
+--- !u!114 &434886215112517163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 411723669101770063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d30cfc04da48a9545972ee22bbcde903, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HitFlash
+  flashColor: {r: 0.2941177, g: 0, b: 0.509804, a: 1}
+  flashDuration: 0.2

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4191738678151766511}
   - component: {fileID: 1733419886538286135}
   - component: {fileID: 4404740489440024945}
+  - component: {fileID: 1827282371651447075}
   m_Layer: 0
   m_Name: SkeletonMage
   m_TagString: Enemy
@@ -212,3 +213,17 @@ MonoBehaviour:
   - {fileID: 5426699805022184389, guid: 10f3748d53f620e7a91734a83c80e5e2, type: 3}
   - {fileID: 2005234844499816987, guid: 5db0c1796d5a3f8459217c174820e6d3, type: 3}
   dropChance: 0.2
+--- !u!114 &1827282371651447075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7804738890202484402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d30cfc04da48a9545972ee22bbcde903, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HitFlash
+  flashColor: {r: 0.2941177, g: 0, b: 0.509804, a: 1}
+  flashDuration: 0.2

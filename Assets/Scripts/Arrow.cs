@@ -34,15 +34,25 @@ public class Arrow : MonoBehaviour
             if (knight != null)
             {
                 knight.TakeDamage(damage, transform.position);
+                
+                // Flash on hit
+                HitFlash flash = other.GetComponent<HitFlash>();
+                if (flash != null) flash.Flash();
+                
                 Destroy(gameObject);
                 return;
             }
-            
+            Debug.Log("Arrow hit " + other.name + " - attempting flash");
             // All other enemies use the interface
             IDamageable damageable = other.GetComponent<IDamageable>();
             if (damageable != null)
             {
                 damageable.TakeDamage(damage);
+                
+                // Flash on hit
+                HitFlash flash = other.GetComponent<HitFlash>();
+                if (flash != null) flash.Flash();
+                
                 Destroy(gameObject);
                 return;
             }

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4842956876246879808}
   - component: {fileID: 2556513159057951072}
   - component: {fileID: 4289037654701107515}
+  - component: {fileID: -5982735791283461545}
   m_Layer: 0
   m_Name: FlyingSkull
   m_TagString: Enemy
@@ -203,3 +204,17 @@ MonoBehaviour:
   - {fileID: 4649896040160936536, guid: 1e0b5f351a692d93db7b2c0ad6aeee98, type: 3}
   - {fileID: 2005234844499816987, guid: 5db0c1796d5a3f8459217c174820e6d3, type: 3}
   dropChance: 0.5
+--- !u!114 &-5982735791283461545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6508332341031371439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d30cfc04da48a9545972ee22bbcde903, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HitFlash
+  flashColor: {r: 0.2941177, g: 0, b: 0.509804, a: 1}
+  flashDuration: 0.2

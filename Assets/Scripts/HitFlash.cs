@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class HitFlash : MonoBehaviour
 {
-    public Color flashColor = Color.white;
-    public float flashDuration = 0.1f;
+    public Color flashColor = new Color(0.29f, 0f, 0.51f, 1f); // Indigo
+    public float flashDuration = 0.2f;
     
     private SpriteRenderer spriteRenderer;
     private Color originalColor;

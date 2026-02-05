@@ -49,6 +49,10 @@ public class SwordBeam : MonoBehaviour
             if (knight != null)
             {
                 knight.TakeDamage(damage, transform.position);
+                
+                HitFlash flash = other.GetComponent<HitFlash>();
+                if (flash != null) flash.Flash();
+                
                 Destroy(gameObject);
                 return;
             }
@@ -58,6 +62,10 @@ public class SwordBeam : MonoBehaviour
             if (damageable != null)
             {
                 damageable.TakeDamage(damage);
+                
+                HitFlash flash = other.GetComponent<HitFlash>();
+                if (flash != null) flash.Flash();
+                
                 Destroy(gameObject);
                 return;
             }

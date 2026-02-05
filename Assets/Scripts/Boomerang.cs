@@ -90,10 +90,15 @@ public class Boomerang : MonoBehaviour
                 if (bat != null)
                 {
                     bat.TakeDamage(1);
+                    
+                    // Flash on kill hit
+                    HitFlash flash = other.GetComponent<HitFlash>();
+                    if (flash != null) flash.Flash();
                 }
                 else
                 {
                     // Everything else gets stunned
+                    // No HitFlash here — the stun color IS the feedback
                     IStunnable stunnable = other.GetComponent<IStunnable>();
                     if (stunnable != null)
                     {
