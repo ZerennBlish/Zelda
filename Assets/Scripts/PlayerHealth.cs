@@ -15,11 +15,13 @@ public class PlayerHealth : MonoBehaviour
     private bool isInvincible = false;
     private SpriteRenderer spriteRenderer;
     private PlayerShield playerShield;
+    private PlayerClass playerClass;
     
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         playerShield = GetComponentInChildren<PlayerShield>();
+        playerClass = GetComponent<PlayerClass>();
         
         if (PlayerPrefs.HasKey("SavedMaxHealth"))
         {
@@ -48,11 +50,27 @@ public class PlayerHealth : MonoBehaviour
         }
     }
     
+    /// <summary>
+    /// Applies armor reduction if player has it (Swordsman+).
+    /// Damage of 1 becomes 0 with armor — minimum 1 if original was 2+.
+    /// This gives half-heart feel: most hits deal less, big hits still hurt.
+    /// </summary>
+    int ApplyArmor(int damage)
+    {
+        if (playerClass != null && playerClass.HasArmor())
+        {
+            damage = Mathf.Max(1, damage / 2);
+        }
+        return damage;
+    }
+    
     // No attack source — skip shield check entirely
     // Used by hazards, environmental damage, or anything without a direction
     public void TakeDamage(int damage)
     {
         if (isInvincible) return;
+        
+        damage = ApplyArmor(damage);
         
         isInvincible = true;
         
@@ -83,6 +101,8 @@ public class PlayerHealth : MonoBehaviour
         {
             return;
         }
+        
+        damage = ApplyArmor(damage);
         
         isInvincible = true;
         

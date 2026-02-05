@@ -7334,6 +7334,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6183945588772617152, guid: 088031f006699e1438029a4e14c7c3f0, type: 3}
   m_PrefabInstance: {fileID: 1794029048}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &680351684 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7282810350277494170, guid: 68f2c59a08a9d7a44accffe364d3935b, type: 3}
+  m_PrefabInstance: {fileID: 2144343752}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &691834356 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2628342977179231497, guid: 29864e92772e8ab4e8db4733fb970b65, type: 3}
@@ -14154,6 +14159,35 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4253450378591119760, guid: 68f2c59a08a9d7a44accffe364d3935b, type: 3}
   m_PrefabInstance: {fileID: 2144343752}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1218303267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 680351684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e00f8a893673b24886f3962e641acc4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerClass
+  currentClass: 0
+  archerSprite: {fileID: -7132172409892320828, guid: e8cd78bb4ea8e284186b9ac6ff4afdb7, type: 3}
+  swordsmanSprite: {fileID: -6867757744863099905, guid: 78f4798cfa3f0c64c870e2989cb9b40f, type: 3}
+  spearmanSprite: {fileID: 3973588016999555590, guid: baaae734c8b74514fa5defb847aeda8e, type: 3}
+  paladinSprite: {fileID: 1573145380813401235, guid: 1c80e8a5f7507374397c6f7a04001105, type: 3}
+  archerArc: 90
+  archerReach: 0.5
+  archerDamage: 1
+  swordsmanArc: 120
+  swordsmanReach: 0.7
+  swordsmanDamage: 2
+  spearmanArc: 30
+  spearmanReach: 1.2
+  spearmanDamage: 3
+  paladinArc: 180
+  paladinReach: 0.9
+  paladinDamage: 4
 --- !u!1 &1223587867 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8127642793241882068, guid: 7f439f430b0497348a52fc29e45edc91, type: 3}
@@ -26778,6 +26812,67 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 22c76b1d26c45014f9800ad0e671dc47, type: 3}
+--- !u!1 &2119138766
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2119138768}
+  - component: {fileID: 2119138767}
+  m_Layer: 0
+  m_Name: PlayerClass
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2119138767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2119138766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e00f8a893673b24886f3962e641acc4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerClass
+  currentClass: 0
+  archerSprite: {fileID: 0}
+  swordsmanSprite: {fileID: 0}
+  spearmanSprite: {fileID: 0}
+  paladinSprite: {fileID: 0}
+  archerArc: 90
+  archerReach: 0.5
+  archerDamage: 1
+  swordsmanArc: 120
+  swordsmanReach: 0.7
+  swordsmanDamage: 2
+  spearmanArc: 30
+  spearmanReach: 1.2
+  spearmanDamage: 3
+  paladinArc: 180
+  paladinReach: 0.9
+  paladinDamage: 4
+--- !u!4 &2119138768
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2119138766}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.51553, y: -1.70565, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &2121868435 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2335738394212288440, guid: 27073c9e29b2dbc4dbc842a8b0173fe4, type: 3}
@@ -27380,7 +27475,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4253450378591119760, guid: 68f2c59a08a9d7a44accffe364d3935b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1223587871}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7282810350277494170, guid: 68f2c59a08a9d7a44accffe364d3935b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1218303267}
   m_SourcePrefab: {fileID: 100100000, guid: 68f2c59a08a9d7a44accffe364d3935b, type: 3}
 --- !u!1001 &2144668521
 PrefabInstance:
@@ -28483,3 +28581,4 @@ SceneRoots:
   - {fileID: 1910864481}
   - {fileID: 3686237858301391613}
   - {fileID: 1867873120}
+  - {fileID: 2119138768}

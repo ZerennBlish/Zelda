@@ -20,6 +20,13 @@ public class GameController : MonoBehaviour
             RefillEverything();
         }
         
+        // Debug class upgrade - T key
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            PlayerClass pc = FindFirstObjectByType<PlayerClass>();
+            if (pc != null) pc.UpgradeClass();
+        }
+        
         // Full reset - R key
         if (Input.GetKeyDown(KeyCode.R))
         {
