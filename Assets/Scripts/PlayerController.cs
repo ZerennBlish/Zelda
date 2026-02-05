@@ -37,6 +37,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     private Collider2D playerCollider;
     private SpriteRenderer spriteRenderer;
+    private Camera mainCamera;
     private Vector2 movement;
     private Vector2 facingDirection = Vector2.down;
     private float nextFireTime = 0f;
@@ -59,8 +60,8 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         playerCollider = GetComponent<Collider2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        mainCamera = Camera.main;
         
-        // Store the normal player sprite so we can swap back
         normalSprite = spriteRenderer.sprite;
         
         if (PlayerPrefs.HasKey("SavedArrows"))
@@ -87,7 +88,6 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        // Ram cooldown ticks regardless of state
         if (ramTimer > 0f)
         {
             ramTimer -= Time.deltaTime;
@@ -114,7 +114,7 @@ public class PlayerController : MonoBehaviour
             return;
         }
         
-        // --- NORMAL INPUT ---
+        // --- MOVEMENT INPUT ---
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
         
@@ -123,9 +123,18 @@ public class PlayerController : MonoBehaviour
             movement = movement.normalized;
         }
         
-        if (movement != Vector2.zero)
+        // --- AIM DIRECTION follows mouse ---
+        if (mainCamera != null)
         {
-            facingDirection = movement.normalized;
+            Vector3 mouseWorldPos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
+            mouseWorldPos.z = 0f;
+            Vector2 aimDirection = ((Vector2)mouseWorldPos - (Vector2)transform.position);
+            
+            // Only update if mouse isn't right on top of the player
+            if (aimDirection.magnitude > 0.1f)
+            {
+                facingDirection = aimDirection.normalized;
+            }
         }
         
         // --- MOUNT TOGGLE - M / Back button ---
@@ -195,11 +204,8 @@ public class PlayerController : MonoBehaviour
         if (horseSprite == null) return;
         
         isMounted = true;
-        
-        // Swap player sprite to horse
         spriteRenderer.sprite = horseSprite;
         
-        // Disable melee while mounted
         if (melee != null)
         {
             melee.gameObject.SetActive(false);
@@ -209,11 +215,8 @@ public class PlayerController : MonoBehaviour
     void Dismount()
     {
         isMounted = false;
-        
-        // Swap back to normal player sprite
         spriteRenderer.sprite = normalSprite;
         
-        // Re-enable melee
         if (melee != null)
         {
             melee.gameObject.SetActive(true);
@@ -234,6 +237,9 @@ public class PlayerController : MonoBehaviour
             {
                 damageable.TakeDamage(ramDamageToEnemy);
             }
+            
+            HitFlash flash = collision.gameObject.GetComponent<HitFlash>();
+            if (flash != null) flash.Flash();
             
             PlayerHealth playerHealth = GetComponent<PlayerHealth>();
             if (playerHealth != null)
@@ -257,6 +263,9 @@ public class PlayerController : MonoBehaviour
             {
                 damageable.TakeDamage(ramDamageToEnemy);
             }
+            
+            HitFlash flash = collision.gameObject.GetComponent<HitFlash>();
+            if (flash != null) flash.Flash();
             
             PlayerHealth playerHealth = GetComponent<PlayerHealth>();
             if (playerHealth != null)

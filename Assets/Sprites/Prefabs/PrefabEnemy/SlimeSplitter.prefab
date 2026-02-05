@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6895747552160525179}
   - component: {fileID: 7117165717488702811}
   - component: {fileID: 3861734579969347865}
+  - component: {fileID: 2456305853697601313}
   m_Layer: 0
   m_Name: SlimeSplitter
   m_TagString: Enemy
@@ -196,6 +197,7 @@ MonoBehaviour:
   largeHealth: 3
   mediumHealth: 2
   smallHealth: 1
+  stunColor: {r: 0.5, g: 0.5, b: 1, a: 1}
 --- !u!114 &3861734579969347865
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -215,3 +217,17 @@ MonoBehaviour:
   - {fileID: 4649896040160936536, guid: 1e0b5f351a692d93db7b2c0ad6aeee98, type: 3}
   - {fileID: 2005234844499816987, guid: 5db0c1796d5a3f8459217c174820e6d3, type: 3}
   dropChance: 0.2
+--- !u!114 &2456305853697601313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7952803043588687610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d30cfc04da48a9545972ee22bbcde903, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HitFlash
+  flashColor: {r: 1, g: 1, b: 1, a: 1}
+  flashDuration: 0.1
