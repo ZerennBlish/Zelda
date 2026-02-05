@@ -41,7 +41,6 @@ public class Melee : MonoBehaviour
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         transform.localRotation = Quaternion.Euler(0, 0, angle);
         
-        // Fire sword beam if at full health
         if (swordBeamPrefab != null && playerHealth != null)
         {
             if (playerHealth.currentHealth >= playerHealth.maxHealth)
@@ -89,11 +88,10 @@ public class Melee : MonoBehaviour
         canSwing = true;
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    void HandleHit(Collider2D other)
     {
         if (other.CompareTag("Enemy") && isSwinging)
         {
-            // Special case: ShieldKnight needs attack direction for blocking
             ShieldKnight knight = other.GetComponent<ShieldKnight>();
             if (knight != null)
             {
@@ -101,7 +99,6 @@ public class Melee : MonoBehaviour
                 return;
             }
             
-            // All other enemies use the interface
             IDamageable damageable = other.GetComponent<IDamageable>();
             if (damageable != null)
             {
@@ -118,5 +115,15 @@ public class Melee : MonoBehaviour
                 destructible.TakeDamage(damage);
             }
         }
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        HandleHit(other);
+    }
+    
+    void OnTriggerStay2D(Collider2D other)
+    {
+        HandleHit(other);
     }
 }
