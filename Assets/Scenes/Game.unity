@@ -14188,6 +14188,9 @@ MonoBehaviour:
   paladinArc: 180
   paladinReach: 0.9
   paladinDamage: 4
+  swordsmanBeamPrefab: {fileID: 3732556372911528445, guid: d7a5bd63b0da99f41b9991364d1b969c, type: 3}
+  spearmanBeamPrefab: {fileID: 7392299878370570279, guid: b5d976b80b8795c429fd633ab79de75c, type: 3}
+  paladinBeamPrefab: {fileID: 2294982648286413635, guid: e3239376c1f01514ab2f007c62f34f2d, type: 3}
 --- !u!1 &1223587867 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8127642793241882068, guid: 7f439f430b0497348a52fc29e45edc91, type: 3}
@@ -26858,6 +26861,9 @@ MonoBehaviour:
   paladinArc: 180
   paladinReach: 0.9
   paladinDamage: 4
+  swordsmanBeamPrefab: {fileID: 0}
+  spearmanBeamPrefab: {fileID: 0}
+  paladinBeamPrefab: {fileID: 0}
 --- !u!4 &2119138768
 Transform:
   m_ObjectHideFlags: 0

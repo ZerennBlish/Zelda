@@ -30,6 +30,12 @@ public class PlayerClass : MonoBehaviour
     public float paladinReach = 0.9f;
     public int paladinDamage = 4;
     
+    [Header("Beam Prefabs Per Class")]
+    public GameObject swordsmanBeamPrefab;
+    public GameObject spearmanBeamPrefab;
+    public GameObject paladinBeamPrefab;
+    // Archer has no beam — leave null
+    
     // Half damage flag — true once Swordsman or above
     private bool hasArmor = false;
     
@@ -110,7 +116,7 @@ public class PlayerClass : MonoBehaviour
     }
     
     /// <summary>
-    /// Applies all changes for the current class — sprite, melee config.
+    /// Applies all changes for the current class — sprite, melee config, beam.
     /// </summary>
     void ApplyClass()
     {
@@ -134,7 +140,7 @@ public class PlayerClass : MonoBehaviour
             }
         }
         
-        // Configure melee
+        // Configure melee and beam
         if (melee != null)
         {
             switch (currentClass)
@@ -143,25 +149,29 @@ public class PlayerClass : MonoBehaviour
                     melee.swingArc = archerArc;
                     melee.hitboxDistance = archerReach;
                     melee.damage = archerDamage;
+                    melee.swordBeamPrefab = null; // No beam for Archer
                     break;
                 case ClassTier.Swordsman:
                     melee.swingArc = swordsmanArc;
                     melee.hitboxDistance = swordsmanReach;
                     melee.damage = swordsmanDamage;
+                    melee.swordBeamPrefab = swordsmanBeamPrefab;
                     break;
                 case ClassTier.Spearman:
                     melee.swingArc = spearmanArc;
                     melee.hitboxDistance = spearmanReach;
                     melee.damage = spearmanDamage;
+                    melee.swordBeamPrefab = spearmanBeamPrefab;
                     break;
                 case ClassTier.Paladin:
                     melee.swingArc = paladinArc;
                     melee.hitboxDistance = paladinReach;
                     melee.damage = paladinDamage;
+                    melee.swordBeamPrefab = paladinBeamPrefab;
                     break;
             }
             
-            Debug.Log("Melee set: arc=" + melee.swingArc + " reach=" + melee.hitboxDistance + " damage=" + melee.damage);
+            Debug.Log("Class applied: " + currentClass + " | arc=" + melee.swingArc + " reach=" + melee.hitboxDistance + " damage=" + melee.damage + " beam=" + (melee.swordBeamPrefab != null ? melee.swordBeamPrefab.name : "none"));
         }
     }
     

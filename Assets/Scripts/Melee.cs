@@ -71,11 +71,29 @@ public class Melee : MonoBehaviour
         Vector3 spawnPos = player.position + (Vector3)(direction * beamSpawnDistance);
         GameObject beam = Instantiate(swordBeamPrefab, spawnPos, Quaternion.identity);
         
+        // Try each beam type — only one will exist on any given prefab
         SwordBeam sb = beam.GetComponent<SwordBeam>();
         if (sb != null)
         {
             sb.damage = damage;
             sb.SetDirection(direction);
+            return;
+        }
+        
+        SpearBeam spear = beam.GetComponent<SpearBeam>();
+        if (spear != null)
+        {
+            spear.damage = damage;
+            spear.SetDirection(direction);
+            return;
+        }
+        
+        TemplarWave wave = beam.GetComponent<TemplarWave>();
+        if (wave != null)
+        {
+            wave.damage = damage;
+            wave.SetDirection(direction);
+            return;
         }
     }
 
