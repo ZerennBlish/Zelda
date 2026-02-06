@@ -81,6 +81,12 @@ public class PauseManager : MonoBehaviour
             PlayerPrefs.SetInt("SavedMaxHealth", playerHealth.maxHealth);
         }
         
+        PlayerClass playerClass = FindFirstObjectByType<PlayerClass>();
+        if (playerClass != null)
+        {
+            PlayerPrefs.SetInt("SavedClassTier", (int)playerClass.GetCurrentClass());
+        }
+        
         PlayerPrefs.Save();
     }
 }

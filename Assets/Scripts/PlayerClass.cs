@@ -7,12 +7,6 @@ public class PlayerClass : MonoBehaviour
     [Header("Current Class")]
     public ClassTier currentClass = ClassTier.Archer;
     
-    [Header("Class Sprites (idle frame per class)")]
-    public Sprite archerSprite;
-    public Sprite swordsmanSprite;
-    public Sprite spearmanSprite;
-    public Sprite paladinSprite;
-    
     [Header("Melee Config Per Class")]
     public float archerArc = 90f;
     public float archerReach = 0.5f;
@@ -39,17 +33,22 @@ public class PlayerClass : MonoBehaviour
     // Half damage flag — true once Swordsman or above
     private bool hasArmor = false;
     
-    private SpriteRenderer spriteRenderer;
     private Melee melee;
     private PlayerHealth playerHealth;
 
     void Start()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
         melee = GetComponentInChildren<Melee>();
         playerHealth = GetComponent<PlayerHealth>();
         
-        // Apply whatever class is set (handles both fresh start and loaded saves)
+        // Load saved class if one exists
+        if (PlayerPrefs.HasKey("SavedClassTier"))
+        {
+            int savedTier = PlayerPrefs.GetInt("SavedClassTier");
+            currentClass = (ClassTier)savedTier;
+            hasArmor = (currentClass >= ClassTier.Swordsman);
+        }
+        
         ApplyClass();
     }
     
@@ -74,13 +73,11 @@ public class PlayerClass : MonoBehaviour
         switch (currentClass)
         {
             case ClassTier.Swordsman:
-                // First upgrade — gain armor (half damage)
                 hasArmor = true;
                 Debug.Log("Gained armor! Damage taken is halved.");
                 break;
                 
             case ClassTier.Spearman:
-                // Second upgrade — gain a heart
                 if (playerHealth != null)
                 {
                     playerHealth.IncreaseMaxHealth(1);
@@ -89,7 +86,6 @@ public class PlayerClass : MonoBehaviour
                 break;
                 
             case ClassTier.Paladin:
-                // Third upgrade — gain a heart
                 if (playerHealth != null)
                 {
                     playerHealth.IncreaseMaxHealth(1);
@@ -99,6 +95,7 @@ public class PlayerClass : MonoBehaviour
         }
         
         ApplyClass();
+        SaveClass();
     }
     
     /// <summary>
@@ -108,38 +105,24 @@ public class PlayerClass : MonoBehaviour
     public void SetClass(ClassTier tier)
     {
         currentClass = tier;
-        
-        // Armor applies at Swordsman and above
         hasArmor = (currentClass >= ClassTier.Swordsman);
         
         ApplyClass();
+        SaveClass();
+    }
+    
+    void SaveClass()
+    {
+        PlayerPrefs.SetInt("SavedClassTier", (int)currentClass);
+        PlayerPrefs.Save();
     }
     
     /// <summary>
-    /// Applies all changes for the current class — sprite, melee config, beam.
+    /// Applies melee config and beam for the current class.
+    /// Sprite animation is handled by PlayerAnimator which reads our class directly.
     /// </summary>
     void ApplyClass()
     {
-        // Swap sprite
-        if (spriteRenderer != null)
-        {
-            switch (currentClass)
-            {
-                case ClassTier.Archer:
-                    if (archerSprite != null) spriteRenderer.sprite = archerSprite;
-                    break;
-                case ClassTier.Swordsman:
-                    if (swordsmanSprite != null) spriteRenderer.sprite = swordsmanSprite;
-                    break;
-                case ClassTier.Spearman:
-                    if (spearmanSprite != null) spriteRenderer.sprite = spearmanSprite;
-                    break;
-                case ClassTier.Paladin:
-                    if (paladinSprite != null) spriteRenderer.sprite = paladinSprite;
-                    break;
-            }
-        }
-        
         // Configure melee and beam
         if (melee != null)
         {
@@ -149,7 +132,7 @@ public class PlayerClass : MonoBehaviour
                     melee.swingArc = archerArc;
                     melee.hitboxDistance = archerReach;
                     melee.damage = archerDamage;
-                    melee.swordBeamPrefab = null; // No beam for Archer
+                    melee.swordBeamPrefab = null;
                     break;
                 case ClassTier.Swordsman:
                     melee.swingArc = swordsmanArc;
@@ -175,10 +158,6 @@ public class PlayerClass : MonoBehaviour
         }
     }
     
-    /// <summary>
-    /// Called by PlayerHealth to check if damage should be halved.
-    /// Returns true if the player has armor (Swordsman+).
-    /// </summary>
     public bool HasArmor()
     {
         return hasArmor;

@@ -38,6 +38,12 @@ public class GameOverUI : MonoBehaviour
             PlayerPrefs.SetInt("SavedMaxHealth", health.maxHealth);
         }
         
+        PlayerClass playerClass = FindFirstObjectByType<PlayerClass>();
+        if (playerClass != null)
+        {
+            PlayerPrefs.SetInt("SavedClassTier", (int)playerClass.GetCurrentClass());
+        }
+        
         PlayerPrefs.Save();
     }
 }

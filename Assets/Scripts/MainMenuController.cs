@@ -24,6 +24,7 @@ public class MainMenuController : MonoBehaviour
         PlayerPrefs.DeleteKey("SavedArrows");
         PlayerPrefs.DeleteKey("SavedBombs");
         PlayerPrefs.DeleteKey("SavedMaxHealth");
+        PlayerPrefs.DeleteKey("SavedClassTier");
         PlayerPrefs.Save();
         
         SceneManager.LoadScene("Game");

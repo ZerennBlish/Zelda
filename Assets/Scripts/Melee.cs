@@ -190,4 +190,12 @@ public class Melee : MonoBehaviour
             }
         }
     }
+    
+    /// <summary>
+    /// Used by PlayerAnimator to know when to play attack animation.
+    /// </summary>
+    public bool IsSwinging()
+    {
+        return isSwinging;
+    }
 }
