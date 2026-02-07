@@ -54,6 +54,11 @@ public class PlayerController : MonoBehaviour
     private bool isMounted = false;
     private Sprite normalSprite;
     private float ramTimer = 0f;
+    
+    // Shooting animation state
+    private bool isShooting = false;
+    private float shootAnimTimer = 0f;
+    public float shootAnimDuration = 0.3f;
 
     void Start()
     {
@@ -91,6 +96,16 @@ public class PlayerController : MonoBehaviour
         if (ramTimer > 0f)
         {
             ramTimer -= Time.deltaTime;
+        }
+        
+        // Shooting animation countdown
+        if (shootAnimTimer > 0f)
+        {
+            shootAnimTimer -= Time.deltaTime;
+            if (shootAnimTimer <= 0f)
+            {
+                isShooting = false;
+            }
         }
         
         // --- GRAPPLE STATE: block all other input ---
@@ -360,6 +375,10 @@ public class PlayerController : MonoBehaviour
         Vector3 spawnPos = transform.position + (Vector3)(facingDirection * 0.5f);
         GameObject arrow = Instantiate(arrowPrefab, spawnPos, Quaternion.identity);
         arrow.GetComponent<Arrow>().SetDirection(facingDirection);
+        
+        // Tell the animator we just fired
+        isShooting = true;
+        shootAnimTimer = shootAnimDuration;
     }
     
     void ThrowBoomerang()
@@ -439,5 +458,10 @@ public class PlayerController : MonoBehaviour
     public bool IsMounted()
     {
         return isMounted;
+    }
+    
+    public bool IsShooting()
+    {
+        return isShooting;
     }
 }

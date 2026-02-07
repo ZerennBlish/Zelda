@@ -100,7 +100,20 @@ public class PlayerAnimator : MonoBehaviour
     
     void UpdateState()
     {
-        if (melee != null && melee.IsSwinging())
+        // Archer attack animation triggers on bow fire
+        // All other classes trigger on melee swing
+        bool attacking = false;
+        
+        if (playerClass != null && playerClass.GetCurrentClass() == PlayerClass.ClassTier.Archer)
+        {
+            attacking = playerController != null && playerController.IsShooting();
+        }
+        else
+        {
+            attacking = melee != null && melee.IsSwinging();
+        }
+        
+        if (attacking)
         {
             SetState(AnimState.Attack);
             return;

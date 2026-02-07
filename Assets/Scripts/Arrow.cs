@@ -29,27 +29,23 @@ public class Arrow : MonoBehaviour
     {
         if (other.CompareTag("Enemy"))
         {
-            // Special case: ShieldKnight needs attack direction for blocking
             ShieldKnight knight = other.GetComponent<ShieldKnight>();
             if (knight != null)
             {
                 knight.TakeDamage(damage, transform.position);
                 
-                // Flash on hit
                 HitFlash flash = other.GetComponent<HitFlash>();
                 if (flash != null) flash.Flash();
                 
                 Destroy(gameObject);
                 return;
             }
-            Debug.Log("Arrow hit " + other.name + " - attempting flash");
-            // All other enemies use the interface
+            
             IDamageable damageable = other.GetComponent<IDamageable>();
             if (damageable != null)
             {
                 damageable.TakeDamage(damage);
                 
-                // Flash on hit
                 HitFlash flash = other.GetComponent<HitFlash>();
                 if (flash != null) flash.Flash();
                 
@@ -60,6 +56,11 @@ public class Arrow : MonoBehaviour
         
         if (other.CompareTag("Destructible"))
         {
+            Destructible destructible = other.GetComponent<Destructible>();
+            if (destructible != null)
+            {
+                destructible.TakeDamage(damage);
+            }
             Destroy(gameObject);
         }
         

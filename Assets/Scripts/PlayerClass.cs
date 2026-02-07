@@ -123,30 +123,30 @@ public class PlayerClass : MonoBehaviour
     /// </summary>
     void ApplyClass()
     {
-        // Configure melee and beam
         if (melee != null)
         {
             switch (currentClass)
             {
                 case ClassTier.Archer:
-                    melee.swingArc = archerArc;
-                    melee.hitboxDistance = archerReach;
-                    melee.damage = archerDamage;
-                    melee.swordBeamPrefab = null;
+                    // Archer has no melee — bow only
+                    melee.gameObject.SetActive(false);
                     break;
                 case ClassTier.Swordsman:
+                    melee.gameObject.SetActive(true);
                     melee.swingArc = swordsmanArc;
                     melee.hitboxDistance = swordsmanReach;
                     melee.damage = swordsmanDamage;
                     melee.swordBeamPrefab = swordsmanBeamPrefab;
                     break;
                 case ClassTier.Spearman:
+                    melee.gameObject.SetActive(true);
                     melee.swingArc = spearmanArc;
                     melee.hitboxDistance = spearmanReach;
                     melee.damage = spearmanDamage;
                     melee.swordBeamPrefab = spearmanBeamPrefab;
                     break;
                 case ClassTier.Paladin:
+                    melee.gameObject.SetActive(true);
                     melee.swingArc = paladinArc;
                     melee.hitboxDistance = paladinReach;
                     melee.damage = paladinDamage;
@@ -154,7 +154,7 @@ public class PlayerClass : MonoBehaviour
                     break;
             }
             
-            Debug.Log("Class applied: " + currentClass + " | arc=" + melee.swingArc + " reach=" + melee.hitboxDistance + " damage=" + melee.damage + " beam=" + (melee.swordBeamPrefab != null ? melee.swordBeamPrefab.name : "none"));
+            Debug.Log("Class applied: " + currentClass + " | melee=" + melee.gameObject.activeSelf);
         }
     }
     

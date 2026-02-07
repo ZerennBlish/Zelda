@@ -104,17 +104,10 @@ public class Melee : MonoBehaviour
         hitThisSwing.Clear();
         swingTimer = swingDuration;
         
-        if (spriteRenderer != null)
-        {
-            spriteRenderer.enabled = true;
-        }
+        // Hide the bow sprite — attack visual comes from the sprite sheet
+        // The hitbox still sweeps and deals damage
         
         yield return new WaitForSeconds(swingDuration);
-        
-        if (spriteRenderer != null)
-        {
-            spriteRenderer.enabled = false;
-        }
         
         isSwinging = false;
         
