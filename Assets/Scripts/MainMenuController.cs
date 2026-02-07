@@ -25,6 +25,11 @@ public class MainMenuController : MonoBehaviour
         PlayerPrefs.DeleteKey("SavedBombs");
         PlayerPrefs.DeleteKey("SavedMaxHealth");
         PlayerPrefs.DeleteKey("SavedClassTier");
+        PlayerPrefs.DeleteKey("HasBoomerang");
+        PlayerPrefs.DeleteKey("HasBombs");
+        PlayerPrefs.DeleteKey("HasGrapple");
+        PlayerPrefs.DeleteKey("HasWand");
+        PlayerPrefs.DeleteKey("HasBook");
         PlayerPrefs.Save();
         
         SceneManager.LoadScene("Game");

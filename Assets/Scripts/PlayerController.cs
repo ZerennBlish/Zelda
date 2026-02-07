@@ -29,6 +29,13 @@ public class PlayerController : MonoBehaviour
     public int ramDamageToPlayer = 1;
     public float ramCooldown = 0.5f;
     
+    [Header("Item Unlocks")]
+    public bool hasBoomerang = false;
+    public bool hasBombs = false;
+    public bool hasGrapple = false;
+    public bool hasWand = false;
+    public bool hasBook = false;
+    
     [Header("References")]
     public Melee melee;
     public ArrowUI arrowUI;
@@ -86,6 +93,13 @@ public class PlayerController : MonoBehaviour
         {
             currentBombs = maxBombs;
         }
+        
+        // Load item unlocks
+        hasBoomerang = PlayerPrefs.GetInt("HasBoomerang", 0) == 1;
+        hasBombs = PlayerPrefs.GetInt("HasBombs", 0) == 1;
+        hasGrapple = PlayerPrefs.GetInt("HasGrapple", 0) == 1;
+        hasWand = PlayerPrefs.GetInt("HasWand", 0) == 1;
+        hasBook = PlayerPrefs.GetInt("HasBook", 0) == 1;
         
         UpdateArrowUI();
         UpdateBombUI();
@@ -145,7 +159,6 @@ public class PlayerController : MonoBehaviour
             mouseWorldPos.z = 0f;
             Vector2 aimDirection = ((Vector2)mouseWorldPos - (Vector2)transform.position);
             
-            // Only update if mouse isn't right on top of the player
             if (aimDirection.magnitude > 0.1f)
             {
                 facingDirection = aimDirection.normalized;
@@ -178,7 +191,7 @@ public class PlayerController : MonoBehaviour
             }
             
             // Boomerang - E / Right Click / Y button
-            if ((Input.GetKeyDown(KeyCode.E) || Input.GetMouseButtonDown(1) || Input.GetKeyDown(KeyCode.JoystickButton3)) && !boomerangOut)
+            if (hasBoomerang && (Input.GetKeyDown(KeyCode.E) || Input.GetMouseButtonDown(1) || Input.GetKeyDown(KeyCode.JoystickButton3)) && !boomerangOut)
             {
                 ThrowBoomerang();
             }
@@ -191,13 +204,13 @@ public class PlayerController : MonoBehaviour
             }
             
             // Bomb - Q / LB
-            if (Input.GetKeyDown(KeyCode.Q) || Input.GetKeyDown(KeyCode.JoystickButton4))
+            if (hasBombs && (Input.GetKeyDown(KeyCode.Q) || Input.GetKeyDown(KeyCode.JoystickButton4)))
             {
                 PlaceBomb();
             }
             
             // Grappling Hook - G / A button
-            if (Input.GetKeyDown(KeyCode.G) || Input.GetKeyDown(KeyCode.JoystickButton0))
+            if (hasGrapple && (Input.GetKeyDown(KeyCode.G) || Input.GetKeyDown(KeyCode.JoystickButton0)))
             {
                 FireGrapple();
             }
@@ -376,7 +389,6 @@ public class PlayerController : MonoBehaviour
         GameObject arrow = Instantiate(arrowPrefab, spawnPos, Quaternion.identity);
         arrow.GetComponent<Arrow>().SetDirection(facingDirection);
         
-        // Tell the animator we just fired
         isShooting = true;
         shootAnimTimer = shootAnimDuration;
     }
@@ -408,6 +420,38 @@ public class PlayerController : MonoBehaviour
     public void BoomerangReturned()
     {
         boomerangOut = false;
+    }
+    
+    // --- ITEM UNLOCK ---
+    
+    public void UnlockItem(string itemName)
+    {
+        switch (itemName)
+        {
+            case "Boomerang":
+                hasBoomerang = true;
+                PlayerPrefs.SetInt("HasBoomerang", 1);
+                break;
+            case "Bombs":
+                hasBombs = true;
+                PlayerPrefs.SetInt("HasBombs", 1);
+                currentBombs = maxBombs;
+                UpdateBombUI();
+                break;
+            case "Grapple":
+                hasGrapple = true;
+                PlayerPrefs.SetInt("HasGrapple", 1);
+                break;
+            case "Wand":
+                hasWand = true;
+                PlayerPrefs.SetInt("HasWand", 1);
+                break;
+            case "Book":
+                hasBook = true;
+                PlayerPrefs.SetInt("HasBook", 1);
+                break;
+        }
+        PlayerPrefs.Save();
     }
     
     // --- INVENTORY METHODS ---

@@ -73,6 +73,13 @@ public class PauseManager : MonoBehaviour
         if (player != null)
         {
             PlayerPrefs.SetInt("SavedArrows", player.currentArrows);
+            
+            // Save item unlocks
+            PlayerPrefs.SetInt("HasBoomerang", player.hasBoomerang ? 1 : 0);
+            PlayerPrefs.SetInt("HasBombs", player.hasBombs ? 1 : 0);
+            PlayerPrefs.SetInt("HasGrapple", player.hasGrapple ? 1 : 0);
+            PlayerPrefs.SetInt("HasWand", player.hasWand ? 1 : 0);
+            PlayerPrefs.SetInt("HasBook", player.hasBook ? 1 : 0);
         }
         
         PlayerHealth playerHealth = FindFirstObjectByType<PlayerHealth>();

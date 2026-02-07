@@ -14,7 +14,7 @@ public class GameController : MonoBehaviour
             }
         }
         
-        // Debug refill - O key
+        // Debug refill + unlock all - O key
         if (Input.GetKeyDown(KeyCode.O))
         {
             RefillEverything();
@@ -57,7 +57,7 @@ public class GameController : MonoBehaviour
             }
         }
         
-        // Refill arrows and bombs
+        // Refill arrows and bombs + unlock all items
         PlayerController player = FindFirstObjectByType<PlayerController>();
         if (player != null)
         {
@@ -72,6 +72,13 @@ public class GameController : MonoBehaviour
             {
                 player.bombUI.UpdateCount(player.currentBombs);
             }
+            
+            // Unlock all items
+            player.UnlockItem("Boomerang");
+            player.UnlockItem("Bombs");
+            player.UnlockItem("Grapple");
+            player.UnlockItem("Wand");
+            player.UnlockItem("Book");
         }
         
         // Add 50 rupees
@@ -80,7 +87,7 @@ public class GameController : MonoBehaviour
             GameState.Instance.AddRupees(50);
         }
         
-        Debug.Log("Refilled everything + 50 rupees");
+        Debug.Log("Refilled everything + unlocked all items + 50 rupees");
     }
     
     void FullReset()

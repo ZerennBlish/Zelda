@@ -16,6 +16,9 @@ public class Melee : MonoBehaviour
     public GameObject swordBeamPrefab;
     public float beamSpawnDistance = 0.6f;
     
+    [HideInInspector]
+    public bool meleeEnabled = true;
+    
     private bool canSwing = true;
     private bool isSwinging = false;
     private Transform player;
@@ -45,6 +48,7 @@ public class Melee : MonoBehaviour
 
     public void Swing(Vector2 direction)
     {
+        if (!meleeEnabled) return;
         if (!canSwing || isSwinging) return;
         
         transform.localPosition = direction * hitboxDistance;

@@ -128,25 +128,24 @@ public class PlayerClass : MonoBehaviour
             switch (currentClass)
             {
                 case ClassTier.Archer:
-                    // Archer has no melee — bow only
-                    melee.gameObject.SetActive(false);
+                    melee.meleeEnabled = false;
                     break;
                 case ClassTier.Swordsman:
-                    melee.gameObject.SetActive(true);
+                    melee.meleeEnabled = true;
                     melee.swingArc = swordsmanArc;
                     melee.hitboxDistance = swordsmanReach;
                     melee.damage = swordsmanDamage;
                     melee.swordBeamPrefab = swordsmanBeamPrefab;
                     break;
                 case ClassTier.Spearman:
-                    melee.gameObject.SetActive(true);
+                    melee.meleeEnabled = true;
                     melee.swingArc = spearmanArc;
                     melee.hitboxDistance = spearmanReach;
                     melee.damage = spearmanDamage;
                     melee.swordBeamPrefab = spearmanBeamPrefab;
                     break;
                 case ClassTier.Paladin:
-                    melee.gameObject.SetActive(true);
+                    melee.meleeEnabled = true;
                     melee.swingArc = paladinArc;
                     melee.hitboxDistance = paladinReach;
                     melee.damage = paladinDamage;
@@ -154,7 +153,7 @@ public class PlayerClass : MonoBehaviour
                     break;
             }
             
-            Debug.Log("Class applied: " + currentClass + " | melee=" + melee.gameObject.activeSelf);
+            Debug.Log("Class applied: " + currentClass + " | melee=" + melee.meleeEnabled);
         }
     }
     
