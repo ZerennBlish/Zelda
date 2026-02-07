@@ -2,22 +2,18 @@ using UnityEngine;
 
 public class PlayerAnimator : MonoBehaviour
 {
-    [Header("Character Sprites (54 per class — 9 rows of 6)")]
-    public Sprite[] archerSprites;      // 54 sprites: idle/walk/attack
-    public Sprite[] swordsmanSprites;   // 54 sprites: idle/walk/attack
-    public Sprite[] spearmanSprites;    // 54 sprites: idle/walk/attack
-    public Sprite[] paladinSprites;     // 54 sprites: idle/walk/attack
-    
-    [Header("Death/Ghost Sprites (shared across all classes)")]
-    public Sprite[] deathSprites;       // 10 sprites: death/blink/ghost
+    [Header("Sprite Sheets (54 per class — 6 columns x 9 rows)")]
+    public Sprite[] archerSprites;
+    public Sprite[] swordsmanSprites;
+    public Sprite[] spearmanSprites;
+    public Sprite[] paladinSprites;
     
     [Header("Animation Speed (frames per second)")]
     public float idleFrameRate = 6f;
     public float walkFrameRate = 10f;
     public float attackFrameRate = 15f;
-    public float deathFrameRate = 8f;
     
-    // Main sprite layout per class sheet (54 sprites, 6 per row):
+    // Layout per 54-sprite sheet (6 per row):
     // Row 0 (0-5):   idle down
     // Row 1 (6-11):  idle right
     // Row 2 (12-17): idle up
@@ -27,16 +23,13 @@ public class PlayerAnimator : MonoBehaviour
     // Row 6 (36-41): attack down
     // Row 7 (42-47): attack right
     // Row 8 (48-53): attack up
-    //
-    // Death sprites: separate array, 10 frames
     
-    private enum AnimState { Idle, Walk, Attack, Death }
+    private enum AnimState { Idle, Walk, Attack }
     private enum Direction { Down, Right, Up }
     
     private SpriteRenderer spriteRenderer;
     private PlayerController playerController;
     private PlayerClass playerClass;
-    private PlayerHealth playerHealth;
     private Melee melee;
     
     private AnimState currentState = AnimState.Idle;
@@ -51,7 +44,6 @@ public class PlayerAnimator : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         playerController = GetComponent<PlayerController>();
         playerClass = GetComponent<PlayerClass>();
-        playerHealth = GetComponent<PlayerHealth>();
         melee = GetComponentInChildren<Melee>();
         
         activeSprites = GetSpritesForCurrentClass();
@@ -59,7 +51,6 @@ public class PlayerAnimator : MonoBehaviour
 
     void Update()
     {
-        // Don't animate while mounted — horse sprite handles that
         if (playerController != null && playerController.IsMounted()) return;
         
         activeSprites = GetSpritesForCurrentClass();
@@ -69,9 +60,6 @@ public class PlayerAnimator : MonoBehaviour
         Animate();
     }
     
-    /// <summary>
-    /// Picks the right sprite array based on current class tier.
-    /// </summary>
     Sprite[] GetSpritesForCurrentClass()
     {
         if (playerClass == null) return archerSprites;
@@ -86,10 +74,6 @@ public class PlayerAnimator : MonoBehaviour
         }
     }
     
-    /// <summary>
-    /// Maps the mouse-aimed facing direction to one of 3 sprite directions.
-    /// Left = Right sprites with flipX enabled.
-    /// </summary>
     void UpdateDirection()
     {
         if (playerController == null) return;
@@ -99,7 +83,6 @@ public class PlayerAnimator : MonoBehaviour
         
         if (Mathf.Abs(facing.x) > Mathf.Abs(facing.y))
         {
-            // Horizontal — use Right frames, flip if facing left
             currentDirection = Direction.Right;
             if (facing.x < 0) flip = true;
         }
@@ -115,26 +98,14 @@ public class PlayerAnimator : MonoBehaviour
         spriteRenderer.flipX = flip;
     }
     
-    /// <summary>
-    /// Determines animation state. Priority: Death > Attack > Walk > Idle.
-    /// </summary>
     void UpdateState()
     {
-        // Death overrides everything
-        if (playerHealth != null && playerHealth.currentHealth <= 0 && playerHealth.currentLives <= 0)
-        {
-            SetState(AnimState.Death);
-            return;
-        }
-        
-        // Attack — plays while melee is mid-swing
         if (melee != null && melee.IsSwinging())
         {
             SetState(AnimState.Attack);
             return;
         }
         
-        // Walk vs Idle — check movement input
         float h = Input.GetAxisRaw("Horizontal");
         float v = Input.GetAxisRaw("Vertical");
         
@@ -148,9 +119,6 @@ public class PlayerAnimator : MonoBehaviour
         }
     }
     
-    /// <summary>
-    /// Changes state and resets frame counter when entering a new state.
-    /// </summary>
     void SetState(AnimState newState)
     {
         if (currentState != newState)
@@ -161,12 +129,10 @@ public class PlayerAnimator : MonoBehaviour
         }
     }
     
-    /// <summary>
-    /// Advances frame timer and applies the correct sprite.
-    /// </summary>
     void Animate()
     {
-        // Advance timer
+        if (activeSprites == null || activeSprites.Length == 0) return;
+        
         float rate = GetFrameRate();
         frameTimer += Time.deltaTime;
         
@@ -176,25 +142,13 @@ public class PlayerAnimator : MonoBehaviour
             currentFrame++;
         }
         
-        // Death uses its own separate sprite array
-        if (currentState == AnimState.Death)
-        {
-            AnimateDeath();
-            return;
-        }
-        
-        // Normal animation from class sprite array
-        if (activeSprites == null || activeSprites.Length == 0) return;
-        
         // State offset: Idle=0, Walk=18, Attack=36
         // Direction offset: Down=0, Right=6, Up=12
         int stateOffset = (int)currentState * 18;
         int directionOffset = (int)currentDirection * 6;
         int startIndex = stateOffset + directionOffset;
-        int frameCount = 6;
         
-        // Idle and Walk loop, Attack loops while swing is active
-        currentFrame = currentFrame % frameCount;
+        currentFrame = currentFrame % 6;
         
         int spriteIndex = startIndex + currentFrame;
         
@@ -204,24 +158,6 @@ public class PlayerAnimator : MonoBehaviour
         }
     }
     
-    /// <summary>
-    /// Death animation from the separate death sprite array.
-    /// Plays once and holds the last frame.
-    /// </summary>
-    void AnimateDeath()
-    {
-        if (deathSprites == null || deathSprites.Length == 0) return;
-        
-        // Hold on last frame
-        if (currentFrame >= deathSprites.Length)
-        {
-            currentFrame = deathSprites.Length - 1;
-        }
-        
-        spriteRenderer.sprite = deathSprites[currentFrame];
-        spriteRenderer.flipX = false;
-    }
-    
     float GetFrameRate()
     {
         switch (currentState)
@@ -229,7 +165,6 @@ public class PlayerAnimator : MonoBehaviour
             case AnimState.Idle:   return idleFrameRate;
             case AnimState.Walk:   return walkFrameRate;
             case AnimState.Attack: return attackFrameRate;
-            case AnimState.Death:  return deathFrameRate;
             default: return idleFrameRate;
         }
     }

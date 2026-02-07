@@ -1,0 +1,1560 @@
+fileFormatVersion: 2
+guid: b4360f599d7574141a6b814e474a3551
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8553908424595390624
+    second: Templar 1_0
+  - first:
+      213: 5846851683173148180
+    second: Templar 1_1
+  - first:
+      213: -7544777376649112434
+    second: Templar 1_2
+  - first:
+      213: -5119859844567811269
+    second: Templar 1_3
+  - first:
+      213: -3003445594556558817
+    second: Templar 1_4
+  - first:
+      213: -7023176597818594836
+    second: Templar 1_5
+  - first:
+      213: 939298032873368408
+    second: Templar 1_6
+  - first:
+      213: -4062019100203968078
+    second: Templar 1_7
+  - first:
+      213: -3399333039510410017
+    second: Templar 1_8
+  - first:
+      213: 3669594985146825006
+    second: Templar 1_9
+  - first:
+      213: -664846955071522279
+    second: Templar 1_10
+  - first:
+      213: 4258758047237435596
+    second: Templar 1_11
+  - first:
+      213: -2350903469624942414
+    second: Templar 1_12
+  - first:
+      213: 5155645096179426488
+    second: Templar 1_13
+  - first:
+      213: -1965473055902464661
+    second: Templar 1_14
+  - first:
+      213: -819961197929662418
+    second: Templar 1_15
+  - first:
+      213: 6326067514883417475
+    second: Templar 1_16
+  - first:
+      213: -9010538976436849888
+    second: Templar 1_17
+  - first:
+      213: -4784050296757751195
+    second: Templar 1_18
+  - first:
+      213: 6008914205676972582
+    second: Templar 1_19
+  - first:
+      213: -2449273714234629635
+    second: Templar 1_20
+  - first:
+      213: -4771412691983660266
+    second: Templar 1_21
+  - first:
+      213: 6986129926007912360
+    second: Templar 1_22
+  - first:
+      213: 2879881221698546425
+    second: Templar 1_23
+  - first:
+      213: -4076619091549079636
+    second: Templar 1_24
+  - first:
+      213: 3079826508603847903
+    second: Templar 1_25
+  - first:
+      213: -9097619491228737177
+    second: Templar 1_26
+  - first:
+      213: -705924284049432557
+    second: Templar 1_27
+  - first:
+      213: -3292174853755580635
+    second: Templar 1_28
+  - first:
+      213: 3964974029489261035
+    second: Templar 1_29
+  - first:
+      213: -1696782022974252374
+    second: Templar 1_30
+  - first:
+      213: -5588478730876083596
+    second: Templar 1_31
+  - first:
+      213: 6302611990515328689
+    second: Templar 1_32
+  - first:
+      213: 5562009640633055292
+    second: Templar 1_33
+  - first:
+      213: -3121333813914276241
+    second: Templar 1_34
+  - first:
+      213: -6431405498999683013
+    second: Templar 1_35
+  - first:
+      213: 8353261176714449813
+    second: Templar 1_36
+  - first:
+      213: 6952222568173275592
+    second: Templar 1_37
+  - first:
+      213: -5177500990511854101
+    second: Templar 1_38
+  - first:
+      213: -6648806892993912333
+    second: Templar 1_39
+  - first:
+      213: 5395123470030371459
+    second: Templar 1_40
+  - first:
+      213: -293410969221388117
+    second: Templar 1_41
+  - first:
+      213: 5482276061596392392
+    second: Templar 1_42
+  - first:
+      213: -7044686175006057295
+    second: Templar 1_43
+  - first:
+      213: 4984644111939249700
+    second: Templar 1_44
+  - first:
+      213: -8187918692124862158
+    second: Templar 1_45
+  - first:
+      213: -3492039074585379303
+    second: Templar 1_46
+  - first:
+      213: -5183579353716025825
+    second: Templar 1_47
+  - first:
+      213: -8216512196920419491
+    second: Templar 1_48
+  - first:
+      213: -4237400714386862614
+    second: Templar 1_49
+  - first:
+      213: -2333556407719924897
+    second: Templar 1_50
+  - first:
+      213: -7826022093356149493
+    second: Templar 1_51
+  - first:
+      213: 8456603182411770305
+    second: Templar 1_52
+  - first:
+      213: 8969970488298807690
+    second: Templar 1_53
+  - first:
+      213: -6454388236539210307
+    second: Templar 1_54
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Templar 1_0
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 395
+        width: 18
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06f35cebb996a4980800000000000000
+      internalID: -8553908424595390624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Templar 1_1
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 394
+        width: 18
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4162eedb0a0342150800000000000000
+      internalID: 5846851683173148180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Templar 1_2
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 394
+        width: 19
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e841d6b23f09b4790800000000000000
+      internalID: -7544777376649112434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Templar 1_3
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 394
+        width: 19
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3bbfb8f89a92f8b0800000000000000
+      internalID: -5119859844567811269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Templar 1_4
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 394
+        width: 18
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f129e3a052e9156d0800000000000000
+      internalID: -3003445594556558817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Templar 1_5
+      rect:
+        serializedVersion: 2
+        x: 253
+        y: 395
+        width: 18
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce9af2c381aa88e90800000000000000
+      internalID: -7023176597818594836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Templar 1_6
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 347
+        width: 16
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 85be3a3959e090d00800000000000000
+      internalID: 939298032873368408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Templar 1_7
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 346
+        width: 16
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b99d7d562fc0a7c0800000000000000
+      internalID: -4062019100203968078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Templar 1_8
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 346
+        width: 17
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fdcabba6c9423d0d0800000000000000
+      internalID: -3399333039510410017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Templar 1_9
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 346
+        width: 17
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e293b3752350de230800000000000000
+      internalID: 3669594985146825006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Templar 1_10
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 346
+        width: 16
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 91a36f4873df5c6f0800000000000000
+      internalID: -664846955071522279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Templar 1_11
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 347
+        width: 16
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc07ced41e52a1b30800000000000000
+      internalID: 4258758047237435596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Templar 1_12
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 299
+        width: 18
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b0a5cfffb9ef5fd0800000000000000
+      internalID: -2350903469624942414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Templar 1_13
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 298
+        width: 18
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b462c136e78c8740800000000000000
+      internalID: 5155645096179426488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Templar 1_14
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 298
+        width: 19
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b65055f4bac39b4e0800000000000000
+      internalID: -1965473055902464661
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Templar 1_15
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 298
+        width: 19
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e287cc382a9ee94f0800000000000000
+      internalID: -819961197929662418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Templar 1_16
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 298
+        width: 18
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 385a3c943e4bac750800000000000000
+      internalID: 6326067514883417475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Templar 1_17
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 299
+        width: 18
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0237ba27a8224f280800000000000000
+      internalID: -9010538976436849888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Templar 1_18
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 251
+        width: 18
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 562f6222a93ab9db0800000000000000
+      internalID: -4784050296757751195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Templar 1_19
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 251
+        width: 18
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62aac2b22a3f36350800000000000000
+      internalID: 6008914205676972582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Templar 1_20
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 251
+        width: 18
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df1e751a88e620ed0800000000000000
+      internalID: -2449273714234629635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Templar 1_21
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 251
+        width: 18
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 61b0689cf6988cdb0800000000000000
+      internalID: -4771412691983660266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Templar 1_22
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 251
+        width: 18
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a77d625728b3f060800000000000000
+      internalID: 6986129926007912360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Templar 1_23
+      rect:
+        serializedVersion: 2
+        x: 253
+        y: 251
+        width: 18
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9fae8ae76b467f720800000000000000
+      internalID: 2879881221698546425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Templar 1_24
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 203
+        width: 16
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca734abf880fc67c0800000000000000
+      internalID: -4076619091549079636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Templar 1_25
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 203
+        width: 16
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd4f92754edbdba20800000000000000
+      internalID: 3079826508603847903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Templar 1_26
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 203
+        width: 16
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76124a32643ceb180800000000000000
+      internalID: -9097619491228737177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Templar 1_27
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 203
+        width: 16
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31069e29a9d0436f0800000000000000
+      internalID: -705924284049432557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Templar 1_28
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 203
+        width: 16
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 52fcc67c968df42d0800000000000000
+      internalID: -3292174853755580635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Templar 1_29
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 203
+        width: 16
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be94b5b5fda660730800000000000000
+      internalID: 3964974029489261035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Templar 1_30
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 155
+        width: 18
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aaad9537db1d378e0800000000000000
+      internalID: -1696782022974252374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Templar 1_31
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 155
+        width: 18
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4722e4b043cb172b0800000000000000
+      internalID: -5588478730876083596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Templar 1_32
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 155
+        width: 18
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b6a8c37630677750800000000000000
+      internalID: 6302611990515328689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Templar 1_33
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 155
+        width: 18
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c383b33ac4a303d40800000000000000
+      internalID: 5562009640633055292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Templar 1_34
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 155
+        width: 18
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f6e693c0f6bcea4d0800000000000000
+      internalID: -3121333813914276241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Templar 1_35
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 155
+        width: 18
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3841a116ce0fb6a0800000000000000
+      internalID: -6431405498999683013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Templar 1_36
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 107
+        width: 18
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 593502268cebce370800000000000000
+      internalID: 8353261176714449813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Templar 1_37
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 106
+        width: 20
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c90c6f57914b7060800000000000000
+      internalID: 6952222568173275592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Templar 1_38
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 96
+        width: 20
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bedce4cd742d528b0800000000000000
+      internalID: -5177500990511854101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Templar 1_39
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 96
+        width: 20
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f1ede29b51bab3a0800000000000000
+      internalID: -6648806892993912333
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Templar 1_40
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 98
+        width: 20
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38a788e16345fda40800000000000000
+      internalID: 5395123470030371459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Templar 1_41
+      rect:
+        serializedVersion: 2
+        x: 253
+        y: 107
+        width: 18
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba82b5e27489debf0800000000000000
+      internalID: -293410969221388117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Templar 1_42
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 59
+        width: 16
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8cb941c1805f41c40800000000000000
+      internalID: 5482276061596392392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Templar 1_43
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 59
+        width: 18
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1bc98a88f3f3c3e90800000000000000
+      internalID: -7044686175006057295
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Templar 1_44
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 59
+        width: 31
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 426a1e7f8630d2540800000000000000
+      internalID: 4984644111939249700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Templar 1_45
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 59
+        width: 32
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 239dd1ab45bae5e80800000000000000
+      internalID: -8187918692124862158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Templar 1_46
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 59
+        width: 20
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 91efd8996f8c98fc0800000000000000
+      internalID: -3492039074585379303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Templar 1_47
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 60
+        width: 16
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f1615b4aa0a3018b0800000000000000
+      internalID: -5183579353716025825
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Templar 1_48
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 59
+        width: 16
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d5bd4e990b519fd80800000000000000
+      internalID: -8216512196920419491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Templar 1_49
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 11
+        width: 18
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aed0cff308ab135c0800000000000000
+      internalID: -4237400714386862614
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Templar 1_50
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 10
+        width: 19
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f5b64869fca8d9fd0800000000000000
+      internalID: -2333556407719924897
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Templar 1_51
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 11
+        width: 19
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b05d521ce52646390800000000000000
+      internalID: -7826022093356149493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Templar 1_52
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 11
+        width: 19
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c967161ac3eb5570800000000000000
+      internalID: 8456603182411770305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Templar 1_53
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 10
+        width: 19
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a81a9c852acbb7c70800000000000000
+      internalID: 8969970488298807690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Templar 1_54
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 11
+        width: 18
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db5de9e78186d66a0800000000000000
+      internalID: -6454388236539210307
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Templar 1_0: -8553908424595390624
+      Templar 1_1: 5846851683173148180
+      Templar 1_10: -664846955071522279
+      Templar 1_11: 4258758047237435596
+      Templar 1_12: -2350903469624942414
+      Templar 1_13: 5155645096179426488
+      Templar 1_14: -1965473055902464661
+      Templar 1_15: -819961197929662418
+      Templar 1_16: 6326067514883417475
+      Templar 1_17: -9010538976436849888
+      Templar 1_18: -4784050296757751195
+      Templar 1_19: 6008914205676972582
+      Templar 1_2: -7544777376649112434
+      Templar 1_20: -2449273714234629635
+      Templar 1_21: -4771412691983660266
+      Templar 1_22: 6986129926007912360
+      Templar 1_23: 2879881221698546425
+      Templar 1_24: -4076619091549079636
+      Templar 1_25: 3079826508603847903
+      Templar 1_26: -9097619491228737177
+      Templar 1_27: -705924284049432557
+      Templar 1_28: -3292174853755580635
+      Templar 1_29: 3964974029489261035
+      Templar 1_3: -5119859844567811269
+      Templar 1_30: -1696782022974252374
+      Templar 1_31: -5588478730876083596
+      Templar 1_32: 6302611990515328689
+      Templar 1_33: 5562009640633055292
+      Templar 1_34: -3121333813914276241
+      Templar 1_35: -6431405498999683013
+      Templar 1_36: 8353261176714449813
+      Templar 1_37: 6952222568173275592
+      Templar 1_38: -5177500990511854101
+      Templar 1_39: -6648806892993912333
+      Templar 1_4: -3003445594556558817
+      Templar 1_40: 5395123470030371459
+      Templar 1_41: -293410969221388117
+      Templar 1_42: 5482276061596392392
+      Templar 1_43: -7044686175006057295
+      Templar 1_44: 4984644111939249700
+      Templar 1_45: -8187918692124862158
+      Templar 1_46: -3492039074585379303
+      Templar 1_47: -5183579353716025825
+      Templar 1_48: -8216512196920419491
+      Templar 1_49: -4237400714386862614
+      Templar 1_5: -7023176597818594836
+      Templar 1_50: -2333556407719924897
+      Templar 1_51: -7826022093356149493
+      Templar 1_52: 8456603182411770305
+      Templar 1_53: 8969970488298807690
+      Templar 1_54: -6454388236539210307
+      Templar 1_6: 939298032873368408
+      Templar 1_7: -4062019100203968078
+      Templar 1_8: -3399333039510410017
+      Templar 1_9: 3669594985146825006
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
