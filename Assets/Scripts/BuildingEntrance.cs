@@ -7,7 +7,7 @@ public class BuildingEntrance : MonoBehaviour
     public Vector2 spawnOffset;
     
     [Header("Prompt (optional)")]
-    public GameObject promptUI; // a small "Press F" text object, child of this
+    public GameObject promptUI;
     
     private bool playerInRange = false;
 
@@ -23,12 +23,10 @@ public class BuildingEntrance : MonoBehaviour
     {
         if (!playerInRange) return;
         
-        // F key / A button to enter
-        if (Input.GetKeyDown(KeyCode.F) || Input.GetKeyDown(KeyCode.JoystickButton0))
+        if (Input.GetKeyDown(KeyCode.E))
         {
             RoomManager.Instance.TeleportToRoom(targetRoom, spawnOffset);
             
-            // Hide prompt after teleporting
             if (promptUI != null)
             {
                 promptUI.SetActive(false);
@@ -58,6 +56,18 @@ public class BuildingEntrance : MonoBehaviour
             {
                 promptUI.SetActive(false);
             }
+        }
+    }
+    
+    void OnDrawGizmos()
+    {
+        Gizmos.color = new Color(0f, 1f, 1f, 0.3f);
+        BoxCollider2D box = GetComponent<BoxCollider2D>();
+        if (box != null)
+        {
+            Gizmos.matrix = transform.localToWorldMatrix;
+            Gizmos.DrawCube(box.offset, box.size);
+            Gizmos.DrawWireCube(box.offset, box.size);
         }
     }
 }

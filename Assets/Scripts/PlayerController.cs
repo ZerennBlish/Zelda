@@ -231,7 +231,7 @@ public class PlayerController : MonoBehaviour
             }
             
             // Active sub-weapon - E / Right Click / Y button
-            if (Input.GetKeyDown(KeyCode.E) || Input.GetMouseButtonDown(1) || Input.GetKeyDown(KeyCode.JoystickButton3))
+            if (Input.GetMouseButtonDown(1) || Input.GetKeyDown(KeyCode.JoystickButton3))
             {
                 UseActiveWeapon();
             }
