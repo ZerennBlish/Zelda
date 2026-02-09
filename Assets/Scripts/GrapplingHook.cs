@@ -22,6 +22,7 @@ public class GrapplingHook : MonoBehaviour
     private Transform player;
     private PlayerController playerController;
     private LineRenderer lineRenderer;
+    private static Material chainMaterial;
     
     // Grabbed target (item or enemy)
     private Transform grabbedTarget;
@@ -44,7 +45,11 @@ public class GrapplingHook : MonoBehaviour
         lineRenderer.startWidth = chainWidth;
         lineRenderer.endWidth = chainWidth;
         lineRenderer.positionCount = 2;
-        lineRenderer.material = new Material(Shader.Find("Sprites/Default"));
+        if (chainMaterial == null)
+        {
+            chainMaterial = new Material(Shader.Find("Sprites/Default"));
+        }
+        lineRenderer.material = chainMaterial;
         lineRenderer.startColor = chainColor;
         lineRenderer.endColor = chainColor;
         lineRenderer.sortingOrder = 5;

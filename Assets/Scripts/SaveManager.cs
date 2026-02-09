@@ -102,6 +102,17 @@ public class SaveManager : MonoBehaviour
         PlayerPrefs.DeleteKey("RoomY");
         PlayerPrefs.DeleteKey("Lives");
         PlayerPrefs.DeleteKey("HasSave");
+        PlayerPrefs.DeleteKey("SavedRupees");
+        PlayerPrefs.DeleteKey("SavedArrows");
+        PlayerPrefs.DeleteKey("SavedBombs");
+        PlayerPrefs.DeleteKey("SavedMaxHealth");
+        PlayerPrefs.DeleteKey("SavedClassTier");
+        PlayerPrefs.DeleteKey("HasBoomerang");
+        PlayerPrefs.DeleteKey("HasBombs");
+        PlayerPrefs.DeleteKey("HasGrapple");
+        PlayerPrefs.DeleteKey("HasWand");
+        PlayerPrefs.DeleteKey("HasBook");
+        PlayerPrefs.DeleteKey("EquippedWeaponIndex");
         PlayerPrefs.Save();
     }
 }

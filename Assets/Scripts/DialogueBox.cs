@@ -78,6 +78,7 @@ public class DialogueBox : MonoBehaviour
     void Close()
     {
         IsActive = false;
+        Time.timeScale = 1f;
         dialogueText.text = "";
         gameObject.SetActive(false);
 
@@ -86,10 +87,6 @@ public class DialogueBox : MonoBehaviour
             System.Action callback = onDialogueComplete;
             onDialogueComplete = null;
             callback.Invoke();
-        }
-        else
-        {
-            Time.timeScale = 1f;
         }
     }
 

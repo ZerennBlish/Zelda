@@ -532,8 +532,6 @@ public class PlayerController : MonoBehaviour
         if (currentBombs <= 0) return;
         
         currentBombs--;
-        PlayerPrefs.SetInt("SavedBombs", currentBombs);
-        PlayerPrefs.Save();
         UpdateBombUI();
         
         Instantiate(bombPrefab, transform.position, Quaternion.identity);
@@ -623,8 +621,6 @@ public class PlayerController : MonoBehaviour
         {
             currentBombs = maxBombs;
         }
-        PlayerPrefs.SetInt("SavedBombs", currentBombs);
-        PlayerPrefs.Save();
         UpdateBombUI();
     }
     
