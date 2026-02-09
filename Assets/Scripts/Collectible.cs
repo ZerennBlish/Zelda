@@ -82,7 +82,17 @@ public class Collectible : MonoBehaviour
                 PlayerController pcBomb = player.GetComponent<PlayerController>();
                 if (pcBomb != null)
                 {
-                    pcBomb.AddBombs(value);
+                    if (pcBomb.hasBombs)
+                    {
+                        pcBomb.AddBombs(value);
+                    }
+                    else
+                    {
+                        if (pcBomb.bombPrefab != null)
+                        {
+                            Instantiate(pcBomb.bombPrefab, transform.position, Quaternion.identity);
+                        }
+                    }
                 }
                 break;
         }
