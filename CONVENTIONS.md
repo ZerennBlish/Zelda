@@ -189,6 +189,8 @@ Save triggers:
 - `RoomManager.Instance` — room transitions, camera control
 - `SaveManager.Instance` — save/load via PlayerPrefs, DontDestroyOnLoad
 - `GameState.Instance` — rupee count, rupee UI
+- `DialogueBox.Instance` — typewriter dialogue box, `DialogueBox.IsActive` for state checks
+- `PauseManager.IsPaused` — static read-only property, blocks player input when true
 
 ## UI Components
 
@@ -198,9 +200,20 @@ Save triggers:
 - `BombUI` — bomb count text
 - `RupeeUI` — rupee count text
 
+## Dialogue System
+
+- **DialogueBox** is the only dialogue system. `DialogManager` was removed.
+- Show dialogue: `DialogueBox.Instance.Show(lines)`
+- Check if dialogue is open: `DialogueBox.IsActive`
+- Block player input by checking `DialogueBox.IsActive` at top of `Update()`
+- NPCs and triggers both use this same pattern (see `DialogueTrigger.cs`, `NPC.cs`)
+- Typewriter effect with `charDelay`, press E to skip or advance lines
+- `onDialogueComplete` callback for chained interactions (e.g. shop flow)
+
 ## Coding Style
 
-- Use `FindFirstObjectByType<T>()` (not the deprecated `FindObjectOfType`)
+- Use singletons (`GameState.Instance`, `DialogueBox.Instance`, etc.) instead of `FindFirstObjectByType<T>()` when available
+- Use `FindFirstObjectByType<T>()` only when no singleton exists (not the deprecated `FindObjectOfType`)
 - Use `rb.linearVelocity` (not the deprecated `rb.velocity`)
 - Prefer `CompareTag("X")` over `tag == "X"`
 - Keep scripts focused — one responsibility per MonoBehaviour
