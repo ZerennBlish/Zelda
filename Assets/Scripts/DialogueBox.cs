@@ -29,6 +29,7 @@ public class DialogueBox : MonoBehaviour
 
     void Start()
     {
+        IsActive = false;
         gameObject.SetActive(false);
     }
 

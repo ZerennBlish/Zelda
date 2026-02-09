@@ -50,6 +50,7 @@ When dealing damage to enemies, follow this order:
 2. **Then check IDamageable** — standard damage
 3. **Apply HitFlash after damage** — `GetComponent<HitFlash>()?.Flash()`
 4. **Boomerang is special** — stuns via IStunnable instead of damaging (except Bats, which die in one hit)
+5. **AOE damage bypasses shields** — ExplosionEffect and FireTrail intentionally ignore ShieldKnight directional blocking
 
 ```csharp
 // Standard damage pattern used by Arrow, SwordBeam, FireBolt, etc.

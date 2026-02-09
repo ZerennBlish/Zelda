@@ -76,9 +76,7 @@ public class RoomManager : MonoBehaviour
     {
         if (SaveManager.Instance != null)
         {
-            PlayerHealth health = player.GetComponent<PlayerHealth>();
-            int lives = health != null ? health.currentLives : 3;
-            SaveManager.Instance.SaveGame((int)currentRoom.x, (int)currentRoom.y, lives);
+            SaveManager.SaveAll();
         }
     }
     

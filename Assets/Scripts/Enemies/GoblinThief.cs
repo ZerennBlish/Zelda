@@ -144,10 +144,9 @@ public class GoblinThief : MonoBehaviour, IDamageable{
     
     void Steal()
     {
-        GameState gameState = FindFirstObjectByType<GameState>();
-        if (gameState != null)
+        if (GameState.Instance != null)
         {
-            int stolen = gameState.StealRupees(stealAmount);
+            int stolen = GameState.Instance.StealRupees(stealAmount);
             stolenRupees += stolen;
         }
         

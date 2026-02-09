@@ -31,6 +31,7 @@ public class ShopUI : MonoBehaviour
 
     void Start()
     {
+        IsActive = false;
         gameObject.SetActive(false);
     }
 
@@ -80,6 +81,7 @@ public class ShopUI : MonoBehaviour
 
     void BuyArrows()
     {
+        if (GameState.Instance == null) return;
         if (GameState.Instance.rupees < arrowPrice)
         {
             ShowMessage("Not enough rupees!");
@@ -99,6 +101,7 @@ public class ShopUI : MonoBehaviour
 
     void BuyBombs()
     {
+        if (GameState.Instance == null) return;
         if (GameState.Instance.rupees < bombPrice)
         {
             ShowMessage("Not enough rupees!");
@@ -118,6 +121,7 @@ public class ShopUI : MonoBehaviour
 
     void BuyHeart()
     {
+        if (GameState.Instance == null) return;
         if (heartSoldOut)
         {
             ShowMessage("Already sold out!");
@@ -144,6 +148,7 @@ public class ShopUI : MonoBehaviour
 
     void RefreshText()
     {
+        if (GameState.Instance == null) return;
         string item1 = "1. Arrows x" + arrowQuantity + " — " + arrowPrice + " rupees";
         string item2 = "2. Bombs x" + bombQuantity + " — " + bombPrice + " rupees";
         string item3 = heartSoldOut

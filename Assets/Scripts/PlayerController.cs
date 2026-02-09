@@ -342,6 +342,11 @@ public class PlayerController : MonoBehaviour
         return unlockedWeapons.Count;
     }
 
+    public int GetEquippedWeaponIndex()
+    {
+        return currentWeaponIndex;
+    }
+
     // --- MOUNT METHODS ---
     
     void Mount()

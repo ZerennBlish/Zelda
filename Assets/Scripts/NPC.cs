@@ -71,6 +71,13 @@ public class NPC : MonoBehaviour
                 }
 
                 FacePlayer();
+                DialogueBox.Instance.onDialogueComplete = () =>
+                {
+                    if (promptUI != null)
+                    {
+                        promptUI.SetActive(true);
+                    }
+                };
                 DialogueBox.Instance.Show(dialogLines);
             }
         }
@@ -100,17 +107,6 @@ public class NPC : MonoBehaviour
         if (Mathf.Abs(direction) > 0.1f)
         {
             spriteRenderer.flipX = direction < 0;
-        }
-    }
-    
-    /// <summary>
-    /// Called by DialogueBox when the conversation ends.
-    /// </summary>
-    public void DialogFinished()
-    {
-        if (playerInRange && promptUI != null)
-        {
-            promptUI.SetActive(true);
         }
     }
     

@@ -20,6 +20,11 @@ public class PlayerShield : MonoBehaviour
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         playerController = GetComponentInParent<PlayerController>();
+        if (playerController == null)
+        {
+            enabled = false;
+            return;
+        }
         playerTransform = playerController.transform;
         
         spriteRenderer.enabled = false;

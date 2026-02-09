@@ -61,7 +61,7 @@ public class EnemyBuff : MonoBehaviour
         // Haste: multiply velocity every frame for 1.5x effective speed
         if (buffType == BuffType.Haste && rb != null)
         {
-            rb.linearVelocity *= 1.5f;
+            rb.linearVelocity = Vector2.ClampMagnitude(rb.linearVelocity * 1.5f, 20f);
         }
         
         // Regen: heal 1 HP every few seconds
