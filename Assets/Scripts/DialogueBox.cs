@@ -15,6 +15,8 @@ public class DialogueBox : MonoBehaviour
     [Header("Settings")]
     public float charDelay = 0.05f;
 
+    public System.Action onDialogueComplete;
+
     private string[] lines;
     private int currentLine;
     private bool isTyping;
@@ -75,9 +77,19 @@ public class DialogueBox : MonoBehaviour
     void Close()
     {
         IsActive = false;
-        Time.timeScale = 1f;
         dialogueText.text = "";
         gameObject.SetActive(false);
+
+        if (onDialogueComplete != null)
+        {
+            System.Action callback = onDialogueComplete;
+            onDialogueComplete = null;
+            callback.Invoke();
+        }
+        else
+        {
+            Time.timeScale = 1f;
+        }
     }
 
     IEnumerator TypeLine(string line)
