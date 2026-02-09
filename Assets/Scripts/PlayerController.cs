@@ -124,6 +124,8 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        if (DialogueBox.IsActive) return;
+
         if (ramTimer > 0f)
         {
             ramTimer -= Time.deltaTime;
