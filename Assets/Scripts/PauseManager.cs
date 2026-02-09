@@ -73,7 +73,8 @@ public class PauseManager : MonoBehaviour
         if (player != null)
         {
             PlayerPrefs.SetInt("SavedArrows", player.currentArrows);
-            
+            PlayerPrefs.SetInt("SavedBombs", player.currentBombs);
+
             // Save item unlocks
             PlayerPrefs.SetInt("HasBoomerang", player.hasBoomerang ? 1 : 0);
             PlayerPrefs.SetInt("HasBombs", player.hasBombs ? 1 : 0);
