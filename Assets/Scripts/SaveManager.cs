@@ -113,6 +113,7 @@ public class SaveManager : MonoBehaviour
         PlayerPrefs.DeleteKey("HasWand");
         PlayerPrefs.DeleteKey("HasBook");
         PlayerPrefs.DeleteKey("EquippedWeaponIndex");
+        PlayerPrefs.DeleteKey("VisitedRooms");
         PlayerPrefs.Save();
     }
 }

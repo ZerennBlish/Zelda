@@ -47,10 +47,11 @@ public class RoomManager : MonoBehaviour
             0
         );
         player.position = roomCenter + (Vector3)spawnOffset;
-        
+
         SaveGame();
+        if (RoomTracker.Instance != null) RoomTracker.Instance.MarkVisited(currentRoom);
     }
-    
+
     public void TeleportToRoom(Vector2 targetRoom, Vector2 spawnOffset)
     {
         currentRoom = targetRoom;
@@ -68,10 +69,11 @@ public class RoomManager : MonoBehaviour
             0
         );
         player.position = roomCenter + (Vector3)spawnOffset;
-        
+
         SaveGame();
+        if (RoomTracker.Instance != null) RoomTracker.Instance.MarkVisited(currentRoom);
     }
-    
+
     void SaveGame()
     {
         if (SaveManager.Instance != null)
