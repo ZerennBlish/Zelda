@@ -50,6 +50,7 @@ public class RoomManager : MonoBehaviour
 
         SaveGame();
         if (RoomTracker.Instance != null) RoomTracker.Instance.MarkVisited(currentRoom);
+        if (MinimapUI.Instance != null) MinimapUI.Instance.OnRoomChanged();
     }
 
     public void TeleportToRoom(Vector2 targetRoom, Vector2 spawnOffset)
@@ -72,6 +73,7 @@ public class RoomManager : MonoBehaviour
 
         SaveGame();
         if (RoomTracker.Instance != null) RoomTracker.Instance.MarkVisited(currentRoom);
+        if (MinimapUI.Instance != null) MinimapUI.Instance.OnRoomChanged();
     }
 
     void SaveGame()
