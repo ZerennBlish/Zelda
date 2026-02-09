@@ -64,10 +64,9 @@ public class Collectible : MonoBehaviour
                 break;
                 
             case CollectibleType.Rupee:
-                GameState gameState = FindFirstObjectByType<GameState>();
-                if (gameState != null)
+                if (GameState.Instance != null)
                 {
-                    gameState.AddRupees(value);
+                    GameState.Instance.AddRupees(value);
                 }
                 break;
                 

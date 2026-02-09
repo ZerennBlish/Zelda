@@ -15,6 +15,7 @@ public class Bomb : MonoBehaviour
     private float timer;
     private SpriteRenderer spriteRenderer;
     private bool isBlinking = false;
+    private bool hasExploded = false;
 
     void Start()
     {
@@ -50,6 +51,9 @@ public class Bomb : MonoBehaviour
     
     void Explode()
     {
+        if (hasExploded) return;
+        hasExploded = true;
+
         // Create explosion effect
         if (explosionPrefab != null)
         {

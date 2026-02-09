@@ -124,7 +124,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if (DialogueBox.IsActive || ShopUI.IsActive) return;
+        if (DialogueBox.IsActive || ShopUI.IsActive || PauseManager.IsPaused) return;
 
         if (ramTimer > 0f)
         {

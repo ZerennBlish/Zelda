@@ -183,12 +183,18 @@ public class GoblinThief : MonoBehaviour, IDamageable{
     
     void Die()
     {
+        // Return stolen rupees to the player
+        if (stolenRupees > 0 && GameState.Instance != null)
+        {
+            GameState.Instance.AddRupees(stolenRupees);
+        }
+
         Dropper dropper = GetComponent<Dropper>();
         if (dropper != null)
         {
             dropper.Drop();
         }
-        
+
         Destroy(gameObject);
     }
 }

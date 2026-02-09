@@ -19,7 +19,6 @@ public class NPC : MonoBehaviour
     private bool playerInRange = false;
     private float frameTimer;
     private int currentFrame;
-    private bool isTalking = false;
 
     void Start()
     {
@@ -48,7 +47,7 @@ public class NPC : MonoBehaviour
         // Show/hide prompt
         if (playerInRange && !wasInRange)
         {
-            if (promptUI != null && !isTalking)
+            if (promptUI != null && !DialogueBox.IsActive)
             {
                 promptUI.SetActive(true);
             }
@@ -60,21 +59,19 @@ public class NPC : MonoBehaviour
                 promptUI.SetActive(false);
             }
         }
-        
+
         // Start dialog
-        if (playerInRange && Input.GetKeyDown(KeyCode.E) && !isTalking)
+        if (playerInRange && Input.GetKeyDown(KeyCode.E) && !DialogueBox.IsActive)
         {
-            if (DialogManager.Instance != null && dialogLines.Length > 0)
+            if (DialogueBox.Instance != null && dialogLines.Length > 0)
             {
-                isTalking = true;
-                
                 if (promptUI != null)
                 {
                     promptUI.SetActive(false);
                 }
-                
+
                 FacePlayer();
-                DialogManager.Instance.StartDialog(dialogLines, this);
+                DialogueBox.Instance.Show(dialogLines);
             }
         }
         
@@ -107,12 +104,10 @@ public class NPC : MonoBehaviour
     }
     
     /// <summary>
-    /// Called by DialogManager when the conversation ends.
+    /// Called by DialogueBox when the conversation ends.
     /// </summary>
     public void DialogFinished()
     {
-        isTalking = false;
-        
         if (playerInRange && promptUI != null)
         {
             promptUI.SetActive(true);

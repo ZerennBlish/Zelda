@@ -32,7 +32,10 @@ public class PlayerClass : MonoBehaviour
     
     // Half damage flag — true once Swordsman or above
     private bool hasArmor = false;
-    
+
+    // Tracks which tier's health bonuses have already been granted
+    private ClassTier bonusesAppliedUpTo = ClassTier.Archer;
+
     private Melee melee;
     private PlayerHealth playerHealth;
 
@@ -47,6 +50,7 @@ public class PlayerClass : MonoBehaviour
             int savedTier = PlayerPrefs.GetInt("SavedClassTier");
             currentClass = (ClassTier)savedTier;
             hasArmor = (currentClass >= ClassTier.Swordsman);
+            bonusesAppliedUpTo = currentClass;
         }
         
         ApplyClass();
@@ -94,10 +98,12 @@ public class PlayerClass : MonoBehaviour
                 break;
         }
         
+        bonusesAppliedUpTo = currentClass;
+
         ApplyClass();
         SaveClass();
     }
-    
+
     /// <summary>
     /// Sets a specific class directly. Useful for loading saves
     /// or debug testing.
@@ -106,7 +112,22 @@ public class PlayerClass : MonoBehaviour
     {
         currentClass = tier;
         hasArmor = (currentClass >= ClassTier.Swordsman);
-        
+
+        // Grant any health bonuses for tiers above what we've already applied
+        // Spearman and Paladin each grant +1 max heart
+        if (playerHealth != null)
+        {
+            ClassTier firstUnapplied = bonusesAppliedUpTo + 1;
+            for (ClassTier t = firstUnapplied; t <= currentClass; t++)
+            {
+                if (t == ClassTier.Spearman || t == ClassTier.Paladin)
+                {
+                    playerHealth.IncreaseMaxHealth(1);
+                }
+            }
+        }
+        bonusesAppliedUpTo = currentClass;
+
         ApplyClass();
         SaveClass();
     }
