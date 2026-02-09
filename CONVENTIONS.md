@@ -6,7 +6,7 @@ Reference doc for AI assistants and contributors. Read this before writing or mo
 
 - **Engine:** Unity 2D
 - **Language:** C#
-- **Project Path:** `C:\TheLegendOfZerenn\Zelda`
+- **Project Path:** `~/Desktop/Game/Zelda`
 - **No external packages.** Everything uses Unity built-in systems.
 
 ## Tags
@@ -84,6 +84,7 @@ All complex enemies follow this structure:
 - **Dropper component** for loot drops on death — call `dropper.Drop()` in `Die()`
 - **Stun implementation** — set state to Stunned, zero velocity, tint with stunColor, countdown timer, restore originalColor on exit
 - **Contact damage** — handled in `OnCollisionEnter2D` / `OnCollisionStay2D`, check for stunned state first
+- **GoblinThief** — special enemy that steals rupees from the player and returns them on death
 
 ```csharp
 // Standard enemy Die() pattern
@@ -145,6 +146,27 @@ Row 8 (48-53): Attack Up
 - Frame index = stateOffset + directionOffset + (currentFrame % 6)
 - Archer attack animation triggers on bow fire (`IsShooting()`), all other classes trigger on melee swing (`IsSwinging()`)
 
+## Controls
+
+### Movement
+- **WASD / Arrow keys / Left stick** — move player
+- **Mouse aim** — facing direction follows mouse cursor
+
+### Combat
+- **Space / Left Click / X button** — melee attack (blocked while mounted)
+- **F / Middle Click / RB (hold)** — fire arrows (hold for rapid fire, blocked while mounted)
+- **Right Click / Y button** — use active sub-weapon (blocked while mounted)
+- **Scroll wheel / I key** — cycle sub-weapons
+
+### Interaction
+- **E** — talk to NPCs, advance dialogue, interact with shop, enter buildings
+- **1 / 2 / 3** — purchase items while shop is open
+- **Escape** — close shop
+
+### System
+- **P / Start (JoystickButton7)** — pause/unpause
+- **M / Back (JoystickButton6)** — mount/dismount
+
 ## Sub-Weapon System
 
 Active item slot — one key cycles, one key uses:
@@ -154,6 +176,21 @@ Active item slot — one key cycles, one key uses:
 - Weapon list rebuilds when a new item is unlocked (`RebuildWeaponList()`)
 - Order is always: Boomerang → Bombs → Grapple → Wand (based on unlock order)
 - Equipped index is saved/loaded via PlayerPrefs
+
+## Mount System
+
+- **M / Back button** toggles mount on/off
+- Mounted speed is 2.5x normal (`mountedSpeedMultiplier`)
+- **Ram damage** — collision with enemies deals 1 damage to enemy and 1 to player, with 0.5s cooldown
+- **No combat while mounted** — melee, arrows, and sub-weapons are all blocked
+- Player sprite swaps to `horseSprite` while mounted
+
+## Shop System
+
+- **ShopKeeper.cs** — NPC that opens dialogue, then launches ShopUI on dialogue completion
+- **ShopUI.cs** — purchase panel with number key selection
+- Items: Arrows x10 (20 rupees), Bombs x5 (30 rupees), Heart Upgrade (100 rupees, one-time)
+- `ShopUI.IsActive` blocks player input (same pattern as `DialogueBox.IsActive`)
 
 ## Room System
 
@@ -190,6 +227,7 @@ Save triggers:
 - `SaveManager.Instance` — save/load via PlayerPrefs, DontDestroyOnLoad
 - `GameState.Instance` — rupee count, rupee UI
 - `DialogueBox.Instance` — typewriter dialogue box, `DialogueBox.IsActive` for state checks
+- `ShopUI.Instance` — shop purchase interface, `ShopUI.IsActive` for state checks
 - `PauseManager.IsPaused` — static read-only property, blocks player input when true
 
 ## UI Components
@@ -199,6 +237,23 @@ Save triggers:
 - `ArrowUI` — arrow count text
 - `BombUI` — bomb count text
 - `RupeeUI` — rupee count text
+- `ShopUI` — shop purchase panel (arrows, bombs, heart upgrade)
+
+## Buff System
+
+`PlayerBuff.cs` applies temporary or instant effects to the player:
+
+| Buff | Effect | Duration | Tint |
+|------|--------|----------|------|
+| Speed | 1.5x movement speed | 15s | Yellow |
+| Power | 2x melee damage | 15s | Red |
+| Heal | Full health restore | Instant | — |
+| Resupply | Full arrows + bombs refill | Instant | — |
+
+## Collectibles vs Item Pickups
+
+- **Collectible.cs** — drops from enemies/destructibles (Heart, Rupee, Arrow, Bomb). Bobs in place, collected on player contact.
+- **ItemPickup.cs** — one-time world items that unlock abilities (Boomerang, Bombs, Grapple, Wand, Book, ClassUpgrade).
 
 ## Dialogue System
 
