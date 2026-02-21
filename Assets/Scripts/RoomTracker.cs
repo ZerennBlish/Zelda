@@ -38,7 +38,6 @@ public class RoomTracker : MonoBehaviour
 
         if (visitedRooms.Add(key))
         {
-            Debug.Log("New room discovered: " + key);
             SaveVisitedRooms();
         }
     }
@@ -90,7 +89,6 @@ public class RoomTracker : MonoBehaviour
             }
         }
 
-        Debug.Log("Loaded " + visitedRooms.Count + " visited rooms");
     }
 
     public void ClearVisitedRooms()
