@@ -33,6 +33,8 @@ public class GameController : MonoBehaviour
             FullReset();
         }
         
+        if (ShopUI.IsActive || DialogueBox.IsActive) return;
+
         // Quit - Escape only
         if (Input.GetKeyDown(KeyCode.Escape))
         {

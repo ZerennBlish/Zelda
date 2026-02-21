@@ -17,6 +17,8 @@ public class PauseManager : MonoBehaviour
 
     void Update()
     {
+        if (DialogueBox.IsActive || ShopUI.IsActive) return;
+
         if (Input.GetKeyDown(KeyCode.P) || Input.GetKeyDown(KeyCode.JoystickButton7))
         {
             if (pauseMenu == null) return;

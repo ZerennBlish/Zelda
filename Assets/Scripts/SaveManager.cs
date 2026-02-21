@@ -114,6 +114,7 @@ public class SaveManager : MonoBehaviour
         PlayerPrefs.DeleteKey("HasBook");
         PlayerPrefs.DeleteKey("EquippedWeaponIndex");
         PlayerPrefs.DeleteKey("VisitedRooms");
+        PlayerPrefs.DeleteKey("HeartUpgradeBought");
         PlayerPrefs.Save();
     }
 }

@@ -17,13 +17,17 @@ public class HealthUI : MonoBehaviour
 
     public void UpdateHearts(int currentHealth, int maxHealth)
     {
+        #if UNITY_EDITOR
         Debug.Log($"UpdateHearts called: current={currentHealth}, max={maxHealth}");
         Debug.Log($"heartPrefab is null? {heartPrefab == null}");
         Debug.Log($"heartContainer is null? {heartContainer == null}");
+        #endif
         
         while (heartImages.Count < maxHealth)
         {
+            #if UNITY_EDITOR
             Debug.Log($"Adding heart {heartImages.Count + 1}");
+            #endif
             AddHeart();
         }
         
@@ -41,7 +45,9 @@ public class HealthUI : MonoBehaviour
     void AddHeart()
     {
         GameObject newHeart = Instantiate(heartPrefab, heartContainer);
+        #if UNITY_EDITOR
         Debug.Log($"Created heart: {newHeart.name}");
+        #endif
         
         Image heartImage = newHeart.GetComponent<Image>();
         

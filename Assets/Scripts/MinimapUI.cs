@@ -50,6 +50,7 @@ public class MinimapUI : MonoBehaviour
         {
             isVisible = !isVisible;
             mapContainer.gameObject.SetActive(isVisible);
+            if (isVisible) RefreshMap();
         }
     }
 
@@ -147,7 +148,6 @@ public class MinimapUI : MonoBehaviour
 
     public void OnRoomChanged()
     {
-        if (!isVisible) return;
         if (RoomManager.Instance == null) return;
 
         Vector2 current = RoomManager.Instance.GetCurrentRoom();

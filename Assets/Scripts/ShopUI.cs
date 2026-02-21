@@ -32,6 +32,7 @@ public class ShopUI : MonoBehaviour
     void Start()
     {
         IsActive = false;
+        heartSoldOut = PlayerPrefs.GetInt("HeartUpgradeBought", 0) == 1;
         gameObject.SetActive(false);
     }
 
@@ -143,6 +144,8 @@ public class ShopUI : MonoBehaviour
         }
 
         heartSoldOut = true;
+        PlayerPrefs.SetInt("HeartUpgradeBought", 1);
+        PlayerPrefs.Save();
         RefreshText();
     }
 

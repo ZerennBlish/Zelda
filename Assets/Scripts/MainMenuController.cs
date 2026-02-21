@@ -32,6 +32,7 @@ public class MainMenuController : MonoBehaviour
         PlayerPrefs.DeleteKey("HasBook");
         PlayerPrefs.DeleteKey("EquippedWeaponIndex");
         PlayerPrefs.DeleteKey("VisitedRooms");
+        PlayerPrefs.DeleteKey("HeartUpgradeBought");
         PlayerPrefs.Save();
         
         SceneManager.LoadScene("Game");
