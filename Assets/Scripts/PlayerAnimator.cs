@@ -119,8 +119,9 @@ public class PlayerAnimator : MonoBehaviour
             return;
         }
         
-        float h = Input.GetAxisRaw("Horizontal");
-        float v = Input.GetAxisRaw("Vertical");
+        Vector2 moveInput = InputManager.Instance.Move;
+        float h = moveInput.x;
+        float v = moveInput.y;
         
         if (Mathf.Abs(h) > 0.1f || Mathf.Abs(v) > 0.1f)
         {

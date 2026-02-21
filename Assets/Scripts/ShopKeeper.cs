@@ -25,7 +25,7 @@ public class ShopKeeper : MonoBehaviour
         if (DialogueBox.IsActive) return;
         if (ShopUI.IsActive) return;
 
-        if (Input.GetKeyDown(KeyCode.E))
+        if (InputManager.Instance.InteractPressed)
         {
             // Open shop after dialogue finishes
             DialogueBox.Instance.onDialogueComplete = () =>

@@ -24,7 +24,7 @@ public class DialogueTrigger : MonoBehaviour
         if (!playerInRange) return;
         if (DialogueBox.IsActive) return;
 
-        if (Input.GetKeyDown(KeyCode.E))
+        if (InputManager.Instance.InteractPressed)
         {
             DialogueBox.Instance.Show(lines);
 

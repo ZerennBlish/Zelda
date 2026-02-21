@@ -37,7 +37,7 @@ public class DialogueBox : MonoBehaviour
     {
         if (!IsActive) return;
 
-        if (Input.GetKeyDown(KeyCode.E))
+        if (InputManager.Instance.InteractPressed)
         {
             if (isTyping)
             {

@@ -16,9 +16,6 @@ public class MinimapUI : MonoBehaviour
     public Color currentColor = new Color(1f, 1f, 0.3f, 1f);
     public Color borderColor = new Color(0.1f, 0.1f, 0.1f, 0.9f);
 
-    [Header("Toggle")]
-    public KeyCode toggleKey = KeyCode.Tab;
-
     [Header("Background")]
     public Image backgroundImage;
 
@@ -46,7 +43,7 @@ public class MinimapUI : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(toggleKey))
+        if (InputManager.Instance.ToggleMinimapPressed)
         {
             isVisible = !isVisible;
             mapContainer.gameObject.SetActive(isVisible);

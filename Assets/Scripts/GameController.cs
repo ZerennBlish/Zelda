@@ -5,38 +5,29 @@ public class GameController : MonoBehaviour
 {
     void Update()
     {
-        // Temporary - find which button is which on your Xbox controller
-        for (int i = 0; i < 20; i++)
-        {
-            if (Input.GetKeyDown((KeyCode)(350 + i)))
-            {
-                Debug.Log("Joystick Button " + i + " pressed");
-            }
-        }
-        
         // Debug refill + unlock all - O key
-        if (Input.GetKeyDown(KeyCode.O))
+        if (InputManager.Instance.DebugRefillPressed)
         {
             RefillEverything();
         }
-        
+
         // Debug class upgrade - T key
-        if (Input.GetKeyDown(KeyCode.T))
+        if (InputManager.Instance.DebugCycleClassPressed)
         {
             PlayerClass pc = FindFirstObjectByType<PlayerClass>();
             if (pc != null) pc.UpgradeClass();
         }
-        
+
         // Full reset - R key
-        if (Input.GetKeyDown(KeyCode.R))
+        if (InputManager.Instance.DebugResetPressed)
         {
             FullReset();
         }
-        
+
         if (ShopUI.IsActive || DialogueBox.IsActive) return;
 
         // Quit - Escape only
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (InputManager.Instance.EscapePressed)
         {
             #if UNITY_EDITOR
                 UnityEditor.EditorApplication.isPlaying = false;

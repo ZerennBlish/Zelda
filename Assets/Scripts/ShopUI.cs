@@ -40,19 +40,19 @@ public class ShopUI : MonoBehaviour
     {
         if (!IsActive) return;
 
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        if (InputManager.Instance.ShopBuy1Pressed)
         {
             BuyArrows();
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha2))
+        else if (InputManager.Instance.ShopBuy2Pressed)
         {
             BuyBombs();
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha3))
+        else if (InputManager.Instance.ShopBuy3Pressed)
         {
             BuyHeart();
         }
-        else if (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Escape))
+        else if (InputManager.Instance.InteractPressed || InputManager.Instance.EscapePressed)
         {
             Close();
         }

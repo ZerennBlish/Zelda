@@ -6,10 +6,6 @@ public class PlayerShield : MonoBehaviour
     public float shieldDistance = 0.4f;
     public float shieldArc = 120f;
     
-    [Header("Input")]
-    public KeyCode blockKey = KeyCode.LeftShift;
-    public KeyCode blockButton = KeyCode.JoystickButton1; // Xbox B
-    
     private SpriteRenderer spriteRenderer;
     private PlayerController playerController;
     private Transform playerTransform;
@@ -32,7 +28,7 @@ public class PlayerShield : MonoBehaviour
 
     void Update()
     {
-        isBlocking = Input.GetKey(blockKey) || Input.GetKey(blockButton);
+        isBlocking = InputManager.Instance.BlockHeld;
         
         spriteRenderer.enabled = isBlocking;
         

@@ -61,7 +61,7 @@ public class NPC : MonoBehaviour
         }
 
         // Start dialog
-        if (playerInRange && Input.GetKeyDown(KeyCode.E) && !DialogueBox.IsActive)
+        if (playerInRange && InputManager.Instance.InteractPressed && !DialogueBox.IsActive)
         {
             if (DialogueBox.Instance != null && dialogLines.Length > 0)
             {

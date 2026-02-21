@@ -24,7 +24,7 @@ public class BuildingEntrance : MonoBehaviour
         if (!playerInRange) return;
         if (DialogueBox.IsActive || ShopUI.IsActive || PauseManager.IsPaused) return;
 
-        if (Input.GetKeyDown(KeyCode.E))
+        if (InputManager.Instance.InteractPressed)
         {
             RoomManager.Instance.TeleportToRoom(targetRoom, spawnOffset);
             

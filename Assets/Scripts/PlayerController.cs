@@ -163,8 +163,7 @@ public class PlayerController : MonoBehaviour
         }
         
         // --- MOVEMENT INPUT ---
-        movement.x = Input.GetAxisRaw("Horizontal");
-        movement.y = Input.GetAxisRaw("Vertical");
+        movement = InputManager.Instance.Move;
         
         if (movement.magnitude > 1f)
         {
@@ -174,7 +173,7 @@ public class PlayerController : MonoBehaviour
         // --- AIM DIRECTION follows mouse ---
         if (mainCamera != null)
         {
-            Vector3 mouseWorldPos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
+            Vector3 mouseWorldPos = mainCamera.ScreenToWorldPoint(InputManager.Instance.AimScreenPosition);
             mouseWorldPos.z = 0f;
             Vector2 aimDirection = ((Vector2)mouseWorldPos - (Vector2)transform.position);
             
@@ -185,7 +184,7 @@ public class PlayerController : MonoBehaviour
         }
         
         // --- MOUNT TOGGLE - M / Back button ---
-        if (Input.GetKeyDown(KeyCode.M) || Input.GetKeyDown(KeyCode.JoystickButton6))
+        if (InputManager.Instance.MountTogglePressed)
         {
             if (isMounted)
             {
@@ -198,7 +197,7 @@ public class PlayerController : MonoBehaviour
         }
         
         // --- CYCLE SUB-WEAPON: Mouse Wheel / I key ---
-        float scroll = Input.GetAxis("Mouse ScrollWheel");
+        float scroll = InputManager.Instance.ScrollWeapon;
         if (scroll > 0f)
         {
             CycleWeapon(1);
@@ -208,7 +207,7 @@ public class PlayerController : MonoBehaviour
             CycleWeapon(-1);
         }
         
-        if (Input.GetKeyDown(KeyCode.I))
+        if (InputManager.Instance.CycleWeaponPressed)
         {
             CycleWeapon(1);
         }
@@ -217,7 +216,7 @@ public class PlayerController : MonoBehaviour
         if (!isMounted)
         {
             // Melee - Space / Left Click / X button
-            if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.JoystickButton2))
+            if (InputManager.Instance.AttackPressed)
             {
                 if (melee != null)
                 {
@@ -226,14 +225,14 @@ public class PlayerController : MonoBehaviour
             }
             
             // Arrow - F / Middle Click / RB (hold to rapid fire)
-            if ((Input.GetKey(KeyCode.F) || Input.GetMouseButton(2) || Input.GetKey(KeyCode.JoystickButton5)) && Time.time >= nextFireTime)
+            if (InputManager.Instance.ShootHeld && Time.time >= nextFireTime)
             {
                 Shoot();
                 nextFireTime = Time.time + fireRate;
             }
             
             // Active sub-weapon - E / Right Click / Y button
-            if (Input.GetMouseButtonDown(1) || Input.GetKeyDown(KeyCode.JoystickButton3))
+            if (InputManager.Instance.UseSubWeaponPressed)
             {
                 UseActiveWeapon();
             }
