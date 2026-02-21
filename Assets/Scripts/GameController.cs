@@ -5,6 +5,8 @@ public class GameController : MonoBehaviour
 {
     void Update()
     {
+        if (ShopUI.IsActive || DialogueBox.IsActive) return;
+
         // Debug refill + unlock all - O key
         if (InputManager.Instance.DebugRefillPressed)
         {
@@ -23,8 +25,6 @@ public class GameController : MonoBehaviour
         {
             FullReset();
         }
-
-        if (ShopUI.IsActive || DialogueBox.IsActive) return;
 
         // Quit - Escape only
         if (InputManager.Instance.EscapePressed)
