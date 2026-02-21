@@ -1,7 +1,8 @@
 {
   "permissions": {
     "allow": [
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git add Assets/Scripts/InputManager.cs && git commit -m \"$\\(cat <<'EOF'\nAdd InputManager — centralizes all input via new Input System\n\nCo-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>\nEOF\n\\)\"2)"
     ]
   }
 }
