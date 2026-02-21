@@ -14,7 +14,6 @@ public class MinimapUI : MonoBehaviour
     [Header("Colors")]
     public Color visitedColor = new Color(0.3f, 0.5f, 0.8f, 0.8f);
     public Color currentColor = new Color(1f, 1f, 0.3f, 1f);
-    public Color borderColor = new Color(0.1f, 0.1f, 0.1f, 0.9f);
 
     [Header("Background")]
     public Image backgroundImage;
@@ -55,7 +54,6 @@ public class MinimapUI : MonoBehaviour
     {
         if (RoomTracker.Instance == null) return;
 
-        // Clear old cells
         foreach (var kvp in roomCells)
         {
             if (kvp.Value != null)
@@ -68,7 +66,6 @@ public class MinimapUI : MonoBehaviour
         HashSet<Vector2Int> visited = RoomTracker.Instance.GetAllVisited();
         if (visited.Count == 0) return;
 
-        // Find bounds of visited rooms
         int minX = int.MaxValue, maxX = int.MinValue;
         int minY = int.MaxValue, maxY = int.MinValue;
 
@@ -80,14 +77,12 @@ public class MinimapUI : MonoBehaviour
             if (room.y > maxY) maxY = room.y;
         }
 
-        // Get current room for highlighting
         if (RoomManager.Instance != null)
         {
             Vector2 current = RoomManager.Instance.GetCurrentRoom();
             currentRoom = new Vector2Int(Mathf.RoundToInt(current.x), Mathf.RoundToInt(current.y));
         }
 
-        // Size the background to fit
         float totalWidth = (maxX - minX + 1) * (cellSize + cellSpacing) + cellSpacing;
         float totalHeight = (maxY - minY + 1) * (cellSize + cellSpacing) + cellSpacing;
 
@@ -96,7 +91,6 @@ public class MinimapUI : MonoBehaviour
             backgroundImage.rectTransform.sizeDelta = new Vector2(totalWidth + 8f, totalHeight + 8f);
         }
 
-        // Create a cell for each visited room
         foreach (Vector2Int room in visited)
         {
             CreateCell(room, minX, minY);
@@ -116,7 +110,6 @@ public class MinimapUI : MonoBehaviour
         RectTransform rect = cellObj.GetComponent<RectTransform>();
         rect.sizeDelta = new Vector2(cellSize, cellSize);
 
-        // Position relative to bottom-left of the grid
         float posX = (room.x - originX) * (cellSize + cellSpacing) + cellSpacing;
         float posY = (room.y - originY) * (cellSize + cellSpacing) + cellSpacing;
 
@@ -130,13 +123,11 @@ public class MinimapUI : MonoBehaviour
 
     void HighlightCurrentRoom()
     {
-        // Reset all to visited color
         foreach (var kvp in roomCells)
         {
             kvp.Value.color = visitedColor;
         }
 
-        // Highlight current
         if (roomCells.ContainsKey(currentRoom))
         {
             roomCells[currentRoom].color = currentColor;
@@ -150,15 +141,12 @@ public class MinimapUI : MonoBehaviour
         Vector2 current = RoomManager.Instance.GetCurrentRoom();
         Vector2Int newRoom = new Vector2Int(Mathf.RoundToInt(current.x), Mathf.RoundToInt(current.y));
 
-        // If this is a brand new room, rebuild the whole grid
-        // (bounds may have changed)
         if (!roomCells.ContainsKey(newRoom))
         {
             RefreshMap();
         }
         else
         {
-            // Just move the highlight
             currentRoom = newRoom;
             HighlightCurrentRoom();
         }
