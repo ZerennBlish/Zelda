@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class FireTrail : MonoBehaviour
@@ -6,18 +7,21 @@ public class FireTrail : MonoBehaviour
     public int damage = 1;
     public float damageInterval = 0.5f;
     public float fadeStartTime = 1f;
-    
+
     private SpriteRenderer spriteRenderer;
     private float timer;
-    private float damageTimer;
     private Color originalColor;
+
+    // Per-target next-allowed-damage time so multiple enemies on the same
+    // trail each take their own ticks instead of fighting over a global cooldown.
+    private Dictionary<Collider2D, float> nextDamageTime =
+        new Dictionary<Collider2D, float>();
 
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         timer = lifetime;
-        damageTimer = 0f;
-        
+
         if (spriteRenderer != null)
         {
             originalColor = spriteRenderer.color;
@@ -27,51 +31,58 @@ public class FireTrail : MonoBehaviour
     void Update()
     {
         timer -= Time.deltaTime;
-        
+
         // Fade out near end of life
         if (timer <= fadeStartTime && spriteRenderer != null)
         {
             float alpha = timer / fadeStartTime;
             spriteRenderer.color = new Color(originalColor.r, originalColor.g, originalColor.b, alpha);
         }
-        
+
         if (timer <= 0)
         {
             Destroy(gameObject);
-        }
-        
-        if (damageTimer > 0)
-        {
-            damageTimer -= Time.deltaTime;
         }
     }
 
     void OnTriggerStay2D(Collider2D other)
     {
-        if (damageTimer > 0) return;
-        
+        float now = Time.time;
+        float nextTime;
+        if (nextDamageTime.TryGetValue(other, out nextTime) && now < nextTime)
+        {
+            return;
+        }
+
         if (other.CompareTag("Enemy"))
         {
             IDamageable damageable = other.GetComponent<IDamageable>();
             if (damageable != null)
             {
                 damageable.TakeDamage(damage);
-                
+
                 HitFlash flash = other.GetComponent<HitFlash>();
                 if (flash != null) flash.Flash();
-                
-                damageTimer = damageInterval;
+
+                nextDamageTime[other] = now + damageInterval;
             }
+            return;
         }
-        
+
         if (other.CompareTag("Destructible"))
         {
             Destructible destructible = other.GetComponent<Destructible>();
             if (destructible != null)
             {
                 destructible.TakeDamage(damage);
-                damageTimer = damageInterval;
+                nextDamageTime[other] = now + damageInterval;
             }
         }
+    }
+
+    void OnTriggerExit2D(Collider2D other)
+    {
+        // Drop the entry so dead/departed targets don't bloat the dictionary
+        nextDamageTime.Remove(other);
     }
 }

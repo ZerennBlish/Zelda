@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class SpearBeam : MonoBehaviour
@@ -5,13 +6,17 @@ public class SpearBeam : MonoBehaviour
     public float speed = 16f;
     public float lifetime = 1.5f;
     public int damage = 3;
-    
+
     [Header("Blink Effect")]
     public float blinkRate = 0.04f;
-    
+
     private Vector2 direction;
     private SpriteRenderer spriteRenderer;
     private float blinkTimer;
+
+    // Pierce: track which colliders we've already damaged so a knocked-back
+    // enemy that re-enters the trigger doesn't take a second hit.
+    private HashSet<Collider2D> alreadyHit = new HashSet<Collider2D>();
 
     void Start()
     {
@@ -44,28 +49,33 @@ public class SpearBeam : MonoBehaviour
     {
         if (other.CompareTag("Enemy"))
         {
+            // Skip if we've already damaged this collider this flight
+            if (!alreadyHit.Add(other)) return;
+
             // ShieldKnight needs attack direction for blocking
             ShieldKnight knight = other.GetComponent<ShieldKnight>();
             if (knight != null)
             {
-                knight.TakeDamage(damage, transform.position);
-                
-                HitFlash flash = other.GetComponent<HitFlash>();
-                if (flash != null) flash.Flash();
-                
+                bool damaged = knight.TakeDamage(damage, transform.position);
+                if (damaged)
+                {
+                    HitFlash flash = other.GetComponent<HitFlash>();
+                    if (flash != null) flash.Flash();
+                }
+
                 // Spear laser pierces through — no Destroy here
                 return;
             }
-            
+
             // All other enemies use the interface
             IDamageable damageable = other.GetComponent<IDamageable>();
             if (damageable != null)
             {
                 damageable.TakeDamage(damage);
-                
+
                 HitFlash flash = other.GetComponent<HitFlash>();
                 if (flash != null) flash.Flash();
-                
+
                 // Pierces through enemies
                 return;
             }

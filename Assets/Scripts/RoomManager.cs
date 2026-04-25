@@ -42,6 +42,8 @@ public class RoomManager : MonoBehaviour
         if (isTransitioning) return;
         isTransitioning = true;
 
+        DestroyRoomLocalProjectiles();
+
         currentRoom += direction;
 
         Vector3 newCamPos = new Vector3(
@@ -69,6 +71,8 @@ public class RoomManager : MonoBehaviour
     {
         if (isTransitioning) return;
         isTransitioning = true;
+
+        DestroyRoomLocalProjectiles();
 
         currentRoom = targetRoom;
 
@@ -99,6 +103,20 @@ public class RoomManager : MonoBehaviour
         {
             SaveManager.SaveAll();
         }
+    }
+
+    private void DestroyRoomLocalProjectiles()
+    {
+        // Boomerang and grappling hook are room-local — leaving them alive
+        // across rooms causes pickup leaks, kinematic-enemy locks, and
+        // chains drawn across the world. Their OnDestroy handlers do
+        // their own cleanup (release carried items, restore enemy
+        // physics, clear player locks).
+        Boomerang boomerang = FindFirstObjectByType<Boomerang>();
+        if (boomerang != null) Destroy(boomerang.gameObject);
+
+        GrapplingHook hook = FindFirstObjectByType<GrapplingHook>();
+        if (hook != null) Destroy(hook.gameObject);
     }
     
     public Vector2 GetCurrentRoom()

@@ -84,32 +84,53 @@ public class Boomerang : MonoBehaviour
             if (!alreadyHit.Contains(other.gameObject))
             {
                 alreadyHit.Add(other.gameObject);
-                
+
                 // Bats die in one hit
                 Bat bat = other.GetComponent<Bat>();
                 if (bat != null)
                 {
                     bat.TakeDamage(1);
-                    
+
                     // Flash on kill hit
                     HitFlash flash = other.GetComponent<HitFlash>();
                     if (flash != null) flash.Flash();
                 }
                 else
                 {
-                    // Everything else gets stunned
-                    // No HitFlash here — the stun color IS the feedback
+                    // ShieldKnights blocking from the front absorb the hit
+                    // entirely — no stun, no damage, just bounce off
+                    ShieldKnight knight = other.GetComponent<ShieldKnight>();
+                    if (knight != null && knight.IsBlockingFrom(transform.position))
+                    {
+                        returning = true;
+                        return;
+                    }
+
+                    // Stunnable enemies get stunned (the stun color IS the feedback)
                     IStunnable stunnable = other.GetComponent<IStunnable>();
                     if (stunnable != null)
                     {
                         stunnable.Stun(stunDuration);
                     }
+                    else
+                    {
+                        // Non-stunnable, non-fragile enemies still take 1 damage
+                        // (BoomShroom, GoblinThief). Otherwise the boomerang is
+                        // useless against them.
+                        IDamageable damageable = other.GetComponent<IDamageable>();
+                        if (damageable != null)
+                        {
+                            damageable.TakeDamage(1);
+                            HitFlash flash = other.GetComponent<HitFlash>();
+                            if (flash != null) flash.Flash();
+                        }
+                    }
                 }
             }
-            
+
             returning = true;
         }
-        
+
         // Grab pickups
         if (other.CompareTag("Pickup"))
         {
@@ -118,10 +139,21 @@ public class Boomerang : MonoBehaviour
             {
                 collectible.SetCarried(true);
             }
-            
+
             carriedItems.Add(other.transform);
         }
-        
+
+        // Cut destructibles (bushes, pots) — boomerang keeps flying
+        if (other.CompareTag("Destructible"))
+        {
+            Destructible destructible = other.GetComponent<Destructible>();
+            if (destructible != null)
+            {
+                destructible.TakeDamage(1);
+            }
+            return;
+        }
+
         // Bounce off walls
         if (other.CompareTag("Wall"))
         {
@@ -131,7 +163,11 @@ public class Boomerang : MonoBehaviour
     
     void CatchBoomerang()
     {
-        // Collect carried items directly
+        // Collect carried items directly. Note that Collect() early-returns
+        // without destroying the item if the player is at max health/arrows/
+        // bombs — those items remain alive with isCarried=true. We rely on
+        // OnDestroy iterating carriedItems to call SetCarried(false) on the
+        // survivors, so we deliberately do NOT clear the list here.
         foreach (Transform item in carriedItems)
         {
             if (item != null)
@@ -143,17 +179,33 @@ public class Boomerang : MonoBehaviour
                 }
             }
         }
-        
-        if (playerController != null)
-        {
-            playerController.BoomerangReturned();
-        }
 
+        // OnDestroy will fire BoomerangReturned and release any uncollected
+        // carried items — single source of truth.
         Destroy(gameObject);
     }
 
     void OnDestroy()
     {
+        // Release any carried collectibles that didn't make it back to the
+        // player. Otherwise they sit forever with isCarried=true (no bobbing,
+        // OnTriggerEnter2D ignores Player) and become uncollectable.
+        if (carriedItems != null)
+        {
+            foreach (Transform item in carriedItems)
+            {
+                if (item != null)
+                {
+                    Collectible collectible = item.GetComponent<Collectible>();
+                    if (collectible != null)
+                    {
+                        collectible.SetCarried(false);
+                    }
+                }
+            }
+            carriedItems.Clear();
+        }
+
         // If destroyed without catching (room transition, death, etc.),
         // clear the lock so the player can throw again
         if (playerController != null)

@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class TemplarWave : MonoBehaviour
@@ -5,18 +6,22 @@ public class TemplarWave : MonoBehaviour
     public float speed = 10f;
     public float lifetime = 1.5f;
     public int damage = 4;
-    
+
     [Header("Growth")]
     public float growthRate = 1.5f;
     public float maxScale = 2f;
-    
+
     [Header("Blink Effect")]
     public float blinkRate = 0.06f;
-    
+
     private Vector2 direction;
     private SpriteRenderer spriteRenderer;
     private float blinkTimer;
     private Vector3 startScale;
+
+    // Pierce: track which colliders we've already damaged so a knocked-back
+    // enemy that re-enters the trigger doesn't take a second hit.
+    private HashSet<Collider2D> alreadyHit = new HashSet<Collider2D>();
 
     void Start()
     {
@@ -54,28 +59,33 @@ public class TemplarWave : MonoBehaviour
     {
         if (other.CompareTag("Enemy"))
         {
+            // Skip if we've already damaged this collider this flight
+            if (!alreadyHit.Add(other)) return;
+
             // ShieldKnight needs attack direction for blocking
             ShieldKnight knight = other.GetComponent<ShieldKnight>();
             if (knight != null)
             {
-                knight.TakeDamage(damage, transform.position);
-                
-                HitFlash flash = other.GetComponent<HitFlash>();
-                if (flash != null) flash.Flash();
-                
+                bool damaged = knight.TakeDamage(damage, transform.position);
+                if (damaged)
+                {
+                    HitFlash flash = other.GetComponent<HitFlash>();
+                    if (flash != null) flash.Flash();
+                }
+
                 // Wave passes through — hits everything in its path
                 return;
             }
-            
+
             // All other enemies use the interface
             IDamageable damageable = other.GetComponent<IDamageable>();
             if (damageable != null)
             {
                 damageable.TakeDamage(damage);
-                
+
                 HitFlash flash = other.GetComponent<HitFlash>();
                 if (flash != null) flash.Flash();
-                
+
                 // Passes through enemies
                 return;
             }

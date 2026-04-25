@@ -14,7 +14,7 @@ public class GrapplingHook : MonoBehaviour
     [Header("Grappable Landing")]
     public float grappableLandingOffset = 0.8f;
     
-    private enum HookState { Flying, PullPlayer, PullTarget, Missed }
+    private enum HookState { Flying, PullPlayer, PullTarget }
     private HookState currentState = HookState.Flying;
     
     private Vector2 direction;
@@ -108,13 +108,26 @@ public class GrapplingHook : MonoBehaviour
             return;
         }
         
-        // Move target toward player
-        grabbedTarget.position = Vector3.MoveTowards(
-            grabbedTarget.position,
-            player.position,
-            pullSpeed * Time.deltaTime
-        );
-        
+        // Move target toward player. Use Rigidbody2D.MovePosition so kinematic
+        // enemies still respect collisions and don't get yanked through walls.
+        if (grabbedRb != null)
+        {
+            Vector2 newPos = Vector2.MoveTowards(
+                grabbedRb.position,
+                player.position,
+                pullSpeed * Time.deltaTime
+            );
+            grabbedRb.MovePosition(newPos);
+        }
+        else
+        {
+            grabbedTarget.position = Vector3.MoveTowards(
+                grabbedTarget.position,
+                player.position,
+                pullSpeed * Time.deltaTime
+            );
+        }
+
         // Keep hook on the target
         transform.position = grabbedTarget.position;
         
@@ -221,10 +234,19 @@ public class GrapplingHook : MonoBehaviour
         // Priority 3: Enemies — pull enemy to player (dangerous!)
         if (other.CompareTag("Enemy"))
         {
+            // ShieldKnight blocking from the front deflects the hook entirely
+            ShieldKnight knight = other.GetComponent<ShieldKnight>();
+            if (knight != null && knight.IsBlockingFrom(transform.position))
+            {
+                playerController.GrappleMissed();
+                Destroy(gameObject);
+                return;
+            }
+
             currentState = HookState.PullTarget;
             grabbedTarget = other.transform;
             grabbedIsEnemy = true;
-            
+
             // Freeze enemy physics during pull
             grabbedRb = other.GetComponent<Rigidbody2D>();
             if (grabbedRb != null)
@@ -232,7 +254,7 @@ public class GrapplingHook : MonoBehaviour
                 grabbedRb.bodyType = RigidbodyType2D.Kinematic;
                 grabbedRb.linearVelocity = Vector2.zero;
             }
-            
+
             playerController.GrappleGrabbed();
             return;
         }
@@ -255,8 +277,9 @@ public class GrapplingHook : MonoBehaviour
             return;
         }
         
-        // Priority 5: Walls — miss
-        if (other.CompareTag("Wall"))
+        // Priority 5: Walls — miss. CrackedWall is treated like a Wall;
+        // bombs are still the only way through them.
+        if (other.CompareTag("Wall") || other.CompareTag("CrackedWall"))
         {
             playerController.GrappleMissed();
             Destroy(gameObject);
@@ -266,5 +289,31 @@ public class GrapplingHook : MonoBehaviour
     public void DestroyHook()
     {
         Destroy(gameObject);
+    }
+
+    void OnDestroy()
+    {
+        // Restore grabbed enemy physics so it isn't stuck Kinematic forever
+        // (happens when ResetActionStates destroys us mid-pull on respawn)
+        if (grabbedRb != null && grabbedIsEnemy)
+        {
+            grabbedRb.bodyType = RigidbodyType2D.Dynamic;
+        }
+
+        // Release a carried pickup so the player can collect it normally
+        if (grabbedTarget != null && !grabbedIsEnemy)
+        {
+            Collectible collectible = grabbedTarget.GetComponent<Collectible>();
+            if (collectible != null)
+            {
+                collectible.SetCarried(false);
+            }
+        }
+
+        // Notify player so isGrappling/isPullingPlayer don't stay latched
+        if (playerController != null)
+        {
+            playerController.GrappleFinished();
+        }
     }
 }

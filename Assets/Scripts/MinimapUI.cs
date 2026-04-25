@@ -39,6 +39,7 @@ public class MinimapUI : MonoBehaviour
     {
         if (DialogueBox.IsActive || ShopUI.IsActive ||
             PauseManager.IsPaused || GameOverUI.IsActive) return;
+        if (InputManager.Instance == null) return;
 
         if (InputManager.Instance.ToggleMinimapPressed)
         {

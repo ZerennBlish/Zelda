@@ -155,11 +155,13 @@ public class Melee : MonoBehaviour
                 ShieldKnight knight = hit.GetComponent<ShieldKnight>();
                 if (knight != null)
                 {
-                    knight.TakeDamage(damage, player.position);
-                    
-                    HitFlash flash = hit.GetComponent<HitFlash>();
-                    if (flash != null) flash.Flash();
-                    
+                    bool damaged = knight.TakeDamage(damage, player.position);
+                    if (damaged)
+                    {
+                        HitFlash flash = hit.GetComponent<HitFlash>();
+                        if (flash != null) flash.Flash();
+                    }
+
                     continue;
                 }
                 

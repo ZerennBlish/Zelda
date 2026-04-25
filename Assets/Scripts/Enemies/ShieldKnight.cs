@@ -280,7 +280,34 @@ public class ShieldKnight : MonoBehaviour, IStunnable, IDamageable{
         }
     }
     
-    public void TakeDamage(int amount, Vector2 attackSource)
+    // Pure direction check — true if attack is inside the shield arc and the
+    // knight is awake. Stunned knights cannot block. Used by TakeDamage and
+    // also by callers that need to gate stun/pull (Boomerang, GrapplingHook).
+    private bool IsBlockingDirection(Vector2 attackSource)
+    {
+        if (currentState == State.Stunned) return false;
+        Vector2 attackDirection = (attackSource - (Vector2)transform.position).normalized;
+        float angle = Vector2.Angle(facingDirection, attackDirection);
+        return angle < shieldArc / 2f;
+    }
+
+    // Public query for non-damage effects (stun, pull). Returns true if the
+    // attack is blocked. Triggers the block flash so the player gets the
+    // same visual feedback they'd get from a blocked damage hit.
+    public bool IsBlockingFrom(Vector2 attackSource)
+    {
+        if (IsBlockingDirection(attackSource))
+        {
+            Block();
+            return true;
+        }
+        return false;
+    }
+
+    // Returns true if damage was applied, false if blocked. Callers use the
+    // return value to decide whether to play HitFlash — block flash is handled
+    // internally and shouldn't be overwritten by a hit flash on top.
+    public bool TakeDamage(int amount, Vector2 attackSource)
     {
         if (currentState == State.Stunned)
         {
@@ -289,24 +316,23 @@ public class ShieldKnight : MonoBehaviour, IStunnable, IDamageable{
             {
                 Die();
             }
-            return;
+            return true;
         }
-        
-        Vector2 attackDirection = (attackSource - (Vector2)transform.position).normalized;
-        float angle = Vector2.Angle(facingDirection, attackDirection);
-        
-        if (angle < shieldArc / 2f)
+
+        if (IsBlockingDirection(attackSource))
         {
             Block();
-            return;
+            return false;
         }
-        
+
         health -= amount;
-        
+
         if (health <= 0)
         {
             Die();
         }
+
+        return true;
     }
     
     public void TakeDamage(int amount)

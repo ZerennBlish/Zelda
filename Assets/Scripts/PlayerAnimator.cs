@@ -120,6 +120,7 @@ public class PlayerAnimator : MonoBehaviour
             return;
         }
         
+        if (InputManager.Instance == null) return;
         Vector2 moveInput = InputManager.Instance.Move;
         float h = moveInput.x;
         float v = moveInput.y;

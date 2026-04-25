@@ -35,8 +35,20 @@ public class EnemyArrow : MonoBehaviour
                 playerHealth.TakeDamage(damage, transform.position);
             }
             Destroy(gameObject);
+            return;
         }
-        
+
+        if (other.CompareTag("Destructible"))
+        {
+            Destructible destructible = other.GetComponent<Destructible>();
+            if (destructible != null)
+            {
+                destructible.TakeDamage(1);
+            }
+            Destroy(gameObject);
+            return;
+        }
+
         if (other.CompareTag("Wall"))
         {
             Destroy(gameObject);

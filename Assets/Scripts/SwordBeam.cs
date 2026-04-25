@@ -48,11 +48,13 @@ public class SwordBeam : MonoBehaviour
             ShieldKnight knight = other.GetComponent<ShieldKnight>();
             if (knight != null)
             {
-                knight.TakeDamage(damage, transform.position);
-                
-                HitFlash flash = other.GetComponent<HitFlash>();
-                if (flash != null) flash.Flash();
-                
+                bool damaged = knight.TakeDamage(damage, transform.position);
+                if (damaged)
+                {
+                    HitFlash flash = other.GetComponent<HitFlash>();
+                    if (flash != null) flash.Flash();
+                }
+
                 Destroy(gameObject);
                 return;
             }

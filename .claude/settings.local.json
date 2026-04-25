@@ -6,7 +6,8 @@
       "Bash(sed -n '110,140p' /mnt/c/Zelda/Assets/Scripts/PlayerClass.cs)",
       "Bash(sed -n '80,100p' /mnt/c/Zelda/Assets/Scripts/Collectible.cs)",
       "Bash(sed -n '38,50p' /mnt/c/Zelda/Assets/Scripts/MinimapUI.cs)",
-      "Bash(sed -n '20,38p' /mnt/c/Zelda/Assets/Scripts/RoomManager.cs)"
+      "Bash(sed -n '20,38p' /mnt/c/Zelda/Assets/Scripts/RoomManager.cs)",
+      "Bash(dotnet --version)"
     ]
   }
 }

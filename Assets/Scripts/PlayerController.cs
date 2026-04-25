@@ -130,6 +130,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         if (DialogueBox.IsActive || ShopUI.IsActive || PauseManager.IsPaused) return;
+        if (InputManager.Instance == null) return;
 
         if (ramTimer > 0f)
         {
@@ -692,6 +693,10 @@ public class PlayerController : MonoBehaviour
         // Cancel shooting animation
         isShooting = false;
         shootAnimTimer = 0f;
+
+        // Clear boomerang lock — any active boomerang will be destroyed by
+        // room cleanup or fire BoomerangReturned via its own OnDestroy
+        boomerangOut = false;
 
         // Cancel mount
         if (isMounted)
