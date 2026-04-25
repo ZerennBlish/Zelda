@@ -23,13 +23,6 @@ public class RoomTracker : MonoBehaviour
     void Start()
     {
         LoadVisitedRooms();
-
-        // Mark starting room as visited
-        if (RoomManager.Instance != null)
-        {
-            Vector2 current = RoomManager.Instance.GetCurrentRoom();
-            MarkVisited(current);
-        }
     }
 
     public void MarkVisited(Vector2 room)
@@ -63,7 +56,6 @@ public class RoomTracker : MonoBehaviour
 
         string data = string.Join(",", entries);
         PlayerPrefs.SetString("VisitedRooms", data);
-        PlayerPrefs.Save();
     }
 
     void LoadVisitedRooms()

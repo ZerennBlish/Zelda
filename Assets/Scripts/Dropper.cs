@@ -7,12 +7,14 @@ public class Dropper : MonoBehaviour
     
     public void Drop()
     {
-        if (possibleDrops.Length == 0) return;
-        
+        if (possibleDrops == null || possibleDrops.Length == 0) return;
+
         if (Random.value <= dropChance)
         {
             int randomIndex = Random.Range(0, possibleDrops.Length);
-            Instantiate(possibleDrops[randomIndex], transform.position, Quaternion.identity);
+            GameObject drop = possibleDrops[randomIndex];
+            if (drop == null) return;
+            Instantiate(drop, transform.position, Quaternion.identity);
         }
     }
 }

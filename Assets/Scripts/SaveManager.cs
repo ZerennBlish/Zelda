@@ -3,7 +3,14 @@ using UnityEngine;
 public class SaveManager : MonoBehaviour
 {
     public static SaveManager Instance;
-    
+
+    private RoomManager cachedRoomManager;
+    private PlayerController cachedPlayer;
+    private PlayerHealth cachedHealth;
+    private PlayerClass cachedClass;
+    private GameState cachedGameState;
+    private RoomTracker cachedRoomTracker;
+
     void Awake()
     {
         if (Instance == null)
@@ -16,23 +23,33 @@ public class SaveManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    
-    public void SaveGame(int roomX, int roomY, int lives)
+
+    private void CacheReferences()
     {
-        PlayerPrefs.SetInt("RoomX", roomX);
-        PlayerPrefs.SetInt("RoomY", roomY);
-        PlayerPrefs.SetInt("Lives", lives);
-        PlayerPrefs.SetInt("HasSave", 1);
-        PlayerPrefs.Save();
+        if (cachedPlayer == null)
+            cachedPlayer = FindFirstObjectByType<PlayerController>();
+        if (cachedHealth == null)
+            cachedHealth = FindFirstObjectByType<PlayerHealth>();
+        if (cachedClass == null)
+            cachedClass = FindFirstObjectByType<PlayerClass>();
+        if (cachedGameState == null)
+            cachedGameState = GameState.Instance;
+        if (cachedRoomTracker == null)
+            cachedRoomTracker = RoomTracker.Instance;
+        if (cachedRoomManager == null)
+            cachedRoomManager = RoomManager.Instance;
     }
 
     public static void SaveAll()
     {
-        RoomManager roomManager = FindFirstObjectByType<RoomManager>();
-        PlayerHealth playerHealth = FindFirstObjectByType<PlayerHealth>();
-        GameState gameState = FindFirstObjectByType<GameState>();
-        PlayerController playerController = FindFirstObjectByType<PlayerController>();
-        PlayerClass playerClass = FindFirstObjectByType<PlayerClass>();
+        if (Instance == null) return;
+        Instance.CacheReferences();
+
+        RoomManager roomManager = Instance.cachedRoomManager;
+        PlayerHealth playerHealth = Instance.cachedHealth;
+        GameState gameState = Instance.cachedGameState;
+        PlayerController playerController = Instance.cachedPlayer;
+        PlayerClass playerClass = Instance.cachedClass;
 
         if (roomManager != null)
         {

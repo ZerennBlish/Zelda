@@ -17,7 +17,7 @@ public class PauseManager : MonoBehaviour
 
     void Update()
     {
-        if (DialogueBox.IsActive || ShopUI.IsActive) return;
+        if (DialogueBox.IsActive || ShopUI.IsActive || GameOverUI.IsActive) return;
 
         if (InputManager.Instance.PausePressed)
         {

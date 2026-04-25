@@ -10,6 +10,7 @@ public class BuildingEntrance : MonoBehaviour
     public GameObject promptUI;
     
     private bool playerInRange = false;
+    private bool wasDialogueActive = false;
 
     void Start()
     {
@@ -23,6 +24,13 @@ public class BuildingEntrance : MonoBehaviour
     {
         if (!playerInRange) return;
         if (DialogueBox.IsActive || ShopUI.IsActive || PauseManager.IsPaused) return;
+
+        if (wasDialogueActive && !DialogueBox.IsActive)
+        {
+            wasDialogueActive = DialogueBox.IsActive;
+            return;
+        }
+        wasDialogueActive = DialogueBox.IsActive;
 
         if (InputManager.Instance.InteractPressed)
         {
