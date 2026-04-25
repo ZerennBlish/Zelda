@@ -22,9 +22,11 @@ public class InputManager : MonoBehaviour
     private InputAction shopBuy1Action;
     private InputAction shopBuy2Action;
     private InputAction shopBuy3Action;
+#if UNITY_EDITOR
     private InputAction debugRefillAction;
     private InputAction debugResetAction;
     private InputAction debugCycleClassAction;
+#endif
 
     // --- Public Read Properties ---
 
@@ -44,9 +46,39 @@ public class InputManager : MonoBehaviour
     public bool ShopBuy1Pressed => shopBuy1Action.WasPressedThisFrame();
     public bool ShopBuy2Pressed => shopBuy2Action.WasPressedThisFrame();
     public bool ShopBuy3Pressed => shopBuy3Action.WasPressedThisFrame();
-    public bool DebugRefillPressed => debugRefillAction.WasPressedThisFrame();
-    public bool DebugResetPressed => debugResetAction.WasPressedThisFrame();
-    public bool DebugCycleClassPressed => debugCycleClassAction.WasPressedThisFrame();
+    public bool DebugRefillPressed
+    {
+        get
+        {
+            #if UNITY_EDITOR
+            return debugRefillAction.WasPressedThisFrame();
+            #else
+            return false;
+            #endif
+        }
+    }
+    public bool DebugResetPressed
+    {
+        get
+        {
+            #if UNITY_EDITOR
+            return debugResetAction.WasPressedThisFrame();
+            #else
+            return false;
+            #endif
+        }
+    }
+    public bool DebugCycleClassPressed
+    {
+        get
+        {
+            #if UNITY_EDITOR
+            return debugCycleClassAction.WasPressedThisFrame();
+            #else
+            return false;
+            #endif
+        }
+    }
 
     // Buttons — held (true every frame while pressed)
     public bool ShootHeld => shootAction.IsPressed();
@@ -99,8 +131,9 @@ public class InputManager : MonoBehaviour
         shootAction.AddBinding("<Mouse>/middleButton");
         shootAction.AddBinding("<Gamepad>/rightShoulder");
 
-        // Use Sub-Weapon — Right Mouse Button, Gamepad North (Y on Xbox)
+        // Use Sub-Weapon — Q, Right Mouse Button, Gamepad North (Y on Xbox)
         useSubWeaponAction = new InputAction("UseSubWeapon", InputActionType.Button);
+        useSubWeaponAction.AddBinding("<Keyboard>/q");
         useSubWeaponAction.AddBinding("<Mouse>/rightButton");
         useSubWeaponAction.AddBinding("<Gamepad>/buttonNorth");
 
@@ -139,10 +172,12 @@ public class InputManager : MonoBehaviour
         shopBuy2Action = new InputAction("ShopBuy2", InputActionType.Button, "<Keyboard>/2");
         shopBuy3Action = new InputAction("ShopBuy3", InputActionType.Button, "<Keyboard>/3");
 
-        // Debug keys — O, R, T
+        // Debug keys — O, R, T (editor-only)
+        #if UNITY_EDITOR
         debugRefillAction = new InputAction("DebugRefill", InputActionType.Button, "<Keyboard>/o");
         debugResetAction = new InputAction("DebugReset", InputActionType.Button, "<Keyboard>/r");
         debugCycleClassAction = new InputAction("DebugCycleClass", InputActionType.Button, "<Keyboard>/t");
+        #endif
     }
 
     void EnableAllActions()
@@ -163,9 +198,11 @@ public class InputManager : MonoBehaviour
         shopBuy1Action.Enable();
         shopBuy2Action.Enable();
         shopBuy3Action.Enable();
+        #if UNITY_EDITOR
         debugRefillAction.Enable();
         debugResetAction.Enable();
         debugCycleClassAction.Enable();
+        #endif
     }
 
     void OnDisable()
@@ -186,9 +223,11 @@ public class InputManager : MonoBehaviour
         shopBuy1Action?.Disable();
         shopBuy2Action?.Disable();
         shopBuy3Action?.Disable();
+        #if UNITY_EDITOR
         debugRefillAction?.Disable();
         debugResetAction?.Disable();
         debugCycleClassAction?.Disable();
+        #endif
     }
 
     void OnDestroy()
@@ -209,9 +248,11 @@ public class InputManager : MonoBehaviour
         shopBuy1Action?.Dispose();
         shopBuy2Action?.Dispose();
         shopBuy3Action?.Dispose();
+        #if UNITY_EDITOR
         debugRefillAction?.Dispose();
         debugResetAction?.Dispose();
         debugCycleClassAction?.Dispose();
+        #endif
 
         if (Instance == this) Instance = null;
     }

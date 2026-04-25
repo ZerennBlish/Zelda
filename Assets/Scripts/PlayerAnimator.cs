@@ -52,7 +52,8 @@ public class PlayerAnimator : MonoBehaviour
     void Update()
     {
         if (playerController != null && playerController.IsMounted()) return;
-        
+        if (DialogueBox.IsActive || ShopUI.IsActive || PauseManager.IsPaused) return;
+
         activeSprites = GetSpritesForCurrentClass();
         
         UpdateDirection();

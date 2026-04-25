@@ -7,6 +7,7 @@ public class GameController : MonoBehaviour
     {
         if (ShopUI.IsActive || DialogueBox.IsActive) return;
 
+        #if UNITY_EDITOR
         // Debug refill + unlock all - O key
         if (InputManager.Instance.DebugRefillPressed)
         {
@@ -25,20 +26,12 @@ public class GameController : MonoBehaviour
         {
             FullReset();
         }
-
-        // Quit - Escape only
-        if (InputManager.Instance.EscapePressed)
-        {
-            #if UNITY_EDITOR
-                UnityEditor.EditorApplication.isPlaying = false;
-            #else
-                Application.Quit();
-            #endif
-        }
+        #endif
     }
     
     void RefillEverything()
     {
+        #if UNITY_EDITOR
         // Refill health
         PlayerHealth health = FindFirstObjectByType<PlayerHealth>();
         if (health != null)
@@ -49,14 +42,14 @@ public class GameController : MonoBehaviour
                 health.healthUI.UpdateHearts(health.currentHealth, health.maxHealth);
             }
         }
-        
+
         // Refill arrows and bombs + unlock all items
         PlayerController player = FindFirstObjectByType<PlayerController>();
         if (player != null)
         {
             player.currentArrows = player.maxArrows;
             player.currentBombs = player.maxBombs;
-            
+
             if (player.arrowUI != null)
             {
                 player.arrowUI.UpdateCount(player.currentArrows);
@@ -65,7 +58,7 @@ public class GameController : MonoBehaviour
             {
                 player.bombUI.UpdateCount(player.currentBombs);
             }
-            
+
             // Unlock all items
             player.UnlockItem("Boomerang");
             player.UnlockItem("Bombs");
@@ -73,26 +66,36 @@ public class GameController : MonoBehaviour
             player.UnlockItem("Wand");
             player.UnlockItem("Book");
         }
-        
+
         // Add 50 rupees
         if (GameState.Instance != null)
         {
             GameState.Instance.AddRupees(50);
         }
-        
+
         Debug.Log("Refilled everything + unlocked all items + 50 rupees");
+        #endif
     }
     
     void FullReset()
     {
+        #if UNITY_EDITOR
         // Clear all saved data
-        PlayerPrefs.DeleteAll();
+        if (SaveManager.Instance != null)
+        {
+            SaveManager.Instance.DeleteAllData();
+        }
+        else
+        {
+            PlayerPrefs.DeleteAll();
+        }
         PlayerPrefs.Save();
-        
+
         // Reload scene
         Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        
+
         Debug.Log("Full game reset");
+        #endif
     }
 }

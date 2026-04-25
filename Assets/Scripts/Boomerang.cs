@@ -148,7 +148,17 @@ public class Boomerang : MonoBehaviour
         {
             playerController.BoomerangReturned();
         }
-        
+
         Destroy(gameObject);
+    }
+
+    void OnDestroy()
+    {
+        // If destroyed without catching (room transition, death, etc.),
+        // clear the lock so the player can throw again
+        if (playerController != null)
+        {
+            playerController.BoomerangReturned();
+        }
     }
 }

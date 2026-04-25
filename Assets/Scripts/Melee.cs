@@ -111,11 +111,11 @@ public class Melee : MonoBehaviour
         // Hide the bow sprite — attack visual comes from the sprite sheet
         // The hitbox still sweeps and deals damage
         
-        yield return new WaitForSeconds(swingDuration);
+        yield return new WaitForSecondsRealtime(swingDuration);
         
         isSwinging = false;
         
-        yield return new WaitForSeconds(cooldown);
+        yield return new WaitForSecondsRealtime(cooldown);
         canSwing = true;
     }
     
@@ -194,5 +194,13 @@ public class Melee : MonoBehaviour
     public bool IsSwinging()
     {
         return isSwinging;
+    }
+
+    public void ResetSwingState()
+    {
+        StopAllCoroutines();
+        isSwinging = false;
+        canSwing = true;
+        hitThisSwing.Clear();
     }
 }

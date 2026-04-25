@@ -16,10 +16,22 @@ public class PlayerBuff : MonoBehaviour
     private float originalSpeed;
     private int originalDamage;
     private Melee meleeRef;
+    private bool removed = false;
 
     public void Initialize(BuffType type)
     {
         buffType = type;
+
+        // Remove existing buff of same type to prevent stacking corruption
+        PlayerBuff[] existing = GetComponents<PlayerBuff>();
+        foreach (PlayerBuff buff in existing)
+        {
+            if (buff != this && buff.buffType == type)
+            {
+                buff.RemoveBuff();
+            }
+        }
+
         playerController = GetComponent<PlayerController>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         
@@ -115,9 +127,22 @@ public class PlayerBuff : MonoBehaviour
             RemoveBuff();
         }
     }
-    
+
+    void OnDestroy()
+    {
+        // If we're being destroyed with an active timed buff,
+        // try to restore original values
+        if (timer > 0)
+        {
+            RemoveBuff();
+        }
+    }
+
     public void RemoveBuff()
     {
+        if (removed) return;
+        removed = true;
+
         switch (buffType)
         {
             case BuffType.Speed:

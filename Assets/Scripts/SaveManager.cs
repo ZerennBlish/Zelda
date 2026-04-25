@@ -60,7 +60,7 @@ public class SaveManager : MonoBehaviour
             PlayerPrefs.SetInt("HasWand", playerController.hasWand ? 1 : 0);
             PlayerPrefs.SetInt("HasBook", playerController.hasBook ? 1 : 0);
 
-            PlayerPrefs.SetInt("EquippedWeaponIndex", playerController.GetEquippedWeaponIndex());
+            PlayerPrefs.SetInt("EquippedWeaponIndex", (int)playerController.GetActiveWeapon());
         }
 
         if (playerHealth != null)
@@ -98,10 +98,20 @@ public class SaveManager : MonoBehaviour
     
     public void DeleteSave()
     {
+        // Run state — resets on game over
         PlayerPrefs.DeleteKey("RoomX");
         PlayerPrefs.DeleteKey("RoomY");
         PlayerPrefs.DeleteKey("Lives");
         PlayerPrefs.DeleteKey("HasSave");
+        PlayerPrefs.Save();
+    }
+
+    public void DeleteAllData()
+    {
+        // Run state
+        DeleteSave();
+
+        // Persistent unlocks and progression
         PlayerPrefs.DeleteKey("SavedRupees");
         PlayerPrefs.DeleteKey("SavedArrows");
         PlayerPrefs.DeleteKey("SavedBombs");

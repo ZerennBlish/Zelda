@@ -28,10 +28,17 @@ public class PlayerShield : MonoBehaviour
 
     void Update()
     {
+        if (DialogueBox.IsActive || ShopUI.IsActive || PauseManager.IsPaused)
+        {
+            isBlocking = false;
+            spriteRenderer.enabled = false;
+            return;
+        }
+
         isBlocking = InputManager.Instance.BlockHeld;
-        
+
         spriteRenderer.enabled = isBlocking;
-        
+
         if (isBlocking)
         {
             UpdateShieldPosition();

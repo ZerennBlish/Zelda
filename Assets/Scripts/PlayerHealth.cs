@@ -52,8 +52,9 @@ public class PlayerHealth : MonoBehaviour
     
     /// <summary>
     /// Applies armor reduction if player has it (Swordsman+).
-    /// Damage of 1 becomes 0 with armor — minimum 1 if original was 2+.
-    /// This gives half-heart feel: most hits deal less, big hits still hurt.
+    /// Halves incoming damage with a minimum of 1.
+    /// Damage 1 stays at 1 (armor doesn't grant immunity to weak hits).
+    /// Damage 2+ is halved: 2→1, 3→1, 4→2, 5→2, 6→3, etc.
     /// </summary>
     int ApplyArmor(int damage)
     {
@@ -194,13 +195,20 @@ public class PlayerHealth : MonoBehaviour
     
     void Respawn()
     {
+        // Reset player action states to prevent softlocks
+        PlayerController pc = GetComponent<PlayerController>();
+        if (pc != null) pc.ResetActionStates();
+
+        Melee melee = GetComponentInChildren<Melee>();
+        if (melee != null) melee.ResetSwingState();
+
         currentHealth = maxHealth;
-        
+
         if (healthUI != null)
         {
             healthUI.UpdateHearts(currentHealth, maxHealth);
         }
-        
+
         StartCoroutine(InvincibilityFrames());
     }
     
@@ -210,7 +218,7 @@ public class PlayerHealth : MonoBehaviour
         while (elapsed < invincibilityTime)
         {
             spriteRenderer.enabled = !spriteRenderer.enabled;
-            yield return new WaitForSeconds(blinkRate);
+            yield return new WaitForSecondsRealtime(blinkRate);
             elapsed += blinkRate;
         }
         

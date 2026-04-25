@@ -16,25 +16,17 @@ public class MainMenuController : MonoBehaviour
     
     public void NewGame()
     {
-        PlayerPrefs.DeleteKey("RoomX");
-        PlayerPrefs.DeleteKey("RoomY");
-        PlayerPrefs.DeleteKey("Lives");
-        PlayerPrefs.DeleteKey("HasSave");
-        PlayerPrefs.DeleteKey("SavedRupees");
-        PlayerPrefs.DeleteKey("SavedArrows");
-        PlayerPrefs.DeleteKey("SavedBombs");
-        PlayerPrefs.DeleteKey("SavedMaxHealth");
-        PlayerPrefs.DeleteKey("SavedClassTier");
-        PlayerPrefs.DeleteKey("HasBoomerang");
-        PlayerPrefs.DeleteKey("HasBombs");
-        PlayerPrefs.DeleteKey("HasGrapple");
-        PlayerPrefs.DeleteKey("HasWand");
-        PlayerPrefs.DeleteKey("HasBook");
-        PlayerPrefs.DeleteKey("EquippedWeaponIndex");
-        PlayerPrefs.DeleteKey("VisitedRooms");
-        PlayerPrefs.DeleteKey("HeartUpgradeBought");
-        PlayerPrefs.Save();
-        
+        if (SaveManager.Instance != null)
+        {
+            SaveManager.Instance.DeleteAllData();
+        }
+        else
+        {
+            // Fallback if SaveManager not loaded yet
+            PlayerPrefs.DeleteAll();
+            PlayerPrefs.Save();
+        }
+
         SceneManager.LoadScene("Game");
     }
     

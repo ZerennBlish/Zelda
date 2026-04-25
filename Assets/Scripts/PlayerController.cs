@@ -113,11 +113,16 @@ public class PlayerController : MonoBehaviour
         hasWand = PlayerPrefs.GetInt("HasWand", 0) == 1;
         hasBook = PlayerPrefs.GetInt("HasBook", 0) == 1;
         
-        // Load last equipped weapon
-        currentWeaponIndex = PlayerPrefs.GetInt("EquippedWeaponIndex", 0);
-        
+        // Load last equipped weapon (saved as enum value, not list index)
+        int savedWeaponEnum = PlayerPrefs.GetInt("EquippedWeaponIndex", 0);
+
         RebuildWeaponList();
-        
+
+        // Find the saved weapon in the current list
+        SubWeapon savedWeapon = (SubWeapon)savedWeaponEnum;
+        int foundIndex = unlockedWeapons.IndexOf(savedWeapon);
+        currentWeaponIndex = foundIndex >= 0 ? foundIndex : 0;
+
         UpdateArrowUI();
         UpdateBombUI();
     }
@@ -285,8 +290,8 @@ public class PlayerController : MonoBehaviour
             currentWeaponIndex = unlockedWeapons.Count - 1;
         }
         
-        // Save equipped weapon
-        PlayerPrefs.SetInt("EquippedWeaponIndex", currentWeaponIndex);
+        // Save equipped weapon (enum value, not list index — list shifts when weapons unlock)
+        PlayerPrefs.SetInt("EquippedWeaponIndex", (int)unlockedWeapons[currentWeaponIndex]);
         PlayerPrefs.Save();
         
         Debug.Log("Equipped: " + GetActiveWeapon());
@@ -351,14 +356,16 @@ public class PlayerController : MonoBehaviour
     void Mount()
     {
         if (horseSprite == null) return;
-        
-        isMounted = true;
-        spriteRenderer.sprite = horseSprite;
-        
+
+        // Reset melee state before deactivating
         if (melee != null)
         {
+            melee.ResetSwingState();
             melee.gameObject.SetActive(false);
         }
+
+        isMounted = true;
+        spriteRenderer.sprite = horseSprite;
     }
     
     void Dismount()
@@ -652,5 +659,37 @@ public class PlayerController : MonoBehaviour
     public bool IsShooting()
     {
         return isShooting;
+    }
+
+    public void ResetActionStates()
+    {
+        // Cancel grapple
+        if (isGrappling || isPullingPlayer)
+        {
+            if (playerCollider != null)
+                playerCollider.enabled = true;
+            rb.bodyType = RigidbodyType2D.Dynamic;
+            rb.linearVelocity = Vector2.zero;
+            isGrappling = false;
+            isPullingPlayer = false;
+            if (grappleHookInstance != null)
+            {
+                Destroy(grappleHookInstance);
+                grappleHookInstance = null;
+            }
+        }
+
+        // Cancel shooting animation
+        isShooting = false;
+        shootAnimTimer = 0f;
+
+        // Cancel mount
+        if (isMounted)
+        {
+            Dismount();
+        }
+
+        // Reset movement
+        movement = Vector2.zero;
     }
 }
