@@ -48,8 +48,9 @@ public class ShieldKnight : MonoBehaviour, IStunnable, IDamageable{
     
     private Color originalColor;
     private Color originalShieldColor;
-    
+
     private float stunTimer;
+    private bool isDead = false;
 
     void Start()
     {
@@ -78,8 +79,9 @@ public class ShieldKnight : MonoBehaviour, IStunnable, IDamageable{
 
     void Update()
     {
+        if (isDead) return;
         if (player == null) return;
-        
+
         // Handle stunned state
         if (currentState == State.Stunned)
         {
@@ -93,12 +95,18 @@ public class ShieldKnight : MonoBehaviour, IStunnable, IDamageable{
                 {
                     shieldRenderer.color = originalShieldColor;
                 }
+                EnemyBuff buff = GetComponent<EnemyBuff>();
+                if (buff != null) buff.ReapplyTint();
             }
             return;
         }
-        
+
+        // Tick the attack cooldown every non-stunned frame so a stun-during-
+        // cooldown doesn't leave attackTimer permanently stuck above zero.
+        if (attackTimer > 0) attackTimer -= Time.deltaTime;
+
         float distanceToPlayer = Vector2.Distance(transform.position, player.position);
-        
+
         switch (currentState)
         {
             case State.Wander:
@@ -108,7 +116,7 @@ public class ShieldKnight : MonoBehaviour, IStunnable, IDamageable{
                     currentState = State.Chase;
                 }
                 break;
-                
+
             case State.Chase:
                 Chase();
                 if (distanceToPlayer < attackRange && attackTimer <= 0)
@@ -120,11 +128,11 @@ public class ShieldKnight : MonoBehaviour, IStunnable, IDamageable{
                     currentState = State.Wander;
                 }
                 break;
-                
+
             case State.Attack:
                 rb.linearVelocity = Vector2.zero;
                 bashTimer -= Time.deltaTime;
-                
+
                 // Animate shield bash
                 if (shieldTransform != null)
                 {
@@ -140,23 +148,22 @@ public class ShieldKnight : MonoBehaviour, IStunnable, IDamageable{
                         shieldTransform.localPosition = facingDirection * (shieldDistance + bashDistance * (1f - (bashProgress - 0.5f) * 2f));
                     }
                 }
-                
+
                 if (bashTimer <= 0)
                 {
                     EndAttack();
                 }
                 break;
-                
+
             case State.Cooldown:
                 rb.linearVelocity = Vector2.zero;
-                attackTimer -= Time.deltaTime;
                 if (attackTimer <= 0)
                 {
                     currentState = State.Chase;
                 }
                 break;
         }
-        
+
         UpdateShieldPosition();
     }
     
@@ -309,6 +316,8 @@ public class ShieldKnight : MonoBehaviour, IStunnable, IDamageable{
     // internally and shouldn't be overwritten by a hit flash on top.
     public bool TakeDamage(int amount, Vector2 attackSource)
     {
+        if (isDead) return false;
+
         if (currentState == State.Stunned)
         {
             health -= amount;
@@ -334,11 +343,12 @@ public class ShieldKnight : MonoBehaviour, IStunnable, IDamageable{
 
         return true;
     }
-    
+
     public void TakeDamage(int amount)
     {
+        if (isDead) return;
         health -= amount;
-        
+
         if (health <= 0)
         {
             Die();
@@ -357,24 +367,31 @@ public class ShieldKnight : MonoBehaviour, IStunnable, IDamageable{
         {
             shieldRenderer.color = blockFlashColor;
         }
-        
-        yield return new WaitForSeconds(blockFlashDuration);
-        
+
+        yield return new WaitForSecondsRealtime(blockFlashDuration);
+
+        // Don't overwrite stun color (or post-death state) if we got stunned
+        // or killed during the flash wait.
+        if (isDead) yield break;
+        if (currentState == State.Stunned) yield break;
+
         spriteRenderer.color = originalColor;
         if (shieldRenderer != null)
         {
             shieldRenderer.color = originalShieldColor;
         }
     }
-    
+
     void Die()
     {
+        if (isDead) return;
+        isDead = true;
         Dropper dropper = GetComponent<Dropper>();
         if (dropper != null)
         {
             dropper.Drop();
         }
-        
+
         Destroy(gameObject);
     }
 }

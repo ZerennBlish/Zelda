@@ -11,9 +11,23 @@ public class EnemyBuff : MonoBehaviour
     private Color tintColor;
     private float regenTimer;
     private float regenInterval = 3f;
+    private bool removed = false;
 
     public void Initialize(BuffType type)
     {
+        // Defensive dedupe: matches PlayerBuff's pattern (Batch 1). Today
+        // OrcChief is the only caller and it pre-checks, so this is
+        // unreachable in current code. But it protects against future buff
+        // sources stacking Fortify's instant +3 HP grant.
+        EnemyBuff[] existing = GetComponents<EnemyBuff>();
+        foreach (EnemyBuff buff in existing)
+        {
+            if (buff != this && buff.buffType == type)
+            {
+                buff.RemoveBuff();
+            }
+        }
+
         buffType = type;
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -83,6 +97,9 @@ public class EnemyBuff : MonoBehaviour
     
     public void RemoveBuff()
     {
+        if (removed) return;
+        removed = true;
+
         if (spriteRenderer != null)
         {
             spriteRenderer.color = originalColor;

@@ -13,10 +13,9 @@ public class FlyingSkull : MonoBehaviour, IStunnable, IDamageable{
     public float swoopDuration = 0.5f;
     public float swoopCooldown = 1.5f;
     
-    [Header("Room Bounds")]
-    public float roomWidth = 18f;
-    public float roomHeight = 10f;
-    
+    [Header("Wall Detection")]
+    [SerializeField] private LayerMask wallLayerMask;
+
     [Header("Combat")]
     public int damage = 1;
     
@@ -42,24 +41,35 @@ public class FlyingSkull : MonoBehaviour, IStunnable, IDamageable{
     
     private float stunTimer;
     private Color originalColor;
+    private bool isDead = false;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         originalColor = spriteRenderer.color;
-        
-        roomCenter = new Vector2(
-            Mathf.Round(transform.position.x / roomWidth) * roomWidth,
-            Mathf.Round(transform.position.y / roomHeight) * roomHeight
-        );
-        
+
+        // Single source of truth: RoomManager owns the room dimensions.
+        if (RoomManager.Instance != null)
+        {
+            float roomW = RoomManager.Instance.roomWidth;
+            float roomH = RoomManager.Instance.roomHeight;
+            roomCenter = new Vector2(
+                Mathf.Round(transform.position.x / roomW) * roomW,
+                Mathf.Round(transform.position.y / roomH) * roomH
+            );
+        }
+        else
+        {
+            roomCenter = transform.position;
+        }
+
         GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
         if (playerObj != null)
         {
             player = playerObj.transform;
         }
-        
+
         PickNewDirection();
     }
 
@@ -75,6 +85,8 @@ public class FlyingSkull : MonoBehaviour, IStunnable, IDamageable{
             {
                 currentState = State.Wander;
                 spriteRenderer.color = originalColor;
+                EnemyBuff buff = GetComponent<EnemyBuff>();
+                if (buff != null) buff.ReapplyTint();
             }
             return;
         }
@@ -118,8 +130,35 @@ public class FlyingSkull : MonoBehaviour, IStunnable, IDamageable{
                 }
                 break;
         }
-        
+
+        CheckWallCollision();
         ClampToRoom();
+    }
+
+    void CheckWallCollision()
+    {
+        if (rb == null) return;
+        if (rb.linearVelocity.sqrMagnitude < 0.01f) return;
+
+        Vector2 nextPos = (Vector2)transform.position + rb.linearVelocity * Time.deltaTime;
+        Collider2D wallHit = Physics2D.OverlapCircle(nextPos, 0.4f, wallLayerMask);
+
+        if (wallHit == null) return;
+
+        // State-aware response: Pullback/Swoop abort to Cooldown so the skull
+        // doesn't keep ramming the wall; Wander/Cooldown just pick a new
+        // direction. Velocity is overridden this frame to avoid one frame of
+        // stale wall-pushing motion.
+        if (currentState == State.Pullback || currentState == State.Swoop)
+        {
+            StartCooldown();
+        }
+        else
+        {
+            PickNewDirection();
+        }
+
+        rb.linearVelocity = moveDirection * wanderSpeed;
     }
     
     void Wander()
@@ -184,16 +223,21 @@ public class FlyingSkull : MonoBehaviour, IStunnable, IDamageable{
     
     void ClampToRoom()
     {
-        float minX = roomCenter.x - (roomWidth / 2f) + 0.5f;
-        float maxX = roomCenter.x + (roomWidth / 2f) - 0.5f;
-        float minY = roomCenter.y - (roomHeight / 2f) + 0.5f;
-        float maxY = roomCenter.y + (roomHeight / 2f) - 0.5f;
-        
+        if (RoomManager.Instance == null) return;
+
+        float roomW = RoomManager.Instance.roomWidth;
+        float roomH = RoomManager.Instance.roomHeight;
+
+        float minX = roomCenter.x - (roomW / 2f) + 0.5f;
+        float maxX = roomCenter.x + (roomW / 2f) - 0.5f;
+        float minY = roomCenter.y - (roomH / 2f) + 0.5f;
+        float maxY = roomCenter.y + (roomH / 2f) - 0.5f;
+
         Vector3 pos = transform.position;
         pos.x = Mathf.Clamp(pos.x, minX, maxX);
         pos.y = Mathf.Clamp(pos.y, minY, maxY);
         transform.position = pos;
-        
+
         if (currentState == State.Wander || currentState == State.Cooldown)
         {
             if (transform.position.x == minX || transform.position.x == maxX ||
@@ -229,22 +273,25 @@ public class FlyingSkull : MonoBehaviour, IStunnable, IDamageable{
     
     public void TakeDamage(int amount)
     {
+        if (isDead) return;
         health -= amount;
-        
+
         if (health <= 0)
         {
             Die();
         }
     }
-    
+
     void Die()
     {
+        if (isDead) return;
+        isDead = true;
         Dropper dropper = GetComponent<Dropper>();
         if (dropper != null)
         {
             dropper.Drop();
         }
-        
+
         Destroy(gameObject);
     }
 }

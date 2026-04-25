@@ -35,6 +35,7 @@ public class OrcArcher : MonoBehaviour, IStunnable, IDamageable
     private Color originalColor;
     
     private float stunTimer;
+    private bool isDead = false;
 
     void Start()
     {
@@ -64,6 +65,8 @@ public class OrcArcher : MonoBehaviour, IStunnable, IDamageable
             {
                 currentState = State.Patrol;
                 spriteRenderer.color = originalColor;
+                EnemyBuff buff = GetComponent<EnemyBuff>();
+                if (buff != null) buff.ReapplyTint();
             }
             return;
         }
@@ -169,16 +172,19 @@ public class OrcArcher : MonoBehaviour, IStunnable, IDamageable
     
     public void TakeDamage(int damage)
     {
+        if (isDead) return;
         health -= damage;
-        
+
         if (health <= 0)
         {
             Die();
         }
     }
-    
+
     void Die()
     {
+        if (isDead) return;
+        isDead = true;
         Dropper dropper = GetComponent<Dropper>();
         if (dropper != null)
         {

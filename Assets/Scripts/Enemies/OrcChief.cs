@@ -46,7 +46,8 @@ public class OrcChief : MonoBehaviour, IStunnable, IDamageable
     
     private float stunTimer;
     private Color originalColor;
-    
+    private bool isDead = false;
+
     // Buff tracking
     private bool hasBuffedEnemies = false;
     private EnemyBuff.BuffType chosenEnemyBuff;
@@ -83,6 +84,8 @@ public class OrcChief : MonoBehaviour, IStunnable, IDamageable
             {
                 currentState = State.Wander;
                 spriteRenderer.color = originalColor;
+                EnemyBuff buff = GetComponent<EnemyBuff>();
+                if (buff != null) buff.ReapplyTint();
             }
             return;
         }
@@ -207,26 +210,48 @@ public class OrcChief : MonoBehaviour, IStunnable, IDamageable
     void BuffNearbyEnemies()
     {
         if (hasBuffedEnemies) return;
-        hasBuffedEnemies = true;
-        
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        
-        foreach (GameObject enemy in enemies)
+        if (RoomManager.Instance == null) return;
+
+        float roomW = RoomManager.Instance.roomWidth;
+        float roomH = RoomManager.Instance.roomHeight;
+
+        // Compute THIS chief's own room from its position so a chief near
+        // a boundary doesn't accidentally buff the player's room instead.
+        Vector2 myRoom = new Vector2(
+            Mathf.Round(transform.position.x / roomW),
+            Mathf.Round(transform.position.y / roomH)
+        );
+        Vector2 roomCenter = new Vector2(myRoom.x * roomW, myRoom.y * roomH);
+
+        // Find enemies inside our room only
+        Collider2D[] hits = Physics2D.OverlapBoxAll(
+            roomCenter,
+            new Vector2(roomW, roomH),
+            0f);
+
+        int buffedCount = 0;
+
+        foreach (Collider2D col in hits)
         {
-            // Skip self
-            if (enemy == gameObject) continue;
-            
-            // Skip already buffed enemies
-            if (enemy.GetComponent<EnemyBuff>() != null) continue;
-            
-            // Only buff enemies within the room (buffRadius)
-            float distance = Vector2.Distance(transform.position, enemy.transform.position);
-            if (distance <= buffRadius)
-            {
-                EnemyBuff buff = enemy.AddComponent<EnemyBuff>();
-                buff.Initialize(chosenEnemyBuff);
-                activeBuffs.Add(buff);
-            }
+            if (col == null) continue;
+            if (!col.CompareTag("Enemy")) continue;
+            if (col.gameObject == gameObject) continue;
+
+            // Skip already-buffed enemies (e.g. another chief got there first)
+            if (col.GetComponent<EnemyBuff>() != null) continue;
+
+            EnemyBuff buff = col.gameObject.AddComponent<EnemyBuff>();
+            buff.Initialize(chosenEnemyBuff);
+            activeBuffs.Add(buff);
+            buffedCount++;
+        }
+
+        // Only mark spent if at least one enemy actually got buffed; lets us
+        // retry on the next Wander → Chase transition if all candidates were
+        // already buffed by another source the first time.
+        if (buffedCount > 0)
+        {
+            hasBuffedEnemies = true;
         }
     }
     
@@ -292,48 +317,56 @@ public class OrcChief : MonoBehaviour, IStunnable, IDamageable
     
     public void TakeDamage(int amount)
     {
+        if (isDead) return;
         health -= amount;
-        
+
         if (health <= 0)
         {
             Die();
         }
     }
-    
+
     void Die()
     {
-        // Remove all enemy buffs — allies lose their power
-        foreach (EnemyBuff buff in activeBuffs)
-        {
-            if (buff != null)
-            {
-                buff.RemoveBuff();
-            }
-        }
-        activeBuffs.Clear();
-        
-        // Reward the player with a random buff
+        if (isDead) return;
+        isDead = true;
+
+        // Reward the player with a random buff. Ally-buff cleanup is handled
+        // in OnDestroy so any death path (Die, scene unload, etc.) clears them.
         if (player != null)
         {
-            // Remove existing player buff if they already have one
-            PlayerBuff existingBuff = player.GetComponent<PlayerBuff>();
-            if (existingBuff != null)
-            {
-                existingBuff.RemoveBuff();
-            }
-            
+            // Don't pre-remove. PlayerBuff.Initialize handles same-type
+            // dedupe and leaves different-type buffs alone, so an ongoing
+            // Power/Speed buff survives a Heal/Resupply award.
             PlayerBuff.BuffType playerBuffType = (PlayerBuff.BuffType)Random.Range(0, 4);
             PlayerBuff newBuff = player.gameObject.AddComponent<PlayerBuff>();
             newBuff.Initialize(playerBuffType);
         }
-        
+
         // Drop loot
         Dropper dropper = GetComponent<Dropper>();
         if (dropper != null)
         {
             dropper.Drop();
         }
-        
+
         Destroy(gameObject);
+    }
+
+    void OnDestroy()
+    {
+        // Remove buffs from any still-living allies regardless of how the
+        // chief died (Die, scene unload, room cleanup, etc.).
+        if (activeBuffs != null)
+        {
+            foreach (EnemyBuff buff in activeBuffs)
+            {
+                if (buff != null)
+                {
+                    buff.RemoveBuff();
+                }
+            }
+            activeBuffs.Clear();
+        }
     }
 }

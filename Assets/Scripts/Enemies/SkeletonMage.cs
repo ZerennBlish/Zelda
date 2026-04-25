@@ -15,6 +15,7 @@ public class SkeletonMage : MonoBehaviour, IStunnable, IDamageable{
     public float teleportCooldown = 3f;
     public float teleportRange = 3f;
     public float dangerRange = 2f;
+    [SerializeField] private LayerMask wallLayerMask;
     
     [Header("Health")]
     public int health = 2;
@@ -36,6 +37,7 @@ public class SkeletonMage : MonoBehaviour, IStunnable, IDamageable{
     
     private float stunTimer;
     private Color originalColor;
+    private bool isDead = false;
 
     void Start()
     {
@@ -64,6 +66,8 @@ public class SkeletonMage : MonoBehaviour, IStunnable, IDamageable{
             {
                 currentState = State.Patrol;
                 spriteRenderer.color = originalColor;
+                EnemyBuff buff = GetComponent<EnemyBuff>();
+                if (buff != null) buff.ReapplyTint();
             }
             return;
         }
@@ -123,9 +127,22 @@ public class SkeletonMage : MonoBehaviour, IStunnable, IDamageable{
     
     void Teleport()
     {
-        Vector2 randomOffset = Random.insideUnitCircle.normalized * teleportRange;
-        Vector3 newPosition = transform.position + new Vector3(randomOffset.x, randomOffset.y, 0);
-        
+        const int maxAttempts = 10;
+        Vector2 newPosition = transform.position;
+
+        for (int i = 0; i < maxAttempts; i++)
+        {
+            Vector2 offset = Random.insideUnitCircle.normalized * teleportRange;
+            Vector2 candidate = (Vector2)transform.position + offset;
+
+            Collider2D blocker = Physics2D.OverlapCircle(candidate, 0.5f, wallLayerMask);
+            if (blocker == null)
+            {
+                newPosition = candidate;
+                break;
+            }
+        }
+
         transform.position = newPosition;
     }
     
@@ -157,22 +174,25 @@ public class SkeletonMage : MonoBehaviour, IStunnable, IDamageable{
     
     public void TakeDamage(int amount)
     {
+        if (isDead) return;
         health -= amount;
-        
+
         if (health <= 0)
         {
             Die();
         }
     }
-    
+
     void Die()
     {
+        if (isDead) return;
+        isDead = true;
         Dropper dropper = GetComponent<Dropper>();
         if (dropper != null)
         {
             dropper.Drop();
         }
-        
+
         Destroy(gameObject);
     }
 }
