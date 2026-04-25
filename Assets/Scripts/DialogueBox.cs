@@ -21,9 +21,15 @@ public class DialogueBox : MonoBehaviour
     private int currentLine;
     private bool isTyping;
     private Coroutine typewriterCoroutine;
+    private int openFrame = -1;
 
     void Awake()
     {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
         Instance = this;
     }
 
@@ -36,6 +42,7 @@ public class DialogueBox : MonoBehaviour
     void Update()
     {
         if (!IsActive) return;
+        if (Time.frameCount == openFrame) return;
 
         if (InputManager.Instance.InteractPressed)
         {
@@ -69,6 +76,7 @@ public class DialogueBox : MonoBehaviour
         lines = newLines;
         currentLine = 0;
         IsActive = true;
+        openFrame = Time.frameCount;
         Time.timeScale = 0f;
 
         gameObject.SetActive(true);

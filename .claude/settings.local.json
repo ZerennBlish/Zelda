@@ -2,7 +2,11 @@
   "permissions": {
     "allow": [
       "Bash(git add:*)",
-      "Bash(git add Assets/Scripts/InputManager.cs && git commit -m \"$\\(cat <<'EOF'\nAdd InputManager — centralizes all input via new Input System\n\nCo-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>\nEOF\n\\)\"2)"
+      "Bash(git add Assets/Scripts/InputManager.cs && git commit -m \"$\\(cat <<'EOF'\nAdd InputManager — centralizes all input via new Input System\n\nCo-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>\nEOF\n\\)\"2)",
+      "Bash(sed -n '110,140p' /mnt/c/Zelda/Assets/Scripts/PlayerClass.cs)",
+      "Bash(sed -n '80,100p' /mnt/c/Zelda/Assets/Scripts/Collectible.cs)",
+      "Bash(sed -n '38,50p' /mnt/c/Zelda/Assets/Scripts/MinimapUI.cs)",
+      "Bash(sed -n '20,38p' /mnt/c/Zelda/Assets/Scripts/RoomManager.cs)"
     ]
   }
 }

@@ -35,13 +35,11 @@ public class MinimapUI : MonoBehaviour
         }
     }
 
-    void Start()
-    {
-        RefreshMap();
-    }
-
     void Update()
     {
+        if (DialogueBox.IsActive || ShopUI.IsActive ||
+            PauseManager.IsPaused || GameOverUI.IsActive) return;
+
         if (InputManager.Instance.ToggleMinimapPressed)
         {
             isVisible = !isVisible;

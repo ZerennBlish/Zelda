@@ -10,6 +10,7 @@ public class ShopKeeper : MonoBehaviour
     public GameObject promptUI;
 
     private bool playerInRange = false;
+    private bool wasShopActive = false;
 
     void Start()
     {
@@ -22,8 +23,16 @@ public class ShopKeeper : MonoBehaviour
     void Update()
     {
         if (!playerInRange) return;
-        if (DialogueBox.IsActive) return;
-        if (ShopUI.IsActive) return;
+
+        if (wasShopActive && !ShopUI.IsActive)
+        {
+            wasShopActive = false;
+            return;
+        }
+        wasShopActive = ShopUI.IsActive;
+
+        if (DialogueBox.IsActive || ShopUI.IsActive ||
+            PauseManager.IsPaused || GameOverUI.IsActive) return;
 
         if (InputManager.Instance.InteractPressed)
         {
@@ -44,7 +53,7 @@ public class ShopKeeper : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && other.transform == other.transform.root)
         {
             playerInRange = true;
             if (promptUI != null)
@@ -56,7 +65,7 @@ public class ShopKeeper : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && other.transform == other.transform.root)
         {
             playerInRange = false;
             if (promptUI != null)

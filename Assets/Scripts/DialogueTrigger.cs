@@ -22,7 +22,8 @@ public class DialogueTrigger : MonoBehaviour
     void Update()
     {
         if (!playerInRange) return;
-        if (DialogueBox.IsActive) return;
+        if (DialogueBox.IsActive || ShopUI.IsActive ||
+            PauseManager.IsPaused || GameOverUI.IsActive) return;
 
         if (InputManager.Instance.InteractPressed)
         {
@@ -37,7 +38,7 @@ public class DialogueTrigger : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && other.transform == other.transform.root)
         {
             playerInRange = true;
             if (promptUI != null)
@@ -49,7 +50,7 @@ public class DialogueTrigger : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && other.transform == other.transform.root)
         {
             playerInRange = false;
             if (promptUI != null)

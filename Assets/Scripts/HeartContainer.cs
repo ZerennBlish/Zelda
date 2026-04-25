@@ -6,12 +6,21 @@ public class HeartContainer : MonoBehaviour
     public float bobSpeed = 2f;
     public float bobHeight = 0.15f;
     public float spinSpeed = 90f;
-    
+
+    [SerializeField] private string heartID;
+
     private Vector3 startPosition;
     private SpriteRenderer spriteRenderer;
 
     void Start()
     {
+        if (!string.IsNullOrEmpty(heartID) &&
+            PlayerPrefs.GetInt("Heart_" + heartID, 0) == 1)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
         startPosition = transform.position;
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
@@ -34,6 +43,12 @@ public class HeartContainer : MonoBehaviour
             if (playerHealth != null)
             {
                 playerHealth.IncreaseMaxHealth(1);
+
+                if (!string.IsNullOrEmpty(heartID))
+                {
+                    PlayerPrefs.SetInt("Heart_" + heartID, 1);
+                }
+
                 Destroy(gameObject);
             }
         }

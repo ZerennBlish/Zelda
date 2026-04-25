@@ -39,11 +39,11 @@ public class NPC : MonoBehaviour
     void Update()
     {
         if (player == null) return;
-        
+
         float distance = Vector2.Distance(transform.position, player.position);
         bool wasInRange = playerInRange;
         playerInRange = distance <= interactRange;
-        
+
         // Show/hide prompt
         if (playerInRange && !wasInRange)
         {
@@ -60,8 +60,13 @@ public class NPC : MonoBehaviour
             }
         }
 
-        // Start dialog
-        if (playerInRange && InputManager.Instance.InteractPressed && !DialogueBox.IsActive)
+        AnimateIdle();
+
+        if (!playerInRange) return;
+        if (DialogueBox.IsActive || ShopUI.IsActive ||
+            PauseManager.IsPaused || GameOverUI.IsActive) return;
+
+        if (InputManager.Instance.InteractPressed)
         {
             if (DialogueBox.Instance != null && dialogLines.Length > 0)
             {
@@ -81,9 +86,6 @@ public class NPC : MonoBehaviour
                 DialogueBox.Instance.Show(dialogLines);
             }
         }
-        
-        // Idle animation
-        AnimateIdle();
     }
     
     void AnimateIdle()

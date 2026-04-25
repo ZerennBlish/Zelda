@@ -110,6 +110,8 @@ public class PlayerClass : MonoBehaviour
     /// </summary>
     public void SetClass(ClassTier tier)
     {
+        if (tier <= currentClass) return;
+
         currentClass = tier;
         hasArmor = (currentClass >= ClassTier.Swordsman);
 

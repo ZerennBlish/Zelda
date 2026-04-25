@@ -32,6 +32,9 @@ public class RoomManager : MonoBehaviour
 
         if (RoomTracker.Instance != null)
             RoomTracker.Instance.MarkVisited(currentRoom);
+
+        if (MinimapUI.Instance != null)
+            MinimapUI.Instance.RefreshMap();
     }
 
     public void ChangeRoom(Vector2 direction, Vector2 spawnOffset)

@@ -24,9 +24,26 @@ public class ShopUI : MonoBehaviour
     private bool heartSoldOut = false;
     private Coroutine messageCoroutine;
 
+    private int openFrame = -1;
+    private PlayerController cachedPlayer;
+    private PlayerHealth cachedHealth;
+
     void Awake()
     {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
         Instance = this;
+    }
+
+    private void CacheReferences()
+    {
+        if (cachedPlayer == null)
+            cachedPlayer = FindFirstObjectByType<PlayerController>();
+        if (cachedHealth == null)
+            cachedHealth = FindFirstObjectByType<PlayerHealth>();
     }
 
     void Start()
@@ -39,6 +56,7 @@ public class ShopUI : MonoBehaviour
     void Update()
     {
         if (!IsActive) return;
+        if (Time.frameCount == openFrame) return;
 
         if (InputManager.Instance.ShopBuy1Pressed)
         {
@@ -60,7 +78,9 @@ public class ShopUI : MonoBehaviour
 
     public void Show()
     {
+        CacheReferences();
         IsActive = true;
+        openFrame = Time.frameCount;
         Time.timeScale = 0f;
         gameObject.SetActive(true);
         RefreshText();
@@ -82,6 +102,12 @@ public class ShopUI : MonoBehaviour
 
     void BuyArrows()
     {
+        if (cachedPlayer == null) return;
+        if (cachedPlayer.IsAtMaxArrows())
+        {
+            ShowMessage("Quiver full!");
+            return;
+        }
         if (GameState.Instance == null) return;
         if (GameState.Instance.rupees < arrowPrice)
         {
@@ -90,18 +116,24 @@ public class ShopUI : MonoBehaviour
         }
 
         GameState.Instance.StealRupees(arrowPrice);
-
-        PlayerController player = FindFirstObjectByType<PlayerController>();
-        if (player != null)
-        {
-            player.AddArrows(arrowQuantity);
-        }
+        cachedPlayer.AddArrows(arrowQuantity);
 
         RefreshText();
     }
 
     void BuyBombs()
     {
+        if (cachedPlayer == null) return;
+        if (!cachedPlayer.hasBombs)
+        {
+            ShowMessage("No bomb bag!");
+            return;
+        }
+        if (cachedPlayer.IsAtMaxBombs())
+        {
+            ShowMessage("Bomb bag full!");
+            return;
+        }
         if (GameState.Instance == null) return;
         if (GameState.Instance.rupees < bombPrice)
         {
@@ -110,25 +142,20 @@ public class ShopUI : MonoBehaviour
         }
 
         GameState.Instance.StealRupees(bombPrice);
-
-        PlayerController player = FindFirstObjectByType<PlayerController>();
-        if (player != null)
-        {
-            player.AddBombs(bombQuantity);
-        }
+        cachedPlayer.AddBombs(bombQuantity);
 
         RefreshText();
     }
 
     void BuyHeart()
     {
-        if (GameState.Instance == null) return;
         if (heartSoldOut)
         {
             ShowMessage("Already sold out!");
             return;
         }
-
+        if (cachedHealth == null) return;
+        if (GameState.Instance == null) return;
         if (GameState.Instance.rupees < heartPrice)
         {
             ShowMessage("Not enough rupees!");
@@ -136,12 +163,7 @@ public class ShopUI : MonoBehaviour
         }
 
         GameState.Instance.StealRupees(heartPrice);
-
-        PlayerHealth health = FindFirstObjectByType<PlayerHealth>();
-        if (health != null)
-        {
-            health.IncreaseMaxHealth(1);
-        }
+        cachedHealth.IncreaseMaxHealth(1);
 
         heartSoldOut = true;
         PlayerPrefs.SetInt("HeartUpgradeBought", 1);

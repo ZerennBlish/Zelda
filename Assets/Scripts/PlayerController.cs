@@ -619,7 +619,12 @@ public class PlayerController : MonoBehaviour
         }
         UpdateArrowUI();
     }
-    
+
+    public bool IsAtMaxArrows()
+    {
+        return currentArrows >= maxArrows;
+    }
+
     public void AddBombs(int amount)
     {
         currentBombs += amount;
@@ -628,6 +633,11 @@ public class PlayerController : MonoBehaviour
             currentBombs = maxBombs;
         }
         UpdateBombUI();
+    }
+
+    public bool IsAtMaxBombs()
+    {
+        return currentBombs >= maxBombs;
     }
     
     void UpdateArrowUI()

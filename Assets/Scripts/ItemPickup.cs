@@ -23,13 +23,22 @@ public class ItemPickup : MonoBehaviour
     public float bobHeight = 0.15f;
     public float glowPulseSpeed = 2f;
     public float glowPulseMin = 0.7f;
-    
+
+    [SerializeField] private string pickupID;
+
     private Vector3 startPosition;
     private SpriteRenderer spriteRenderer;
     private bool collected = false;
 
     void Start()
     {
+        if (!string.IsNullOrEmpty(pickupID) &&
+            PlayerPrefs.GetInt("Pickup_" + pickupID, 0) == 1)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
         startPosition = transform.position;
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
@@ -94,7 +103,12 @@ public class ItemPickup : MonoBehaviour
                     }
                     break;
             }
-            
+
+            if (!string.IsNullOrEmpty(pickupID))
+            {
+                PlayerPrefs.SetInt("Pickup_" + pickupID, 1);
+            }
+
             Destroy(gameObject);
         }
     }

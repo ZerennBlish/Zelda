@@ -131,11 +131,16 @@ public class PlayerHealth : MonoBehaviour
         {
             currentHealth = maxHealth;
         }
-        
+
         if (healthUI != null)
         {
             healthUI.UpdateHearts(currentHealth, maxHealth);
         }
+    }
+
+    public bool IsAtMaxHealth()
+    {
+        return currentHealth >= maxHealth;
     }
     
     public void IncreaseMaxHealth(int amount)
