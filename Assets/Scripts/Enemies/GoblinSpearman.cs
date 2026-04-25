@@ -42,6 +42,7 @@ public class GoblinSpearman : MonoBehaviour, IStunnable, IDamageable{
     
     private float stunTimer;
     private Color originalColor;
+    private bool isDead = false;
 
     void Start()
     {
@@ -70,6 +71,8 @@ public class GoblinSpearman : MonoBehaviour, IStunnable, IDamageable{
             {
                 currentState = State.Wander;
                 spriteRenderer.color = originalColor;
+                EnemyBuff buff = GetComponent<EnemyBuff>();
+                if (buff != null) buff.ReapplyTint();
             }
             return;
         }
@@ -174,8 +177,10 @@ public class GoblinSpearman : MonoBehaviour, IStunnable, IDamageable{
     
     void Pullback()
     {
-        Vector3 pullbackPos = pullbackStartPos - (Vector3)(chargeDirection * pullbackDistance);
-        transform.position = Vector3.Lerp(pullbackStartPos, pullbackPos, 1 - (stateTimer / pullbackTime));
+        Vector2 startPos = pullbackStartPos;
+        Vector2 endPos = startPos - chargeDirection * pullbackDistance;
+        Vector2 targetPos = Vector2.Lerp(startPos, endPos, 1 - (stateTimer / pullbackTime));
+        rb.MovePosition(targetPos);
         rb.linearVelocity = Vector2.zero;
     }
     
@@ -251,22 +256,25 @@ public class GoblinSpearman : MonoBehaviour, IStunnable, IDamageable{
     
     public void TakeDamage(int amount)
     {
+        if (isDead) return;
         health -= amount;
-        
+
         if (health <= 0)
         {
             Die();
         }
     }
-    
+
     void Die()
     {
+        if (isDead) return;
+        isDead = true;
         Dropper dropper = GetComponent<Dropper>();
         if (dropper != null)
         {
             dropper.Drop();
         }
-        
+
         Destroy(gameObject);
     }
 }

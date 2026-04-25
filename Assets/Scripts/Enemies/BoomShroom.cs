@@ -16,6 +16,8 @@ public class BoomShroom : MonoBehaviour, IDamageable
     private Vector2 wanderDirection;
     private float wanderTimer;
     private bool isExploding = false;
+    private bool hasExploded = false;
+    private bool isDead = false;
     private SpriteRenderer spriteRenderer;
     private Dropper dropper;
 
@@ -66,7 +68,11 @@ public class BoomShroom : MonoBehaviour, IDamageable
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Player") && !isExploding)
+        if (hasExploded || isExploding) return;
+
+        if (collision.gameObject.CompareTag("Player") ||
+            collision.gameObject.CompareTag("Wall") ||
+            collision.gameObject.CompareTag("CrackedWall"))
         {
             StartCoroutine(BlinkThenExplode());
         }
@@ -90,39 +96,39 @@ public class BoomShroom : MonoBehaviour, IDamageable
 
     public void TakeDamage(int amount)
     {
+        if (isDead) return;
         Explode();
     }
 
     public void Explode()
     {
-        if (isExploding && spriteRenderer != null && !spriteRenderer.enabled)
-        {
-            return;
-        }
-        
-        if (player != null)
-        {
-            float distanceToPlayer = Vector2.Distance(transform.position, player.position);
-            if (distanceToPlayer <= explosionRadius)
-            {
-                PlayerHealth playerHealth = player.GetComponent<PlayerHealth>();
-                if (playerHealth != null)
-                {
-                    playerHealth.TakeDamage(explosionDamage, transform.position);
-                }
-            }
-        }
-        
+        if (hasExploded) return;
+        hasExploded = true;
+        isDead = true;
+
+        // Damage to player + enemies + destructibles is handled by the spawned
+        // ExplosionEffect, which uses the no-source TakeDamage so the shield
+        // can't block a radial blast (matches Bomb behavior).
         if (explosionEffectPrefab != null)
         {
-            Instantiate(explosionEffectPrefab, transform.position, Quaternion.identity);
+            GameObject effect = Instantiate(
+                explosionEffectPrefab,
+                transform.position,
+                Quaternion.identity);
+
+            ExplosionEffect ee = effect.GetComponent<ExplosionEffect>();
+            if (ee != null)
+            {
+                ee.explosionRadius = explosionRadius;
+                ee.explosionDamage = explosionDamage;
+            }
         }
-        
+
         if (dropper != null)
         {
             dropper.Drop();
         }
-        
+
         Destroy(gameObject);
     }
 }

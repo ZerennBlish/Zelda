@@ -67,6 +67,8 @@ public class GoblinArcher : MonoBehaviour, IStunnable, IDamageable
             {
                 currentState = State.Patrol;
                 spriteRenderer.color = originalColor;
+                EnemyBuff buff = GetComponent<EnemyBuff>();
+                if (buff != null) buff.ReapplyTint();
             }
             return;
         }
@@ -166,24 +168,26 @@ public class GoblinArcher : MonoBehaviour, IStunnable, IDamageable
     
     public void TakeDamage(int damage)
     {
+        if (isDead) return;
         health -= damage;
-        
+
         if (health <= 0)
         {
             Die();
         }
     }
-    
+
     void Die()
     {
+        if (isDead) return;
         isDead = true;
         rb.linearVelocity = Vector2.zero;
-        
+
         if (dropper != null)
         {
             dropper.Drop();
         }
-        
+
         Destroy(gameObject);
     }
 }

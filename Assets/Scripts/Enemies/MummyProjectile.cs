@@ -48,7 +48,7 @@ public class MummyProjectile : MonoBehaviour
             return;
         }
 
-        if (other.CompareTag("Wall"))
+        if (other.CompareTag("Wall") || other.CompareTag("CrackedWall"))
         {
             Destroy(gameObject);
         }

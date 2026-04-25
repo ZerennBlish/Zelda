@@ -50,6 +50,7 @@ public class SlimeSplitter : MonoBehaviour, IStunnable, IDamageable{
     
     private float stunTimer;
     private Color originalColor;
+    private bool isDead = false;
 
     void Start()
     {
@@ -103,6 +104,8 @@ public class SlimeSplitter : MonoBehaviour, IStunnable, IDamageable{
             {
                 currentState = State.Wander;
                 spriteRenderer.color = originalColor;
+                EnemyBuff buff = GetComponent<EnemyBuff>();
+                if (buff != null) buff.ReapplyTint();
             }
             return;
         }
@@ -208,25 +211,29 @@ public class SlimeSplitter : MonoBehaviour, IStunnable, IDamageable{
     
     public void TakeDamage(int amount)
     {
+        if (isDead) return;
         health -= amount;
-        
+
         if (health <= 0)
         {
             Die();
         }
     }
-    
+
     void Die()
     {
+        if (isDead) return;
+        isDead = true;
+
         if (currentSize != SlimeSize.Small && slimePrefab != null)
         {
             SlimeSize nextSize = (currentSize == SlimeSize.Large) ? SlimeSize.Medium : SlimeSize.Small;
-            
+
             for (int i = 0; i < splitCount; i++)
             {
                 Vector2 offset = Random.insideUnitCircle * splitSpread;
                 Vector3 spawnPos = transform.position + new Vector3(offset.x, offset.y, 0);
-                
+
                 GameObject newSlime = Instantiate(slimePrefab, spawnPos, Quaternion.identity);
                 SlimeSplitter splitter = newSlime.GetComponent<SlimeSplitter>();
                 if (splitter != null)
@@ -243,7 +250,7 @@ public class SlimeSplitter : MonoBehaviour, IStunnable, IDamageable{
                 dropper.Drop();
             }
         }
-        
+
         Destroy(gameObject);
     }
 }

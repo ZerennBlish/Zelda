@@ -23,7 +23,7 @@ public class GoblinThief : MonoBehaviour, IDamageable{
     [Header("Health")]
     public int health = 1;
     
-    private enum State { Wander, Sneak, Dash, Steal, Flee }
+    private enum State { Wander, Sneak, Dash, Flee }
     private State currentState = State.Wander;
     
     private Transform player;
@@ -37,6 +37,7 @@ public class GoblinThief : MonoBehaviour, IDamageable{
     private float stateTimer;
     private Vector2 dashDirection;
     private bool hasStolen = false;
+    private bool isDead = false;
 
     void Start()
     {
@@ -98,7 +99,11 @@ public class GoblinThief : MonoBehaviour, IDamageable{
                 stateTimer -= Time.deltaTime;
                 if (stateTimer <= 0 || distanceToPlayer > detectRange * 2f)
                 {
-                    currentState = State.Wander;
+                    // Thief escapes — rupees are lost, do not refund.
+                    // Die() (which refunds) is only reached if the player kills
+                    // the thief in time. This Destroy bypasses Die.
+                    Destroy(gameObject);
+                    return;
                 }
                 break;
         }
@@ -172,16 +177,20 @@ public class GoblinThief : MonoBehaviour, IDamageable{
     
     public void TakeDamage(int amount)
     {
+        if (isDead) return;
         health -= amount;
-        
+
         if (health <= 0)
         {
             Die();
         }
     }
-    
+
     void Die()
     {
+        if (isDead) return;
+        isDead = true;
+
         // Return stolen rupees to the player
         if (stolenRupees > 0 && GameState.Instance != null)
         {

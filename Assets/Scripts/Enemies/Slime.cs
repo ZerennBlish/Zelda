@@ -30,6 +30,7 @@ public class Slime : MonoBehaviour, IStunnable, IDamageable{
     
     private float stunTimer;
     private Color originalColor;
+    private bool isDead = false;
 
     void Start()
     {
@@ -58,6 +59,8 @@ public class Slime : MonoBehaviour, IStunnable, IDamageable{
             {
                 currentState = State.Wander;
                 spriteRenderer.color = originalColor;
+                EnemyBuff buff = GetComponent<EnemyBuff>();
+                if (buff != null) buff.ReapplyTint();
             }
             return;
         }
@@ -163,22 +166,25 @@ public class Slime : MonoBehaviour, IStunnable, IDamageable{
     
     public void TakeDamage(int amount)
     {
+        if (isDead) return;
         health -= amount;
-        
+
         if (health <= 0)
         {
             Die();
         }
     }
-    
+
     void Die()
     {
+        if (isDead) return;
+        isDead = true;
         Dropper dropper = GetComponent<Dropper>();
         if (dropper != null)
         {
             dropper.Drop();
         }
-        
+
         Destroy(gameObject);
     }
 }

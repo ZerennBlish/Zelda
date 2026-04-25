@@ -13,31 +13,35 @@ public class Bat : MonoBehaviour, IDamageable
     public int health = 1;
     
     private Transform player;
+    private Rigidbody2D rb;
     private Vector2 moveDirection;
     private float directionTimer;
-    
+    private bool isDead = false;
+
     void Start()
     {
+        rb = GetComponent<Rigidbody2D>();
+
         GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
         if (playerObj != null)
         {
             player = playerObj.transform;
         }
-        
+
         PickRandomDirection();
     }
-    
+
     void Update()
     {
         if (player == null) return;
-        
+
         float distanceToPlayer = Vector2.Distance(transform.position, player.position);
-        
+
         if (distanceToPlayer <= chaseRange)
         {
             // Chase player
             moveDirection = (player.position - transform.position).normalized;
-            transform.position += (Vector3)moveDirection * chaseSpeed * Time.deltaTime;
+            rb.linearVelocity = moveDirection * chaseSpeed;
         }
         else
         {
@@ -47,7 +51,7 @@ public class Bat : MonoBehaviour, IDamageable
             {
                 PickRandomDirection();
             }
-            transform.position += (Vector3)moveDirection * wanderSpeed * Time.deltaTime;
+            rb.linearVelocity = moveDirection * wanderSpeed;
         }
     }
     
@@ -71,15 +75,19 @@ public class Bat : MonoBehaviour, IDamageable
     
     public void TakeDamage(int amount)
     {
+        if (isDead) return;
         health -= amount;
         if (health <= 0)
         {
             Die();
         }
     }
-    
+
     void Die()
     {
+        if (isDead) return;
+        isDead = true;
+        if (rb != null) rb.linearVelocity = Vector2.zero;
         Dropper dropper = GetComponent<Dropper>();
         if (dropper != null)
         {

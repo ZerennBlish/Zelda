@@ -40,6 +40,7 @@ public class GoblinMaceman : MonoBehaviour, IStunnable, IDamageable
     private Quaternion originalRotation;
     private float stunTimer;
     private Color originalColor;
+    private bool isDead = false;
 
     void Start()
     {
@@ -70,6 +71,8 @@ public class GoblinMaceman : MonoBehaviour, IStunnable, IDamageable
                 currentState = State.Wander;
                 spriteRenderer.color = originalColor;
                 transform.rotation = originalRotation;
+                EnemyBuff buff = GetComponent<EnemyBuff>();
+                if (buff != null) buff.ReapplyTint();
             }
             return;
         }
@@ -182,8 +185,8 @@ public class GoblinMaceman : MonoBehaviour, IStunnable, IDamageable
     {
         float rotationThisFrame = (360f / spinDuration) * Time.deltaTime;
         spinRotation += rotationThisFrame;
-        transform.rotation = Quaternion.Euler(0, 0, -spinRotation);
-        
+        rb.MoveRotation(-spinRotation);
+
         float driftMultiplier = stateTimer / spinDuration;
         rb.linearVelocity = spinDirection * spinDriftSpeed * driftMultiplier;
     }
@@ -244,22 +247,25 @@ public class GoblinMaceman : MonoBehaviour, IStunnable, IDamageable
     
     public void TakeDamage(int amount)
     {
+        if (isDead) return;
         health -= amount;
-        
+
         if (health <= 0)
         {
             Die();
         }
     }
-    
+
     void Die()
     {
+        if (isDead) return;
+        isDead = true;
         Dropper dropper = GetComponent<Dropper>();
         if (dropper != null)
         {
             dropper.Drop();
         }
-        
+
         Destroy(gameObject);
     }
 }

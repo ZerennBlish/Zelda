@@ -8,6 +8,7 @@ public class EnemyBuff : MonoBehaviour
     private Rigidbody2D rb;
     private SpriteRenderer spriteRenderer;
     private Color originalColor;
+    private Color tintColor;
     private float regenTimer;
     private float regenInterval = 3f;
 
@@ -21,25 +22,24 @@ public class EnemyBuff : MonoBehaviour
         if (spriteRenderer != null)
         {
             originalColor = spriteRenderer.color;
-            
-            Color tint;
+
             switch (buffType)
             {
                 case BuffType.Haste:
-                    tint = new Color(1f, 1f, 0.3f, 1f); // Yellow
+                    tintColor = new Color(1f, 1f, 0.3f, 1f); // Yellow
                     break;
                 case BuffType.Fortify:
-                    tint = new Color(0.3f, 0.5f, 1f, 1f); // Blue
+                    tintColor = new Color(0.3f, 0.5f, 1f, 1f); // Blue
                     break;
                 case BuffType.Regen:
-                    tint = new Color(0.3f, 1f, 0.3f, 1f); // Green
+                    tintColor = new Color(0.3f, 1f, 0.3f, 1f); // Green
                     break;
                 default:
-                    tint = Color.white;
+                    tintColor = Color.white;
                     break;
             }
-            
-            spriteRenderer.color = Color.Lerp(originalColor, tint, 0.5f);
+
+            spriteRenderer.color = Color.Lerp(originalColor, tintColor, 0.5f);
         }
         
         // Fortify: add +3 bonus HP immediately
@@ -87,7 +87,17 @@ public class EnemyBuff : MonoBehaviour
         {
             spriteRenderer.color = originalColor;
         }
-        
+
         Destroy(this); // Removes component only, not the enemy
+    }
+
+    // Called by stunnable enemies after they restore their own originalColor
+    // on stun-end, so the buff tint isn't silently erased.
+    public void ReapplyTint()
+    {
+        if (spriteRenderer != null)
+        {
+            spriteRenderer.color = Color.Lerp(originalColor, tintColor, 0.5f);
+        }
     }
 }
