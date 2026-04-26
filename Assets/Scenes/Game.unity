@@ -27288,6 +27288,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 248
       objectReference: {fileID: 0}
+    - target: {fileID: 4600772376958227339, guid: fc6e2e97b20c771a7b81700de5ccde7a, type: 3}
+      propertyPath: bombIcon
+      value: 
+      objectReference: {fileID: 2005234844499816987, guid: 7115371ff2d0061dfb332b2b79f1e6d0, type: 3}
     - target: {fileID: 4844722775260221910, guid: fc6e2e97b20c771a7b81700de5ccde7a, type: 3}
       propertyPath: m_Pivot.x
       value: 0

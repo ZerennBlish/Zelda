@@ -88,6 +88,16 @@ public class PlayerController : MonoBehaviour
         
         normalSprite = spriteRenderer.sprite;
         
+        // Load item unlocks first so inventory fallbacks can gate on them
+        hasBoomerang = PlayerPrefs.GetInt("HasBoomerang", 0) == 1;
+        hasBombs = PlayerPrefs.GetInt("HasBombs", 0) == 1;
+        hasGrapple = PlayerPrefs.GetInt("HasGrapple", 0) == 1;
+        hasWand = PlayerPrefs.GetInt("HasWand", 0) == 1;
+        hasBook = PlayerPrefs.GetInt("HasBook", 0) == 1;
+
+        // Hide bomb HUD until the player owns the bomb bag
+        if (bombUI != null) bombUI.SetVisible(hasBombs);
+
         if (PlayerPrefs.HasKey("SavedArrows"))
         {
             currentArrows = PlayerPrefs.GetInt("SavedArrows");
@@ -96,22 +106,17 @@ public class PlayerController : MonoBehaviour
         {
             currentArrows = maxArrows;
         }
-        
+
         if (PlayerPrefs.HasKey("SavedBombs"))
         {
             currentBombs = PlayerPrefs.GetInt("SavedBombs");
         }
         else
         {
-            currentBombs = maxBombs;
+            // Only fill bombs to max if the player owns the bomb bag.
+            // Without the bag, currentBombs stays at 0 until UnlockItem("Bombs") sets it.
+            currentBombs = hasBombs ? maxBombs : 0;
         }
-        
-        // Load item unlocks
-        hasBoomerang = PlayerPrefs.GetInt("HasBoomerang", 0) == 1;
-        hasBombs = PlayerPrefs.GetInt("HasBombs", 0) == 1;
-        hasGrapple = PlayerPrefs.GetInt("HasGrapple", 0) == 1;
-        hasWand = PlayerPrefs.GetInt("HasWand", 0) == 1;
-        hasBook = PlayerPrefs.GetInt("HasBook", 0) == 1;
         
         // Load last equipped weapon (saved as enum value, not list index)
         int savedWeaponEnum = PlayerPrefs.GetInt("EquippedWeaponIndex", 0);
@@ -588,6 +593,7 @@ public class PlayerController : MonoBehaviour
                 hasBombs = true;
                 PlayerPrefs.SetInt("HasBombs", 1);
                 currentBombs = maxBombs;
+                if (bombUI != null) bombUI.SetVisible(true);
                 UpdateBombUI();
                 break;
             case "Grapple":
