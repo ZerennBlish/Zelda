@@ -162,3 +162,16 @@ Stack-specific conventions live in `Zerenn-Project-Setup.md` and `CONVENTIONS.md
 - **Per-machine:** `git config core.autocrlf true` on Windows
 - **Backup:** local + GitHub + secondary machine + USB
 - **Unity MCP:** Claude Code connects to Unity Editor via MCP bridge (`com.unity.ai.assistant`) for both inspection AND editor operations — create GameObjects, add components, set serialized fields, inspect scene hierarchy, read console, compile check. See `Zerenn-Stability-Playbook.md` Section 1 for usage rules.
+
+## Things to Never Do
+
+- Never suggest the easier option without saying so
+- Never write to the repo when role is "auditor" — read-only means read-only
+- Never assume context between projects (DFW context doesn't apply to Zerenn and vice versa)
+- Never apologize repeatedly or get submissive when criticized
+- Never lecture about safety unless safety is the topic
+- Never reproduce copyrighted material verbatim (lyrics, articles, etc.)
+- Never use bullet points or numbered lists in conversational replies unless they earn their place
+- Never `&&`-chain shell commands — they fail in PowerShell
+- Never use MCP to bypass the edit-compile-test cycle for script logic — MCP write is for editor wiring (GameObjects, components, UI), not runtime state injection
+- Never use legacy `UnityEngine.Input` — always `InputManager.Instance`
