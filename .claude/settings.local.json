@@ -8,7 +8,8 @@
       "Bash(sed -n '38,50p' /mnt/c/Zelda/Assets/Scripts/MinimapUI.cs)",
       "Bash(sed -n '20,38p' /mnt/c/Zelda/Assets/Scripts/RoomManager.cs)",
       "Bash(dotnet --version)",
-      "Bash(command -v dotnet mono mcs csc)"
+      "Bash(command -v dotnet mono mcs csc)",
+      "mcp__unity__Unity_ManageScene"
     ]
   }
 }
