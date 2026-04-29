@@ -109,3 +109,56 @@ This developer uses a multi-AI audit pattern (see `AI-Audit-Workflow.md`):
 - Fix prompts are GROUPED (Group A/B/C) — not one prompt per finding
 - Before writing any prompt that runs tsc or jest, confirm which machine Zerenn is on. Laptop = he runs them manually in PowerShell, prompt skips those steps. Desktop = Claude Code can run them.
 - Every step in a Claude Code prompt must be correct as written. No "do X unless Y breaks" conditionals. If uncertain whether a step is safe, resolve the uncertainty before writing the prompt, not inside it.
+
+## Documentation Discipline
+
+Every project has canonical docs in `Docs/`. Zerenn has eight:
+
+1. **About-Me.md** — this file. Persona, workflow, universal rules.
+2. **Zerenn-Bug-History.md** — every audit finding (P1/P2/P3, fixed/deferred)
+3. **Zerenn-Decisions.md** — every "why we did it this way" call
+4. **Zerenn-Architecture.md** — how systems fit together
+5. **Zerenn-Data-Models.md** — every persisted value, every enum, every interface
+6. **Zerenn-Features.md** — what's in the project (player/user-facing)
+7. **Zerenn-Project-Setup.md** — paths, repo, conventions, build profiles
+8. **Zerenn-Roadmap.md** — what's built, what's next, deferred refactors
+9. **Zerenn-Stability-Playbook.md** — the working rules that prevent specific failure modes
+
+When making non-trivial changes, update the relevant doc the same session. Decisions doc is the single most valuable — capture rationale, not just the choice.
+
+## Session Close-Out (Universal)
+
+Every session ends with the same workflow. Opus runs it without being asked.
+
+1. Update affected docs (CLAUDE.md, project Decisions doc, About-Me.md if universal rules changed) via Claude Code prompt
+2. Write Session handoff doc to `Docs/Sessions/Session-NN-Handoff.md`
+3. Commit and push everything: `git add .` then `git commit -m "Session NN: <summary>"` then `git push` (PowerShell — separate commands, no `&&`)
+4. Project knowledge sync — every project's `CLAUDE.md` has a `Set-Clipboard` command listing all docs and scripts. Run it, paste into Claude.ai project knowledge panel.
+
+The Set-Clipboard list lives in `CLAUDE.md` because file lists are project-specific. Update that list whenever a script is added, removed, or renamed.
+
+## Code Conventions
+
+Stack-specific conventions live in `Zerenn-Project-Setup.md` and `CONVENTIONS.md`. Universal conventions:
+
+- New Input System for Unity (`UnityEngine.InputSystem` via InputManager, never legacy `UnityEngine.Input`)
+- Singletons use null-check + Destroy pattern (see GameState, RoomManager, ShopUI, DialogueBox, MinimapUI, RoomTracker)
+- Standardized input guard set: `if (DialogueBox.IsActive || ShopUI.IsActive || PauseManager.IsPaused || GameOverUI.IsActive) return;`
+- `isDead` idempotency guards on enemies/destructibles
+- `OnDestroy` / cleanup hooks as single source of truth (not custom Die methods)
+- Bulk save via SaveManager.SaveAll() + inline PlayerPrefs for one-time unlocks (intentional hybrid)
+- Per-instance pickup persistence via Inspector-set IDs (`Heart_<id>`, `Angel_<id>`, `Wall_<id>`)
+- Same-frame input debounce via `openFrame = Time.frameCount` (see DialogueBox, ShopUI)
+- One-frame cooldown via `wasDialogueActive` / `wasShopActive` mirror flags (see BuildingEntrance, ShopKeeper)
+- Root collider check: `other.transform == other.transform.root` for multi-collider player
+- Damage routing: ShieldKnight check → IDamageable → HitFlash (see CONVENTIONS.md)
+- Debug keys (O, R, T) gated behind `#if UNITY_EDITOR`
+- **Lockfile rule does NOT apply** — Unity has no npm/lockfile equivalent
+
+## Tools
+
+- **Repo:** GitHub (private), GitHub Desktop preferred over CLI
+- **Editor:** VS Code (Windows) / nvim (sometimes WSL)
+- **Per-machine:** `git config core.autocrlf true` on Windows
+- **Backup:** local + GitHub + secondary machine + USB
+- **Unity MCP:** Claude Code connects to Unity Editor via MCP bridge (`com.unity.ai.assistant`) for both inspection AND editor operations — create GameObjects, add components, set serialized fields, inspect scene hierarchy, read console, compile check. See `Zerenn-Stability-Playbook.md` Section 1 for usage rules.
