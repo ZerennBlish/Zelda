@@ -112,7 +112,7 @@ This developer uses a multi-AI audit pattern (see `AI-Audit-Workflow.md`):
 
 ## Documentation Discipline
 
-Every project has canonical docs in `Docs/`. Zerenn has eight:
+Every project has canonical docs in `Docs/`. Zerenn has nine:
 
 1. **About-Me.md** — this file. Persona, workflow, universal rules.
 2. **Zerenn-Bug-History.md** — every audit finding (P1/P2/P3, fixed/deferred)

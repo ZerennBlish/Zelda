@@ -9,7 +9,10 @@
       "Bash(sed -n '20,38p' /mnt/c/Zelda/Assets/Scripts/RoomManager.cs)",
       "Bash(dotnet --version)",
       "Bash(command -v dotnet mono mcs csc)",
-      "mcp__unity__Unity_ManageScene"
+      "mcp__unity__Unity_ManageScene",
+      "mcp__unity__Unity_Camera_Capture",
+      "mcp__unity__Unity_GetConsoleLogs",
+      "mcp__unity__Unity_ManageGameObject"
     ]
   }
 }
