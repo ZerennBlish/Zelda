@@ -1,15 +1,17 @@
 # copy-for-claude.ps1
-# Stages all Zerenn project-knowledge files into a flat folder
+# Stages all Zerenn project-knowledge DOCS into a flat folder
 # for Claude.ai project knowledge upload. Run from anywhere — paths are absolute.
+#
+# NOTE: Scripts (.cs files) are NOT staged here. They go stale between sessions.
+# Opus uses Desktop Commander to read live scripts on demand instead.
 #
 # Maintenance:
 #   - When adding, removing, or renaming a TOP-LEVEL config/doc file, update
 #     the $rootFiles list below.
-#   - Folders (Docs/, Assets/Scripts/) are auto-discovered.
-#     Adding new files inside those folders does NOT require updating this script.
+#   - Docs/*.md files are auto-discovered.
 
 $source = "C:\Zelda"
-$dest   = "C:\Users\baldy\OneDrive\Desktop\Zelda\Files for Claude"
+$dest   = "C:\Users\baldy\OneDrive\Desktop\BaldGuy&CompanyGames\ZerennZelda\Docs"
 
 # --- Setup ---
 
@@ -46,13 +48,6 @@ if (Test-Path $docsDir) {
     Get-ChildItem -Path $docsDir -Filter "*.md" -File | ForEach-Object {
         Copy-Item $_.FullName "$dest\$($_.Name)" -Force
     }
-}
-
-# --- Scripts (recursive, flattened, skip .meta files) ---
-
-$scriptsRoot = Join-Path $source "Assets\Scripts"
-Get-ChildItem -Path $scriptsRoot -Recurse -File -Filter "*.cs" | ForEach-Object {
-    Copy-Item $_.FullName "$dest\$($_.Name)" -Force
 }
 
 # --- Summary ---

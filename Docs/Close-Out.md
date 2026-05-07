@@ -96,7 +96,7 @@ Run the flat copy script to stage files for Claude.ai project knowledge upload:
 .\copy-for-claude.ps1
 ```
 
-The script copies repo-root config files, all `Docs\*.md`, and all `.cs` scripts (flattened, no .meta files) to the upload staging folder. **Keep the script in sync with the actual file list** — when a doc or script is added, removed, or renamed, update `copy-for-claude.ps1` too.
+The script copies repo-root config files and all `Docs\*.md` to the upload staging folder. Scripts are NOT staged — Opus reads live scripts via Desktop Commander on demand. **Keep the script in sync with the actual file list** — when a doc is added, removed, or renamed, update `copy-for-claude.ps1` too.
 
 ---
 
