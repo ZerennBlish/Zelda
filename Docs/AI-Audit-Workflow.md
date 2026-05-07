@@ -133,8 +133,6 @@ Do not apply any fixes. Do not write any files. Report only.
 ## Claude Code Prompt
 
 ```
-ultrathink
-
 [same structure as Codex prompt — adjust focus toward implementer review:
 state machine completeness, side-by-side comparison of similar files,
 duplication that compounds with growth, abandoned features.]

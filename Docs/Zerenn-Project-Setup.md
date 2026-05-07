@@ -30,8 +30,10 @@ If you're sitting down at a fresh machine and want to clone, build, and run Zere
 - **Scripts:** `/mnt/c/Zelda/Assets/Scripts/`
 - **Docs:** `/mnt/c/Zelda/Docs/`
 
-### Linux Mint laptop (secondary dev machine)
-- Same WSL-style mount paths via the shared GitHub repo
+### Laptop (secondary dev machine — Windows 11)
+- **Project root:** `C:\Zelda\`
+- **Scripts:** `C:\Zelda\Assets\Scripts\`
+- Same paths as desktop. Both machines run the full toolchain (Unity Editor, Claude Code in WSL, MCP bridge).
 
 ---
 
@@ -106,7 +108,7 @@ git config core.autocrlf true
 **Workflow rules:**
 - Auditors are READ-ONLY. They produce findings, never edit files.
 - One task per Claude Code prompt for surgical fixes; grouped prompts for related multi-file changes.
-- Use "ultrathink" at the start of complex Claude Code prompts.
+- Effort levels: xhigh is the default. `/effort max` only for major architectural decisions or 2,000+ line file audits. **Never use `ULTRATHINK` or `THINK HARD` keywords** — documented bug downgrades reasoning at xhigh/max. Persistent `/effort` is the only correct lever.
 - Auditor findings route through Opus (triage) → Claude Code (implement). Never apply audit findings directly without triage.
 - See `AI-Audit-Workflow.md` for the full workflow.
 
@@ -231,10 +233,10 @@ These are wrapped in `#if UNITY_EDITOR` and have no effect in shipped builds.
 
 ## Hardware
 
-- **Desktop (primary):** Ryzen 5 5600X, 32GB RAM, RTX 4070, Windows
-- **Laptop (secondary):** Gateway, Linux Mint, WSL2
+- **Desktop (primary):** Ryzen 5 5600X, 32GB RAM, RTX 4070, Windows 11
+- **Laptop (secondary):** Intel i7-10750H, 24GB RAM, RTX 2060 6GB, Windows 11
 
-The desktop is where most Unity Editor work happens. The laptop is for audits, code review, and Claude Code sessions when away from the desk.
+Both machines are capable of running the full toolchain simultaneously (Unity Editor, Claude Code in WSL, MCP bridge). Either machine can be active at any moment — `git pull` first after a machine switch.
 
 ---
 
