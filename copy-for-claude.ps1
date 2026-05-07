@@ -50,6 +50,18 @@ if (Test-Path $docsDir) {
     }
 }
 
+# --- Session handoffs (last 2 only — older ones are stale) ---
+
+$sessionsDir = Join-Path $source "Docs\Sessions"
+if (Test-Path $sessionsDir) {
+    Get-ChildItem -Path $sessionsDir -Filter "*.md" -File |
+        Sort-Object Name -Descending |
+        Select-Object -First 2 |
+        ForEach-Object {
+            Copy-Item $_.FullName "$dest\$($_.Name)" -Force
+        }
+}
+
 # --- Summary ---
 
 $count = (Get-ChildItem $dest -File).Count

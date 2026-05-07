@@ -108,7 +108,21 @@ Drag-and-drop all files from the staging folder into the Claude.ai project knowl
 
 ## Step 9 — Session handoff
 
-Session handoffs are written by Opus in the design chat at the end of the session and carried forward as context for the next session. They are not stored as files in the repo.
+Write a handoff doc to `Docs\Sessions\Session-NN-Handoff.md` via Desktop Commander. This is how the next session knows what happened. Handoffs are not optional — without them, the next session starts blind.
+
+The handoff must include:
+- What changed (files created, modified, fixed)
+- What's next (immediate priorities for next session)
+- Known issues (anything unresolved, flagged for follow-up)
+- Any decisions made that aren't yet in Zerenn-Decisions.md
+
+Only the last 2 handoffs are staged by `copy-for-claude.ps1`. Older ones stay in the repo but don't upload to project knowledge.
+
+---
+
+## Opening a New Session
+
+At the start of every session, Opus reads the most recent handoff in project knowledge to pick up where the last session left off. Update the "Session Priorities" section in the project instructions to reflect what's being worked on this session.
 
 ---
 
