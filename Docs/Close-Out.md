@@ -106,6 +106,24 @@ Drag-and-drop all files from the staging folder into the Claude.ai project knowl
 
 ---
 
+## Step 8b — Final commit
+
+Any doc changes made after Step 5 (handoff file, doc updates via Desktop Commander) need their own commit:
+
+```powershell
+git add .
+```
+
+```powershell
+git commit -m "Session NN: handoff + doc updates"
+```
+
+```powershell
+git push
+```
+
+---
+
 ## Step 9 — Session handoff
 
 Write a handoff doc to `Docs\Sessions\Session-NN-Handoff.md` via Desktop Commander. This is how the next session knows what happened. Handoffs are not optional — without them, the next session starts blind.
