@@ -110,7 +110,6 @@ public class PlayerWeapons : MonoBehaviour
         if (InputManager.Instance.ShootHeld && Time.time >= nextFireTime)
         {
             Shoot();
-            nextFireTime = Time.time + fireRate;
         }
 
         // Active sub-weapon - E / Right Click / Y button
@@ -124,6 +123,12 @@ public class PlayerWeapons : MonoBehaviour
 
     public void RebuildWeaponList()
     {
+        // Preserve equipped weapon identity across rebuild — list order shifts
+        // when weapons unlock, so a raw index can silently point at the wrong slot.
+        SubWeapon previousWeapon = unlockedWeapons.Count > 0
+            ? unlockedWeapons[currentWeaponIndex]
+            : (SubWeapon)PlayerPrefs.GetInt("EquippedWeaponIndex", 0);
+
         unlockedWeapons.Clear();
 
         if (playerController.hasBoomerang) unlockedWeapons.Add(SubWeapon.Boomerang);
@@ -131,14 +136,8 @@ public class PlayerWeapons : MonoBehaviour
         if (playerController.hasGrapple) unlockedWeapons.Add(SubWeapon.Grapple);
         if (playerController.hasWand) unlockedWeapons.Add(SubWeapon.Wand);
 
-        if (unlockedWeapons.Count > 0)
-        {
-            currentWeaponIndex = currentWeaponIndex % unlockedWeapons.Count;
-        }
-        else
-        {
-            currentWeaponIndex = 0;
-        }
+        int foundIndex = unlockedWeapons.IndexOf(previousWeapon);
+        currentWeaponIndex = foundIndex >= 0 ? foundIndex : 0;
     }
 
     public void CycleWeapon(int direction)
@@ -158,7 +157,6 @@ public class PlayerWeapons : MonoBehaviour
 
         // Save equipped weapon (enum value, not list index — list shifts when weapons unlock)
         PlayerPrefs.SetInt("EquippedWeaponIndex", (int)unlockedWeapons[currentWeaponIndex]);
-        PlayerPrefs.Save();
 
         Debug.Log("Equipped: " + GetActiveWeapon());
     }
@@ -212,6 +210,7 @@ public class PlayerWeapons : MonoBehaviour
         if (arrowPrefab == null) return;
         if (currentArrows <= 0) return;
 
+        nextFireTime = Time.time + fireRate;
         currentArrows--;
         UpdateArrowUI();
 
