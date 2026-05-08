@@ -11533,6 +11533,7 @@ MonoBehaviour:
   mainCamera: {fileID: 1295799188}
   roomWidth: 18
   roomHeight: 10
+  worldMap: {fileID: 11400000, guid: 9f281e4a10cae6e4ca99f3a6a76d7a5e, type: 2}
 --- !u!4 &1004872385
 Transform:
   m_ObjectHideFlags: 0
