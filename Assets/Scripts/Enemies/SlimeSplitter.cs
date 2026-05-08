@@ -1,77 +1,55 @@
 using UnityEngine;
 
-public class SlimeSplitter : MonoBehaviour, IStunnable, IDamageable{
+public class SlimeSplitter : StunnableEnemy
+{
     public enum SlimeSize { Large, Medium, Small }
-    
+
     [Header("Size")]
     public SlimeSize currentSize = SlimeSize.Large;
-    
+
     [Header("Movement")]
     public float wanderSpeed = 1f;
     public float chaseSpeed = 2f;
     public float chaseRange = 5f;
-    
+
     [Header("Combat")]
     public int damage = 1;
     public float damageCooldown = 1f;
-    
-    [Header("Health")]
-    public int health = 2;
-    
+
     [Header("Split Settings")]
     public GameObject slimePrefab;
     public int splitCount = 2;
     public float splitSpread = 0.5f;
-    
+
     [Header("Size Scales")]
     public float largeScale = 0.6f;
     public float mediumScale = 0.4f;
     public float smallScale = 0.25f;
-    
+
     [Header("Size Stats")]
     public int largeHealth = 3;
     public int mediumHealth = 2;
     public int smallHealth = 1;
-    
-    [Header("Stun")]
-    public Color stunColor = new Color(0.5f, 0.5f, 1f, 1f);
-    
+
     private enum State { Wander, Chase, Stunned }
     private State currentState = State.Wander;
-    
-    private Transform player;
-    private Rigidbody2D rb;
-    private SpriteRenderer spriteRenderer;
-    
+
     private Vector2 wanderDirection;
     private float wanderTimer;
     private float wanderInterval = 2f;
     private float damageTimer;
-    
-    private float stunTimer;
-    private Color originalColor;
-    private bool isDead = false;
 
-    void Start()
+    protected override void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
-        originalColor = spriteRenderer.color;
-        
-        GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
-        if (playerObj != null)
-        {
-            player = playerObj.transform;
-        }
-        
+        base.Start();
         ApplySizeStats();
         PickNewWanderDirection();
     }
-    
+
     void ApplySizeStats()
     {
         float scale = largeScale;
-        
+
         switch (currentSize)
         {
             case SlimeSize.Large:
@@ -87,31 +65,17 @@ public class SlimeSplitter : MonoBehaviour, IStunnable, IDamageable{
                 health = smallHealth;
                 break;
         }
-        
+
         transform.localScale = new Vector3(scale, scale, 1f);
     }
 
     void Update()
     {
         if (player == null) return;
-        
-        // Handle stunned state
-        if (currentState == State.Stunned)
-        {
-            rb.linearVelocity = Vector2.zero;
-            stunTimer -= Time.deltaTime;
-            if (stunTimer <= 0)
-            {
-                currentState = State.Wander;
-                spriteRenderer.color = originalColor;
-                EnemyBuff buff = GetComponent<EnemyBuff>();
-                if (buff != null) buff.ReapplyTint();
-            }
-            return;
-        }
-        
+        if (TickStun()) return;
+
         float distanceToPlayer = Vector2.Distance(transform.position, player.position);
-        
+
         if (distanceToPlayer < chaseRange)
         {
             currentState = State.Chase;
@@ -120,7 +84,7 @@ public class SlimeSplitter : MonoBehaviour, IStunnable, IDamageable{
         {
             currentState = State.Wander;
         }
-        
+
         switch (currentState)
         {
             case State.Wander:
@@ -130,13 +94,13 @@ public class SlimeSplitter : MonoBehaviour, IStunnable, IDamageable{
                 Chase();
                 break;
         }
-        
+
         if (damageTimer > 0)
         {
             damageTimer -= Time.deltaTime;
         }
     }
-    
+
     void Wander()
     {
         wanderTimer -= Time.deltaTime;
@@ -144,25 +108,25 @@ public class SlimeSplitter : MonoBehaviour, IStunnable, IDamageable{
         {
             PickNewWanderDirection();
         }
-        
+
         rb.linearVelocity = wanderDirection * wanderSpeed;
         UpdateFacing(wanderDirection);
     }
-    
+
     void PickNewWanderDirection()
     {
         float randomAngle = Random.Range(0f, 360f) * Mathf.Deg2Rad;
         wanderDirection = new Vector2(Mathf.Cos(randomAngle), Mathf.Sin(randomAngle));
         wanderTimer = wanderInterval;
     }
-    
+
     void Chase()
     {
         Vector2 direction = (player.position - transform.position).normalized;
         rb.linearVelocity = direction * chaseSpeed;
         UpdateFacing(direction);
     }
-    
+
     void UpdateFacing(Vector2 direction)
     {
         if (direction.x != 0)
@@ -170,11 +134,11 @@ public class SlimeSplitter : MonoBehaviour, IStunnable, IDamageable{
             spriteRenderer.flipX = direction.x < 0;
         }
     }
-    
+
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (currentState == State.Stunned) return;
-        
+
         if (collision.gameObject.CompareTag("Player") && damageTimer <= 0)
         {
             PlayerHealth playerHealth = collision.gameObject.GetComponent<PlayerHealth>();
@@ -185,11 +149,11 @@ public class SlimeSplitter : MonoBehaviour, IStunnable, IDamageable{
             }
         }
     }
-    
+
     void OnCollisionStay2D(Collision2D collision)
     {
         if (currentState == State.Stunned) return;
-        
+
         if (collision.gameObject.CompareTag("Player") && damageTimer <= 0)
         {
             PlayerHealth playerHealth = collision.gameObject.GetComponent<PlayerHealth>();
@@ -200,30 +164,24 @@ public class SlimeSplitter : MonoBehaviour, IStunnable, IDamageable{
             }
         }
     }
-    
-    public void Stun(float duration)
+
+    protected override void OnStunEnter()
     {
         currentState = State.Stunned;
-        stunTimer = duration;
-        rb.linearVelocity = Vector2.zero;
-        spriteRenderer.color = stunColor;
     }
-    
-    public void TakeDamage(int amount)
+
+    protected override void OnStunExit()
     {
-        if (isDead) return;
-        health -= amount;
-
-        if (health <= 0)
-        {
-            Die();
-        }
+        currentState = State.Wander;
     }
 
-    void Die()
+    // Splitting replaces the standard drop-and-destroy: non-Small slimes spawn
+    // children instead of dropping loot; only Small slimes use the base drop.
+    protected override void Die()
     {
         if (isDead) return;
         isDead = true;
+        if (rb != null) rb.linearVelocity = Vector2.zero;
 
         if (currentSize != SlimeSize.Small && slimePrefab != null)
         {
@@ -241,16 +199,12 @@ public class SlimeSplitter : MonoBehaviour, IStunnable, IDamageable{
                     splitter.currentSize = nextSize;
                 }
             }
+
+            Destroy(gameObject);
         }
         else
         {
-            Dropper dropper = GetComponent<Dropper>();
-            if (dropper != null)
-            {
-                dropper.Drop();
-            }
+            DropAndDestroy();
         }
-
-        Destroy(gameObject);
     }
 }

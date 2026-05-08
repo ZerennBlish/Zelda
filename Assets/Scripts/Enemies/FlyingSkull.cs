@@ -1,53 +1,38 @@
 using UnityEngine;
 
-public class FlyingSkull : MonoBehaviour, IStunnable, IDamageable{
+public class FlyingSkull : StunnableEnemy
+{
     [Header("Movement")]
     public float wanderSpeed = 2f;
     public float swoopSpeed = 6f;
     public float pullbackSpeed = 2f;
     public float changeDirectionInterval = 1.5f;
     public float chaseRange = 6f;
-    
+
     [Header("Swoop")]
     public float pullbackDuration = 0.3f;
     public float swoopDuration = 0.5f;
     public float swoopCooldown = 1.5f;
-    
+
     [Header("Wall Detection")]
     [SerializeField] private LayerMask wallLayerMask;
 
     [Header("Combat")]
     public int damage = 1;
-    
-    [Header("Health")]
-    public int health = 1;
-    
-    [Header("Stun")]
-    public Color stunColor = new Color(0.5f, 0.5f, 1f, 1f);
-    
+
     private enum State { Wander, Pullback, Swoop, Cooldown, Stunned }
     private State currentState = State.Wander;
-    
-    private Transform player;
-    private Rigidbody2D rb;
-    private SpriteRenderer spriteRenderer;
-    
+
     private Vector2 roomCenter;
     private Vector2 moveDirection;
     private Vector2 swoopDirection;
     private float directionTimer;
     private float stateTimer;
     private bool hasHitPlayer;
-    
-    private float stunTimer;
-    private Color originalColor;
-    private bool isDead = false;
 
-    void Start()
+    protected override void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
-        originalColor = spriteRenderer.color;
+        base.Start();
 
         // Single source of truth: RoomManager owns the room dimensions.
         if (RoomManager.Instance != null)
@@ -64,35 +49,16 @@ public class FlyingSkull : MonoBehaviour, IStunnable, IDamageable{
             roomCenter = transform.position;
         }
 
-        GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
-        if (playerObj != null)
-        {
-            player = playerObj.transform;
-        }
-
         PickNewDirection();
     }
 
     void Update()
     {
         if (player == null) return;
-        
-        if (currentState == State.Stunned)
-        {
-            rb.linearVelocity = Vector2.zero;
-            stunTimer -= Time.deltaTime;
-            if (stunTimer <= 0)
-            {
-                currentState = State.Wander;
-                spriteRenderer.color = originalColor;
-                EnemyBuff buff = GetComponent<EnemyBuff>();
-                if (buff != null) buff.ReapplyTint();
-            }
-            return;
-        }
-        
+        if (TickStun()) return;
+
         float distanceToPlayer = Vector2.Distance(transform.position, player.position);
-        
+
         switch (currentState)
         {
             case State.Wander:
@@ -102,7 +68,7 @@ public class FlyingSkull : MonoBehaviour, IStunnable, IDamageable{
                     StartPullback();
                 }
                 break;
-                
+
             case State.Pullback:
                 Pullback();
                 stateTimer -= Time.deltaTime;
@@ -111,7 +77,7 @@ public class FlyingSkull : MonoBehaviour, IStunnable, IDamageable{
                     StartSwoop();
                 }
                 break;
-                
+
             case State.Swoop:
                 Swoop();
                 stateTimer -= Time.deltaTime;
@@ -120,7 +86,7 @@ public class FlyingSkull : MonoBehaviour, IStunnable, IDamageable{
                     StartCooldown();
                 }
                 break;
-                
+
             case State.Cooldown:
                 Wander();
                 stateTimer -= Time.deltaTime;
@@ -160,7 +126,7 @@ public class FlyingSkull : MonoBehaviour, IStunnable, IDamageable{
 
         rb.linearVelocity = moveDirection * wanderSpeed;
     }
-    
+
     void Wander()
     {
         directionTimer -= Time.deltaTime;
@@ -168,51 +134,51 @@ public class FlyingSkull : MonoBehaviour, IStunnable, IDamageable{
         {
             PickNewDirection();
         }
-        
+
         rb.linearVelocity = moveDirection * wanderSpeed;
         UpdateFacing(moveDirection);
     }
-    
+
     void PickNewDirection()
     {
         float randomAngle = Random.Range(0f, 360f) * Mathf.Deg2Rad;
         moveDirection = new Vector2(Mathf.Cos(randomAngle), Mathf.Sin(randomAngle));
         directionTimer = changeDirectionInterval;
     }
-    
+
     void StartPullback()
     {
         currentState = State.Pullback;
         stateTimer = pullbackDuration;
-        
+
         swoopDirection = (player.position - transform.position).normalized;
         UpdateFacing(swoopDirection);
     }
-    
+
     void Pullback()
     {
         rb.linearVelocity = -swoopDirection * pullbackSpeed;
     }
-    
+
     void StartSwoop()
     {
         currentState = State.Swoop;
         stateTimer = swoopDuration;
         hasHitPlayer = false;
     }
-    
+
     void Swoop()
     {
         rb.linearVelocity = swoopDirection * swoopSpeed;
     }
-    
+
     void StartCooldown()
     {
         currentState = State.Cooldown;
         stateTimer = swoopCooldown;
         PickNewDirection();
     }
-    
+
     void UpdateFacing(Vector2 direction)
     {
         if (direction.x != 0)
@@ -220,7 +186,7 @@ public class FlyingSkull : MonoBehaviour, IStunnable, IDamageable{
             spriteRenderer.flipX = direction.x < 0;
         }
     }
-    
+
     void ClampToRoom()
     {
         if (RoomManager.Instance == null) return;
@@ -247,11 +213,11 @@ public class FlyingSkull : MonoBehaviour, IStunnable, IDamageable{
             }
         }
     }
-    
+
     void OnTriggerEnter2D(Collider2D other)
     {
         if (currentState == State.Stunned) return;
-        
+
         if (other.CompareTag("Player") && currentState == State.Swoop && !hasHitPlayer)
         {
             PlayerHealth playerHealth = other.GetComponent<PlayerHealth>();
@@ -262,36 +228,14 @@ public class FlyingSkull : MonoBehaviour, IStunnable, IDamageable{
             }
         }
     }
-    
-    public void Stun(float duration)
+
+    protected override void OnStunEnter()
     {
         currentState = State.Stunned;
-        stunTimer = duration;
-        rb.linearVelocity = Vector2.zero;
-        spriteRenderer.color = stunColor;
-    }
-    
-    public void TakeDamage(int amount)
-    {
-        if (isDead) return;
-        health -= amount;
-
-        if (health <= 0)
-        {
-            Die();
-        }
     }
 
-    void Die()
+    protected override void OnStunExit()
     {
-        if (isDead) return;
-        isDead = true;
-        Dropper dropper = GetComponent<Dropper>();
-        if (dropper != null)
-        {
-            dropper.Drop();
-        }
-
-        Destroy(gameObject);
+        currentState = State.Wander;
     }
 }

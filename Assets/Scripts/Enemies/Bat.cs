@@ -1,33 +1,22 @@
 using UnityEngine;
 
-public class Bat : MonoBehaviour, IDamageable
+public class Bat : EnemyBase
 {
     [Header("Movement")]
     public float wanderSpeed = 2f;
     public float chaseSpeed = 3f;
     public float chaseRange = 5f;
     public float directionChangeTime = 1f;
-    
+
     [Header("Combat")]
     public int damage = 1;
-    public int health = 1;
-    
-    private Transform player;
-    private Rigidbody2D rb;
+
     private Vector2 moveDirection;
     private float directionTimer;
-    private bool isDead = false;
 
-    void Start()
+    protected override void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
-
-        GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
-        if (playerObj != null)
-        {
-            player = playerObj.transform;
-        }
-
+        base.Start();
         PickRandomDirection();
     }
 
@@ -54,13 +43,13 @@ public class Bat : MonoBehaviour, IDamageable
             rb.linearVelocity = moveDirection * wanderSpeed;
         }
     }
-    
+
     void PickRandomDirection()
     {
         moveDirection = Random.insideUnitCircle.normalized;
         directionTimer = directionChangeTime;
     }
-    
+
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
@@ -71,28 +60,5 @@ public class Bat : MonoBehaviour, IDamageable
                 playerHealth.TakeDamage(damage, transform.position);
             }
         }
-    }
-    
-    public void TakeDamage(int amount)
-    {
-        if (isDead) return;
-        health -= amount;
-        if (health <= 0)
-        {
-            Die();
-        }
-    }
-
-    void Die()
-    {
-        if (isDead) return;
-        isDead = true;
-        if (rb != null) rb.linearVelocity = Vector2.zero;
-        Dropper dropper = GetComponent<Dropper>();
-        if (dropper != null)
-        {
-            dropper.Drop();
-        }
-        Destroy(gameObject);
     }
 }

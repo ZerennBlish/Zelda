@@ -1,84 +1,48 @@
 using UnityEngine;
 
-public class GoblinMaceman : MonoBehaviour, IStunnable, IDamageable
+public class GoblinMaceman : StunnableEnemy
 {
     [Header("Movement")]
     public float wanderSpeed = 1f;
     public float chaseSpeed = 2f;
     public float chaseRange = 5f;
     public float attackRange = 1.5f;
-    
+
     [Header("Attack")]
     public float windUpTime = 0.4f;
     public float spinDuration = 0.5f;
     public float recoveryTime = 0.8f;
     public float spinDriftSpeed = 2f;
     public int damage = 1;
-    
-    [Header("Health")]
-    public int health = 2;
-    
-    [Header("Stun")]
-    public Color stunColor = new Color(0.5f, 0.5f, 1f, 1f);
-    
+
     private enum State { Wander, Chase, WindUp, Spinning, Recovery, Stunned }
     private State currentState = State.Wander;
-    
-    private Transform player;
-    private Rigidbody2D rb;
-    private SpriteRenderer spriteRenderer;
-    
+
     private Vector2 wanderDirection;
     private float wanderTimer;
     private float wanderInterval = 2f;
-    
+
     private float stateTimer;
     private float spinRotation;
     private Vector2 spinDirection;
     private bool hasHitPlayer;
-    
-    private Quaternion originalRotation;
-    private float stunTimer;
-    private Color originalColor;
-    private bool isDead = false;
 
-    void Start()
+    private Quaternion originalRotation;
+
+    protected override void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        base.Start();
         originalRotation = transform.rotation;
-        originalColor = spriteRenderer.color;
-        
-        GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
-        if (playerObj != null)
-        {
-            player = playerObj.transform;
-        }
-        
         PickNewWanderDirection();
     }
 
     void Update()
     {
         if (player == null) return;
-        
-        if (currentState == State.Stunned)
-        {
-            rb.linearVelocity = Vector2.zero;
-            stunTimer -= Time.deltaTime;
-            if (stunTimer <= 0)
-            {
-                currentState = State.Wander;
-                spriteRenderer.color = originalColor;
-                transform.rotation = originalRotation;
-                EnemyBuff buff = GetComponent<EnemyBuff>();
-                if (buff != null) buff.ReapplyTint();
-            }
-            return;
-        }
-        
+        if (TickStun()) return;
+
         float distanceToPlayer = Vector2.Distance(transform.position, player.position);
-        
+
         switch (currentState)
         {
             case State.Wander:
@@ -88,7 +52,7 @@ public class GoblinMaceman : MonoBehaviour, IStunnable, IDamageable
                     currentState = State.Chase;
                 }
                 break;
-                
+
             case State.Chase:
                 Chase();
                 if (distanceToPlayer < attackRange)
@@ -100,7 +64,7 @@ public class GoblinMaceman : MonoBehaviour, IStunnable, IDamageable
                     currentState = State.Wander;
                 }
                 break;
-                
+
             case State.WindUp:
                 rb.linearVelocity = Vector2.zero;
                 stateTimer -= Time.deltaTime;
@@ -109,7 +73,7 @@ public class GoblinMaceman : MonoBehaviour, IStunnable, IDamageable
                     StartSpin();
                 }
                 break;
-                
+
             case State.Spinning:
                 Spin();
                 stateTimer -= Time.deltaTime;
@@ -118,7 +82,7 @@ public class GoblinMaceman : MonoBehaviour, IStunnable, IDamageable
                     StartRecovery();
                 }
                 break;
-                
+
             case State.Recovery:
                 rb.linearVelocity = Vector2.zero;
                 stateTimer -= Time.deltaTime;
@@ -129,7 +93,7 @@ public class GoblinMaceman : MonoBehaviour, IStunnable, IDamageable
                 break;
         }
     }
-    
+
     void Wander()
     {
         wanderTimer -= Time.deltaTime;
@@ -137,25 +101,25 @@ public class GoblinMaceman : MonoBehaviour, IStunnable, IDamageable
         {
             PickNewWanderDirection();
         }
-        
+
         rb.linearVelocity = wanderDirection * wanderSpeed;
         UpdateFacing(wanderDirection);
     }
-    
+
     void PickNewWanderDirection()
     {
         float randomAngle = Random.Range(0f, 360f) * Mathf.Deg2Rad;
         wanderDirection = new Vector2(Mathf.Cos(randomAngle), Mathf.Sin(randomAngle));
         wanderTimer = wanderInterval;
     }
-    
+
     void Chase()
     {
         Vector2 direction = (player.position - transform.position).normalized;
         rb.linearVelocity = direction * chaseSpeed;
         UpdateFacing(direction);
     }
-    
+
     void UpdateFacing(Vector2 direction)
     {
         if (direction.x != 0)
@@ -163,16 +127,16 @@ public class GoblinMaceman : MonoBehaviour, IStunnable, IDamageable
             spriteRenderer.flipX = direction.x < 0;
         }
     }
-    
+
     void StartWindUp()
     {
         currentState = State.WindUp;
         stateTimer = windUpTime;
         rb.linearVelocity = Vector2.zero;
-        
+
         spinDirection = (player.position - transform.position).normalized;
     }
-    
+
     void StartSpin()
     {
         currentState = State.Spinning;
@@ -180,7 +144,7 @@ public class GoblinMaceman : MonoBehaviour, IStunnable, IDamageable
         spinRotation = 0f;
         hasHitPlayer = false;
     }
-    
+
     void Spin()
     {
         float rotationThisFrame = (360f / spinDuration) * Time.deltaTime;
@@ -190,20 +154,20 @@ public class GoblinMaceman : MonoBehaviour, IStunnable, IDamageable
         float driftMultiplier = stateTimer / spinDuration;
         rb.linearVelocity = spinDirection * spinDriftSpeed * driftMultiplier;
     }
-    
+
     void StartRecovery()
     {
         currentState = State.Recovery;
         stateTimer = recoveryTime;
         rb.linearVelocity = Vector2.zero;
-        
+
         transform.rotation = originalRotation;
     }
-    
+
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (currentState == State.Stunned) return;
-        
+
         if (currentState == State.Spinning && !hasHitPlayer)
         {
             if (collision.gameObject.CompareTag("Player"))
@@ -217,11 +181,11 @@ public class GoblinMaceman : MonoBehaviour, IStunnable, IDamageable
             }
         }
     }
-    
+
     void OnCollisionStay2D(Collision2D collision)
     {
         if (currentState == State.Stunned) return;
-        
+
         if (currentState == State.Spinning && !hasHitPlayer)
         {
             if (collision.gameObject.CompareTag("Player"))
@@ -235,37 +199,16 @@ public class GoblinMaceman : MonoBehaviour, IStunnable, IDamageable
             }
         }
     }
-    
-    public void Stun(float duration)
+
+    protected override void OnStunEnter()
     {
         currentState = State.Stunned;
-        stunTimer = duration;
-        rb.linearVelocity = Vector2.zero;
-        spriteRenderer.color = stunColor;
         transform.rotation = originalRotation;
     }
-    
-    public void TakeDamage(int amount)
+
+    protected override void OnStunExit()
     {
-        if (isDead) return;
-        health -= amount;
-
-        if (health <= 0)
-        {
-            Die();
-        }
-    }
-
-    void Die()
-    {
-        if (isDead) return;
-        isDead = true;
-        Dropper dropper = GetComponent<Dropper>();
-        if (dropper != null)
-        {
-            dropper.Drop();
-        }
-
-        Destroy(gameObject);
+        currentState = State.Wander;
+        transform.rotation = originalRotation;
     }
 }

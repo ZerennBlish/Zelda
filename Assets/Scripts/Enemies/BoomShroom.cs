@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class BoomShroom : MonoBehaviour, IDamageable
+public class BoomShroom : EnemyBase
 {
     public float moveSpeed = 2f;
     public float chaseRange = 5f;
@@ -10,29 +10,15 @@ public class BoomShroom : MonoBehaviour, IDamageable
     public float blinkTime = 0.2f;
     public int blinkCount = 3;
     public GameObject explosionEffectPrefab;
-    
-    private Rigidbody2D rb;
-    private Transform player;
+
     private Vector2 wanderDirection;
     private float wanderTimer;
     private bool isExploding = false;
     private bool hasExploded = false;
-    private bool isDead = false;
-    private SpriteRenderer spriteRenderer;
-    private Dropper dropper;
 
-    void Start()
+    protected override void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
-        dropper = GetComponent<Dropper>();
-        
-        GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
-        if (playerObj != null)
-        {
-            player = playerObj.transform;
-        }
-        
+        base.Start();
         PickNewWanderDirection();
     }
 
@@ -40,9 +26,9 @@ public class BoomShroom : MonoBehaviour, IDamageable
     {
         if (isExploding) return;
         if (player == null) return;
-        
+
         float distanceToPlayer = Vector2.Distance(transform.position, player.position);
-        
+
         if (distanceToPlayer <= chaseRange)
         {
             Vector2 direction = (player.position - transform.position).normalized;
@@ -82,7 +68,7 @@ public class BoomShroom : MonoBehaviour, IDamageable
     {
         isExploding = true;
         rb.linearVelocity = Vector2.zero;
-        
+
         for (int i = 0; i < blinkCount; i++)
         {
             spriteRenderer.enabled = false;
@@ -90,11 +76,12 @@ public class BoomShroom : MonoBehaviour, IDamageable
             spriteRenderer.enabled = true;
             yield return new WaitForSeconds(blinkTime);
         }
-        
+
         Explode();
     }
 
-    public void TakeDamage(int amount)
+    // Damage triggers immediate detonation — no health decrement.
+    public override void TakeDamage(int amount)
     {
         if (isDead) return;
         Explode();
@@ -124,11 +111,6 @@ public class BoomShroom : MonoBehaviour, IDamageable
             }
         }
 
-        if (dropper != null)
-        {
-            dropper.Drop();
-        }
-
-        Destroy(gameObject);
+        DropAndDestroy();
     }
 }

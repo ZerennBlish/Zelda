@@ -1,53 +1,40 @@
 using UnityEngine;
 
-public class Mummy : MonoBehaviour, IStunnable, IDamageable
+public class Mummy : StunnableEnemy
 {
     [Header("Spin")]
     public float spinSpeed = 720f;
-    
+
     [Header("Shooting")]
     public GameObject projectilePrefab;
     public float fireRate = 0.05f;
     public float projectileSpeed = 6f;
-    
+
     [Header("Burrow")]
     public float aboveGroundTime = 4f;
     public float undergroundTime = 2f;
     public float burrowRadius = 3f;
     [SerializeField] private LayerMask wallLayerMask;
-    
-    [Header("Health")]
-    public int health = 3;
-    
+
     [Header("Contact")]
     public int contactDamage = 1;
-    
-    [Header("Stun")]
-    public Color stunColor = new Color(0.5f, 0.5f, 1f, 1f);
-    
+
     private enum State { Spinning, Burrowing, Underground, Emerging, Stunned }
     private State currentState = State.Spinning;
-    
-    private SpriteRenderer spriteRenderer;
+
     private Collider2D col;
-    private Rigidbody2D rb;
-    private Color originalColor;
-    
+
     private float stateTimer;
     private float fireTimer;
-    private float stunTimer;
     private float currentRotation;
-    private bool isDead = false;
-    
-    void Start()
+
+    protected override void Start()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        base.Start();
         col = GetComponent<Collider2D>();
-        rb = GetComponent<Rigidbody2D>();
-        originalColor = spriteRenderer.color;
         stateTimer = aboveGroundTime;
     }
-    
+
     void Update()
     {
         if (isDead) return;
@@ -62,7 +49,7 @@ public class Mummy : MonoBehaviour, IStunnable, IDamageable
                     StartBurrowing();
                 }
                 break;
-                
+
             case State.Burrowing:
                 stateTimer -= Time.deltaTime;
                 float burrowProgress = 1 - (stateTimer / 0.5f);
@@ -72,7 +59,7 @@ public class Mummy : MonoBehaviour, IStunnable, IDamageable
                     GoUnderground();
                 }
                 break;
-                
+
             case State.Underground:
                 stateTimer -= Time.deltaTime;
                 if (stateTimer <= 0)
@@ -80,7 +67,7 @@ public class Mummy : MonoBehaviour, IStunnable, IDamageable
                     StartEmerging();
                 }
                 break;
-                
+
             case State.Emerging:
                 stateTimer -= Time.deltaTime;
                 float emergeProgress = 1 - (stateTimer / 0.5f);
@@ -98,20 +85,13 @@ public class Mummy : MonoBehaviour, IStunnable, IDamageable
                     stateTimer = aboveGroundTime;
                 }
                 break;
-                
+
             case State.Stunned:
-                stunTimer -= Time.deltaTime;
-                if (stunTimer <= 0)
-                {
-                    currentState = State.Spinning;
-                    spriteRenderer.color = originalColor;
-                    EnemyBuff buff = GetComponent<EnemyBuff>();
-                    if (buff != null) buff.ReapplyTint();
-                }
+                TickStun();
                 break;
         }
     }
-    
+
     void Spin()
     {
         // Modulo 360 prevents float drift over long encounters
@@ -126,17 +106,17 @@ public class Mummy : MonoBehaviour, IStunnable, IDamageable
             transform.rotation = Quaternion.Euler(0, 0, currentRotation);
         }
     }
-    
+
     void Shoot()
     {
         fireTimer -= Time.deltaTime;
         if (fireTimer <= 0)
         {
             fireTimer = fireRate;
-            
+
             float angle = currentRotation * Mathf.Deg2Rad;
             Vector2 direction = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle));
-            
+
             if (projectilePrefab != null)
             {
                 GameObject proj = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
@@ -148,14 +128,14 @@ public class Mummy : MonoBehaviour, IStunnable, IDamageable
             }
         }
     }
-    
+
     void StartBurrowing()
     {
         currentState = State.Burrowing;
         stateTimer = 0.5f;
         col.enabled = false;
     }
-    
+
     void GoUnderground()
     {
         currentState = State.Underground;
@@ -182,7 +162,7 @@ public class Mummy : MonoBehaviour, IStunnable, IDamageable
 
         transform.position = newPosition;
     }
-    
+
     void StartEmerging()
     {
         currentState = State.Emerging;
@@ -193,7 +173,7 @@ public class Mummy : MonoBehaviour, IStunnable, IDamageable
         // barely-visible mummy.
         transform.localScale = Vector3.zero;
     }
-    
+
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (currentState == State.Underground ||
@@ -229,22 +209,30 @@ public class Mummy : MonoBehaviour, IStunnable, IDamageable
             }
         }
     }
-    
-    public void Stun(float duration)
+
+    // Mummy can't be stunned during the phases where it isn't visible/present.
+    protected override bool CanBeStunned()
     {
-        if (currentState == State.Underground || currentState == State.Burrowing || currentState == State.Emerging)
-            return;
-            
-        currentState = State.Stunned;
-        stunTimer = duration;
-        spriteRenderer.color = stunColor;
+        return currentState != State.Underground &&
+               currentState != State.Burrowing &&
+               currentState != State.Emerging;
     }
-    
-    public void TakeDamage(int amount)
+
+    protected override void OnStunEnter()
+    {
+        currentState = State.Stunned;
+    }
+
+    protected override void OnStunExit()
+    {
+        currentState = State.Spinning;
+    }
+
+    // Aligned with CanBeStunned guards — burrowing/underground/emerging mummies
+    // can't be hit (visual: not present or fading in).
+    public override void TakeDamage(int amount)
     {
         if (isDead) return;
-        // Aligned with Stun() guards — burrowing/underground/emerging mummies
-        // can't be hit and can't be stunned (visual: not present or fading in).
         if (currentState == State.Underground ||
             currentState == State.Burrowing ||
             currentState == State.Emerging)
@@ -255,17 +243,5 @@ public class Mummy : MonoBehaviour, IStunnable, IDamageable
         {
             Die();
         }
-    }
-
-    void Die()
-    {
-        if (isDead) return;
-        isDead = true;
-        Dropper dropper = GetComponent<Dropper>();
-        if (dropper != null)
-        {
-            dropper.Drop();
-        }
-        Destroy(gameObject);
     }
 }

@@ -1,64 +1,49 @@
 using UnityEngine;
 
-public class GoblinThief : MonoBehaviour, IDamageable{
+public class GoblinThief : EnemyBase
+{
     [Header("Movement")]
     public float wanderSpeed = 1.5f;
     public float sneakSpeed = 2f;
     public float dashSpeed = 6f;
     public float fleeSpeed = 4f;
-    
+
     [Header("Ranges")]
     public float detectRange = 6f;
     public float dashRange = 2f;
     public float stealRange = 0.8f;
-    
+
     [Header("Timing")]
     public float dashDuration = 0.3f;
     public float fleeDuration = 3f;
-    
+
     [Header("Stealing")]
     public int stealAmount = 5;
     public int stolenRupees = 0;
-    
-    [Header("Health")]
-    public int health = 1;
-    
+
     private enum State { Wander, Sneak, Dash, Flee }
     private State currentState = State.Wander;
-    
-    private Transform player;
-    private Rigidbody2D rb;
-    private SpriteRenderer spriteRenderer;
-    
+
     private Vector2 wanderDirection;
     private float wanderTimer;
     private float wanderInterval = 2f;
-    
+
     private float stateTimer;
     private Vector2 dashDirection;
     private bool hasStolen = false;
-    private bool isDead = false;
 
-    void Start()
+    protected override void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
-        
-        GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
-        if (playerObj != null)
-        {
-            player = playerObj.transform;
-        }
-        
+        base.Start();
         PickNewWanderDirection();
     }
 
     void Update()
     {
         if (player == null) return;
-        
+
         float distanceToPlayer = Vector2.Distance(transform.position, player.position);
-        
+
         switch (currentState)
         {
             case State.Wander:
@@ -68,7 +53,7 @@ public class GoblinThief : MonoBehaviour, IDamageable{
                     currentState = State.Sneak;
                 }
                 break;
-                
+
             case State.Sneak:
                 Sneak();
                 if (distanceToPlayer < dashRange)
@@ -80,7 +65,7 @@ public class GoblinThief : MonoBehaviour, IDamageable{
                     currentState = State.Wander;
                 }
                 break;
-                
+
             case State.Dash:
                 Dash();
                 stateTimer -= Time.deltaTime;
@@ -93,22 +78,22 @@ public class GoblinThief : MonoBehaviour, IDamageable{
                     currentState = State.Sneak;
                 }
                 break;
-                
+
             case State.Flee:
                 Flee();
                 stateTimer -= Time.deltaTime;
                 if (stateTimer <= 0 || distanceToPlayer > detectRange * 2f)
                 {
                     // Thief escapes — rupees are lost, do not refund.
-                    // Die() (which refunds) is only reached if the player kills
-                    // the thief in time. This Destroy bypasses Die.
+                    // OnDie() (which refunds) only runs if base.Die() is called
+                    // via TakeDamage. This Destroy bypasses that path.
                     Destroy(gameObject);
                     return;
                 }
                 break;
         }
     }
-    
+
     void Wander()
     {
         wanderTimer -= Time.deltaTime;
@@ -116,37 +101,37 @@ public class GoblinThief : MonoBehaviour, IDamageable{
         {
             PickNewWanderDirection();
         }
-        
+
         rb.linearVelocity = wanderDirection * wanderSpeed;
         UpdateFacing(wanderDirection);
     }
-    
+
     void PickNewWanderDirection()
     {
         float randomAngle = Random.Range(0f, 360f) * Mathf.Deg2Rad;
         wanderDirection = new Vector2(Mathf.Cos(randomAngle), Mathf.Sin(randomAngle));
         wanderTimer = wanderInterval;
     }
-    
+
     void Sneak()
     {
         Vector2 direction = (player.position - transform.position).normalized;
         rb.linearVelocity = direction * sneakSpeed;
         UpdateFacing(direction);
     }
-    
+
     void StartDash()
     {
         currentState = State.Dash;
         stateTimer = dashDuration;
         dashDirection = (player.position - transform.position).normalized;
     }
-    
+
     void Dash()
     {
         rb.linearVelocity = dashDirection * dashSpeed;
     }
-    
+
     void Steal()
     {
         if (GameState.Instance != null)
@@ -154,19 +139,19 @@ public class GoblinThief : MonoBehaviour, IDamageable{
             int stolen = GameState.Instance.StealRupees(stealAmount);
             stolenRupees += stolen;
         }
-        
+
         hasStolen = true;
         currentState = State.Flee;
         stateTimer = fleeDuration;
     }
-    
+
     void Flee()
     {
         Vector2 direction = (transform.position - player.position).normalized;
         rb.linearVelocity = direction * fleeSpeed;
         UpdateFacing(direction);
     }
-    
+
     void UpdateFacing(Vector2 direction)
     {
         if (direction.x != 0)
@@ -174,35 +159,12 @@ public class GoblinThief : MonoBehaviour, IDamageable{
             spriteRenderer.flipX = direction.x < 0;
         }
     }
-    
-    public void TakeDamage(int amount)
+
+    protected override void OnDie()
     {
-        if (isDead) return;
-        health -= amount;
-
-        if (health <= 0)
-        {
-            Die();
-        }
-    }
-
-    void Die()
-    {
-        if (isDead) return;
-        isDead = true;
-
-        // Return stolen rupees to the player
         if (stolenRupees > 0 && GameState.Instance != null)
         {
             GameState.Instance.AddRupees(stolenRupees);
         }
-
-        Dropper dropper = GetComponent<Dropper>();
-        if (dropper != null)
-        {
-            dropper.Drop();
-        }
-
-        Destroy(gameObject);
     }
 }
