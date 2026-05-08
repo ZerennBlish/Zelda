@@ -9,6 +9,7 @@ public class PlayerBuff : MonoBehaviour
     private float timer;
     
     private PlayerController playerController;
+    private PlayerWeapons playerWeapons;
     private SpriteRenderer spriteRenderer;
     private Color originalColor;
     
@@ -33,6 +34,7 @@ public class PlayerBuff : MonoBehaviour
         }
 
         playerController = GetComponent<PlayerController>();
+        playerWeapons = GetComponent<PlayerWeapons>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         
         if (spriteRenderer != null)
@@ -73,18 +75,18 @@ public class PlayerBuff : MonoBehaviour
                 return;
                 
             case BuffType.Resupply:
-                if (playerController != null)
+                if (playerWeapons != null)
                 {
-                    playerController.currentArrows = playerController.maxArrows;
-                    playerController.currentBombs = playerController.maxBombs;
-                    
-                    if (playerController.arrowUI != null)
+                    playerWeapons.currentArrows = playerWeapons.maxArrows;
+                    playerWeapons.currentBombs = playerWeapons.maxBombs;
+
+                    if (playerWeapons.arrowUI != null)
                     {
-                        playerController.arrowUI.UpdateCount(playerController.currentArrows);
+                        playerWeapons.arrowUI.UpdateCount(playerWeapons.currentArrows);
                     }
-                    if (playerController.bombUI != null)
+                    if (playerWeapons.bombUI != null)
                     {
-                        playerController.bombUI.UpdateCount(playerController.currentBombs);
+                        playerWeapons.bombUI.UpdateCount(playerWeapons.currentBombs);
                     }
                 }
                 Destroy(this); // Instant effect, done

@@ -6,6 +6,7 @@ public class SaveManager : MonoBehaviour
 
     private RoomManager cachedRoomManager;
     private PlayerController cachedPlayer;
+    private PlayerWeapons cachedWeapons;
     private PlayerHealth cachedHealth;
     private PlayerClass cachedClass;
     private GameState cachedGameState;
@@ -28,6 +29,8 @@ public class SaveManager : MonoBehaviour
     {
         if (cachedPlayer == null)
             cachedPlayer = FindFirstObjectByType<PlayerController>();
+        if (cachedWeapons == null)
+            cachedWeapons = FindFirstObjectByType<PlayerWeapons>();
         if (cachedHealth == null)
             cachedHealth = FindFirstObjectByType<PlayerHealth>();
         if (cachedClass == null)
@@ -49,6 +52,7 @@ public class SaveManager : MonoBehaviour
         PlayerHealth playerHealth = Instance.cachedHealth;
         GameState gameState = Instance.cachedGameState;
         PlayerController playerController = Instance.cachedPlayer;
+        PlayerWeapons playerWeapons = Instance.cachedWeapons;
         PlayerClass playerClass = Instance.cachedClass;
 
         if (roomManager != null)
@@ -68,16 +72,18 @@ public class SaveManager : MonoBehaviour
 
         if (playerController != null)
         {
-            PlayerPrefs.SetInt("SavedArrows", playerController.currentArrows);
-            PlayerPrefs.SetInt("SavedBombs", playerController.currentBombs);
-
             PlayerPrefs.SetInt("HasBoomerang", playerController.hasBoomerang ? 1 : 0);
             PlayerPrefs.SetInt("HasBombs", playerController.hasBombs ? 1 : 0);
             PlayerPrefs.SetInt("HasGrapple", playerController.hasGrapple ? 1 : 0);
             PlayerPrefs.SetInt("HasWand", playerController.hasWand ? 1 : 0);
             PlayerPrefs.SetInt("HasBook", playerController.hasBook ? 1 : 0);
+        }
 
-            PlayerPrefs.SetInt("EquippedWeaponIndex", (int)playerController.GetActiveWeapon());
+        if (playerWeapons != null)
+        {
+            PlayerPrefs.SetInt("SavedArrows", playerWeapons.currentArrows);
+            PlayerPrefs.SetInt("SavedBombs", playerWeapons.currentBombs);
+            PlayerPrefs.SetInt("EquippedWeaponIndex", (int)playerWeapons.GetActiveWeapon());
         }
 
         if (playerHealth != null)

@@ -20,7 +20,7 @@ public class GrapplingHook : MonoBehaviour
     private Vector2 direction;
     private Vector3 startPosition;
     private Transform player;
-    private PlayerController playerController;
+    private PlayerGrapple playerGrapple;
     private LineRenderer lineRenderer;
     private static Material chainMaterial;
     
@@ -29,12 +29,12 @@ public class GrapplingHook : MonoBehaviour
     private Rigidbody2D grabbedRb;
     private bool grabbedIsEnemy = false;
 
-    public void Initialize(Transform playerTransform, Vector2 hookDirection, PlayerController controller)
+    public void Initialize(Transform playerTransform, Vector2 hookDirection, PlayerGrapple grapple)
     {
         player = playerTransform;
         direction = hookDirection.normalized;
         startPosition = transform.position;
-        playerController = controller;
+        playerGrapple = grapple;
         
         // Rotate hook sprite to face direction
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
@@ -70,7 +70,7 @@ public class GrapplingHook : MonoBehaviour
                 break;
                 
             case HookState.PullPlayer:
-                // Player pull is handled by PlayerController
+                // Player pull is handled by PlayerGrapple
                 // Just keep chain drawn
                 UpdateChain();
                 break;
@@ -93,7 +93,7 @@ public class GrapplingHook : MonoBehaviour
         float distance = Vector2.Distance(startPosition, transform.position);
         if (distance >= maxDistance)
         {
-            playerController.GrappleMissed();
+            playerGrapple.GrappleMissed();
             Destroy(gameObject);
         }
     }
@@ -103,7 +103,7 @@ public class GrapplingHook : MonoBehaviour
         // Target was destroyed during pull (killed by something else)
         if (grabbedTarget == null)
         {
-            playerController.GrappleFinished();
+            playerGrapple.GrappleFinished();
             Destroy(gameObject);
             return;
         }
@@ -185,7 +185,7 @@ public class GrapplingHook : MonoBehaviour
             }
         }
         
-        playerController.GrappleFinished();
+        playerGrapple.GrappleFinished();
         Destroy(gameObject);
     }
 
@@ -211,7 +211,7 @@ public class GrapplingHook : MonoBehaviour
                 landingPos = other.transform.position;
             }
             
-            playerController.GrappleLatched(landingPos);
+            playerGrapple.GrappleLatched(landingPos);
             return;
         }
         
@@ -227,7 +227,7 @@ public class GrapplingHook : MonoBehaviour
             Vector2 approachDirection = ((Vector2)other.transform.position - (Vector2)player.position).normalized;
             Vector3 landingPos = other.transform.position - (Vector3)(approachDirection * grappableLandingOffset);
             
-            playerController.GrappleLatched(landingPos);
+            playerGrapple.GrappleLatched(landingPos);
             return;
         }
         
@@ -238,7 +238,7 @@ public class GrapplingHook : MonoBehaviour
             ShieldKnight knight = other.GetComponent<ShieldKnight>();
             if (knight != null && knight.IsBlockingFrom(transform.position))
             {
-                playerController.GrappleMissed();
+                playerGrapple.GrappleMissed();
                 Destroy(gameObject);
                 return;
             }
@@ -255,7 +255,7 @@ public class GrapplingHook : MonoBehaviour
                 grabbedRb.linearVelocity = Vector2.zero;
             }
 
-            playerController.GrappleGrabbed();
+            playerGrapple.GrappleGrabbed();
             return;
         }
         
@@ -273,7 +273,7 @@ public class GrapplingHook : MonoBehaviour
                 collectible.SetCarried(true);
             }
             
-            playerController.GrappleGrabbed();
+            playerGrapple.GrappleGrabbed();
             return;
         }
         
@@ -281,7 +281,7 @@ public class GrapplingHook : MonoBehaviour
         // bombs are still the only way through them.
         if (other.CompareTag("Wall") || other.CompareTag("CrackedWall"))
         {
-            playerController.GrappleMissed();
+            playerGrapple.GrappleMissed();
             Destroy(gameObject);
         }
     }
@@ -311,9 +311,9 @@ public class GrapplingHook : MonoBehaviour
         }
 
         // Notify player so isGrappling/isPullingPlayer don't stay latched
-        if (playerController != null)
+        if (playerGrapple != null)
         {
-            playerController.GrappleFinished();
+            playerGrapple.GrappleFinished();
         }
     }
 }

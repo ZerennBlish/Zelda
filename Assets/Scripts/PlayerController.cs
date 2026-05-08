@@ -1,135 +1,43 @@
 using UnityEngine;
-using System.Collections.Generic;
 
 public class PlayerController : MonoBehaviour
 {
     public float moveSpeed = 5f;
-    
-    [Header("Arrow")]
-    public GameObject arrowPrefab;
-    public float fireRate = 0.3f;
-    public int maxArrows = 30;
-    public int currentArrows = 30;
-    
-    [Header("Boomerang")]
-    public GameObject boomerangPrefab;
-    
-    [Header("Bomb")]
-    public GameObject bombPrefab;
-    public int maxBombs = 10;
-    public int currentBombs = 10;
-    
-    [Header("Grappling Hook")]
-    public GameObject grapplingHookPrefab;
-    public float grapplePullSpeed = 12f;
-    
-    [Header("Wand")]
-    public GameObject fireBoltPrefab;
-    public GameObject fireTrailPrefab;
-    public float wandFireRate = 0.5f;
-    
-    [Header("Mount")]
-    public Sprite horseSprite;
-    public float mountedSpeedMultiplier = 2.5f;
-    public int ramDamageToEnemy = 1;
-    public int ramDamageToPlayer = 1;
-    public float ramCooldown = 0.5f;
-    
+
     [Header("Item Unlocks")]
     public bool hasBoomerang = false;
     public bool hasBombs = false;
     public bool hasGrapple = false;
     public bool hasWand = false;
     public bool hasBook = false;
-    
+
     [Header("References")]
     public Melee melee;
-    public ArrowUI arrowUI;
-    public BombUI bombUI;
-    
+
     private Rigidbody2D rb;
     private Collider2D playerCollider;
-    private SpriteRenderer spriteRenderer;
     private Camera mainCamera;
+    private PlayerMount playerMount;
+    private PlayerGrapple playerGrapple;
+    private PlayerWeapons playerWeapons;
     private Vector2 movement;
     private Vector2 facingDirection = Vector2.down;
-    private float nextFireTime = 0f;
-    private float nextWandFireTime = 0f;
-    
-    private bool boomerangOut = false;
-    
-    // Grapple state
-    private bool isGrappling = false;
-    private bool isPullingPlayer = false;
-    private Vector3 grappleTarget;
-    private GameObject grappleHookInstance;
-    
-    // Mount state
-    private bool isMounted = false;
-    private Sprite normalSprite;
-    private float ramTimer = 0f;
-    
-    // Shooting animation state
-    private bool isShooting = false;
-    private float shootAnimTimer = 0f;
-    public float shootAnimDuration = 0.3f;
-    
-    // Active item slot system
-    public enum SubWeapon { Boomerang, Bombs, Grapple, Wand }
-    private List<SubWeapon> unlockedWeapons = new List<SubWeapon>();
-    private int currentWeaponIndex = 0;
 
-    void Start()
+    void Awake()
     {
+        // Awake (not Start) so sibling components can read these in their own Start().
         rb = GetComponent<Rigidbody2D>();
         playerCollider = GetComponent<Collider2D>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
         mainCamera = Camera.main;
-        
-        normalSprite = spriteRenderer.sprite;
-        
-        // Load item unlocks first so inventory fallbacks can gate on them
+        playerMount = GetComponent<PlayerMount>();
+        playerGrapple = GetComponent<PlayerGrapple>();
+        playerWeapons = GetComponent<PlayerWeapons>();
+
         hasBoomerang = PlayerPrefs.GetInt("HasBoomerang", 0) == 1;
         hasBombs = PlayerPrefs.GetInt("HasBombs", 0) == 1;
         hasGrapple = PlayerPrefs.GetInt("HasGrapple", 0) == 1;
         hasWand = PlayerPrefs.GetInt("HasWand", 0) == 1;
         hasBook = PlayerPrefs.GetInt("HasBook", 0) == 1;
-
-        // Hide bomb HUD until the player owns the bomb bag
-        if (bombUI != null) bombUI.SetVisible(hasBombs);
-
-        if (PlayerPrefs.HasKey("SavedArrows"))
-        {
-            currentArrows = PlayerPrefs.GetInt("SavedArrows");
-        }
-        else
-        {
-            currentArrows = maxArrows;
-        }
-
-        if (PlayerPrefs.HasKey("SavedBombs"))
-        {
-            currentBombs = PlayerPrefs.GetInt("SavedBombs");
-        }
-        else
-        {
-            // Only fill bombs to max if the player owns the bomb bag.
-            // Without the bag, currentBombs stays at 0 until UnlockItem("Bombs") sets it.
-            currentBombs = hasBombs ? maxBombs : 0;
-        }
-        
-        // Load last equipped weapon (saved as enum value, not list index)
-        int savedWeaponEnum = PlayerPrefs.GetInt("EquippedWeaponIndex", 0);
-
-        RebuildWeaponList();
-
-        // Find the saved weapon in the current list
-        SubWeapon savedWeapon = (SubWeapon)savedWeaponEnum;
-        int foundIndex = unlockedWeapons.IndexOf(savedWeapon);
-        currentWeaponIndex = foundIndex >= 0 ? foundIndex : 0;
-
-        UpdateArrowUI();
-        UpdateBombUI();
     }
 
     void Update()
@@ -137,42 +45,9 @@ public class PlayerController : MonoBehaviour
         if (DialogueBox.IsActive || ShopUI.IsActive || PauseManager.IsPaused) return;
         if (InputManager.Instance == null) return;
 
-        if (ramTimer > 0f)
-        {
-            ramTimer -= Time.deltaTime;
-        }
-        
-        // Shooting animation countdown
-        if (shootAnimTimer > 0f)
-        {
-            shootAnimTimer -= Time.deltaTime;
-            if (shootAnimTimer <= 0f)
-            {
-                isShooting = false;
-            }
-        }
-        
-        // --- GRAPPLE STATE: block all other input ---
-        if (isGrappling)
-        {
-            if (isPullingPlayer)
-            {
-                transform.position = Vector3.MoveTowards(
-                    transform.position, 
-                    grappleTarget, 
-                    grapplePullSpeed * Time.deltaTime
-                );
-                
-                if (Vector2.Distance(transform.position, grappleTarget) < 0.1f)
-                {
-                    transform.position = grappleTarget;
-                    EndGrapple();
-                }
-            }
-            
-            return;
-        }
-        
+        // --- GRAPPLE STATE: block all other input (pull movement runs in PlayerGrapple.Update) ---
+        if (playerGrapple.IsGrappling()) return;
+
         // --- MOVEMENT INPUT ---
         movement = InputManager.Instance.Move;
         
@@ -197,386 +72,39 @@ public class PlayerController : MonoBehaviour
         // --- MOUNT TOGGLE - M / Back button ---
         if (InputManager.Instance.MountTogglePressed)
         {
-            if (isMounted)
-            {
-                Dismount();
-            }
-            else
-            {
-                Mount();
-            }
+            playerMount.ToggleMount();
         }
         
         // --- CYCLE SUB-WEAPON: Mouse Wheel / I key ---
         float scroll = InputManager.Instance.ScrollWeapon;
         if (scroll > 0f)
         {
-            CycleWeapon(1);
+            playerWeapons.CycleWeapon(1);
         }
         else if (scroll < 0f)
         {
-            CycleWeapon(-1);
+            playerWeapons.CycleWeapon(-1);
         }
-        
+
         if (InputManager.Instance.CycleWeaponPressed)
         {
-            CycleWeapon(1);
+            playerWeapons.CycleWeapon(1);
         }
-        
-        // --- WEAPON CONTROLS (blocked while mounted) ---
-        if (!isMounted)
+
+        // --- MELEE: Space / Left Click / X button (blocked while mounted) ---
+        // Arrow + sub-weapon input lives in PlayerWeapons.Update.
+        if (!playerMount.IsMounted() && InputManager.Instance.AttackPressed)
         {
-            // Melee - Space / Left Click / X button
-            if (InputManager.Instance.AttackPressed)
-            {
-                if (melee != null)
-                {
-                    melee.Swing(facingDirection);
-                }
-            }
-            
-            // Arrow - F / Middle Click / RB (hold to rapid fire)
-            if (InputManager.Instance.ShootHeld && Time.time >= nextFireTime)
-            {
-                Shoot();
-                nextFireTime = Time.time + fireRate;
-            }
-            
-            // Active sub-weapon - E / Right Click / Y button
-            if (InputManager.Instance.UseSubWeaponPressed)
-            {
-                UseActiveWeapon();
-            }
+            if (melee != null) melee.Swing(facingDirection);
         }
     }
 
     void FixedUpdate()
     {
-        if (isGrappling) return;
-        
-        float currentSpeed = isMounted ? moveSpeed * mountedSpeedMultiplier : moveSpeed;
+        if (playerGrapple.IsGrappling()) return;
+
+        float currentSpeed = moveSpeed * playerMount.GetSpeedMultiplier();
         rb.MovePosition(rb.position + movement * currentSpeed * Time.fixedDeltaTime);
-    }
-    
-    // --- ACTIVE ITEM SLOT ---
-    
-    void RebuildWeaponList()
-    {
-        unlockedWeapons.Clear();
-        
-        if (hasBoomerang) unlockedWeapons.Add(SubWeapon.Boomerang);
-        if (hasBombs) unlockedWeapons.Add(SubWeapon.Bombs);
-        if (hasGrapple) unlockedWeapons.Add(SubWeapon.Grapple);
-        if (hasWand) unlockedWeapons.Add(SubWeapon.Wand);
-        
-        // Keep index in bounds
-        if (unlockedWeapons.Count > 0)
-        {
-            currentWeaponIndex = currentWeaponIndex % unlockedWeapons.Count;
-        }
-        else
-        {
-            currentWeaponIndex = 0;
-        }
-    }
-    
-    void CycleWeapon(int direction)
-    {
-        if (unlockedWeapons.Count <= 1) return;
-        
-        currentWeaponIndex += direction;
-        
-        // Wrap around
-        if (currentWeaponIndex >= unlockedWeapons.Count)
-        {
-            currentWeaponIndex = 0;
-        }
-        else if (currentWeaponIndex < 0)
-        {
-            currentWeaponIndex = unlockedWeapons.Count - 1;
-        }
-        
-        // Save equipped weapon (enum value, not list index — list shifts when weapons unlock)
-        PlayerPrefs.SetInt("EquippedWeaponIndex", (int)unlockedWeapons[currentWeaponIndex]);
-        PlayerPrefs.Save();
-        
-        Debug.Log("Equipped: " + GetActiveWeapon());
-    }
-    
-    void UseActiveWeapon()
-    {
-        if (unlockedWeapons.Count == 0) return;
-        
-        SubWeapon active = unlockedWeapons[currentWeaponIndex];
-        
-        switch (active)
-        {
-            case SubWeapon.Boomerang:
-                if (!boomerangOut)
-                {
-                    ThrowBoomerang();
-                }
-                break;
-                
-            case SubWeapon.Bombs:
-                PlaceBomb();
-                break;
-                
-            case SubWeapon.Grapple:
-                FireGrapple();
-                break;
-                
-            case SubWeapon.Wand:
-                FireWand();
-                break;
-        }
-    }
-    
-    /// <summary>
-    /// Returns the currently equipped sub-weapon.
-    /// Returns Boomerang as default if nothing unlocked,
-    /// but UseActiveWeapon guards against empty list.
-    /// </summary>
-    public SubWeapon GetActiveWeapon()
-    {
-        if (unlockedWeapons.Count == 0) return SubWeapon.Boomerang;
-        return unlockedWeapons[currentWeaponIndex];
-    }
-    
-    /// <summary>
-    /// Returns the count of unlocked sub-weapons.
-    /// Useful for UI to know whether to show the weapon slot.
-    /// </summary>
-    public int GetUnlockedWeaponCount()
-    {
-        return unlockedWeapons.Count;
-    }
-
-    public int GetEquippedWeaponIndex()
-    {
-        return currentWeaponIndex;
-    }
-
-    // --- MOUNT METHODS ---
-    
-    void Mount()
-    {
-        if (horseSprite == null) return;
-
-        // Reset melee state before deactivating
-        if (melee != null)
-        {
-            melee.ResetSwingState();
-            melee.gameObject.SetActive(false);
-        }
-
-        isMounted = true;
-        spriteRenderer.sprite = horseSprite;
-    }
-    
-    void Dismount()
-    {
-        isMounted = false;
-        spriteRenderer.sprite = normalSprite;
-        
-        if (melee != null)
-        {
-            melee.gameObject.SetActive(true);
-        }
-    }
-    
-    // --- MOUNT COLLISION (ram damage) ---
-    
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (!isMounted) return;
-        if (ramTimer > 0f) return;
-        
-        if (collision.gameObject.CompareTag("Enemy"))
-        {
-            IDamageable damageable = collision.gameObject.GetComponent<IDamageable>();
-            if (damageable != null)
-            {
-                damageable.TakeDamage(ramDamageToEnemy);
-            }
-            
-            HitFlash flash = collision.gameObject.GetComponent<HitFlash>();
-            if (flash != null) flash.Flash();
-            
-            PlayerHealth playerHealth = GetComponent<PlayerHealth>();
-            if (playerHealth != null)
-            {
-                playerHealth.TakeDamage(ramDamageToPlayer);
-            }
-            
-            ramTimer = ramCooldown;
-        }
-    }
-    
-    void OnCollisionStay2D(Collision2D collision)
-    {
-        if (!isMounted) return;
-        if (ramTimer > 0f) return;
-        
-        if (collision.gameObject.CompareTag("Enemy"))
-        {
-            IDamageable damageable = collision.gameObject.GetComponent<IDamageable>();
-            if (damageable != null)
-            {
-                damageable.TakeDamage(ramDamageToEnemy);
-            }
-            
-            HitFlash flash = collision.gameObject.GetComponent<HitFlash>();
-            if (flash != null) flash.Flash();
-            
-            PlayerHealth playerHealth = GetComponent<PlayerHealth>();
-            if (playerHealth != null)
-            {
-                playerHealth.TakeDamage(ramDamageToPlayer);
-            }
-            
-            ramTimer = ramCooldown;
-        }
-    }
-
-    // --- GRAPPLE METHODS ---
-    
-    void FireGrapple()
-    {
-        if (grapplingHookPrefab == null) return;
-        
-        isGrappling = true;
-        isPullingPlayer = false;
-        
-        movement = Vector2.zero;
-        rb.linearVelocity = Vector2.zero;
-        
-        Vector3 spawnPos = transform.position + (Vector3)(facingDirection * 0.5f);
-        grappleHookInstance = Instantiate(grapplingHookPrefab, spawnPos, Quaternion.identity);
-        grappleHookInstance.GetComponent<GrapplingHook>().Initialize(transform, facingDirection, this);
-    }
-    
-    public void GrappleLatched(Vector3 targetPosition)
-    {
-        isPullingPlayer = true;
-        grappleTarget = targetPosition;
-        
-        if (playerCollider != null)
-        {
-            playerCollider.enabled = false;
-        }
-        
-        rb.bodyType = RigidbodyType2D.Kinematic;
-        rb.linearVelocity = Vector2.zero;
-    }
-    
-    public void GrappleGrabbed()
-    {
-        isPullingPlayer = false;
-    }
-    
-    public void GrappleMissed()
-    {
-        isGrappling = false;
-        isPullingPlayer = false;
-        grappleHookInstance = null;
-    }
-    
-    public void GrappleFinished()
-    {
-        isGrappling = false;
-        isPullingPlayer = false;
-        grappleHookInstance = null;
-    }
-    
-    void EndGrapple()
-    {
-        if (playerCollider != null)
-        {
-            playerCollider.enabled = true;
-        }
-        
-        rb.bodyType = RigidbodyType2D.Dynamic;
-        rb.linearVelocity = Vector2.zero;
-        
-        isGrappling = false;
-        isPullingPlayer = false;
-        
-        if (grappleHookInstance != null)
-        {
-            Destroy(grappleHookInstance);
-            grappleHookInstance = null;
-        }
-    }
-    
-    // --- WEAPON METHODS ---
-
-    void Shoot()
-    {
-        if (arrowPrefab == null) return;
-        if (currentArrows <= 0) return;
-        
-        currentArrows--;
-        UpdateArrowUI();
-        
-        Vector3 spawnPos = transform.position + (Vector3)(facingDirection * 0.5f);
-        GameObject arrow = Instantiate(arrowPrefab, spawnPos, Quaternion.identity);
-        arrow.GetComponent<Arrow>().SetDirection(facingDirection);
-        
-        isShooting = true;
-        shootAnimTimer = shootAnimDuration;
-    }
-    
-    void ThrowBoomerang()
-    {
-        if (boomerangPrefab == null) return;
-        
-        boomerangOut = true;
-        
-        Vector3 spawnPos = transform.position + (Vector3)(facingDirection * 0.5f);
-        GameObject boomerang = Instantiate(boomerangPrefab, spawnPos, Quaternion.identity);
-        boomerang.GetComponent<Boomerang>().Initialize(transform, facingDirection, this);
-    }
-    
-    void PlaceBomb()
-    {
-        if (bombPrefab == null) return;
-        if (currentBombs <= 0) return;
-        
-        currentBombs--;
-        UpdateBombUI();
-        
-        Instantiate(bombPrefab, transform.position, Quaternion.identity);
-    }
-    
-    void FireWand()
-    {
-        if (fireBoltPrefab == null) return;
-        if (Time.time < nextWandFireTime) return;
-        
-        nextWandFireTime = Time.time + wandFireRate;
-        
-        Vector3 spawnPos = transform.position + (Vector3)(facingDirection * 0.5f);
-        GameObject bolt = Instantiate(fireBoltPrefab, spawnPos, Quaternion.identity);
-        
-        FireBolt fireBolt = bolt.GetComponent<FireBolt>();
-        if (fireBolt != null)
-        {
-            fireBolt.SetDirection(facingDirection);
-            
-            // Book upgrade: +1 damage and enable fire trail
-            if (hasBook)
-            {
-                fireBolt.damage += 1;
-                fireBolt.hasFireTrail = true;
-                fireBolt.fireTrailPrefab = fireTrailPrefab;
-            }
-        }
-    }
-    
-    public void BoomerangReturned()
-    {
-        boomerangOut = false;
     }
     
     // --- ITEM UNLOCK ---
@@ -592,9 +120,7 @@ public class PlayerController : MonoBehaviour
             case "Bombs":
                 hasBombs = true;
                 PlayerPrefs.SetInt("HasBombs", 1);
-                currentBombs = maxBombs;
-                if (bombUI != null) bombUI.SetVisible(true);
-                UpdateBombUI();
+                playerWeapons.OnBombBagUnlocked();
                 break;
             case "Grapple":
                 hasGrapple = true;
@@ -610,57 +136,9 @@ public class PlayerController : MonoBehaviour
                 break;
         }
         PlayerPrefs.Save();
-        
+
         // Rebuild so the new weapon appears in the rotation
-        RebuildWeaponList();
-    }
-    
-    // --- INVENTORY METHODS ---
-    
-    public void AddArrows(int amount)
-    {
-        currentArrows += amount;
-        if (currentArrows > maxArrows)
-        {
-            currentArrows = maxArrows;
-        }
-        UpdateArrowUI();
-    }
-
-    public bool IsAtMaxArrows()
-    {
-        return currentArrows >= maxArrows;
-    }
-
-    public void AddBombs(int amount)
-    {
-        currentBombs += amount;
-        if (currentBombs > maxBombs)
-        {
-            currentBombs = maxBombs;
-        }
-        UpdateBombUI();
-    }
-
-    public bool IsAtMaxBombs()
-    {
-        return currentBombs >= maxBombs;
-    }
-    
-    void UpdateArrowUI()
-    {
-        if (arrowUI != null)
-        {
-            arrowUI.UpdateCount(currentArrows);
-        }
-    }
-    
-    void UpdateBombUI()
-    {
-        if (bombUI != null)
-        {
-            bombUI.UpdateCount(currentBombs);
-        }
+        playerWeapons.RebuildWeaponList();
     }
     
     public Vector2 GetFacingDirection()
@@ -670,47 +148,20 @@ public class PlayerController : MonoBehaviour
     
     public bool IsMounted()
     {
-        return isMounted;
+        return playerMount.IsMounted();
     }
     
     public bool IsShooting()
     {
-        return isShooting;
+        return playerWeapons.IsShooting();
     }
 
     public void ResetActionStates()
     {
-        // Cancel grapple
-        if (isGrappling || isPullingPlayer)
-        {
-            if (playerCollider != null)
-                playerCollider.enabled = true;
-            rb.bodyType = RigidbodyType2D.Dynamic;
-            rb.linearVelocity = Vector2.zero;
-            isGrappling = false;
-            isPullingPlayer = false;
-            if (grappleHookInstance != null)
-            {
-                Destroy(grappleHookInstance);
-                grappleHookInstance = null;
-            }
-        }
-
-        // Cancel shooting animation
-        isShooting = false;
-        shootAnimTimer = 0f;
-
-        // Clear boomerang lock — any active boomerang will be destroyed by
-        // room cleanup or fire BoomerangReturned via its own OnDestroy
-        boomerangOut = false;
-
-        // Cancel mount
-        if (isMounted)
-        {
-            Dismount();
-        }
-
-        // Reset movement
+        playerGrapple.CancelGrapple();
+        playerWeapons.CancelShooting();
+        playerWeapons.ClearBoomerangLock();
+        playerMount.ForceDismount();
         movement = Vector2.zero;
     }
 }

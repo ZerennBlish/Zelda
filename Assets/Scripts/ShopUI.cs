@@ -26,6 +26,7 @@ public class ShopUI : MonoBehaviour
 
     private int openFrame = -1;
     private PlayerController cachedPlayer;
+    private PlayerWeapons cachedWeapons;
     private PlayerHealth cachedHealth;
 
     void Awake()
@@ -42,6 +43,8 @@ public class ShopUI : MonoBehaviour
     {
         if (cachedPlayer == null)
             cachedPlayer = FindFirstObjectByType<PlayerController>();
+        if (cachedWeapons == null)
+            cachedWeapons = FindFirstObjectByType<PlayerWeapons>();
         if (cachedHealth == null)
             cachedHealth = FindFirstObjectByType<PlayerHealth>();
     }
@@ -102,8 +105,8 @@ public class ShopUI : MonoBehaviour
 
     void BuyArrows()
     {
-        if (cachedPlayer == null) return;
-        if (cachedPlayer.IsAtMaxArrows())
+        if (cachedWeapons == null) return;
+        if (cachedWeapons.IsAtMaxArrows())
         {
             ShowMessage("Quiver full!");
             return;
@@ -116,20 +119,20 @@ public class ShopUI : MonoBehaviour
         }
 
         GameState.Instance.StealRupees(arrowPrice);
-        cachedPlayer.AddArrows(arrowQuantity);
+        cachedWeapons.AddArrows(arrowQuantity);
 
         RefreshText();
     }
 
     void BuyBombs()
     {
-        if (cachedPlayer == null) return;
+        if (cachedPlayer == null || cachedWeapons == null) return;
         if (!cachedPlayer.hasBombs)
         {
             ShowMessage("No bomb bag!");
             return;
         }
-        if (cachedPlayer.IsAtMaxBombs())
+        if (cachedWeapons.IsAtMaxBombs())
         {
             ShowMessage("Bomb bag full!");
             return;
@@ -142,7 +145,7 @@ public class ShopUI : MonoBehaviour
         }
 
         GameState.Instance.StealRupees(bombPrice);
-        cachedPlayer.AddBombs(bombQuantity);
+        cachedWeapons.AddBombs(bombQuantity);
 
         RefreshText();
     }

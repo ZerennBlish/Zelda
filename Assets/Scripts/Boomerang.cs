@@ -16,17 +16,17 @@ public class Boomerang : MonoBehaviour
     private Vector2 direction;
     private Vector3 startPosition;
     private bool returning = false;
-    private PlayerController playerController;
-    
+    private PlayerWeapons playerWeapons;
+
     private List<Transform> carriedItems = new List<Transform>();
     private List<GameObject> alreadyHit = new List<GameObject>();
 
-    public void Initialize(Transform playerTransform, Vector2 throwDirection, PlayerController controller)
+    public void Initialize(Transform playerTransform, Vector2 throwDirection, PlayerWeapons weapons)
     {
         player = playerTransform;
         direction = throwDirection.normalized;
         startPosition = transform.position;
-        playerController = controller;
+        playerWeapons = weapons;
     }
 
     void Update()
@@ -208,9 +208,9 @@ public class Boomerang : MonoBehaviour
 
         // If destroyed without catching (room transition, death, etc.),
         // clear the lock so the player can throw again
-        if (playerController != null)
+        if (playerWeapons != null)
         {
-            playerController.BoomerangReturned();
+            playerWeapons.BoomerangReturned();
         }
     }
 }

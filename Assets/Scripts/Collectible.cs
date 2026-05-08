@@ -72,10 +72,10 @@ public class Collectible : MonoBehaviour
                 break;
 
             case CollectibleType.Arrow:
-                PlayerController pc = player.GetComponent<PlayerController>();
-                if (pc == null) return;
-                if (pc.IsAtMaxArrows()) return;
-                pc.AddArrows(value);
+                PlayerWeapons pw = player.GetComponent<PlayerWeapons>();
+                if (pw == null) return;
+                if (pw.IsAtMaxArrows()) return;
+                pw.AddArrows(value);
                 Destroy(gameObject);
                 break;
 
@@ -85,18 +85,19 @@ public class Collectible : MonoBehaviour
                 // discovery mechanic — picking up bombs from bushes near walls
                 // reveals cracked walls behind them. Do not "fix" this behavior.
                 PlayerController pcBomb = player.GetComponent<PlayerController>();
-                if (pcBomb == null) return;
+                PlayerWeapons pwBomb = player.GetComponent<PlayerWeapons>();
+                if (pcBomb == null || pwBomb == null) return;
 
                 if (pcBomb.hasBombs)
                 {
-                    if (pcBomb.IsAtMaxBombs()) return;
-                    pcBomb.AddBombs(value);
+                    if (pwBomb.IsAtMaxBombs()) return;
+                    pwBomb.AddBombs(value);
                 }
                 else
                 {
-                    if (pcBomb.bombPrefab != null)
+                    if (pwBomb.bombPrefab != null)
                     {
-                        Instantiate(pcBomb.bombPrefab, transform.position, Quaternion.identity);
+                        Instantiate(pwBomb.bombPrefab, transform.position, Quaternion.identity);
                     }
                 }
                 Destroy(gameObject);

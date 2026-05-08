@@ -14747,6 +14747,63 @@ MonoBehaviour:
   idleFrameRate: 6
   walkFrameRate: 10
   attackFrameRate: 15
+--- !u!114 &1218303279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 680351684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abef4acb9a525bf40a1b926426599349, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerMount
+  horseSprite: {fileID: -7642358556266935838, guid: 5e25188f1509dfb4d97a89f212fd23c4, type: 3}
+  mountedSpeedMultiplier: 2.5
+  ramDamageToEnemy: 1
+  ramDamageToPlayer: 1
+  ramCooldown: 0.5
+--- !u!114 &1218303280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 680351684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6dba35e550dd1a549b7c6266052534e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerGrapple
+  grapplingHookPrefab: {fileID: 650404279585552501, guid: da2f3547349b7dd9886456df2e09f65c, type: 3}
+  grapplePullSpeed: 12
+--- !u!114 &1218303281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 680351684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f66e6e6f719926749ac80e05acc00aa6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerWeapons
+  arrowPrefab: {fileID: 5986096391941881958, guid: 1560537f9f5e20b43acd1912ac499f9e, type: 3}
+  fireRate: 0.3
+  maxArrows: 30
+  currentArrows: 30
+  boomerangPrefab: {fileID: 7328929867772883412, guid: ea5739f4726db2f4b926f6af9e9c1340, type: 3}
+  bombPrefab: {fileID: 2005234844499816987, guid: 7115371ff2d0061dfb332b2b79f1e6d0, type: 3}
+  maxBombs: 10
+  currentBombs: 10
+  fireBoltPrefab: {fileID: 2458077368930912592, guid: 24fc31b3142581b46ad5e88353d1e205, type: 3}
+  fireTrailPrefab: {fileID: 1492645269985414839, guid: 6f37aae228716f74aac031e001642c64, type: 3}
+  wandFireRate: 0.5
+  arrowUI: {fileID: 348760868}
+  bombUI: {fileID: 1063328774}
+  shootAnimDuration: 0.3
 --- !u!1 &1223587867 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8127642793241882068, guid: 7f439f430b0497348a52fc29e45edc91, type: 3}
@@ -26855,6 +26912,15 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7282810350277494170, guid: 68f2c59a08a9d7a44accffe364d3935b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1218303273}
+    - targetCorrespondingSourceObject: {fileID: 7282810350277494170, guid: 68f2c59a08a9d7a44accffe364d3935b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1218303279}
+    - targetCorrespondingSourceObject: {fileID: 7282810350277494170, guid: 68f2c59a08a9d7a44accffe364d3935b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1218303280}
+    - targetCorrespondingSourceObject: {fileID: 7282810350277494170, guid: 68f2c59a08a9d7a44accffe364d3935b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1218303281}
   m_SourcePrefab: {fileID: 100100000, guid: 68f2c59a08a9d7a44accffe364d3935b, type: 3}
 --- !u!1001 &2144668521
 PrefabInstance:

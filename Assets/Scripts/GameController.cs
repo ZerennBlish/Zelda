@@ -45,20 +45,24 @@ public class GameController : MonoBehaviour
 
         // Refill arrows and bombs + unlock all items
         PlayerController player = FindFirstObjectByType<PlayerController>();
+        PlayerWeapons weapons = FindFirstObjectByType<PlayerWeapons>();
+        if (weapons != null)
+        {
+            weapons.currentArrows = weapons.maxArrows;
+            weapons.currentBombs = weapons.maxBombs;
+
+            if (weapons.arrowUI != null)
+            {
+                weapons.arrowUI.UpdateCount(weapons.currentArrows);
+            }
+            if (weapons.bombUI != null)
+            {
+                weapons.bombUI.UpdateCount(weapons.currentBombs);
+            }
+        }
+
         if (player != null)
         {
-            player.currentArrows = player.maxArrows;
-            player.currentBombs = player.maxBombs;
-
-            if (player.arrowUI != null)
-            {
-                player.arrowUI.UpdateCount(player.currentArrows);
-            }
-            if (player.bombUI != null)
-            {
-                player.bombUI.UpdateCount(player.currentBombs);
-            }
-
             // Unlock all items
             player.UnlockItem("Boomerang");
             player.UnlockItem("Bombs");
