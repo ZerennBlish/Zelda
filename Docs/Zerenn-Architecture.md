@@ -222,15 +222,19 @@ All enemy projectiles destroy themselves on Wall, CrackedWall (won't damage), an
 
 ### Enemy System (14 types)
 
-All enemies implement IDamageable. Most implement IStunnable. All have `isDead` guard on TakeDamage and Die to prevent double-destruction artifacts.
+All enemies inherit from one of two abstract base classes introduced in Session 04:
+
+**EnemyBase** (implements IDamageable) — owns `isDead`, `health`, `rb`, `spriteRenderer`, `player`, `TakeDamage()`, `Die()`, `OnDie()` hook, and `DropAndDestroy()`. Three enemies inherit directly: Bat, BoomShroom, GoblinThief.
+
+**StunnableEnemy** (extends EnemyBase, implements IStunnable) — adds `stunColor`, `stunTimer`, `originalColor`, `IsStunned`, `Stun()`, `TickStun()`, and `CanBeStunned()` / `OnStunEnter()` / `OnStunExit()` hooks. Eleven enemies inherit: Slime, SlimeSplitter, GoblinMaceman, GoblinSpearman, GoblinArcher, GoblinThief, SkeletonMage, ShieldKnight, FlyingSkull, Mummy, OrcArcher, OrcChief.
+
+Callers (Boomerang, weapons, ExplosionEffect, FireTrail) are unchanged — they still call `IDamageable.TakeDamage(int)` and `IStunnable.Stun(float)` exactly as before.
 
 **Simple enemies**: Bat, Slime, SlimeSplitter, BoomShroom
 
 **Goblins**: GoblinMaceman (melee), GoblinSpearman (charge attack), GoblinArcher (ranged), GoblinThief (steal/flee)
 
 **Advanced enemies**: SkeletonMage (teleport + ranged), ShieldKnight (directional block), FlyingSkull (flying with internal-wall awareness), Mummy (multi-phase: Underground/Burrowing/Aboveground/Spinning/Stunned/Emerging), OrcArcher (ranged), OrcChief (buffs allies via EnemyBuff, drops PlayerBuff on death)
-
-**Common pattern** (deferred to base-class refactor): wander/chase/attack state machine, originalColor cache, Stun() with stunTimer, Die() → Dropper.Drop() + Destroy. ~70% duplication across 14 files.
 
 ### Buff System
 

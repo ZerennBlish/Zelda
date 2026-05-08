@@ -16,7 +16,9 @@
       "mcp__unity__Unity_ManageEditor",
       "mcp__unity__Unity_RunCommand",
       "Bash(git commit -m ' *)",
-      "Bash(echo \"exit=$?\")"
+      "Bash(echo \"exit=$?\")",
+      "mcp__unity__Unity_ReadConsole",
+      "Bash(grep -v ':0$')"
     ]
   },
   "enableAllProjectMcpServers": true,

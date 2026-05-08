@@ -81,7 +81,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 4
+  m_SortingOrder: 10
   m_MaskInteraction: 0
   m_Sprite: {fileID: -3579583531843608661, guid: b44fab11656a07144b8b61978e351bae, type: 3}
   m_Color: {r: 0.9882878, g: 1, b: 0, a: 1}
@@ -157,3 +157,4 @@ MonoBehaviour:
   bobHeight: 0.15
   glowPulseSpeed: 2
   glowPulseMin: 0.7
+  pickupID: 

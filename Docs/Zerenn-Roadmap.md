@@ -131,8 +131,8 @@ Real P2 findings from the audit that are too big for the audit-fix workflow. Sch
 
 1. ~~**PlayerController split**~~ ✅ Done (Session 03) — split into PlayerController (167), PlayerWeapons (353), PlayerGrapple (123), PlayerMount (134)
 2. ~~**Room transition system**~~ ✅ Done (Session 03) — WorldMapData registry, computed spawnOffset, hard-block validation, root-collider checks, special room filtering
-3. **EnemyBase + StunnableEnemy base classes** — eliminate ~70% duplication across all 14 enemy scripts
-4. **Slime/SlimeSplitter merge** — covered by EnemyBase refactor
+3. ~~**EnemyBase + StunnableEnemy base classes**~~ ✅ Done (Session 04) — two abstract base classes, 14 enemies migrated, -550 lines net
+4. ~~**Slime/SlimeSplitter merge**~~ ✅ Done (Session 04) — covered by EnemyBase refactor
 5. **Three beams base class (PlayerBeam)** — eliminate ~80% duplication in SwordBeam/SpearBeam/TemplarWave
 6. **IDirectionalDamageable interface** — eliminate ShieldKnight branch duplication across 6 weapon scripts
 7. **Room-based enemy disable** — off-screen rooms keep running enemy AI; disable to save Update budget at scale
