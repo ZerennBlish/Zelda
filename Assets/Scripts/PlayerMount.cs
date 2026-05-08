@@ -24,7 +24,7 @@ public class PlayerMount : MonoBehaviour
 
     void Update()
     {
-        if (DialogueBox.IsActive || ShopUI.IsActive || PauseManager.IsPaused) return;
+        if (DialogueBox.IsActive || ShopUI.IsActive || PauseManager.IsPaused || GameOverUI.IsActive) return;
 
         if (ramTimer > 0f)
         {

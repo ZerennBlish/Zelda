@@ -90,7 +90,7 @@ public class PlayerWeapons : MonoBehaviour
 
     void Update()
     {
-        if (DialogueBox.IsActive || ShopUI.IsActive || PauseManager.IsPaused) return;
+        if (DialogueBox.IsActive || ShopUI.IsActive || PauseManager.IsPaused || GameOverUI.IsActive) return;
         if (InputManager.Instance == null) return;
 
         // Shoot-anim countdown runs even during grapple/mount (matches original PC.Update ordering)

@@ -29,6 +29,12 @@ public class RoomManager : MonoBehaviour
         {
             int roomX = SaveManager.Instance.GetSavedRoomX();
             int roomY = SaveManager.Instance.GetSavedRoomY();
+            if (worldMap != null && !worldMap.Contains(new Vector2Int(roomX, roomY)))
+            {
+                Debug.LogWarning($"[RoomManager] Saved room ({roomX},{roomY}) not in WorldMapData. Falling back to (0,0).");
+                roomX = 0;
+                roomY = 0;
+            }
             currentRoom = new Vector2(roomX, roomY);
 
             Vector3 camPos = new Vector3(roomX * roomWidth, roomY * roomHeight, mainCamera.position.z);

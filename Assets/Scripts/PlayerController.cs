@@ -42,7 +42,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if (DialogueBox.IsActive || ShopUI.IsActive || PauseManager.IsPaused) return;
+        if (DialogueBox.IsActive || ShopUI.IsActive || PauseManager.IsPaused || GameOverUI.IsActive) return;
         if (InputManager.Instance == null) return;
 
         // --- GRAPPLE STATE: block all other input (pull movement runs in PlayerGrapple.Update) ---
