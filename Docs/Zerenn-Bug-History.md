@@ -242,6 +242,25 @@ These will compound friction as content scales. Schedule them before adding boss
 
 ---
 
+## Session 02 — May 2026 (MCP Workflow Validation)
+
+**Scope:** First test of Unity MCP scene write capabilities for level building. Sequenced reads and writes through MCP to identify which operations are reliable and which have package limitations.
+
+**Result:** MCP scene writes work, but tool selection matters. Codex routed around the freeze that hung Claude Code by picking a different MCP tool. Once the rule was identified, both tools work cleanly.
+
+#### P1 (mitigated)
+
+- **`Unity_ManageGameObject` freezes Unity on component add via MCP.** Adding a `BoxCollider2D` to a GameObject through `Unity_ManageGameObject` hangs the editor and triggers a Unity assertion failure on `Matrix4x4.GetLossyScale` (`Assertion failed on expression: 'ValidTRS()'`). Stack trace shows Newtonsoft.Json recursively serializing the full Unity object graph for the success response — `SerializeObject → SerializeValue → SerializeObject` looping through Transform → parent → children → components → GameObjects → Transforms infinitely. Reproduced under both Claude Code and Codex when calling `Unity_ManageGameObject`. **Fix:** Route MCP scene writes through `Unity_RunCommand` instead. Validated by Codex completing the same six-step sequence (create GameObject + parent + set localPosition + add BoxCollider2D + set isTrigger + set size) in under nine seconds end-to-end with zero hangs. Rule added to `CLAUDE.md` so CC always picks the correct tool.
+
+#### Notes
+
+- **MCP create's `position` parameter is world-space, not local.** Creating a child GameObject and passing `position: (0, 0, 0)` lands the object at world origin, not at the parent's local origin. Explicitly set `Transform.localPosition` via `component_properties` on the create call, or follow up with a modify call. Documented in `CLAUDE.md`.
+- **Component reads via MCP that request full serialized field values also hit the recursion wall.** Asking for "all serialized field values" on a single component (Test 5) reproduced the same Newtonsoft.Json infinite recursion that crashed the editor on `Unity_ManageGameObject` writes. Component name reads work fine; deep field reads do not. Codex's earlier audit (Session 01 followup) hit the same wall on `get_components(Player)` and fell back to reading `.unity` scene YAML and `ProjectSettings/*.asset` files directly.
+- **Unity AI cloud endpoint is deprecated.** `https://generators.ai.unity.com` returns `ApiNoLongerSupported`. The `com.unity.ai.assistant` package retries the call regardless of subscription status, including after the trial is canceled. On the desktop, this stacks with MCP traffic and contributes to editor freezes. Workaround: add `0.0.0.0 generators.ai.unity.com` to `C:\Windows\System32\drivers\etc\hosts` so the call fails instantly instead of timing out. Do NOT update `com.unity.ai.assistant` past the current version — 2.7.0 has a separate documented bug that gates MCP behind a paid tier.
+- **Test artifacts in scene.** `MCPTest_Empty`, `MCPTest_Codex`, and `MCPTest_CC2` were created as children of `Room_1_0` during validation. Pending cleanup before scene save.
+
+---
+
 ## Lessons Learned
 
 **Same-frame input races are the most common bug class.** Pattern: two Updates in one frame both react to the same WasPressedThisFrame input. Solutions used: openFrame check, wasXActive mirror flag, root collider check on triggers. Establish the pattern; new interactables follow it.

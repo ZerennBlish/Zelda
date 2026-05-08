@@ -51,6 +51,8 @@ Skip compile check for doc-only sessions — it verifies nothing in those cases.
 - **PlayerAnimator:** script-driven sprite indexing into 54-frame sheets (6×9 grid). No Unity Animator.
 - **Archer class:** `meleeEnabled = false`. Archer not swinging is correct.
 - **Inspector values override code defaults.** When changing a SerializeField default, change the code AND verify the Inspector value via Unity MCP.
+- **MCP scene writes use `Unity_RunCommand`.** For creating GameObjects, adding components, or setting field values via MCP, use `Unity_RunCommand`. Never use `Unity_ManageGameObject` for write operations — its return path triggers recursive Newtonsoft.Json serialization through the Unity object graph and freezes the editor (assertion fails on `Matrix4x4.GetLossyScale`). Validated in Session 02.
+- **MCP create position parameter is world-space, not local.** When creating a GameObject as a child via MCP, set `Transform.localPosition` explicitly via `component_properties` or a follow-up modify call. The default `position` parameter sets world coordinates and ignores parent offset.
 
 ---
 
