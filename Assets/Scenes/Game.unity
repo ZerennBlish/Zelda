@@ -6608,6 +6608,7 @@ Transform:
   - {fileID: 1867997161}
   - {fileID: 1986653405}
   - {fileID: 1811859972}
+  - {fileID: 2047511468}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &482576395
@@ -22061,6 +22062,11 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!1 &1788513463 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1609793544078319774, guid: fc6e2e97b20c771a7b81700de5ccde7a, type: 3}
+  m_PrefabInstance: {fileID: 3686237858301391613}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1791750420 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6356452627120322837, guid: 22c76b1d26c45014f9800ad0e671dc47, type: 3}
@@ -25664,6 +25670,94 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4529168837948663717, guid: f414947960822e843a7d2641b77c944e, type: 3}
   m_PrefabInstance: {fileID: 9043733034970101051}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2047511467
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2047511468}
+  - component: {fileID: 2047511470}
+  - component: {fileID: 2047511469}
+  m_Layer: 0
+  m_Name: BombBag_Test
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2047511468
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2047511467}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1, y: 1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 479835416}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2047511469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2047511467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 769a693327f045947888774c0c24810f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ItemPickup
+  itemType: 1
+  upgradeTo: 1
+  bobSpeed: 2
+  bobHeight: 0.15
+  glowPulseSpeed: 2
+  glowPulseMin: 0.7
+  pickupID: 
+--- !u!58 &2047511470
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2047511467}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 0.5
 --- !u!1 &2051522978
 GameObject:
   m_ObjectHideFlags: 0
@@ -27291,7 +27385,7 @@ PrefabInstance:
     - target: {fileID: 4600772376958227339, guid: fc6e2e97b20c771a7b81700de5ccde7a, type: 3}
       propertyPath: bombIcon
       value: 
-      objectReference: {fileID: 2005234844499816987, guid: 7115371ff2d0061dfb332b2b79f1e6d0, type: 3}
+      objectReference: {fileID: 1788513463}
     - target: {fileID: 4844722775260221910, guid: fc6e2e97b20c771a7b81700de5ccde7a, type: 3}
       propertyPath: m_Pivot.x
       value: 0
