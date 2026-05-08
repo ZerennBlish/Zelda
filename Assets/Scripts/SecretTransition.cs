@@ -7,7 +7,7 @@ public class SecretTransition : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && other.transform == other.transform.root)
         {
             RoomManager.Instance.TeleportToRoom(targetRoom, spawnOffset);
         }

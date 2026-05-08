@@ -21526,6 +21526,7 @@ MonoBehaviour:
   visitedColor: {r: 0.3, g: 0.5, b: 0.8, a: 0.8}
   currentColor: {r: 1, g: 1, b: 0.3, a: 1}
   backgroundImage: {fileID: 0}
+  worldMap: {fileID: 11400000, guid: 9f281e4a10cae6e4ca99f3a6a76d7a5e, type: 2}
 --- !u!114 &1748767455
 MonoBehaviour:
   m_ObjectHideFlags: 0

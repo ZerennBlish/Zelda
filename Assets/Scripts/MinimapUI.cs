@@ -18,6 +18,9 @@ public class MinimapUI : MonoBehaviour
     [Header("Background")]
     public Image backgroundImage;
 
+    [Header("Registry")]
+    [SerializeField] private WorldMapData worldMap;
+
     private Dictionary<Vector2Int, Image> roomCells = new Dictionary<Vector2Int, Image>();
     private Vector2Int currentRoom;
     private bool isVisible = true;
@@ -65,10 +68,18 @@ public class MinimapUI : MonoBehaviour
         HashSet<Vector2Int> visited = RoomTracker.Instance.GetAllVisited();
         if (visited.Count == 0) return;
 
+        List<Vector2Int> displayRooms = new List<Vector2Int>(visited.Count);
+        foreach (Vector2Int room in visited)
+        {
+            if (worldMap != null && worldMap.IsSpecial(room)) continue;
+            displayRooms.Add(room);
+        }
+        if (displayRooms.Count == 0) return;
+
         int minX = int.MaxValue, maxX = int.MinValue;
         int minY = int.MaxValue, maxY = int.MinValue;
 
-        foreach (Vector2Int room in visited)
+        foreach (Vector2Int room in displayRooms)
         {
             if (room.x < minX) minX = room.x;
             if (room.x > maxX) maxX = room.x;
@@ -90,7 +101,7 @@ public class MinimapUI : MonoBehaviour
             backgroundImage.rectTransform.sizeDelta = new Vector2(totalWidth + 8f, totalHeight + 8f);
         }
 
-        foreach (Vector2Int room in visited)
+        foreach (Vector2Int room in displayRooms)
         {
             CreateCell(room, minX, minY);
         }
