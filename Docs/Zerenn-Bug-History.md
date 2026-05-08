@@ -293,3 +293,9 @@ These will compound friction as content scales. Schedule them before adding boss
 - **BombUI icon not hidden when bombs locked.** `BombUI.SetVisible()` correctly hides both `bombText` and `bombIcon`, but `bombIcon` was null in the Inspector so the image persisted even when `SetVisible(false)` was called. Text hid correctly; icon did not. **Fix:** Assigned `Canvas/BombUI/BombImage` to the `bombIcon` field on the BombUI component via `Unity_RunCommand`.
 
 - **Starting bomb count showed 10 on fresh game.** `PlayerController.Start()` defaulted `currentBombs = maxBombs` when no `SavedBombs` key existed. Bombs are a pickup item — player should start with none. Additionally, `BombUI.SetVisible()` was never called from `Start()` or `UnlockItem()`. **Fix:** Fresh-game fallback now defaults to 0; `SetVisible(hasBombs)` called at end of `Start()`; `SetVisible(true)` called in `UnlockItem("Bombs")`.
+
+---
+
+## Known Issues (logged, not yet fixed)
+
+- **Enemy rotation jank.** Enemies rotate oddly during movement — appears to be a pre-existing issue, not introduced by the Session 03 refactor. Freeze Rotation is confirmed on in Rigidbody2D but behavior is still wrong. Root cause unknown. Low priority until enemy base class refactor is scheduled.

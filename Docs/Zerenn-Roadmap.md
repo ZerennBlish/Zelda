@@ -128,7 +128,7 @@ Beyond the bushes-near-walls discovery mechanic:
 
 Real P2 findings from the audit that are too big for the audit-fix workflow. Schedule these BEFORE adding bosses or dungeons (they'll be much harder later):
 
-1. **PlayerController split** (656 lines → PlayerMovement + PlayerWeapons + PlayerGrapple + PlayerInventory + thin coordinator)
+1. ~~**PlayerController split**~~ ✅ Done (Session 03) — split into PlayerController (167), PlayerWeapons (353), PlayerGrapple (123), PlayerMount (134)
 2. **EnemyBase + StunnableEnemy base classes** — eliminate ~70% duplication across all 14 enemy scripts
 3. **Slime/SlimeSplitter merge** — covered by EnemyBase refactor
 4. **Three beams base class (PlayerBeam)** — eliminate ~80% duplication in SwordBeam/SpearBeam/TemplarWave

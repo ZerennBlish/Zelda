@@ -14,7 +14,8 @@
       "mcp__unity__Unity_GetConsoleLogs",
       "mcp__unity__Unity_ManageGameObject",
       "mcp__unity__Unity_ManageEditor",
-      "mcp__unity__Unity_RunCommand"
+      "mcp__unity__Unity_RunCommand",
+      "Bash(git commit -m ' *)"
     ]
   },
   "enableAllProjectMcpServers": true,
