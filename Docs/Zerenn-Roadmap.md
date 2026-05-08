@@ -45,7 +45,6 @@ Numbered foundation milestones, in build order. The first 12 are done; the remai
 
 These are small fixes the user noted during full game testing. To do BEFORE moving on to bigger content:
 
-- **Starting bomb count shows 10 instead of intended starting value** — verify intended default in design, fix the inspector value or Start() initialization
 - *(other minor issues to be added)*
 
 ---

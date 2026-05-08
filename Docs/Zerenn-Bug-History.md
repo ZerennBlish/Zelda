@@ -278,3 +278,18 @@ These will compound friction as content scales. Schedule them before adding boss
 **Auditors disagree, that's the point.** Codex finds concrete bugs. Claude Code does implementer's-eye structural review. Gemini catches edge cases. Triple coverage means findings are rarely missed; agreement raises confidence.
 
 **The auditor's job is not the implementer's job.** Read-only audits stay read-only. Findings route through Opus (triage) → Claude Code (implement). Every prompt to every auditor includes explicit read-only language. Gemini gets three warnings.
+
+
+---
+
+### Session 03 — May 2026 (Bomb System Fixes)
+
+**Files touched:** `PlayerController.cs`, `Game.unity`, `Bomb.prefab`
+
+#### P1 (fixed)
+
+- **Bomb prefab root disabled, causing thrown bombs to be invisible and non-functional.** `Instantiate` produced an inactive GameObject so `Bomb.cs` never ran — no visual, no collision, no explosion. Bomb count still decremented correctly because that fires in `PlayerController.PlaceBomb()` before instantiation. Introduced during the Session 01/02 audit. **Fix:** Re-enabled Bomb prefab root (`activeSelf = true`) via `Unity_RunCommand`.
+
+- **BombUI icon not hidden when bombs locked.** `BombUI.SetVisible()` correctly hides both `bombText` and `bombIcon`, but `bombIcon` was null in the Inspector so the image persisted even when `SetVisible(false)` was called. Text hid correctly; icon did not. **Fix:** Assigned `Canvas/BombUI/BombImage` to the `bombIcon` field on the BombUI component via `Unity_RunCommand`.
+
+- **Starting bomb count showed 10 on fresh game.** `PlayerController.Start()` defaulted `currentBombs = maxBombs` when no `SavedBombs` key existed. Bombs are a pickup item — player should start with none. Additionally, `BombUI.SetVisible()` was never called from `Start()` or `UnlockItem()`. **Fix:** Fresh-game fallback now defaults to 0; `SetVisible(hasBombs)` called at end of `Start()`; `SetVisible(true)` called in `UnlockItem("Bombs")`.
