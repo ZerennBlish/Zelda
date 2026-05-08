@@ -47,7 +47,7 @@ public class MinimapUI : MonoBehaviour
         if (InputManager.Instance.ToggleMinimapPressed)
         {
             isVisible = !isVisible;
-            mapContainer.gameObject.SetActive(isVisible);
+            if (mapContainer != null) mapContainer.gameObject.SetActive(isVisible);
             if (isVisible) RefreshMap();
         }
     }
@@ -150,6 +150,10 @@ public class MinimapUI : MonoBehaviour
 
         Vector2 current = RoomManager.Instance.GetCurrentRoom();
         Vector2Int newRoom = new Vector2Int(Mathf.RoundToInt(current.x), Mathf.RoundToInt(current.y));
+
+        // Special rooms are never drawn on the minimap — skip rebuild + keep
+        // the highlight on the last normal room the player was in.
+        if (worldMap != null && worldMap.IsSpecial(newRoom)) return;
 
         if (!roomCells.ContainsKey(newRoom))
         {

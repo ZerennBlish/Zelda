@@ -26,7 +26,10 @@ public class WorldMapData : ScriptableObject
         _specialSet = new HashSet<Vector2Int>();
         foreach (var r in rooms)
         {
-            _set.Add(r.coord);
+            if (!_set.Add(r.coord))
+            {
+                Debug.LogWarning($"[WorldMapData] '{name}' contains duplicate coord {r.coord} — check authoring.");
+            }
             if (r.isSpecial) _specialSet.Add(r.coord);
         }
     }
@@ -41,14 +44,5 @@ public class WorldMapData : ScriptableObject
     {
         if (_specialSet == null) Rebuild();
         return _specialSet.Contains(coord);
-    }
-
-    public IEnumerable<Vector2Int> NormalRooms
-    {
-        get
-        {
-            foreach (var r in rooms)
-                if (!r.isSpecial) yield return r.coord;
-        }
     }
 }

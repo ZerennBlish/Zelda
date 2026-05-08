@@ -80,36 +80,14 @@ public class PlayerMount : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    void OnCollisionEnter2D(Collision2D collision) => HandleRamCollision(collision);
+    void OnCollisionStay2D(Collision2D collision) => HandleRamCollision(collision);
+
+    void HandleRamCollision(Collision2D collision)
     {
         if (!isMounted) return;
         if (ramTimer > 0f) return;
-
-        if (collision.gameObject.CompareTag("Enemy"))
-        {
-            IDamageable damageable = collision.gameObject.GetComponent<IDamageable>();
-            if (damageable != null)
-            {
-                damageable.TakeDamage(ramDamageToEnemy);
-            }
-
-            HitFlash flash = collision.gameObject.GetComponent<HitFlash>();
-            if (flash != null) flash.Flash();
-
-            PlayerHealth playerHealth = GetComponent<PlayerHealth>();
-            if (playerHealth != null)
-            {
-                playerHealth.TakeDamage(ramDamageToPlayer);
-            }
-
-            ramTimer = ramCooldown;
-        }
-    }
-
-    void OnCollisionStay2D(Collision2D collision)
-    {
-        if (!isMounted) return;
-        if (ramTimer > 0f) return;
+        if (PauseManager.IsPaused || GameOverUI.IsActive) return;
 
         if (collision.gameObject.CompareTag("Enemy"))
         {
