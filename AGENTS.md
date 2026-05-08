@@ -63,6 +63,9 @@ The Legend of Zerenn is a Unity 2D top-down action-adventure (Link to the Past s
 - PlayerAnimator uses script-driven sprite indexing into 54-frame sheets (6×9 grid). No Unity Animator. Do not recommend switching to Animator.
 - Archer class has `meleeEnabled = false`. Do not flag missing melee on Archer as a bug.
 - Unity MCP is for inspection and verification only, not scene modification. Auditors are read-only.
+- **Never use `Unity_ManageGameObject` for any operation.** Its return path triggers recursive Newtonsoft.Json serialization through the Unity object graph and freezes the editor. Validated Session 02. This applies even for reads that request full serialized field values on a component — same recursion wall.
+- **For any MCP scene writes (implementation path only, not audit), use `Unity_RunCommand` exclusively.**
+- **Safe MCP reads:** component name reads, `Unity_RunCommand` scripts. Unsafe: any tool requesting full object graph serialization.
 
 ---
 

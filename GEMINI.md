@@ -139,3 +139,12 @@ If no issues found, state: "No issues found. Scope: [list files audited]."
 - **Handles XML structure well.** Better boundary detection than Markdown for instruction vs data separation.
 - **Drifts on long prompts.** Restate constraints at top, middle, and end.
 - **~40% invalid finding rate across all auditors.** Gemini is not worse than average here — this is the baseline. Opus triages everything.
+
+---
+
+## MCP Rules (if Gemini has MCP access)
+
+- **Never use `Unity_ManageGameObject` for any operation.** Its return path triggers recursive Newtonsoft.Json serialization through the Unity object graph and freezes the editor. Validated Session 02.
+- **Never request full serialized field values on any component via MCP.** Deep field reads hit the same Newtonsoft.Json recursion wall. Component name reads are safe; full field value reads are not.
+- **For scene writes, use `Unity_RunCommand` only.** This is the only safe MCP write path. Gemini should not be writing anything during audits — but if ever used outside audit context, this rule is absolute.
+- **For reads, stick to component name reads and `Unity_RunCommand` scripts.** Do not use any MCP tool that requests full object graph serialization.

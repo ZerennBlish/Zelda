@@ -45,6 +45,7 @@ Numbered foundation milestones, in build order. The first 12 are done; the remai
 
 These are small fixes the user noted during full game testing. To do BEFORE moving on to bigger content:
 
+- **Camera stuck at 2.5 zoom minimum** — pre-existing issue, not related to refactor. Investigate camera zoom clamp.
 - *(other minor issues to be added)*
 
 ---
@@ -129,13 +130,14 @@ Beyond the bushes-near-walls discovery mechanic:
 Real P2 findings from the audit that are too big for the audit-fix workflow. Schedule these BEFORE adding bosses or dungeons (they'll be much harder later):
 
 1. ~~**PlayerController split**~~ ✅ Done (Session 03) — split into PlayerController (167), PlayerWeapons (353), PlayerGrapple (123), PlayerMount (134)
-2. **EnemyBase + StunnableEnemy base classes** — eliminate ~70% duplication across all 14 enemy scripts
-3. **Slime/SlimeSplitter merge** — covered by EnemyBase refactor
-4. **Three beams base class (PlayerBeam)** — eliminate ~80% duplication in SwordBeam/SpearBeam/TemplarWave
-5. **IDirectionalDamageable interface** — eliminate ShieldKnight branch duplication across 6 weapon scripts
-6. **Room-based enemy disable** — off-screen rooms keep running enemy AI; disable to save Update budget at scale
-7. **InputManager → InputActionAsset migration** — eliminate 19 parallel action declarations across 5 lifecycle methods
-8. **Enter/Stay collision dedup** — extract HandlePlayerContact helper across 8 enemies + PlayerController mount
+2. ~~**Room transition system**~~ ✅ Done (Session 03) — WorldMapData registry, computed spawnOffset, hard-block validation, root-collider checks, special room filtering
+3. **EnemyBase + StunnableEnemy base classes** — eliminate ~70% duplication across all 14 enemy scripts
+4. **Slime/SlimeSplitter merge** — covered by EnemyBase refactor
+5. **Three beams base class (PlayerBeam)** — eliminate ~80% duplication in SwordBeam/SpearBeam/TemplarWave
+6. **IDirectionalDamageable interface** — eliminate ShieldKnight branch duplication across 6 weapon scripts
+7. **Room-based enemy disable** — off-screen rooms keep running enemy AI; disable to save Update budget at scale
+8. **InputManager → InputActionAsset migration** — eliminate 19 parallel action declarations across 5 lifecycle methods
+9. **Enter/Stay collision dedup** — extract HandlePlayerContact helper across 8 enemies + PlayerController mount
 
 These compound friction as content scales. None of them are blocking, but skipping them now means rework later. Suggested cadence: tackle one or two between content milestones.
 

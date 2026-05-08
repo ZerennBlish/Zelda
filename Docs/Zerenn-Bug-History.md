@@ -299,3 +299,29 @@ These will compound friction as content scales. Schedule them before adding boss
 ## Known Issues (logged, not yet fixed)
 
 - **Enemy rotation jank.** Enemies rotate oddly during movement — appears to be a pre-existing issue, not introduced by the Session 03 refactor. Freeze Rotation is confirmed on in Rigidbody2D but behavior is still wrong. Root cause unknown. Low priority until enemy base class refactor is scheduled.
+
+---
+
+### Session 03 (cont.) — WorldMapData Room Registry
+
+**Files touched:** `RoomManager.cs`, `RoomTransition.cs`, `SecretTransition.cs`, `MinimapUI.cs`, `WorldMapData.cs` (new), `Assets/Data/WorldMap.asset` (new), `Game.unity`
+
+#### Bugs fixed
+
+- **Secret cave exit targeted (-500, 0) — a non-existent room.** `Room_Secret_0_2/Cave_Doorway_1_0 (1)` had `SecretTransition.targetRoom = (-500, 0)`. Walking out of the cave teleported the player to the void. Dev oversight — the entrance from `Room_0_0` correctly targeted `(-200, 0)` but the exit was never set. **Fix:** targetRoom changed to `(0, 0)` with spawnOffset `(0, -3)`.
+
+- **TransitionUp Y inconsistency.** `Room_0_0/TransitionUp` was at localY 4.75 while all other vertical transitions used 4.5. **Fix:** normalized to 4.5 across all rooms.
+
+- **spawnOffset was manually configured per transition but fully deterministic.** Every transition's spawnOffset was derivable from direction × room dimensions — there was no case where the value differed from the formula. Manual configuration invited drift (and already had produced one outlier). **Fix:** removed spawnOffset field from `RoomTransition.cs`; `RoomManager.ChangeRoom()` now computes spawn position from direction and roomWidth/roomHeight.
+
+- **RoomManager singleton pattern diverged from CLAUDE.md convention.** `Awake()` did `Instance = this` with no null-check or duplicate-Destroy. **Fix:** added standard null-check + Destroy on duplicate to match all other singletons.
+
+- **Missing root-collider check on RoomTransition and SecretTransition.** Multi-collider player could fire transitions twice. **Fix:** `other.transform == other.transform.root` check added to both.
+
+- **No validation that transition target exists.** Player could walk into a transition pointing at a room that hadn't been built yet. **Fix:** `RoomManager.ChangeRoom()` and `TeleportToRoom()` now validate against `WorldMapData` before transitioning. Missing room = hard block + `Debug.LogError`.
+
+- **MinimapUI rendered special rooms** (BuildingInterior1, secret cave) which used sentinel coordinates `(0,100)` and `(-200,0)`, warping the minimap layout. **Fix:** `RefreshMap()` now skips cells flagged `isSpecial` in `WorldMapData`.
+
+#### New systems
+
+- **WorldMapData ScriptableObject** (`Assets/Data/WorldMap.asset`) — single source of truth for all rooms. 7 entries: 5 overworld rooms + 2 special rooms (BuildingInterior1, secret cave). Connections are implicit — if two adjacent rooms are both registered, the transition between them is valid. Adding a new room going forward requires: build the room GameObject, add it to WorldMap.asset, place a transition collider with only a direction field.
