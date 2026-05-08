@@ -7884,7 +7884,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1906552066176098382, guid: 13bff78396f5418459fe03e886984c4f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.75
+      value: -4.5
       objectReference: {fileID: 0}
     - target: {fileID: 2686191676865596717, guid: 13bff78396f5418459fe03e886984c4f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -22190,7 +22190,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6183945588772617152, guid: 088031f006699e1438029a4e14c7c3f0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.75
+      value: 4.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -26633,6 +26633,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1910864481}
     m_Modifications:
+    - target: {fileID: -5278332154881041184, guid: d5e9d73ebad46844d8a604607d3ce88d, type: 3}
+      propertyPath: targetRoom.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3242041937817179949, guid: d5e9d73ebad46844d8a604607d3ce88d, type: 3}
       propertyPath: m_Name
       value: Cave_Doorway_1_0 (1)
