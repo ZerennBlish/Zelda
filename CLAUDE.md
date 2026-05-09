@@ -15,7 +15,7 @@ For locked design decisions, see `Docs\Zerenn-Decisions.md`.
 - PC target, keyboard + mouse, gamepad support later
 - Package: com.baldguyandcompany.thelegendofzerenn
 - Publisher: Bald Guy & Company Games
-- Repo: `C:\Zelda` (WSL: `/mnt/c/Zelda`)
+- Repo: `C:\Zelda` (desktop) / `D:\Zelda` (laptop). WSL: `/mnt/c/Zelda` (desktop) / `/mnt/d/Zelda` (laptop). Junction `C:\Zelda` → `D:\Zelda` on laptop keeps all paths working.
 - Unity MCP bridge (`com.unity.ai.assistant`) for editor operations and verification
 - Desktop Commander available for read-only repo inspection from Opus. Claude Code is the sole file editor.
 

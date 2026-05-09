@@ -19,21 +19,23 @@ If you're sitting down at a fresh machine and want to clone, build, and run Zere
 
 ## Paths
 
-### Windows (primary dev machine)
+### Windows (desktop — primary dev machine)
 - **Project root:** `C:\Zelda\`
 - **Scripts:** `C:\Zelda\Assets\Scripts\`
 - **Enemies subfolder:** `C:\Zelda\Assets\Scripts\Enemies\`
 - **Docs:** `C:\Zelda\Docs\`
 
 ### WSL (Claude Code, Codex, Gemini, audit tools)
-- **Project root:** `/mnt/c/Zelda/`
-- **Scripts:** `/mnt/c/Zelda/Assets/Scripts/`
-- **Docs:** `/mnt/c/Zelda/Docs/`
+- **Desktop project root:** `/mnt/c/Zelda/`
+- **Laptop project root:** `/mnt/d/Zelda/` (or `/mnt/c/Zelda/` via junction)
+- **Scripts:** `Assets/Scripts/` (relative, same on both)
+- **Docs:** `Docs/` (relative, same on both)
 
-### Laptop (secondary dev machine — Windows 11)
-- **Project root:** `C:\Zelda\`
-- **Scripts:** `C:\Zelda\Assets\Scripts\`
-- Same paths as desktop. Both machines run the full toolchain (Unity Editor, Claude Code in WSL, MCP bridge).
+### Laptop (secondary dev machine — Windows 11, 1TB SSD)
+- **Project root:** `D:\Zelda\`
+- **Scripts:** `D:\Zelda\Assets\Scripts\`
+- **Junction:** `C:\Zelda` → `D:\Zelda` (so WSL `/mnt/c/Zelda` and any hardcoded `C:\Zelda` references still resolve correctly)
+- Same structure as desktop, different drive letter. Both machines run the full toolchain (Unity Editor, Claude Code in WSL, MCP bridge).
 
 ---
 
@@ -89,7 +91,7 @@ git config core.autocrlf true
 
 1. **Local machine** — desktop's `C:\Zelda\`
 2. **GitHub** — private repo
-3. **Second machine** — laptop's clone
+3. **Second machine** — laptop's `D:\Zelda\`
 4. **USB** — periodic full project snapshot (manual)
 
 ---
@@ -212,7 +214,7 @@ Multi-path cleanup goes in `OnDestroy`, not custom `Die()` methods. Room change,
 ## Build & Run
 
 ### From the Editor (development)
-- Open `C:\Zelda\` in Unity Hub
+- Open `C:\Zelda\` (desktop) or `D:\Zelda\` (laptop) in Unity Hub
 - Select the `Game` scene (or `MainMenu` to test the full flow)
 - Press Play
 
