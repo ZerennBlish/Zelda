@@ -20,7 +20,13 @@
       "mcp__unity__Unity_ReadConsole",
       "Bash(grep -v ':0$')",
       "Bash(grep *)",
+<<<<<<< Updated upstream
       "Bash(awk *)",
+=======
+      "Bash(python3 /tmp/parse_room.py Room_0_0)",
+      "Bash(python3 -c ' *)",
+      "Bash(python3 /tmp/parse_room.py Room_0_-2)",
+>>>>>>> Stashed changes
       "Bash(python3 *)"
     ]
   },
