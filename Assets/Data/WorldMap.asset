@@ -34,6 +34,15 @@ MonoBehaviour:
   - coord: {x: -200, y: 0}
     isSpecial: 1
     note: Room_Secret_0_2 (cave)
-  - coord: {x: 0, y: -2}
+  - coord: {x: -1, y: -1}
     isSpecial: 0
-    note: Room_0_-2
+    note: Room_-1_-1
+  - coord: {x: 1, y: -1}
+    isSpecial: 0
+    note: Room_1_-1
+  - coord: {x: -1, y: 1}
+    isSpecial: 0
+    note: Room_-1_1
+  - coord: {x: 1, y: 1}
+    isSpecial: 0
+    note: Room_1_1

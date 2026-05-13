@@ -19,7 +19,9 @@
       "Bash(echo \"exit=$?\")",
       "mcp__unity__Unity_ReadConsole",
       "Bash(grep -v ':0$')",
-      "Bash(grep *)"
+      "Bash(grep *)",
+      "Bash(awk *)",
+      "Bash(python3 *)"
     ]
   },
   "enableAllProjectMcpServers": true,
