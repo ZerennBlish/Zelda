@@ -1,24 +1,14 @@
 # About-Me.md
 
-**Persistent persona doc — read by all Claude tools (Claude Code, Opus in claude.ai, etc.) and shared across all of Zerenn's projects.** This file is project-agnostic. Same content lives in DFW, Brick Headed, Legend of Zerenn — copies stay in sync.
+**Working preferences for Zerenn and all AI collaborators on this project.** This Zelda-local copy preserves the existing communication preferences and adapts workflow references for the Codex app. Do not overwrite other projects' copies as part of Zelda work.
 
-For project-specific code rules, see each project's `CLAUDE.md`.
-For Opus orchestration rules (prompt drafting, audits, session close-out), see each project's `Docs\Opus.md`.
+For branch ownership and project invariants, see [AGENTS.md](../AGENTS.md). For Codex's operating guide, see [Codex.md](Codex.md). Supporting Claude instructions remain in [CLAUDE.md](../CLAUDE.md) and [Opus.md](Opus.md).
 
 ---
 
 ## How These Docs Are Organized
 
-Each project Zerenn maintains uses four documents for AI context:
-
-| Doc | Audience | Role |
-|-----|----------|------|
-| `CLAUDE.md` (project root) | Claude Code | Project tech stack + project-specific rules. Auto-loaded by CC at session start. Lean. |
-| `Docs\About-Me.md` (this file) | All Claude tools, all projects | Persona + universal cross-project conventions. Identical across projects. |
-| `Docs\Opus.md` | Opus | How prompts get drafted, audits get run, sessions close. Orchestration manual. |
-| `Docs\<Project>-Decisions.md` | Both Opus and CC | Project-specific design truth. Most valuable per-project doc. |
-
-**The clear separation:** CLAUDE.md = project tech. Opus.md = orchestration. About-Me.md = persona + universal. Decisions doc = design truth.
+See [Start-Here.md](Start-Here.md) for the document map. This file owns communication preferences; AGENTS.md owns assignment and invariants; Codex.md and Workflow.md own execution guidance; Zerenn-Decisions.md owns agreed design choices.
 
 ---
 
@@ -60,16 +50,17 @@ Age 40, Colorado. Has ADHD — multitasks constantly, reports bugs mid-conversat
 - Multitasks — topic switches don't mean confusion
 - "Do it right, not fast" — never suggest the easier option
 - Read for intent, not literal words. Typos and shorthand are normal.
-- Don't correct spelling or ask for clarification on obvious typos- If a session cascades (each fix creating new fixes), revert immediately. Don't attempt "one more fix."
+- Don't correct spelling or ask for clarification on obvious typos.
+- If a session cascades (each fix creating new fixes), stop expanding the scope and report the boundary. Do not discard existing work or run a destructive recovery without explicit confirmation.
 - Never nudge toward shipping over correctness. "Ship it, the quirk is cosmetic" is the exact shortcut his projects exist to avoid.
 - Build only what was asked for. No extra files unless necessary. No abstractions for hypothetical future needs. If finding yourself adding "in case we need to..." — stop. (Counters Opus tendency to over-engineer.)
-- **Two-computer setup.** Works on two machines, both powerful enough to run the full toolchain simultaneously (tsc, jest, Android emulator, Metro, Unity Editor with MCP bridge, Claude Code in WSL). Either machine can be active at any moment. After a machine switch: `git pull` first to catch any remote changes pushed from the other machine. After a force push: `git fetch --all` then `git reset --hard origin/main`. Catches the unpushed-work trap that has cost full sessions to debug.
+- **Two-computer setup.** Either machine can be active. After a switch, verify the project path, branch, dirty files, and actual upstream before synchronization. Refresh remote information before making remote-state claims. Never automatically hard-reset to another branch or overwrite local work.
 
 ---
 
 ## Universal Execution Rules
 
-These rules apply to any tool executing prompts on Zerenn's projects (primarily Claude Code, but also Opus when running Desktop Commander writes or directly editing).
+These rules apply to Codex and any supporting tool executing an assigned task on Zelda.
 
 - **One task per prompt.** Never combine tasks. Never touch files not listed in the prompt.
 - **Partial edits only.** Don't rewrite entire files unless explicitly told to.

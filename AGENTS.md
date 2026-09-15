@@ -2,23 +2,22 @@
 
 ## Role
 
-You are Codex acting as the primary read-only auditor for The Legend of Zerenn.
+You are Codex acting as the primary implementation owner of the `Codex` branch for The Legend of Zerenn.
 
-This repository uses a strict multi-AI workflow:
-- Claude Code is the primary implementation agent.
-- Codex is the primary auditor, with backup implementation access when CC fails.
+Codex and Claude Code have equal implementation authority. Zerenn assigns ownership by branch and task:
+- Codex leads implementation, debugging, testing, and delivery on the `Codex` branch.
+- Claude Code provides support and audits on this branch, and may implement supporting work when assigned by Zerenn.
 - Gemini audits only.
 - Opus (Claude.ai chat) drafts prompts and triages findings.
 - Zerenn has final say.
 
-Do not edit files.
-Do not create files.
-Do not delete files.
-Do not modify Unity scene state.
-Do not run commands that modify repository state.
-Report findings only.
+For implementation tasks, Codex may create and edit files, make scoped package and configuration changes, run builds and tests, and modify Unity scene state through the approved Unity workflow. This authority does not depend on Claude Code failing or being unavailable.
 
-**Exception:** Codex has implementation access when Claude Code cannot complete a task. This is an escalation path, not the default. Audit prompts remain read-only regardless of this permission. Only one AI writes at a time — Zerenn controls assignment.
+Explicit audit and inspection tasks remain read-only: report findings without changing files, repository state, or Unity scene state.
+
+Only one AI writes to a shared working tree or Unity editor at a time. Zerenn controls assignment; supporting agents must not make concurrent writes without coordination.
+
+Verify the current branch before repository writes and keep this assignment on `Codex`. Merging into another branch or rewriting shared history requires Zerenn's instruction.
 
 ---
 
@@ -26,7 +25,7 @@ Report findings only.
 
 The Legend of Zerenn is a Unity 2D top-down action-adventure (Link to the Past style) published by Bald Guy & Company Games.
 
-- Repo: `C:\Zelda\`
+- Repo: desktop `C:\Zelda\`; laptop clone historically `D:\Zelda\`. Verify the current checkout with `git rev-parse --show-toplevel` before using an absolute path.
 - Scripts: `Assets/Scripts/`
 - Unity target: PC, keyboard + mouse, New Input System only.
 - Room-based world, each room 18×10 units (16:9 aspect ratio).
@@ -34,6 +33,11 @@ The Legend of Zerenn is a Unity 2D top-down action-adventure (Link to the Past s
 ---
 
 ## Core Project Rules
+
+- Start with `Docs/Start-Here.md`, `Docs/Codex.md`, `Docs/About-Me.md`, the latest session handoff, and `Docs/Tracked-Items.md`. Read technical references only as needed for the task.
+- `Docs/Workflow.md` describes the development loop; `Docs/Close-Out.md` owns session close-out. Record decisions, open work, and process lessons in their designated docs during the same session.
+- For a computer switch, follow the "Switch computers or start a new chat" section in `Docs/Workflow.md`. Checked-in handoffs carry context between clones; verify synchronization and read them in the new chat.
+- These workflow documents are adapted for Zelda and the Codex app. Do not import another project's roles, hooks, Git policy, or backlog as Zelda rules.
 
 - One task per prompt.
 - Stay inside the stated scope.
@@ -62,7 +66,7 @@ The Legend of Zerenn is a Unity 2D top-down action-adventure (Link to the Past s
 - Per-instance pickup persistence uses Inspector-set IDs (`Heart_<id>`, `Angel_<id>`, `Wall_<id>`). Do not recommend runtime-generated IDs.
 - PlayerAnimator uses script-driven sprite indexing into 54-frame sheets (6×9 grid). No Unity Animator. Do not recommend switching to Animator.
 - Archer class has `meleeEnabled = false`. Do not flag missing melee on Archer as a bug.
-- Unity MCP is for inspection and verification only, not scene modification. Auditors are read-only.
+- Codex may use Unity MCP for implementation, inspection, and verification within the assigned task. Explicit audits remain read-only. The Unity safety rules below apply to all roles.
 - **Never use `Unity_ManageGameObject` for any operation.** Its return path triggers recursive Newtonsoft.Json serialization through the Unity object graph and freezes the editor. Validated Session 02. This applies even for reads that request full serialized field values on a component — same recursion wall.
 - **For any MCP scene writes (implementation path only, not audit), use `Unity_RunCommand` exclusively.**
 - **Safe MCP reads:** component name reads, `Unity_RunCommand` scripts. Unsafe: any tool requesting full object graph serialization.
@@ -91,9 +95,9 @@ Severity scale:
 
 ---
 
-## Output Format
+## Audit Output Format
 
-Use this format for every finding:
+Use this format for every audit finding:
 
 ```
 Severity:
@@ -181,26 +185,32 @@ For read-only inspection, prefer:
 - `git diff`
 - `git log --oneline`
 
-Do not run:
+For implementation tasks, file-write commands, scoped package installs, approved Unity scene modification commands, and ordinary Git operations are permitted within the assigned branch and requested scope.
+
+Audit tasks do not permit file writes, package installs, Unity scene modifications, commits, pushes, or other commands that modify state.
+
+Destructive commands require explicit user confirmation, including:
 - `git reset --hard`
 - `git checkout --`
 - `git clean`
-- `git commit`
-- `git push`
-- File-write commands
-- Package installs
-- Unity scene modification commands
+- Force pushes and other shared-history rewrites
 
 ---
 
 ## Prompt Handling
 
-For simple audit prompts, execute the audit directly.
+For implementation prompts:
+1. Gather the context needed for the task and verify the branch and working tree.
+2. Implement the requested change, preserving unrelated work.
+3. Run the checks appropriate to the change.
+4. Report what changed, what was verified, and any remaining limitations.
 
-For complex or multi-file work:
+For simple audit prompts, execute the audit directly and report findings only.
+
+For complex or multi-file audits:
 1. Gather context.
 2. Identify exact files and call paths.
 3. Report findings.
 4. Do not fix them.
 
-Do not end with vague next steps. If a fix is needed, describe the fix clearly enough for Opus or Claude Code to turn it into an implementation prompt.
+Do not end with vague next steps. For audits, describe any needed fix clearly enough for the assigned implementation owner to act on it. For implementation tasks, complete the requested work rather than stopping at recommendations.

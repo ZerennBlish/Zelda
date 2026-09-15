@@ -1,149 +1,62 @@
-# Close-Out — The Legend of Zerenn
+# Zelda Session Close-Out
 
-**Audience:** Opus only. Claude Code does NOT auto-load this file.
+This file owns the close-out sequence for Codex-led work on the `Codex` branch. Run it when Zerenn ends the session or the agreed session work is complete. A normal follow-up in the same task does not require starting a new session record.
 
-This is the operations workflow Opus runs at the end of every Zerenn session. Lives outside `CLAUDE.md` so the workflow content doesn't compete for Claude Code's attention at session start.
+## 1. Capture scope and outstanding work
 
----
+Check the current branch, working tree, and diff. Separate this session's changes from pre-existing work. Add newly reported issues to [Tracked-Items.md](Tracked-Items.md) with evidence and status before context is lost.
 
-## Step 1 — Verify nothing is uncommitted or unpushed
+Keep work on `Codex`. Do not stage unrelated files or merge into another branch as part of an implied close-out.
 
-```powershell
-git status
-```
+## 2. Finish appropriate verification
 
-```powershell
-git log --oneline origin/main..HEAD
-```
+- Docs-only work: review content, relative links, roles, and `git diff --check`.
+- Code or package work: confirm Unity has finished compiling and inspect relevant diagnostics.
+- Logic changes: run the applicable focused tests or exercise the changed paths.
+- Scene/Inspector changes: verify actual serialized values and the resulting editor behavior through the approved route.
+- Gameplay/UI changes: record the observed playtest result. If Zerenn's visual or feel check is still needed, state it as pending; do not claim it passed.
 
-If `git status` shows modifications, commit them. If `git log` shows local-only commits, push them. Both must be clean before proceeding.
+Record command results and remaining gaps. An editor reporting ready is not evidence of a complete gameplay or release test.
 
----
+## 3. Review and resolve findings
 
-## Step 2 — Focused audit (if code changed this session)
+Perform a self-review of the changed scope. When an independent audit is assigned or required for the agreed delivery, prepare the brief from [Audit-Briefs.md](Audit-Briefs.md) and use [AI-Audit-Workflow.md](AI-Audit-Workflow.md).
 
-Run all three auditors on files touched this session. Scope: only files changed, not a full codebase pass.
+Record whether Claude or another reviewer actually ran. Triage evidence, fix verified in-scope defects, and rerun affected checks after fixes. Capture deferred work in the tracker. Do not label an unaudited change independently reviewed.
 
-- **Codex** — see `AGENTS.md` for prompt template
-- **Claude Code** — read-only audit prompt
-- **Gemini** — see `GEMINI.md` for prompt template
+## 4. Update the authoritative documents
 
-Route findings through Opus for severity triage. ~40% of findings are typically invalid. Group real fixes into A/B/C groups, one prompt per group.
+| Change | Update |
+| --- | --- |
+| Assignment, permissions, invariant | AGENTS.md and affected supporting instructions |
+| Operating workflow | Codex.md / Workflow.md / this file, according to ownership |
+| Game design decision | Zerenn-Decisions.md |
+| Architecture or feature behavior | Relevant technical reference |
+| Save keys or persistence contract | Zerenn-Data-Models.md |
+| Confirmed gameplay defect/fix | Zerenn-Bug-History.md |
+| Process failure | Error-Log.md |
+| Open work or completed item | Tracked-Items.md |
 
-Skip this step for doc-only sessions or any session that didn't touch source code.
+Record completion evidence before removing a finished tracker item. Historical docs are not silently promoted to current verification.
 
----
+## 5. Write the handoff
 
-## Step 3 — Unity MCP compile check (if code changed)
+Create or update `Docs/Sessions/Session-NN-Handoff.md`, choosing the next number from the existing filenames. Preserve prior sessions. Update the current-handoff link in [Start-Here.md](Start-Here.md).
 
-Verify via Unity MCP that the project compiles with 0 errors. Not required for doc-only sessions.
+Include the date, branch, base revision, task scope, changed files, decisions, verification, actual audit status, outstanding tracker IDs, and commit/push status. Distinguish this session's work from pre-existing changes.
 
----
+## 6. Complete the requested Git delivery
 
-## Step 4 — Update docs
+Commit and push on `Codex` when that is part of Zerenn's request or the agreed delivery. Stage the specific intended files. Keep unrelated changes out of the commit.
 
-Update any of these that changed this session:
+Before claiming synchronization, verify the actual upstream and fresh remote state. A missing upstream means the branch is local-only until publication is performed; `origin/main..HEAD` is not a synchronization check for `Codex`.
 
-- `CLAUDE.md` — if rules, structure, or workflow changed
-- `Docs\About-Me.md` — only if universal cross-project rules changed (changes propagate to DFW and Brick Headed)
-- `Docs\Opus.md` — if drafting/audit/close-out rules changed
-- `Docs\Zerenn-Decisions.md` — if locked design decisions changed
-- `Docs\Zerenn-Architecture.md`, `Zerenn-Features.md`, `Zerenn-Data-Models.md`, `Zerenn-Bug-History.md`, `Zerenn-Project-Setup.md` — whichever reference docs are affected
-- `Docs\Zerenn-Stability-Playbook.md` — if new failure modes or working rules emerged
-- `AGENTS.md` / `GEMINI.md` — if audit rules or project invariants changed
-- `Docs\Zerenn-Roadmap.md` — if tasks completed or priorities shifted
-- `Docs\Close-Out.md` (this file) — if the close-out workflow itself changed
+Merges into `Dev` or `main`, force pushes, and destructive recovery require Zerenn's instruction. Do not perform them automatically at close-out.
 
----
+If Git delivery was not requested, report the remaining local changes plainly.
 
-## Step 5 — Commit and push
+## 7. Deliver the result
 
-```powershell
-git add .
-```
+Summarize what changed, what passed, and anything still pending. Link the handoff and relevant files in the Codex task.
 
-```powershell
-git commit -m "Session NN: <summary>"
-```
-
-```powershell
-git push
-```
-
-Separate commands — PowerShell doesn't `&&`-chain.
-
----
-
-## Step 6 — Final push verification
-
-```powershell
-git status
-```
-
-```powershell
-git log --oneline origin/main..HEAD
-```
-
-Both must return empty. If not, fix before proceeding.
-
----
-
-## Step 7 — Flat copy to staging folder
-
-Run the flat copy script to stage files for Claude.ai project knowledge upload:
-
-```powershell
-.\copy-for-claude.ps1
-```
-
-The script copies repo-root config files and all `Docs\*.md` to the upload staging folder. Scripts are NOT staged — Opus reads live scripts via Desktop Commander on demand. **Keep the script in sync with the actual file list** — when a doc is added, removed, or renamed, update `copy-for-claude.ps1` too.
-
----
-
-## Step 8 — Upload to Claude.ai
-
-Drag-and-drop all files from the staging folder into the Claude.ai project knowledge panel. Replace existing files.
-
----
-
-## Step 8b — Final commit
-
-Any doc changes made after Step 5 (handoff file, doc updates via Desktop Commander) need their own commit:
-
-```powershell
-git add .
-```
-
-```powershell
-git commit -m "Session NN: handoff + doc updates"
-```
-
-```powershell
-git push
-```
-
----
-
-## Step 9 — Session handoff
-
-Write a handoff doc to `Docs\Sessions\Session-NN-Handoff.md` via Desktop Commander. This is how the next session knows what happened. Handoffs are not optional — without them, the next session starts blind.
-
-The handoff must include:
-- What changed (files created, modified, fixed)
-- What's next (immediate priorities for next session)
-- Known issues (anything unresolved, flagged for follow-up)
-- Any decisions made that aren't yet in Zerenn-Decisions.md
-
-Only the last 2 handoffs are staged by `copy-for-claude.ps1`. Older ones stay in the repo but don't upload to project knowledge.
-
----
-
-## Opening a New Session
-
-At the start of every session, Opus reads the most recent handoff in project knowledge to pick up where the last session left off. Update the "Session Priorities" section in the project instructions to reflect what's being worked on this session.
-
----
-
-## Cross-Project Note
-
-This Close-Out workflow is project-specific. DFW uses `ai-docs\Close-Out.md`; Brick Headed uses `Docs\Close-Out.md`. The structure is similar (verify-clean → audit → compile → docs → commit → upload) but file paths and verification commands differ. Do not copy this file across projects without adapting paths.
+The checked-in docs are Codex's continuity source. Optional Claude.ai knowledge staging/upload is a separate support handoff when requested. The existing `copy-for-claude.ps1` is not run automatically; it clears an external staging folder.

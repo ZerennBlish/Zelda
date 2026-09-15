@@ -1,5 +1,7 @@
 # Zerenn — Bug History
 
+**Historical evidence:** this file preserves earlier audit findings, fixes, and deferred proposals. Current open work is tracked in [Tracked-Items.md](Tracked-Items.md); process lessons are in [Error-Log.md](Error-Log.md). Re-verify an old issue before calling it a current defect.
+
 **Part of the Zerenn Technical Reference.** Canonical record of every audit finding (fixed or deferred), known issues, and lessons learned.
 
 **Audit workflow:** Three auditors per batch (Codex, Claude Code, Gemini) running in parallel on read-only review. Findings consolidated by Opus, triaged P1/P2/P3, fixed by Claude Code in grouped fix prompts.

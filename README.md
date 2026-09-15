@@ -2,6 +2,8 @@
 
 A 2D top-down action-adventure game built in Unity, inspired by classic Zelda titles (A Link to the Past, Link's Awakening). Room-based exploration with progression gating through items, abilities, and a class upgrade system.
 
+For the current Codex-led development workflow, project references, open-work tracker, and session handoffs, start with [Docs/Start-Here.md](Docs/Start-Here.md).
+
 ## About
 
 Legend of Zerenn is a solo-developed game built as both a creative project and a learning vehicle for Unity and C#. The long-term vision ties into the novel *"Eric and the Littles: The Fourfold Crown"* — a middle-grade fantasy about four young cousins with magical abilities.

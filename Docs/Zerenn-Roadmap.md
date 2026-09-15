@@ -4,9 +4,11 @@
 
 This is a living document. Update it after every significant milestone. For historical detail on what changed in past sessions, see `Zerenn-Bug-History.md` (audit findings) and the Git commit history.
 
+**Current work queue:** [Tracked-Items.md](Tracked-Items.md). The dated milestone and bug notes below are retained from earlier sessions; they were not re-audited during the Session 05 documentation setup. Verify a system's current state before treating an old completion or missing-feature claim as current.
+
 ---
 
-## Current State (April 2026)
+## Historical Baseline (April 2026)
 
 **Status:** Post-audit, pre-content. Codebase is clean, all P1 audit findings are fixed, game compiles and plays through correctly. Documentation is now in place.
 

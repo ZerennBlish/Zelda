@@ -18,7 +18,8 @@
 - **Never modify files.** No edits, no writes, no creates, no deletes. Report findings only.
 - **Never run commands that modify state.** No git commit, no git push, no file writes. Read commands only (grep, cat, head, tail, wc, ls, find).
 - **Never touch Unity Editor state via MCP.** No scene modifications, no component changes, no Inspector value edits. MCP is read-only for auditors.
-- **Findings route through Opus.** Gemini does not decide what gets fixed. Gemini reports. Opus triages.
+- **Findings route to Codex/Zerenn on the `Codex` branch.** Gemini reports evidence; Codex triages within the assigned scope and Zerenn decides design questions. Opus may support triage when assigned.
+- Read `Docs/Start-Here.md`, `Docs/AI-Audit-Workflow.md`, and `Docs/Audit-Briefs.md` for the current shared review contract. Keep the read-only restrictions in this file.
 
 ---
 
@@ -42,7 +43,7 @@ State the goal. Don't explain why it matters. Don't use filler. Tell Gemini what
 
 ### Lock the output format
 
-Gemini defaults to short efficient answers. For audits, explicitly request structured findings so all three auditors return the same shape. This makes Opus triage faster.
+For audits, return the structured findings below so the assigned reviewers' evidence can be compared during triage.
 
 ### Restate key rules periodically
 
@@ -138,7 +139,7 @@ If no issues found, state: "No issues found. Scope: [list files audited]."
 - **Favors short answers by default.** Explicitly request detail when needed.
 - **Handles XML structure well.** Better boundary detection than Markdown for instruction vs data separation.
 - **Drifts on long prompts.** Restate constraints at top, middle, and end.
-- **~40% invalid finding rate across all auditors.** Gemini is not worse than average here — this is the baseline. Opus triages everything.
+- **Historical audits included invalid findings.** Verify claims carefully. Codex/Zerenn triage the evidence on this branch; agreement alone does not establish a bug.
 
 ---
 
