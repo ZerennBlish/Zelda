@@ -44,6 +44,46 @@ Use [Audit-Briefs.md](Audit-Briefs.md) and [AI-Audit-Workflow.md](AI-Audit-Workf
 
 Update the affected docs, tracker, and handoff. Complete the close-out sequence when the session ends. Follow the user's Git delivery instructions for `Codex`; do not infer permission to merge into `Dev` or `main`.
 
+## Switch computers or start a new chat
+
+Zerenn uses separate desktop and laptop clones, synchronized through GitHub on `Codex`. The documented paths are desktop `C:\Zelda` and laptop `D:\Zelda`; verify the actual checkout on the machine running the task. Using remote control from the laptop to operate the desktop leaves the active files on the desktop.
+
+### Before leaving the active clone
+
+Update the latest handoff and affected tracker entries. For a requested synchronization or computer handoff, commit the intended project changes and documentation on `Codex`, then push to `origin/Codex`. Record the published commit in the task response. Preserve unrelated local changes and identify anything that has not been transferred.
+
+### On the destination clone
+
+1. Verify the repository root, branch, local changes, and origin URL. The expected origin is `https://github.com/ZerennBlish/Zelda.git`. Confirm that the other computer has finished writing and pushed its work.
+2. Refresh remote state. Select the local `Codex` branch; if it does not exist, create it to track `origin/Codex`. Resolve any local-work conflict before switching branches.
+3. With a clean destination checkout on `Codex`, fast-forward to `origin/Codex`. If the branch has diverged or local changes need preserving, inspect and report that specific state before changing history or replacing files. Do not automatically reset, stash, force-push, or copy one clone over the other.
+4. Verify the resulting commit and working tree. Then read [Start-Here.md](Start-Here.md), its current handoff, and [Tracked-Items.md](Tracked-Items.md). A new chat obtains project context from those files; Git does not transfer the conversation itself.
+5. Before Unity work, verify the editor and `unity_zelda` point to this clone. The user-local MCP registration does not travel through Git. See [Project Setup](Zerenn-Project-Setup.md) and [Unity MCP Rules](Unity-MCP-Rules.md).
+
+From a verified destination checkout, refresh the branch:
+
+```powershell
+git fetch origin Codex
+```
+
+After confirming the destination is clean and on `Codex`, update it without creating a merge commit:
+
+```powershell
+git merge --ff-only origin/Codex
+```
+
+Verify the result:
+
+```powershell
+git status --short --branch
+```
+
+```powershell
+git rev-list --left-right --count HEAD...origin/Codex
+```
+
+After a successful refresh, `0 0` means the local and fetched remote branches have the same commits. Only claim the destination clone is updated after checking it on that computer.
+
 ## When work changes direction
 
 - Capture a new bug report promptly, including its source and reproduction status.

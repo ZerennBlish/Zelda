@@ -277,3 +277,9 @@ These haven't been finalized yet. Marked here so they don't get lost:
 **Unity connection:** Zerenn authorized installing Pipeline and adding a separate `unity_zelda` MCP connection. The connection is pinned to `C:\Zelda` and was verified with a read-only editor-status call. The legacy scene-write policy is retained pending the bounded review recorded as Z-004; this decision does not silently approve another write method.
 
 **Branch delivery:** This assignment stays on `Codex`. A task or close-out does not itself authorize merging into `Dev`/`main` or rewriting shared history.
+
+### Two-computer continuity - Session 05 follow-up
+
+**Decision by Zerenn:** Keep a clone on each computer and use the repository's project files to bring new chats up to date when moving between desktop and laptop.
+
+**Workflow:** Push the intended changes and current handoff on `Codex`, then verify and fast-forward the destination clone before continuing. Read the checked-in docs in the new chat. Remote control of a desktop session still uses that desktop's checkout; machine-local Unity MCP configuration needs separate verification. [Workflow](Workflow.md#switch-computers-or-start-a-new-chat) owns the procedure.

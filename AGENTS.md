@@ -25,7 +25,7 @@ Verify the current branch before repository writes and keep this assignment on `
 
 The Legend of Zerenn is a Unity 2D top-down action-adventure (Link to the Past style) published by Bald Guy & Company Games.
 
-- Repo: `C:\Zelda\`
+- Repo: desktop `C:\Zelda\`; laptop clone historically `D:\Zelda\`. Verify the current checkout with `git rev-parse --show-toplevel` before using an absolute path.
 - Scripts: `Assets/Scripts/`
 - Unity target: PC, keyboard + mouse, New Input System only.
 - Room-based world, each room 18×10 units (16:9 aspect ratio).
@@ -36,6 +36,7 @@ The Legend of Zerenn is a Unity 2D top-down action-adventure (Link to the Past s
 
 - Start with `Docs/Start-Here.md`, `Docs/Codex.md`, `Docs/About-Me.md`, the latest session handoff, and `Docs/Tracked-Items.md`. Read technical references only as needed for the task.
 - `Docs/Workflow.md` describes the development loop; `Docs/Close-Out.md` owns session close-out. Record decisions, open work, and process lessons in their designated docs during the same session.
+- For a computer switch, follow the "Switch computers or start a new chat" section in `Docs/Workflow.md`. Checked-in handoffs carry context between clones; verify synchronization and read them in the new chat.
 - These workflow documents are adapted for Zelda and the Codex app. Do not import another project's roles, hooks, Git policy, or backlog as Zelda rules.
 
 - One task per prompt.

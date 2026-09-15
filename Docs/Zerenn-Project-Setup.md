@@ -83,6 +83,8 @@ git config core.autocrlf true
 
 ### Workflow Discipline
 
+The computer-switch procedure is maintained in [Workflow](Workflow.md#switch-computers-or-start-a-new-chat). Verify the laptop path and any junction locally; the recorded paths above do not prove that this task can access the other computer. Git transfers committed project files and documentation; each computer's user-local Codex MCP registration must be checked separately.
+
 1. **Inspect before syncing** - verify the project path, branch, local changes, and upstream; refresh remote information before claiming synchronization. Preserve local work.
 2. **Commit frequently** — small, focused commits with descriptive messages
 3. **Push before switching machines** — never leave uncommitted work on the desktop and try to continue on the laptop

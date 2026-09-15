@@ -60,7 +60,16 @@ Read the relevant source and Inspector state when a task is assigned. Do not tre
 
 ## Git and external state
 
-- Changes are local and uncommitted. No commit, push, branch merge, or shared-history rewrite was performed.
-- The `Codex` branch was already created and checked out by Zerenn. No upstream was configured at the branch check; remote publication was not verified.
+- At the initial close-out, changes were local and uncommitted and no upstream was configured. During the later computer-switch follow-up, the setup was found committed as `19cad3f` (`Add Codex workflow and Unity setup`). A successful fetch verified that local `Codex` and `origin/Codex` both pointed to that commit, with a clean working tree.
 - The MCP registration lives in this machine's user Codex configuration, outside the repository.
 - The reference project's documents were read for structure. No files there were changed, and no Claude.ai upload or external staging script was run.
+
+## Computer-switch follow-up
+
+Zerenn is using the laptop to control the desktop and wants to move between separate clones, carrying context through the repository. This task has access to `C:\Zelda`; no `D:` drive is exposed here. Project Setup records the laptop clone as `D:\Zelda`, but its actual Git state has not been inspected in this task.
+
+Updated AGENTS.md, Start-Here, Workflow, Project Setup, and Decisions to explain clone verification, publishing a handoff on `Codex`, fast-forward synchronization, and reading the current docs in a new chat. This follow-up is documentation only. Z-009 remains the recommended gameplay prerequisite; no scene recovery or Unity save was performed.
+
+Verification for this follow-up: six Markdown files reviewed, 54 local links and code-fence balance checked, and `git diff --check` passed. Codex self-review only; no Unity compile or gameplay test was needed for these documentation changes.
+
+Git delivery for this follow-up uses the commit subject `Document desktop and laptop handoff` on `Codex`. Verify publication against a freshly fetched `origin/Codex` when resuming. Updating GitHub makes the docs available to the laptop; the laptop's fetch and working-tree status remain unverified here.

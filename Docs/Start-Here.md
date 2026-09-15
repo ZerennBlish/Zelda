@@ -13,6 +13,18 @@ This documentation follows the organization of `C:\IdBidOnThat\Docs`, adapted fo
 
 If Zerenn has already specified the task, begin that task. A tracker is context, not permission to select a different objective.
 
+## Moving between desktop and laptop
+
+Use GitHub's `Codex` branch to transfer committed project files and these docs between clones. Follow [Workflow](Workflow.md#switch-computers-or-start-a-new-chat) to verify and synchronize the active clone. Remote control of the desktop still operates on the desktop's files.
+
+For a new chat in the destination clone, use:
+
+```text
+Sync this Zelda clone with origin/Codex, preserving any local work. Read AGENTS.md, Docs/Start-Here.md, the latest session handoff, and Docs/Tracked-Items.md. Use those files for context and report the current blocker before starting gameplay changes.
+```
+
+The docs provide context when read; they do not send a notification to another chat. Unity MCP registration is local to each computer and needs its own path verification.
+
 ## Where information belongs
 
 | Document | Owns |
