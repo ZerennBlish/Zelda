@@ -46,3 +46,6 @@ MonoBehaviour:
   - coord: {x: 1, y: 1}
     isSpecial: 0
     note: Room_1_1
+  - coord: {x: 2, y: 0}
+    isSpecial: 0
+    note: Room_2_0 - Reedwater Hollow

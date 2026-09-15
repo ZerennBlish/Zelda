@@ -306,6 +306,16 @@ These will compound friction as content scales. Schedule them before adding boss
 
 ---
 
+## Session 07 follow-up - BoomShroom explosion reference, 2026-09-15
+
+### P2 (fixed) - Z-010
+
+- **Problem:** `ToxicExplosion.prefab` had a stale `ExplosionEffect` script GUID, producing `The referenced script (Unknown) on this Behaviour is missing!` when `BoomShroom.Explode()` instantiated it. The source script still existed with a different GUID; this was an asset reference defect.
+- **Fix:** Reconnected the existing component to `Assets/Scripts/ExplosionEffect.cs` through Unity's asset APIs. Preserved component ID, visuals, and lifetime. No gameplay C# changes.
+- **Verification:** Reimport reports zero missing scripts. Direct explosion, damage-triggered explosion with radius/damage overrides, and the existing blink coroutine all passed: one effect, one hit on the in-range target, no hit outside the radius, and automatic cleanup. No new explosion warnings/errors. [Detailed evidence](Sessions/Session-07-Handoff.md#follow-up---boomshroom-explosion-warning-z-010).
+
+---
+
 ## Known Issues (logged, not yet fixed)
 
 - **Enemy rotation jank.** Enemies rotate oddly during movement — appears to be a pre-existing issue, not introduced by the Session 03 refactor. Freeze Rotation is confirmed on in Rigidbody2D but behavior is still wrong. Root cause unknown. Low priority until enemy base class refactor is scheduled.

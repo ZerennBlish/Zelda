@@ -50,6 +50,26 @@ Entries are Zelda-specific. Do not import another project's failures as if they 
 
 **Rule:** Preserve existing text as context when it is not changing. Use ASCII punctuation in added content to comply with the active write hook; do not disable the hook.
 
+## E-006 - Play-mode test harness sampled the wrong input/update state
+
+**Source:** Session 07, Z-012 room verification, 2026-09-15.
+
+**Observed:** The harness initially read Rigidbody position in the frame where RoomManager had just teleported the Transform, producing a false spawn failure. Later, the generic Mouse aim binding selected the physical mouse instead of the simulated mouse, and test arrows missed the bush. Editor-update pointer reads also used a different state buffer from the game's dynamic update.
+
+**Resolution:** Confirmed the settled Transform/Rigidbody destination, sampled the appropriate transform at the transition, and bound the temporary aim action explicitly to the test mouse. Applied virtual device state during the dynamic input update. The complete 23-check traversal and four-check combat runs then passed. Restored binding overrides, devices, temporary input settings, and gameplay preferences afterward.
+
+**Rule:** Verify the actual action value and game-update state before interpreting a simulated-input failure as a gameplay defect. Account for physics synchronization when measuring a transform-based teleport. Keep failed attempts distinct from the final verified run.
+
+## E-007 - Prefab script rebinding and unfocused Play-mode verification
+
+**Source:** Session 07 Z-010 follow-up, 2026-09-15.
+
+**Observed:** Applying a repaired `m_Script` reference recreated the component, invalidating the original managed handle before the save step. The isolated runtime harness also initially timed out while Unity was unfocused with background updates disabled.
+
+**Resolution:** Reacquired the component from the prefab and saved it, then confirmed the reference after reimport. The final runtime test temporarily enabled background execution and queued player updates, passed all three explosion paths, removed its objects, and restored the previous setting.
+
+**Rule:** Reacquire a Unity component after changing its script reference. Verify game frames advance during an automated Play-mode check, and restore temporary editor/runtime settings afterward.
+
 ## Entry template
 
 Before adding an entry, distinguish a project failure from an unverified diagnosis. Keep credentials out of examples and command output.

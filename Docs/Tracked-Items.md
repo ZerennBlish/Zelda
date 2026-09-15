@@ -1,12 +1,12 @@
 # Zelda Tracked Items
 
-**Owner:** Codex on `Codex`. **Last reconciled:** Session 06 room-build handoff, 2026-09-15.
+**Owner:** Codex on `Codex`. **Last reconciled:** Session 07 close-out, 2026-09-15.
 
 This is the current open-work queue. The [roadmap](Zerenn-Roadmap.md) retains milestone plans; [decisions](Zerenn-Decisions.md) retain design rationale; handoffs link here instead of maintaining competing task lists.
 
 ## Next task
 
-Zerenn requested a handoff for Codex to build one complete playable room with properly placed repeating wall bricks, scenery, collision, enemies, and working entry/exit setup. This is Z-012; the implementation brief is in [Session 06](Sessions/Session-06-Handoff.md). Room implementation has not started. Camera startup recovery Z-009 is complete; the historical zoom report remains Z-001.
+Z-012 is complete: Reedwater Hollow at `(2,0)` is built, connected, saved, and tested, including the concealed entrance to the original cave. The subsequent BoomShroom explosion warning is fixed under Z-010. [Session 07](Sessions/Session-07-Handoff.md) records both results and the next-session context. Unity is stopped with the Game scene clean; changes are local and uncommitted. No further gameplay task is assigned. The historical zoom report remains Z-001.
 
 ## Status and maintenance
 
@@ -46,31 +46,11 @@ Use stable `Z-NNN` IDs; do not renumber or reuse an ID. Record the source, next 
 - **Source:** [AGENTS.md](../AGENTS.md), Unity write invariant; [Unity MCP Rules](Unity-MCP-Rules.md), Current connection.
 - **Evidence:** The legacy policy requires `Unity_RunCommand`. The newly connected Pipeline tool catalog exposes `eval`, not that legacy tool name. Only read-only status calls were validated in Session 05.
 - **Task-specific exception:** On 2026-09-15 Zerenn explicitly approved Pipeline for restoring `e2e2322`, reloading, and testing the Game scene. Recovery succeeded with primitive-only output. This bounded approval does not rewrite the general scene-authoring policy.
+- **Room-build exception:** Zerenn separately approved Pipeline `eval`/`run_script` for Z-012 and its verification in Session 07. The room build completed through that route, with focused primitive-only results. The general policy remains unchanged for future tasks.
 - **Next check:** Review the Pipeline script-execution contract and agree the equivalent permitted route with Zerenn while preserving the prohibition on full-object serialization. Do not silently substitute a scene-write tool.
 - **Boundary:** This does not block source-code or documentation tasks.
 
 ## Tier 2 - Content and current-state reconciliation
-
-### Z-012 - Build one complete room with properly placed wall pieces
-
-- **Status:** Planned; Zerenn requested a handoff for implementation. No room changes made yet.
-- **Source:** [Session 06 room-build brief](Sessions/Session-06-Handoff.md).
-- **Objective:** One finished, playable 18 x 10 room with floor/scenery, solid walls, collision, deliberate enemy placement, player entry, camera framing, and working exits. Use the existing art and gameplay systems.
-- **Visual requirement:** Construct wall length from repeated tiles/modular brick pieces at consistent intended proportions and pixel density, with proper corners and openings. Do not stretch wall sprites or use unequal scale to fill gaps.
-- **Next work:** Inspect suitable assets and room locations, identify the exact edit scope, implement the complete room, and verify it in Play mode with screenshots. Preserve existing rooms and the recovered camera. Z-004 governs the authoring route; the exact room coordinate/theme were not specified.
-
-### Z-010 - Missing-script warning from BoomShroom explosion
-
-- **Status:** Warning observed; gameplay impact and exact prefab component need verification.
-- **Source:** Camera startup playtest, 2026-09-15; console stack points to `BoomShroom.Explode()` at its effect instantiation.
-- **Evidence:** Unity logged `The referenced script (Unknown) on this Behaviour is missing!` during Play mode. No current console errors accompanied the camera test.
-- **Next check:** Inspect the serialized explosion-effect prefab reference and identify the missing component before choosing a repair. No enemy or prefab changes were made during camera recovery.
-
-### Z-005 - Validate an adjacent-room content workflow
-
-- **Status:** Planned in historical handoff; completion not checked.
-- **Source:** [Session 04](Sessions/Session-04-Handoff.md), What's Next.
-- **Next check:** Z-012 is the concrete current room-build brief. Validate the adjacent-room workflow as part of that build when its selected location requires it; do not start a second overlapping room task. Depends on Z-004 for MCP scene writes.
 
 ### Z-006 - Reconcile historical roadmap and technical claims
 
@@ -103,9 +83,28 @@ Use stable `Z-NNN` IDs; do not renumber or reuse an ID. Record the source, next 
 
 ## Completed in the current follow-up
 
+### Z-010 - BoomShroom explosion script reference repaired
+
+- **Completed:** Session 07 follow-up, 2026-09-15, after Zerenn supplied the live warning stack.
+- **Cause:** `ToxicExplosion.prefab` referenced nonexistent script GUID `7a924de975f71284e9aaa08f86c924ce`. The existing `ExplosionEffect.cs` uses `f03f28458b68097adb7490a61dee0d30`.
+- **Fix:** Reconnected the existing component through Unity's asset APIs and saved the prefab. Preserved the component ID, visuals, Animator, and 0.5-second lifetime; no gameplay C# or scene changes in this follow-up.
+- **Evidence:** Reimport reports zero missing scripts. Play-mode direct detonation, damage-triggered detonation with Inspector-style overrides, and `BlinkThenExplode` all passed single-effect, damage-radius, and cleanup checks. No new explosion warnings/errors. [Session 07 follow-up](Sessions/Session-07-Handoff.md#follow-up---boomshroom-explosion-warning-z-010).
+- **Delivery:** Local and uncommitted. Test objects removed and temporary background setting restored. Zerenn subsequently stopped Play mode; close-out confirmed the Game scene clean and live Console at zero errors/warnings.
+
+### Z-012 - Complete overworld room and reused secret cave
+
+- **Completed:** Session 07, 2026-09-15. Zerenn's implementation request refined the room into a natural overworld composition with cliffs, water, vegetation, a winding route, and a bush-concealed secret.
+- **Result:** `Room_2_0 - Reedwater Hollow`, connected east of Room_1_0 and registered with WorldMap. Reuses the existing angel/fountain cave with a dedicated return; preserves the first-room cracked-wall connection and separate shop.
+- **Evidence:** Saved-scene reload, collision connectivity scan, 23 Play-mode traversal checks, repeated secret round trips, 4 combat checks, minimap verification, and camera screenshots. [Verification](Recon/Z012-Reedwater-Hollow-Verification.md).
+- **Delivery:** Local changes, not committed or pushed. Zerenn's visual/feel review and an independent audit have not run.
+
+### Z-005 - Adjacent-room content workflow validated
+
+- **Completed:** As part of Z-012. Added a room at an unused coordinate, connected it with direction-based transition prefabs, registered WorldMap, and verified entry, exit, re-entry, camera framing, and saved state. [Session 07](Sessions/Session-07-Handoff.md).
+
 ### Z-009 - Game scene and camera startup recovered
 
 - **Completed:** 2026-09-15, with Zerenn's explicit restoration approval.
 - **Change:** Restored `Assets/Scenes/Game.unity` exactly from `e2e2322`, retaining the original conflicted version in backup and Git history.
 - **Verification:** Static object/reference checks passed; Unity loads 27 roots with the camera and player wired; Play-mode capture visibly renders the room; current console errors were zero. Editor returned to stopped/ready with a clean scene. [Evidence](Recon/S05-Z009-Game-Scene-Conflicts.md).
-- **Limits:** Newer layout edits are Z-011; this does not close the historical zoom report. Changes remain local and uncommitted.
+- **Limits:** Newer layout edits are Z-011; this does not close the historical zoom report. Recovery is included in Session 07's committed baseline `bdb4087`.

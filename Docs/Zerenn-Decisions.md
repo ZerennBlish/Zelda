@@ -297,3 +297,15 @@ These haven't been finalized yet. Marked here so they don't get lost:
 **Visual requirement:** Preserve brick proportions and consistent pixel density. Create longer walls by repeating matching tiles or modular segments, using suitable corners and openings, rather than stretching sprites to bridge distances. Use the existing game art and systems; Codex owns routine composition and placement choices within the room's scope.
 
 **Status:** Captured as Z-012 in the [Session 06 handoff](Sessions/Session-06-Handoff.md). The exact room location and theme have not been selected. This handoff request did not begin implementation or expand the camera-specific Pipeline exception.
+
+### Reedwater Hollow overworld build - Session 07, 2026-09-15
+
+**Direction from Zerenn:** Build the complete room as a natural overworld space with cliffs, water, vegetation, intentional enemies, a traversable route, and a bush-concealed secret. Inspect the first room and original secret content before editing; reuse surviving secret content rather than creating a duplicate. This is the later, concrete visual brief for Z-012.
+
+**Implementation:** Chose unused coordinate `(2,0)` east of Room_1_0. Reedwater Hollow has a west entry and a path looping around a pond. The hidden northwest bush leads to the existing angel/fountain cave at `(-200,0)`. A separate cave return reaches the new room, preserving the original first-room connection. The shop remains a separate interior.
+
+**Composition choices:** Use existing art, tiled cliff borders/centers, and added slices of existing path/water atlases. Keep the established direction-based normal transitions. Two Slimes and one GoblinSpearman retain their existing AI; instance wander speed is zero so they hold their encounter positions until approached. A native SpriteMask and clipped colliders constrain the room to 18 x 10.
+
+**Tool authorization:** Zerenn explicitly approved the connected Pipeline C# commands for this build and verification after Unity_RunCommand was confirmed unavailable. This is a bounded exception recorded under Z-004, with no Unity_ManageGameObject calls or full Unity object serialization.
+
+**Result:** Implemented and verified; see [Session 07](Sessions/Session-07-Handoff.md). No gameplay architecture, input, damage, or save-system changes were needed.
