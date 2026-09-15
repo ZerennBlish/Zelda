@@ -4,9 +4,11 @@ These rules apply when using Unity MCP for Zelda. The original safety observatio
 
 ## Current connection - Codex app
 
-- Use `unity_zelda`, pinned to `C:\Zelda`, through Unity CLI and `com.unity.pipeline`.
+- Use `unity_zelda` through Unity CLI and `com.unity.pipeline`, pinned to the verified clone on each machine: desktop `C:\Zelda`, laptop `D:\Zelda`.
 - Read `editor_status` and confirm the returned project path before editor work. The separate `unity` server can point at another project.
 - Session 05 verified direct MCP status: editor ready, compilation finished, project `C:\Zelda`. No scene write was tested.
+- Laptop verification on 2026-09-15: `unity_zelda` launches `unity.exe mcp --project-path D:\Zelda`. CLI and MCP `editor_status` both returned `C:\Zelda`, `ready`, `compiling: false`, and Play mode stopped. The verified junction `C:\Zelda` -> `D:\Zelda` explains the returned path. The separate `unity` registration remains pinned to `D:\UnderwhelmingSteve`.
+- On this laptop, sandboxed CLI discovery returned no instances; the same read outside the sandbox reached Zelda. Verify outside the sandbox before treating that result as a missing package or broken editor. A newly registered server may require a Codex refresh before its tools appear in an existing task; the verified project-pinned CLI route remains available.
 - Pipeline exposes `eval` and purpose-built editor commands. The current AGENTS.md scene-write rule still requires the legacy name `Unity_RunCommand`. Reconcile that policy before substituting a write route; see tracker Z-004 in [Tracked-Items.md](Tracked-Items.md).
 - Never use `Unity_ManageGameObject` or request full Unity object-graph serialization. Keep reads focused and return primitive values or component names.
 - Explicit audits do not change editor state. For implementation verification, discover the connected bridge's supported compilation and diagnostic commands before using them.

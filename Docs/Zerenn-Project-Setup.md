@@ -127,6 +127,14 @@ The computer-switch procedure is maintained in [Workflow](Workflow.md#switch-com
 
 Use `unity_zelda` for this project. Read [Unity-MCP-Rules.md](Unity-MCP-Rules.md) for safe reads and the unresolved legacy scene-write policy. Configure and verify paths separately on another machine.
 
+### Laptop connection verification (2026-09-15)
+
+- Git root: `D:\Zelda`; verified junction `C:\Zelda` -> `D:\Zelda`.
+- Added user-local Codex server `unity_zelda`, launching `C:\Users\baldy\AppData\Local\Unity\bin\unity.exe mcp --project-path D:\Zelda`. The existing `unity` server still targets `D:\UnderwhelmingSteve`.
+- Installed CLI `1.0.0-beta.8` and Pipeline `0.7.0-exp.1` were already present; no package change was needed.
+- Verified CLI `editor_status` and a fresh MCP initialization, tool discovery (151 tools), and `editor_status` call. Both status routes returned `C:\Zelda`, Unity `6000.3.9f1`, `ready`, `compiling: false`, and Play mode stopped. The returned path is the junction above; the CLI target reported port 7800.
+- Shell sandbox discovery could not see the live instances; verification outside the sandbox succeeded. No scene edits, saves, or gameplay tests were performed. The new server was not yet exposed in the existing task's tool catalog; use the pinned CLI route or refresh Codex to load the registration.
+
 ---
 
 ## Code Conventions

@@ -283,3 +283,17 @@ These haven't been finalized yet. Marked here so they don't get lost:
 **Decision by Zerenn:** Keep a clone on each computer and use the repository's project files to bring new chats up to date when moving between desktop and laptop.
 
 **Workflow:** Push the intended changes and current handoff on `Codex`, then verify and fast-forward the destination clone before continuing. Read the checked-in docs in the new chat. Remote control of a desktop session still uses that desktop's checkout; machine-local Unity MCP configuration needs separate verification. [Workflow](Workflow.md#switch-computers-or-start-a-new-chat) owns the procedure.
+
+### Camera startup recovery - 2026-09-15
+
+**Decision by Zerenn:** Approved restoring `Assets/Scenes/Game.unity` to the checked prior scene at `e2e2322`, keeping a complete backup of the current conflicted file, and reloading/testing through Pipeline. The approval explicitly included the scene-recovery exception to the live-editor file-edit restriction and the legacy Unity_RunCommand-only route.
+
+**Tradeoff:** Restore a working 10-room layout and camera now; retain newer conflicted room edits in the backup and Git history for separate recovery (Z-011). This authorizes the specific recovery and verification, without changing the general scene-authoring policy. [Recovery evidence](Recon/S05-Z009-Game-Scene-Conflicts.md).
+
+### Complete room and modular wall construction - 2026-09-15
+
+**Direction from Zerenn:** Prepare the next task for Codex to build one complete playable room, including walls, enemies, scenery, collision, and the finishing work. Zerenn wants to see the result of a fully assembled room using properly placed brick/wall pieces.
+
+**Visual requirement:** Preserve brick proportions and consistent pixel density. Create longer walls by repeating matching tiles or modular segments, using suitable corners and openings, rather than stretching sprites to bridge distances. Use the existing game art and systems; Codex owns routine composition and placement choices within the room's scope.
+
+**Status:** Captured as Z-012 in the [Session 06 handoff](Sessions/Session-06-Handoff.md). The exact room location and theme have not been selected. This handoff request did not begin implementation or expand the camera-specific Pipeline exception.

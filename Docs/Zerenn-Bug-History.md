@@ -8,6 +8,14 @@
 
 ---
 
+## Camera startup recovery - 2026-09-15
+
+**Z-009 (fixed locally):** Game.unity contained 79 committed merge-conflict blocks, and Unity loaded zero root objects, leaving no live game camera. With Zerenn's explicit approval, restored the exact prior scene from `e2e2322` and retained the conflicted data in backup and Git history. Unity now loads 27 roots with the camera and player wired; a Play-mode capture visibly renders the room, with zero current console errors. No C# change was required. [Recovery evidence](Recon/S05-Z009-Game-Scene-Conflicts.md).
+
+**Limits:** This restores the previous 10-room layout. Newer conflicted layout edits remain Z-011; the historical zoom report remains Z-001. A missing-script warning from BoomShroom's spawned effect is tracked separately as Z-010. This was a camera startup smoke test and Codex self-review, not a full gameplay test or independent audit.
+
+---
+
 ## Audit Cycle 1 — April 2026 (First Full Codebase Sweep)
 
 **Scope:** Full audit of all 70 scripts (~8,300 lines). First audit ever performed on this codebase. Six batches, three auditors per batch (Codex + Claude Code + Gemini), all running read-only and in parallel.

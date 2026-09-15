@@ -73,3 +73,28 @@ Updated AGENTS.md, Start-Here, Workflow, Project Setup, and Decisions to explain
 Verification for this follow-up: six Markdown files reviewed, 54 local links and code-fence balance checked, and `git diff --check` passed. Codex self-review only; no Unity compile or gameplay test was needed for these documentation changes.
 
 Git delivery for this follow-up uses the commit subject `Document desktop and laptop handoff` on `Codex`. Verify publication against a freshly fetched `origin/Codex` when resuming. Updating GitHub makes the docs available to the laptop; the laptop's fetch and working-tree status remain unverified here.
+
+## Laptop startup and connection follow-up (2026-09-15)
+
+- Verified this checkout resolves to `D:\Zelda`, with `C:\Zelda` as a junction to it. Fetched `origin/Codex`; both branches were at `4d8ab4a` (`Document desktop and laptop handoff`), zero commits ahead/behind and a clean working tree.
+- Read the startup docs, this handoff, and tracker before connecting Unity. Zerenn requested the new Unity CLI/Pipeline MCP connection for Zelda on this machine.
+- Added the user-local Codex registration `unity_zelda` with `unity.exe mcp --project-path D:\Zelda`. Preserved the existing `unity` registration targeting `D:\UnderwhelmingSteve`; CLI and Pipeline were already installed.
+- Verified a project-pinned CLI status request and a fresh MCP handshake, discovery of 151 tools, and MCP `editor_status`. Zelda returned `C:\Zelda`, Unity `6000.3.9f1`, `ready`, compilation finished, and Play mode stopped. The junction accounts for the path difference. Sandboxed discovery missed the live editors; the same check outside the sandbox succeeded.
+- Updated Project Setup and Unity MCP Rules with the laptop evidence. These follow-up documentation changes are local and uncommitted. User-local MCP configuration is outside Git. The existing task's tool catalog had not loaded the new registration; the pinned CLI route works now.
+- Z-009 scene recovery and Z-004 scene-write policy reconciliation remain open. This follow-up did not edit or save the scene, change packages, or test gameplay.
+
+## Camera startup recovery follow-up (2026-09-15)
+
+**Scope:** Zerenn requested fixing the Unity game camera because it would not start. Base revision `4d8ab4abcbd103b5c7b10b8d20a8e265bc9ee0b9`, branch `Codex`, actual checkout `D:\Zelda` through the `C:\Zelda` junction. Pre-existing local documentation edits in this handoff, Unity-MCP-Rules, and Zerenn-Project-Setup were preserved.
+
+**Cause and decision:** Unity's console confirmed merge conflicts in Game.unity, and the loaded scene had zero roots. Both blanket conflict-side selections left missing references. Zerenn explicitly approved returning Game.unity to the checked prior `e2e2322` scene, retaining the current conflicted file, and using Pipeline for this specific recovery/reload/test exception. [Decision](../Zerenn-Decisions.md), [detailed evidence](../Recon/S05-Z009-Game-Scene-Conflicts.md).
+
+**Changes:** Game.unity now exactly matches `e2e2322`. Recovery notes, decisions, bug history, and tracker were updated. No C# or package changes were made. The original conflicted scene remains in Git at `b91e1b8:Assets/Scenes/Game.unity`; a local byte-for-byte backup, candidate, static validation results, and camera screenshot are under `Temp/Z009-Recovery-20260915`. Temp is not transferred by Git and may be cleared by Unity.
+
+**Verified:** Candidate has 1,015 unique serialized objects, no missing local references or referenced asset GUIDs, and no detected parent/child mismatch. Unity reloads 27 roots; live edit-mode camera inspection confirms enabled, MainCamera tag, orthographic size 5, position `(0,0,-10)`, and RoomManager camera/player wiring. Entered Play mode; inspected the captured image and confirmed the room renders. Current Unity console errors were zero. Stopped Play mode; editor is ready, compilation finished, Game loaded clean with 27 roots.
+
+**Limits and outstanding work:** A runtime `eval` timed out; its field values and intended pause were not verified. Independent status, screenshot, and console calls supplied the successful camera evidence. One missing-script warning from `BoomShroom.Explode()` is Z-010. Z-009 is complete; the historical zoom report Z-001 is still unverified, and recovery of newer conflicted layout edits is deferred as Z-011. The task-specific Pipeline approval does not rewrite the general policy tracked by Z-004. No full gameplay test or independent audit ran.
+
+**Final file checks:** Restored scene bytes exactly match the approved `e2e2322` source and contain no merge markers. Documentation fence checks and 30 local links passed. Full `git diff --check` flags one inherited trailing space on the restored scene's empty `m_Name: ` field; retained the exact approved source rather than changing Unity serialization for formatting. This is a whitespace finding, not a runtime test failure.
+
+**Delivery:** Local changes only; no commit or push requested or performed. Preserve the pre-existing documentation edits when preparing later Git delivery.
