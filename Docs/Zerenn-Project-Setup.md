@@ -24,8 +24,9 @@ If you're sitting down at a fresh machine and want to clone, build, and run Zere
 - **Scripts:** `C:\Zelda\Assets\Scripts\`
 - **Enemies subfolder:** `C:\Zelda\Assets\Scripts\Enemies\`
 - **Docs:** `C:\Zelda\Docs\`
+- **Current Codex environment:** native Windows Codex desktop app, PowerShell terminal, branch `Codex`. Start with [Start-Here.md](Start-Here.md).
 
-### WSL (Claude Code, Codex, Gemini, audit tools)
+### WSL (optional supporting CLI tools)
 - **Desktop project root:** `/mnt/c/Zelda/`
 - **Laptop project root:** `/mnt/d/Zelda/` (or `/mnt/c/Zelda/` via junction)
 - **Scripts:** `Assets/Scripts/` (relative, same on both)
@@ -68,7 +69,7 @@ If `ProjectSettings/` ever has merge conflicts (e.g., URP global settings), reso
 - **Host:** GitHub (private)
 - **Repo name:** `Zelda` (the directory name; the game's project name is "Legend of Zerenn")
 - **Owner:** `ZerennBlish`
-- **Branches:** `main` (production / stable) — feature branches as needed
+- **Branches:** `Codex` (Codex-led implementation assignment), `Dev`, and `main` (stable). Cross-branch merges require Zerenn's instruction.
 - **Tool:** GitHub Desktop preferred over CLI Git for visual diff/commit/push workflow
 - **gitignore:** Unity's official template from GitHub (covers `Library/`, `Temp/`, `obj/`, `Build*/`, `Logs/`, etc.)
 
@@ -82,10 +83,10 @@ git config core.autocrlf true
 
 ### Workflow Discipline
 
-1. **Pull before starting work** — sync to latest on whichever branch you're on
+1. **Inspect before syncing** - verify the project path, branch, local changes, and upstream; refresh remote information before claiming synchronization. Preserve local work.
 2. **Commit frequently** — small, focused commits with descriptive messages
 3. **Push before switching machines** — never leave uncommitted work on the desktop and try to continue on the laptop
-4. **Audit on a clean repo** — auditors should run on the latest committed state, not the working directory
+4. **Pin audit scope** - record the reviewed commit or exact working diff, including pre-existing changes. Auditors do not alter the snapshot.
 
 ### Backup Strategy (four locations)
 
@@ -101,18 +102,28 @@ git config core.autocrlf true
 | Role | Who | Tool |
 |------|-----|------|
 | Project Lead, Designer | Zerenn | Unity Editor |
-| Head Developer / Architect | Opus (Claude chat) | claude.ai |
-| Coder / Implementer | Claude Code | WSL terminal |
-| Auditor (primary) | Codex (ChatGPT) | WSL terminal, READ-ONLY |
-| Auditor (secondary) | Gemini | WSL terminal, READ-ONLY |
-| Auditor (tertiary) | Claude Code | WSL terminal, READ-ONLY for audit sessions |
+| Implementation lead on `Codex` | Codex | Codex desktop app, PowerShell, `unity_zelda` MCP |
+| Support implementation and audits | Claude Code | Assigned support task; read-only during audits |
+| Design / triage support | Opus | Claude.ai when requested |
+| Additional audit support | Gemini | Read-only when assigned |
 
 **Workflow rules:**
 - Auditors are READ-ONLY. They produce findings, never edit files.
-- One task per Claude Code prompt for surgical fixes; grouped prompts for related multi-file changes.
-- Effort levels: xhigh is the default. `/effort max` only for major architectural decisions or 2,000+ line file audits. **Never use `ULTRATHINK` or `THINK HARD` keywords** — documented bug downgrades reasoning at xhigh/max. Persistent `/effort` is the only correct lever.
-- Auditor findings route through Opus (triage) → Claude Code (implement). Never apply audit findings directly without triage.
+- One coherent objective per task; supporting handoffs identify the writer, scope, and verification.
+- Codex and Claude have equal implementation authority. Branch/task assignment selects the lead, and only one writer uses the shared checkout/editor at a time.
+- Findings route to Codex/Zerenn for evidence-based triage on this branch. Explicit audits stay read-only; fixes require an implementation assignment.
 - See `AI-Audit-Workflow.md` for the full workflow.
+
+### Current Codex Unity connection (Session 05, 2026-09-14)
+
+- Project engine: `6000.3.9f1`, from `ProjectSettings/ProjectVersion.txt`.
+- Unity CLI: `C:\Users\baldy\AppData\Local\Unity\bin\unity.exe`; checked version `1.0.0-beta.8`.
+- Project bridge: `com.unity.pipeline` version `0.7.0-exp.1` in the package manifest and lockfile.
+- Codex server: `unity_zelda`, launching `unity.exe mcp --project-path C:\Zelda`.
+- Local registration: `C:\Users\baldy\.codex\config.toml`; this machine-specific entry does not travel with the repository.
+- Direct MCP editor-status verification returned `projectPath: C:\Zelda`, `status: ready`, and `compiling: false`. This was a connection check, not a gameplay test.
+
+Use `unity_zelda` for this project. Read [Unity-MCP-Rules.md](Unity-MCP-Rules.md) for safe reads and the unresolved legacy scene-write policy. Configure and verify paths separately on another machine.
 
 ---
 
@@ -238,7 +249,7 @@ These are wrapped in `#if UNITY_EDITOR` and have no effect in shipped builds.
 - **Desktop (primary):** Ryzen 5 5600X, 32GB RAM, RTX 4070, Windows 11
 - **Laptop (secondary):** Intel i7-10750H, 24GB RAM, RTX 2060 6GB, Windows 11
 
-Both machines are capable of running the full toolchain simultaneously (Unity Editor, Claude Code in WSL, MCP bridge). Either machine can be active at any moment — `git pull` first after a machine switch.
+Either machine can be active. After a switch, verify the actual project path, branch, local changes, and upstream before synchronizing. The hardware specifications above are historical project notes, not a fresh inventory.
 
 ---
 
@@ -246,7 +257,9 @@ Both machines are capable of running the full toolchain simultaneously (Unity Ed
 
 If you're picking up this project months from now and something doesn't make sense:
 
-1. **Read `Zerenn-Bug-History.md` first** — it lists every audit finding and every documented "why we did it this way" hack
+Start with [Start-Here.md](Start-Here.md), the latest handoff, and the tracker. Then consult the references relevant to the task:
+
+1. **Read `Zerenn-Bug-History.md` for historical context** - it records earlier findings and fixes, not proof of current defect status
 2. **Then read `Zerenn-Decisions.md`** — every design and architectural call is in there with rationale
 3. **Then read `Zerenn-Architecture.md`** — for "what calls what"
 4. **Then read `Zerenn-Data-Models.md`** — for "what's saved where"

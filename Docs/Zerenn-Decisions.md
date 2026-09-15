@@ -263,3 +263,17 @@ These haven't been finalized yet. Marked here so they don't get lost:
 - **Beam pierce HashSet edge case** — verify the dedup doesn't break intentional pierce-and-return behavior (if any)
 - **Three-beam refactor** — base class deferred until after audit completes (see Bug-History deferred refactors)
 - **Room-based enemy disable** — off-screen rooms keep running AI; defer until performance becomes an issue at scale
+
+---
+
+## Codex Branch Workflow - Session 05, 2026-09-14
+
+**Decision by Zerenn:** Codex and Claude have equal implementation authority. Codex owns implementation, debugging, testing, and delivery on the `Codex` branch; Claude supports implementation when assigned and performs audits. Zerenn retains final say. Only one AI writes to the shared checkout/editor at a time.
+
+**Why:** Zerenn uses both tools as implementation partners. Codex's ability to implement no longer depends on Claude being unavailable or failing. Explicit audits remain read-only.
+
+**Documentation:** Adopt the organization of `C:\IdBidOnThat\Docs` for this game's local Codex workflow: operating guide, workflow, tracker, decisions, process error log, audit briefs, and session handoffs. Adapt the content for Zelda rather than copying another project's roles, history, hooks, or stack. [Start-Here.md](Start-Here.md) maps the set; [AGENTS.md](../AGENTS.md) owns authority and game invariants.
+
+**Unity connection:** Zerenn authorized installing Pipeline and adding a separate `unity_zelda` MCP connection. The connection is pinned to `C:\Zelda` and was verified with a read-only editor-status call. The legacy scene-write policy is retained pending the bounded review recorded as Z-004; this decision does not silently approve another write method.
+
+**Branch delivery:** This assignment stays on `Codex`. A task or close-out does not itself authorize merging into `Dev`/`main` or rewriting shared history.

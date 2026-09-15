@@ -2,8 +2,10 @@
 
 **Project-specific Claude Code instructions.** Lives at the root of the Zelda repo. Auto-loaded by CC at session start.
 
-For universal cross-project conventions and persona context, see `Docs\About-Me.md`.
-For Opus orchestration rules (prompt drafting, audit workflow, session close-out), see `Docs\Opus.md`.
+On the `Codex` branch, Codex leads implementation and Claude provides support and audits. Both tools have implementation authority; Zerenn assigns the writer. Audit assignments remain read-only. Coordinate before writing to the shared checkout or Unity editor.
+
+For current branch policy and invariants, read `AGENTS.md`. For the document map and workflow, read `Docs\Start-Here.md` and `Docs\Workflow.md`.
+For communication preferences, see `Docs\About-Me.md`. For Opus support guidance, see `Docs\Opus.md`.
 For locked design decisions, see `Docs\Zerenn-Decisions.md`.
 
 ---
@@ -16,14 +18,14 @@ For locked design decisions, see `Docs\Zerenn-Decisions.md`.
 - Package: com.baldguyandcompany.thelegendofzerenn
 - Publisher: Bald Guy & Company Games
 - Repo: `C:\Zelda` (desktop) / `D:\Zelda` (laptop). WSL: `/mnt/c/Zelda` (desktop) / `/mnt/d/Zelda` (laptop). Junction `C:\Zelda` → `D:\Zelda` on laptop keeps all paths working.
-- Unity MCP bridge (`com.unity.ai.assistant`) for editor operations and verification
-- Desktop Commander available for read-only repo inspection from Opus. Claude Code is the sole file editor.
+- Codex's `unity_zelda` MCP connection uses Unity CLI and `com.unity.pipeline`; the legacy `com.unity.ai.assistant` package is also present. See `Docs\Unity-MCP-Rules.md` for connection and write-policy boundaries.
+- Codex is the assigned writer on `Codex`; Claude may implement supporting work when Zerenn assigns it. Only one AI writes to the shared checkout/editor at a time.
 
 ---
 
 ## Commands
 
-Unity MCP compile check is the primary verification. No tsc, no jest, no lockfile.
+Unity compilation is the primary code verification. JavaScript checks such as tsc and jest do not apply. Unity package resolution is recorded in `Packages/packages-lock.json`.
 
 ```
 Unity MCP compile check    # Must pass after every code change — 0 errors

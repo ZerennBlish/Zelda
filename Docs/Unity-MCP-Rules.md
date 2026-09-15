@@ -1,6 +1,17 @@
 # Unity MCP Working Rules
 
-These rules apply when using Unity MCP via Claude Code or any other MCP client. They were validated through direct testing against Unity 6.3 LTS — failures here have hung the editor and required force-close.
+These rules apply when using Unity MCP for Zelda. The original safety observations below came from the legacy Unity AI Assistant bridge. Do not assume another bridge uses the same tool names or serialization behavior.
+
+## Current connection - Codex app
+
+- Use `unity_zelda`, pinned to `C:\Zelda`, through Unity CLI and `com.unity.pipeline`.
+- Read `editor_status` and confirm the returned project path before editor work. The separate `unity` server can point at another project.
+- Session 05 verified direct MCP status: editor ready, compilation finished, project `C:\Zelda`. No scene write was tested.
+- Pipeline exposes `eval` and purpose-built editor commands. The current AGENTS.md scene-write rule still requires the legacy name `Unity_RunCommand`. Reconcile that policy before substituting a write route; see tracker Z-004 in [Tracked-Items.md](Tracked-Items.md).
+- Never use `Unity_ManageGameObject` or request full Unity object-graph serialization. Keep reads focused and return primitive values or component names.
+- Explicit audits do not change editor state. For implementation verification, discover the connected bridge's supported compilation and diagnostic commands before using them.
+
+The sections below retain the legacy bridge's observations and restrictions. Endpoint and billing statements are historical reports, not current service checks; do not edit the hosts file or change package versions based only on these notes.
 
 ---
 

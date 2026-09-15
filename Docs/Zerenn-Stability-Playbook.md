@@ -2,6 +2,8 @@
 
 **Purpose:** Capture the rules that prevent specific failure modes in Legend of Zerenn development. Forked from `Brick-Headed-Stability-Playbook.md` (which forked from DFW's playbook) and customized for this project's architecture. Each rule exists because something went wrong once and the rule was the fix.
 
+**Current workflow:** [AGENTS.md](../AGENTS.md), [Codex.md](Codex.md), and [Workflow.md](Workflow.md) govern the Codex-led branch. Dated counts, audit results, cross-project comparisons, and remaining-feature claims below are historical notes, not a new codebase audit. Current open work lives in [Tracked-Items.md](Tracked-Items.md).
+
 ---
 
 ## The Real Reason This Works
@@ -14,25 +16,25 @@ The rules fall into five categories: **role separation, verification, documentat
 
 ## 1. Role Separation
 
-Only Claude Code edits files. Everyone else is read-only.
+Codex leads implementation on `Codex`, with Claude supporting implementation and audits. Both have implementation authority; Zerenn assigns the writer. Explicit audits remain read-only.
 
 ### Why this matters
 
-Multi-AI workflows fail when two AIs both believe they have write authority. They produce conflicting edits, overwrite each other's work, and create merge hell. By giving exactly one AI write access, the others become specialists at what they're good at without competing for the same job.
+Conflicting writes can overwrite work or leave the live editor out of sync. Keep one assigned writer on the shared checkout/editor at a time, and hand off ownership explicitly when support implementation is needed.
 
 ### The roles in Zerenn
 
 | Role | Who | Access |
 |------|-----|--------|
 | Project Lead | Zerenn | Final say |
-| Architect / planner | Opus (Claude.ai chat) | Read-only via Desktop Commander |
-| Implementation | Claude Code | Sole writer; plus Unity MCP for editor operations |
-| Primary auditor | Codex (ChatGPT) | Read-only |
+| Implementation lead on `Codex` | Codex | Assigned writer, scoped Unity operations |
+| Support implementation / audits | Claude Code | Writes when assigned; read-only during audits |
+| Design / triage support | Opus | Support when requested |
 | Secondary auditor | Gemini | Read-only |
 
 ### Unity MCP bridge — read AND write
 
-The Unity MCP bridge (`com.unity.ai.assistant`) extends Claude Code's reach into the live Unity Editor: scene hierarchy, components, Inspector values, layers, tags, GameObjects, and scene management. Unlike Brick Headed (which uses MCP read-only), Zerenn uses MCP for both inspection and editor operations.
+Codex's `unity_zelda` connection uses Unity CLI and `com.unity.pipeline`. The legacy Unity AI Assistant bridge is also documented in this project. Tool names and verified behavior differ; read [Unity-MCP-Rules.md](Unity-MCP-Rules.md) before operations and resolve tracker Z-004 before substituting a scene-write route.
 
 **What MCP is used for:**
 - **Verification:** Read Inspector values before/after changes. Confirm GameObjects exist. Check console for errors. Compile check via `CompilationPipeline.RequestScriptCompilation`.
@@ -44,17 +46,17 @@ The Unity MCP bridge (`com.unity.ai.assistant`) extends Claude Code's reach into
 - Bypassing the edit-compile-test cycle for script logic (script changes still go through file writes)
 - Modifying things without verification afterward
 
-The bridge requires manual Accept in Project Settings → AI → Unity MCP Server on first connection each fresh session. If MCP commands fail with "no connection," that's the first thing to check.
+The legacy bridge required a manual Accept step in Unity's AI settings. For the current Pipeline connection, begin with its editor status and returned project path; do not assume a legacy setup step diagnoses a different bridge.
 
 ---
 
 ## 2. Verification
 
-Every Claude Code prompt must include a verification step. Required.
+Every implementation task must include verification appropriate to the changed behavior.
 
 ### What verification looks like in Zerenn
 
-- **Unity MCP compile check.** `Unity_RunCommand` running `CompilationPipeline.RequestScriptCompilation` with `CleanBuildCache` flag. Confirm 0 errors.
+- **Unity compilation.** Use the connected bridge's supported compilation command, wait for completion, and inspect diagnostics. Report errors and relevant warnings; do not force a clean cache for every small change.
 - **Grep counts.** "After this change, `grep -c 'IsActive' /mnt/c/Zelda/Assets/Scripts/ShopUI.cs` should return exactly 4."
 - **Inspector verification.** Use Unity MCP to read a SerializeField's runtime value and confirm it matches expected. Flags Inspector-override mismatches before they bite.
 - **Expected output.** "After the edit, the file should contain exactly one method named Y."
@@ -107,24 +109,22 @@ Both rules together: prompts reference files via `@path` and locations within fi
 
 ---
 
-## 4. Plan Mode for Multi-File Features
+## 4. Plan Complex Work Before Editing
 
-For features touching 5+ files or spanning 2+ sessions, use Plan Mode to separate exploration from implementation.
+For unfamiliar or connected systems, establish the call paths, intended behavior, and verification before editing. A file count alone does not require another user approval.
 
 ### The pattern
 
-Plan Mode is a Claude Code mode where it reads files and answers questions without making changes. The recommended workflow has four phases:
+1. **Explore:** read the relevant files and direct dependencies.
+2. **Plan:** identify behavior, affected state, and checks; resolve missing game-design decisions with Zerenn.
+3. **Implement:** execute the authorized scope and verify the result.
+4. **Deliver:** follow the requested Git delivery and [Close-Out.md](Close-Out.md).
 
-1. **Explore.** Plan Mode. "Read @Assets/Scripts/PlayerController.cs and @Assets/Scripts/PlayerHealth.cs and @Assets/Scripts/SaveManager.cs. Understand how the save system flows."
-2. **Plan.** Still Plan Mode. "I want to add a dungeon key/lock system. What files need to change? What's the data flow? Create a written plan."
-3. **Implement.** Switch to Normal Mode. Execute the plan, verifying against it.
-4. **Commit.** Descriptive message, push.
-
-Plan Mode adds overhead. For tasks where the scope is clear and the fix is small (typo, log line, variable rename), skip it. **Plan Mode pays off when the change touches multiple files, when the approach is uncertain, or when the code is unfamiliar territory.**
+Use an explicit planning mode when requested or useful. Do not import Claude-specific UI commands into Codex or treat an ordinary implementation task as permanently read-only.
 
 ### Why this matters
 
-Without Plan Mode for big features, Claude Code may produce a plausible implementation that solves the wrong problem — or solves the right problem in a way that conflicts with existing patterns. Plan Mode lets Zerenn review the approach before any code lands. Cheaper to fix a plan than to revert a half-done implementation.
+Up-front source inspection and clear behavior prevent a plausible implementation from solving the wrong problem. Ask Zerenn about unresolved design choices; make routine implementation decisions within the assignment.
 
 ### Zerenn-specific application
 
@@ -179,7 +179,7 @@ When a bug appears, ask "why does this happen?" not "how do I make it stop?" Sup
 
 Rules that keep the project buildable and the repo clean.
 
-1. **Pull before starting work.** Sync to latest before any edits.
+1. **Inspect before synchronization.** Confirm branch, local changes, and upstream; preserve existing work and use fresh remote information for remote-state claims.
 2. **Push before switching machines.** Never leave work only on one machine.
 3. **Commit frequently.** Small, focused commits with descriptive messages.
 4. **`git config core.autocrlf true` on every Windows machine.** Kills CRLF warnings.
@@ -198,7 +198,7 @@ The rule: when changing a SerializeField default, change the code AND verify (or
 
 ## 8. The Cascade Rule
 
-If a session cascades — each fix creates new fixes — **revert immediately**. Don't attempt one more fix.
+If fixes start cascading into unrelated systems, stop expanding scope and report the boundary. Discuss a bounded recovery; do not discard user work or run destructive recovery without explicit confirmation.
 
 ### Why this is hard to follow
 
@@ -214,13 +214,13 @@ The rule: once a session starts cascading, every subsequent fix has a higher cha
 
 ## 9. PowerShell / WSL Separation
 
-Zerenn's daily driver is PowerShell. WSL exists for Claude Code only. They never cross.
+Codex uses native Windows PowerShell here. Supporting tools may run in WSL. The important boundary is coordinated access to the same checkout/editor.
 
 ### The specific rules
 
-- **PowerShell:** Unity Editor, git, project knowledge sync (Set-Clipboard / Copy-Item)
-- **WSL:** Claude Code only
-- Never run git in PowerShell while Claude Code works in WSL on the same repo
+- **PowerShell:** Codex terminal work, Unity CLI, and scoped Git operations
+- **WSL:** supporting CLI tools when assigned
+- Coordinate before any tool changes Git state while another writer is active on the same repo
 - Never run Unity from WSL
 - No `&&` chaining in PowerShell — one command per block
 
@@ -281,10 +281,10 @@ When Zerenn pushes back on an audit finding, he's usually right. Verify before d
 
 ---
 
-## Current Gaps
+## Historical Gap Notes
 
 1. **MCP write operations are new.** First session with editor write access. Need to establish verification patterns for MCP-created GameObjects (did the component attach? Is the field wired?).
-2. **No formal session numbering yet.** Brick Headed and DFW have session handoff docs in `Docs/Sessions/`. Zerenn should adopt the same pattern.
+2. **Session continuity:** numbered handoffs are established in `Docs/Sessions/`; the current workflow adds a central tracker and startup index. Earlier session-numbering concerns are resolved.
 3. **PlayerController is 656 lines.** Deferred split from audit. Works fine but is the largest single file and hardest to navigate for Claude Code.
 4. **No boss encounters or dungeon system.** These are the next major features and will be the first real test of Plan Mode in this project.
 5. **No audio.** Entire audio layer is unbuilt.
@@ -297,4 +297,4 @@ When Zerenn pushes back on an audit finding, he's usually right. Verify before d
 
 Zerenn inherits DFW's stability foundation via Brick Headed. The Zerenn-specific extensions (MCP read+write, standardized input guards, six-batch audit cycle, seven-doc reference system) are additions, not replacements. Don't lose any rule. Don't bypass for "just this one quick fix."
 
-DFW is the canonical reference. When a new failure mode appears in any project, capture the rule in DFW's playbook first, then port to Brick Headed and Zerenn.
+Record Zelda process lessons in [Error-Log.md](Error-Log.md) and game rules in their designated Zelda documents. Cross-project propagation is a separate task when requested; another project's playbook does not override this branch's instructions.
