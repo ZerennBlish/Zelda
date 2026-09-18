@@ -12,6 +12,7 @@ public class RoomManager : MonoBehaviour
 
     private Vector2 currentRoom = Vector2.zero;
     private bool isTransitioning = false;
+    private int transitionFrame = -1;
 
     void Awake()
     {
@@ -39,7 +40,10 @@ public class RoomManager : MonoBehaviour
 
             Vector3 camPos = new Vector3(roomX * roomWidth, roomY * roomHeight, mainCamera.position.z);
             mainCamera.position = camPos;
-            player.position = new Vector3(roomX * roomWidth, roomY * roomHeight, 0);
+            Vector2 resumeOffset = worldMap != null
+                ? worldMap.GetResumeSpawnOffset(new Vector2Int(roomX, roomY))
+                : Vector2.zero;
+            PlacePlayer(new Vector3(roomX * roomWidth, roomY * roomHeight, 0) + (Vector3)resumeOffset);
         }
 
         if (RoomTracker.Instance != null)
@@ -54,8 +58,8 @@ public class RoomManager : MonoBehaviour
         if (isTransitioning) return;
         Vector2 target = currentRoom + direction;
         Vector2 spawnOffset = new Vector2(
-            -direction.x * (roomWidth / 2f - 1f),
-            -direction.y * (roomHeight / 2f - 1f)
+            -direction.x * (roomWidth / 2f - 1.5f),
+            -direction.y * (roomHeight / 2f - 1.5f)
         );
         EnterRoom(target, spawnOffset);
     }
@@ -68,6 +72,9 @@ public class RoomManager : MonoBehaviour
 
     private void EnterRoom(Vector2 newRoom, Vector2 spawnOffset)
     {
+        // Multiple collider callbacks can arrive during the same physics step.
+        if (isTransitioning || transitionFrame == Time.frameCount) return;
+
         Vector2Int key = new Vector2Int(Mathf.RoundToInt(newRoom.x), Mathf.RoundToInt(newRoom.y));
         if (worldMap == null || !worldMap.Contains(key))
         {
@@ -76,6 +83,7 @@ public class RoomManager : MonoBehaviour
         }
 
         isTransitioning = true;
+        transitionFrame = Time.frameCount;
 
         DestroyRoomLocalProjectiles();
 
@@ -93,13 +101,24 @@ public class RoomManager : MonoBehaviour
             currentRoom.y * roomHeight,
             0
         );
-        player.position = roomCenter + (Vector3)spawnOffset;
+        PlacePlayer(roomCenter + (Vector3)spawnOffset);
 
         SaveGame();
         if (RoomTracker.Instance != null) RoomTracker.Instance.MarkVisited(currentRoom);
         if (MinimapUI.Instance != null) MinimapUI.Instance.OnRoomChanged();
 
         isTransitioning = false;
+    }
+
+    private void PlacePlayer(Vector3 position)
+    {
+        player.position = position;
+        Rigidbody2D playerBody = player.GetComponent<Rigidbody2D>();
+        if (playerBody != null)
+        {
+            playerBody.position = position;
+            playerBody.linearVelocity = Vector2.zero;
+        }
     }
 
     void SaveGame()

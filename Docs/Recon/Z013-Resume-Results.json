@@ -1,0 +1,323 @@
+{
+  "state": "passed",
+  "step": "Resume and containment checks complete",
+  "checks": 79,
+  "results": [
+    {
+      "check": "Resume room (-1, -1)",
+      "pass": true
+    },
+    {
+      "check": "Resume position (-1, -1)",
+      "pass": true
+    },
+    {
+      "check": "Resume clear of solids (-1, -1)",
+      "pass": true
+    },
+    {
+      "check": "Resume camera (-1, -1)",
+      "pass": true
+    },
+    {
+      "check": "No enemy respawn after reload (-1, -1)",
+      "pass": true
+    },
+    {
+      "check": "Exits retained after reload (-1, -1)",
+      "pass": true
+    },
+    {
+      "check": "Resume room (0, -1)",
+      "pass": true
+    },
+    {
+      "check": "Resume position (0, -1)",
+      "pass": true
+    },
+    {
+      "check": "Resume clear of solids (0, -1)",
+      "pass": true
+    },
+    {
+      "check": "Resume camera (0, -1)",
+      "pass": true
+    },
+    {
+      "check": "No enemy respawn after reload (0, -1)",
+      "pass": true
+    },
+    {
+      "check": "Exits retained after reload (0, -1)",
+      "pass": true
+    },
+    {
+      "check": "Resume room (1, -1)",
+      "pass": true
+    },
+    {
+      "check": "Resume position (1, -1)",
+      "pass": true
+    },
+    {
+      "check": "Resume clear of solids (1, -1)",
+      "pass": true
+    },
+    {
+      "check": "Resume camera (1, -1)",
+      "pass": true
+    },
+    {
+      "check": "No enemy respawn after reload (1, -1)",
+      "pass": true
+    },
+    {
+      "check": "Exits retained after reload (1, -1)",
+      "pass": true
+    },
+    {
+      "check": "Resume room (-1, 0)",
+      "pass": true
+    },
+    {
+      "check": "Resume position (-1, 0)",
+      "pass": true
+    },
+    {
+      "check": "Resume clear of solids (-1, 0)",
+      "pass": true
+    },
+    {
+      "check": "Resume camera (-1, 0)",
+      "pass": true
+    },
+    {
+      "check": "No enemy respawn after reload (-1, 0)",
+      "pass": true
+    },
+    {
+      "check": "Exits retained after reload (-1, 0)",
+      "pass": true
+    },
+    {
+      "check": "Resume room (0, 0)",
+      "pass": true
+    },
+    {
+      "check": "Resume position (0, 0)",
+      "pass": true
+    },
+    {
+      "check": "Resume clear of solids (0, 0)",
+      "pass": true
+    },
+    {
+      "check": "Resume camera (0, 0)",
+      "pass": true
+    },
+    {
+      "check": "No enemy respawn after reload (0, 0)",
+      "pass": true
+    },
+    {
+      "check": "Exits retained after reload (0, 0)",
+      "pass": true
+    },
+    {
+      "check": "Resume room (1, 0)",
+      "pass": true
+    },
+    {
+      "check": "Resume position (1, 0)",
+      "pass": true
+    },
+    {
+      "check": "Resume clear of solids (1, 0)",
+      "pass": true
+    },
+    {
+      "check": "Resume camera (1, 0)",
+      "pass": true
+    },
+    {
+      "check": "No enemy respawn after reload (1, 0)",
+      "pass": true
+    },
+    {
+      "check": "Exits retained after reload (1, 0)",
+      "pass": true
+    },
+    {
+      "check": "Resume room (-1, 1)",
+      "pass": true
+    },
+    {
+      "check": "Resume position (-1, 1)",
+      "pass": true
+    },
+    {
+      "check": "Resume clear of solids (-1, 1)",
+      "pass": true
+    },
+    {
+      "check": "Resume camera (-1, 1)",
+      "pass": true
+    },
+    {
+      "check": "No enemy respawn after reload (-1, 1)",
+      "pass": true
+    },
+    {
+      "check": "Exits retained after reload (-1, 1)",
+      "pass": true
+    },
+    {
+      "check": "Resume room (0, 1)",
+      "pass": true
+    },
+    {
+      "check": "Resume position (0, 1)",
+      "pass": true
+    },
+    {
+      "check": "Resume clear of solids (0, 1)",
+      "pass": true
+    },
+    {
+      "check": "Resume camera (0, 1)",
+      "pass": true
+    },
+    {
+      "check": "No enemy respawn after reload (0, 1)",
+      "pass": true
+    },
+    {
+      "check": "Exits retained after reload (0, 1)",
+      "pass": true
+    },
+    {
+      "check": "Resume room (1, 1)",
+      "pass": true
+    },
+    {
+      "check": "Resume position (1, 1)",
+      "pass": true
+    },
+    {
+      "check": "Resume clear of solids (1, 1)",
+      "pass": true
+    },
+    {
+      "check": "Resume camera (1, 1)",
+      "pass": true
+    },
+    {
+      "check": "No enemy respawn after reload (1, 1)",
+      "pass": true
+    },
+    {
+      "check": "Exits retained after reload (1, 1)",
+      "pass": true
+    },
+    {
+      "check": "Resume room (2, 0)",
+      "pass": true
+    },
+    {
+      "check": "Resume position (2, 0)",
+      "pass": true
+    },
+    {
+      "check": "Resume clear of solids (2, 0)",
+      "pass": true
+    },
+    {
+      "check": "Resume camera (2, 0)",
+      "pass": true
+    },
+    {
+      "check": "No enemy respawn after reload (2, 0)",
+      "pass": true
+    },
+    {
+      "check": "Exits retained after reload (2, 0)",
+      "pass": true
+    },
+    {
+      "check": "Resume room (0, 100)",
+      "pass": true
+    },
+    {
+      "check": "Resume position (0, 100)",
+      "pass": true
+    },
+    {
+      "check": "Resume clear of solids (0, 100)",
+      "pass": true
+    },
+    {
+      "check": "Resume camera (0, 100)",
+      "pass": true
+    },
+    {
+      "check": "No enemy respawn after reload (0, 100)",
+      "pass": true
+    },
+    {
+      "check": "Exits retained after reload (0, 100)",
+      "pass": true
+    },
+    {
+      "check": "Resume room (-200, 0)",
+      "pass": true
+    },
+    {
+      "check": "Resume position (-200, 0)",
+      "pass": true
+    },
+    {
+      "check": "Resume clear of solids (-200, 0)",
+      "pass": true
+    },
+    {
+      "check": "Resume camera (-200, 0)",
+      "pass": true
+    },
+    {
+      "check": "No enemy respawn after reload (-200, 0)",
+      "pass": true
+    },
+    {
+      "check": "Exits retained after reload (-200, 0)",
+      "pass": true
+    },
+    {
+      "check": "Movement contained at (0.00, 1.00) border",
+      "pass": true
+    },
+    {
+      "check": "Movement contained at (0.00, -1.00) border",
+      "pass": true
+    },
+    {
+      "check": "Movement contained at (-1.00, 0.00) border",
+      "pass": true
+    },
+    {
+      "check": "Movement contained at (1.00, 0.00) border",
+      "pass": true
+    },
+    {
+      "check": "Minimap retains all ten overworld rooms",
+      "pass": true
+    },
+    {
+      "check": "Shopkeeper retained after reloads",
+      "pass": true
+    },
+    {
+      "check": "Cave angel retained after reloads",
+      "pass": true
+    }
+  ]
+}

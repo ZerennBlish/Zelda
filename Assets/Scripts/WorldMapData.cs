@@ -10,6 +10,8 @@ public class WorldMapData : ScriptableObject
         public Vector2Int coord;
         public bool isSpecial;
         public string note;
+        [Tooltip("Safe position relative to the room center when resuming a save.")]
+        public Vector2 resumeSpawnOffset;
     }
 
     [SerializeField] private List<RoomEntry> rooms = new List<RoomEntry>();
@@ -44,5 +46,14 @@ public class WorldMapData : ScriptableObject
     {
         if (_specialSet == null) Rebuild();
         return _specialSet.Contains(coord);
+    }
+
+    public Vector2 GetResumeSpawnOffset(Vector2Int coord)
+    {
+        foreach (var room in rooms)
+        {
+            if (room.coord == coord) return room.resumeSpawnOffset;
+        }
+        return Vector2.zero;
     }
 }

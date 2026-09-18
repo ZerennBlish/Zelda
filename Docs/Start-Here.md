@@ -8,7 +8,7 @@ This documentation follows the organization of `C:\IdBidOnThat\Docs`, adapted fo
 
 1. Read [AGENTS.md](../AGENTS.md) for branch ownership, permissions, and game invariants.
 2. Read [About-Me.md](About-Me.md), [Codex.md](Codex.md), and [Workflow.md](Workflow.md).
-3. Read the most recent handoff in [Sessions](Sessions/) and [Tracked-Items.md](Tracked-Items.md). The current handoff is [Session 07](Sessions/Session-07-Handoff.md), covering Reedwater Hollow, the BoomShroom prefab fix, verification, and the stopped editor state for the next session. The implementation and handoff are still local and uncommitted.
+3. Read the most recent handoff in [Sessions](Sessions/) and [Tracked-Items.md](Tracked-Items.md). The current handoff is [Session 08](Sessions/Session-08-Handoff.md): enemy removal and connectivity are complete and verified across all 12 playable rooms. Unity is stopped with the saved Game scene clean. Session 07's work is committed in `9f82368`; Session 08 implementation and evidence are local and uncommitted.
 4. Read the technical references relevant to the requested task. Confirm live files and Unity state before relying on a historical description.
 
 If Zerenn has already specified the task, begin that task. A tracker is context, not permission to select a different objective.

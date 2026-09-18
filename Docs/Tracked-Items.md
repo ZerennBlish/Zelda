@@ -1,12 +1,12 @@
 # Zelda Tracked Items
 
-**Owner:** Codex on `Codex`. **Last reconciled:** Session 07 close-out, 2026-09-15.
+**Owner:** Codex on `Codex`. **Last reconciled:** Session 08 completion, 2026-09-15.
 
 This is the current open-work queue. The [roadmap](Zerenn-Roadmap.md) retains milestone plans; [decisions](Zerenn-Decisions.md) retain design rationale; handoffs link here instead of maintaining competing task lists.
 
 ## Next task
 
-Z-012 is complete: Reedwater Hollow at `(2,0)` is built, connected, saved, and tested, including the concealed entrance to the original cave. The subsequent BoomShroom explosion warning is fixed under Z-010. [Session 07](Sessions/Session-07-Handoff.md) records both results and the next-session context. Unity is stopped with the Game scene clean; changes are local and uncommitted. No further gameplay task is assigned. The historical zoom report remains Z-001.
+Z-013 is complete: all 42 placed enemies removed, all 12 playable rooms have at least two usable exits, the shop loop and cave returns work, and all 34 directed transitions passed Play-mode checks. No further task is assigned. [Session 08](Sessions/Session-08-Handoff.md) records the result and local uncommitted changes. Session 07's work is committed in `9f82368`; the desktop fetch matched origin/Codex. The historical zoom report remains Z-001.
 
 ## Status and maintenance
 
@@ -16,7 +16,7 @@ Z-012 is complete: Reedwater Hollow at `(2,0)` is built, connected, saved, and t
 - **Blocked:** name the specific missing decision or dependency.
 - **Deferred:** retained for later consideration, not an active assignment.
 
-Use stable `Z-NNN` IDs; do not renumber or reuse an ID. Record the source, next check, and any dependencies. New items enter a tier immediately. Record completion evidence in the handoff or commit before removing a finished item. Next unused ID: `Z-013`.
+Use stable `Z-NNN` IDs; do not renumber or reuse an ID. Record the source, next check, and any dependencies. New items enter a tier immediately. Record completion evidence in the handoff or commit before removing a finished item. Next unused ID: `Z-014`.
 
 ## Tier 1 - Correctness and prerequisites
 
@@ -47,6 +47,7 @@ Use stable `Z-NNN` IDs; do not renumber or reuse an ID. Record the source, next 
 - **Evidence:** The legacy policy requires `Unity_RunCommand`. The newly connected Pipeline tool catalog exposes `eval`, not that legacy tool name. Only read-only status calls were validated in Session 05.
 - **Task-specific exception:** On 2026-09-15 Zerenn explicitly approved Pipeline for restoring `e2e2322`, reloading, and testing the Game scene. Recovery succeeded with primitive-only output. This bounded approval does not rewrite the general scene-authoring policy.
 - **Room-build exception:** Zerenn separately approved Pipeline `eval`/`run_script` for Z-012 and its verification in Session 07. The room build completed through that route, with focused primitive-only results. The general policy remains unchanged for future tasks.
+- **Session 08 exception:** Zerenn approved Pipeline eval/run_script for Z-013 scene edits, saving, and Play-mode verification. Implementation and verification completed through that route. This closes the task-specific gate; the general future-task rule remains unchanged.
 - **Next check:** Review the Pipeline script-execution contract and agree the equivalent permitted route with Zerenn while preserving the prohibition on full-object serialization. Do not silently substitute a scene-write tool.
 - **Boundary:** This does not block source-code or documentation tasks.
 
@@ -82,6 +83,15 @@ Use stable `Z-NNN` IDs; do not renumber or reuse an ID. Record the source, next 
 - **Next check:** Revisit one question when related work is selected. The decision document retains the exact design context.
 
 ## Completed in the current follow-up
+
+### Z-013 - Enemy-free playable world and connected rooms
+
+- **Completed:** Session 08, 2026-09-15, following Zerenn's Pipeline approval.
+- **World:** Removed all 42 placed enemies and their two attached shields; preserved all 615 original non-enemy GameObjects, enemy scripts/prefabs, scenery, puzzles, NPCs, and recovery backups. No independent enemy spawner exists; no enemies return after scene reload.
+- **Connections:** Retained 26 paired ordinary routes; connected Room_0_1 north <-> shop south and shop north <-> Reedwater south; repaired both cave round trips. All 12 rooms have at least two distinct destinations. Cave entrances retain their puzzle gates; Reedwater also has two ungated exits.
+- **Arrivals:** 1.5-unit ordinary arrival inset, same-frame debounce, synchronized Rigidbody placement, safe shop/cave resume offsets, and room perimeter backstops.
+- **Evidence:** 320 traversal checks and 79 save/reload/containment checks passed, covering all 34 directed exits and all 12 rooms. Zero remaining enemies/missing scripts/runtime errors. Compilation passes with the two documented warnings in unchanged source. [Exit table and evidence](Recon/Z013-World-Connectivity.md).
+- **Delivery:** Saved Game scene, Play stopped; gameplay preferences and input settings restored. Local, uncommitted, not pushed. No independent audit or user feel review claimed. No unresolved Z-013 implementation work.
 
 ### Z-010 - BoomShroom explosion script reference repaired
 

@@ -70,6 +70,16 @@ Entries are Zelda-specific. Do not import another project's failures as if they 
 
 **Rule:** Reacquire a Unity component after changing its script reference. Verify game frames advance during an automated Play-mode check, and restore temporary editor/runtime settings afterward.
 
+## E-008 - A prefab arrival coordinate changed again after reload
+
+**Source:** Session 08, Z-013 verification, 2026-09-15.
+
+**Observed:** The new Reedwater cave arrival was clear during authoring, but after saving/reloading a prefab override retained X=5 while Y became 3.1. The first traversal run correctly failed the landing-collision check because this put the player in cave water.
+
+**Resolution:** Wrote the Vector2 with SerializedObject, explicitly recorded the prefab instance override, saved, and confirmed `(0,3.1)` after reloading. The complete 320-check traversal rerun and subsequent 79-check save/reload suite passed.
+
+**Rule:** Persist prefab property changes explicitly and inspect all edited destination fields after a saved-scene reload. An unsaved Inspector/physics check is not proof of the delivered scene. Keep the failed run separate from final passing evidence.
+
 ## Entry template
 
 Before adding an entry, distinguish a project failure from an unverified diagnosis. Keep credentials out of examples and command output.

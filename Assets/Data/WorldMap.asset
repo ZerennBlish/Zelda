@@ -16,36 +16,48 @@ MonoBehaviour:
   - coord: {x: 0, y: 0}
     isSpecial: 0
     note: Room_0_0
+    resumeSpawnOffset: {x: 0, y: 0}
   - coord: {x: 1, y: 0}
     isSpecial: 0
     note: Room_1_0
+    resumeSpawnOffset: {x: 0, y: 0}
   - coord: {x: -1, y: 0}
     isSpecial: 0
     note: Room_-1_0
+    resumeSpawnOffset: {x: 0, y: 0}
   - coord: {x: 0, y: 1}
     isSpecial: 0
     note: Room_0_1
+    resumeSpawnOffset: {x: 0, y: 0}
   - coord: {x: 0, y: -1}
     isSpecial: 0
     note: Room_0_-1
+    resumeSpawnOffset: {x: 0, y: 0}
   - coord: {x: 0, y: 100}
     isSpecial: 1
     note: BuildingInterior1
+    resumeSpawnOffset: {x: 2, y: -2}
   - coord: {x: -200, y: 0}
     isSpecial: 1
     note: Room_Secret_0_2 (cave)
+    resumeSpawnOffset: {x: 2, y: -2}
   - coord: {x: -1, y: -1}
     isSpecial: 0
     note: Room_-1_-1
+    resumeSpawnOffset: {x: 0, y: 0}
   - coord: {x: 1, y: -1}
     isSpecial: 0
     note: Room_1_-1
+    resumeSpawnOffset: {x: 0, y: 0}
   - coord: {x: -1, y: 1}
     isSpecial: 0
     note: Room_-1_1
+    resumeSpawnOffset: {x: 0, y: 0}
   - coord: {x: 1, y: 1}
     isSpecial: 0
     note: Room_1_1
+    resumeSpawnOffset: {x: 0, y: 0}
   - coord: {x: 2, y: 0}
     isSpecial: 0
     note: Room_2_0 - Reedwater Hollow
+    resumeSpawnOffset: {x: 0, y: 0}

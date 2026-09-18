@@ -149,14 +149,16 @@ Companion components on the Player GameObject:
 **Room transition flow**:
 
 1. Player triggers a RoomTransition collider (or BuildingEntrance, SecretTransition)
-2. Trigger calls `RoomManager.ChangeRoom(direction, spawnOffset)` or `TeleportToRoom(...)`
-3. RoomManager checks `isTransitioning` guard (prevents double-fire from multi-collider triggers)
+2. Trigger calls `RoomManager.ChangeRoom(direction)` or `TeleportToRoom(targetRoom, spawnOffset)`
+3. RoomManager validates the WorldMap destination and rejects reentrancy or a second transition in the same frame
 4. `DestroyRoomLocalProjectiles()` cleans up boomerang and grapple
-5. Camera + player move to new room
-6. `RoomTracker.MarkVisited(currentRoom)` called
-7. `MinimapUI.Instance.RefreshMap()` called
-8. `SaveAll()` called
+5. Camera moves to the room center; player Transform and Rigidbody move together, with velocity cleared. Ordinary exits land 1.5 units inside the opposite room edge.
+6. `SaveAll()` called through SaveGame
+7. `RoomTracker.MarkVisited(currentRoom)` called
+8. `MinimapUI.Instance.OnRoomChanged()` updates the map; special rooms keep the last ordinary-room highlight
 9. `isTransitioning` cleared
+
+On save resume, `WorldMapData.RoomEntry.resumeSpawnOffset` supplies a safe position relative to the room center. The shop and cave use `(2,-2)` to avoid furniture/fountain collisions; ordinary rooms use zero. Session 08 verified all 12 resume destinations and 34 directed exits. The Game scene currently has no placed enemies or independent spawners; enemy scripts/prefabs remain reusable. Existing room roots stay active, with perimeter backstops preventing movement past the camera's room without a transition. [World map and verification](Recon/Z013-World-Connectivity.md).
 
 ### NPC & Dialogue System
 

@@ -301,7 +301,12 @@ Not persisted; lives in singleton fields and component fields.
 ### RoomManager
 - `Vector2 currentRoom` — current room coordinate (saved via SaveAll)
 - `bool isTransitioning` — guard against double room transitions
+- `int transitionFrame` - rejects another transition during the same frame; not persisted
 - `float roomWidth, roomHeight` — 18x10 constants
+
+### WorldMapData room entries
+
+`coord`, `isSpecial`, and `note` describe registered destinations. `resumeSpawnOffset` is authored asset data, relative to the room center, used by RoomManager.Start when loading a saved room. Shop `(0,100)` and cave `(-200,0)` use `(2,-2)`; ordinary rooms use `(0,0)`. Existing RoomX/RoomY save keys are unchanged. Door transitions continue to use their own destination offsets.
 
 ### RoomTracker
 - `HashSet<Vector2Int> visitedRooms` — populated from `VisitedRooms` PlayerPrefs string on load

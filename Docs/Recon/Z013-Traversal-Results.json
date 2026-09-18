@@ -1,0 +1,1287 @@
+{
+  "state": "passed",
+  "step": "All traversal checks completed",
+  "checks": 320,
+  "results": [
+    {
+      "check": "Cracked-wall gate begins closed",
+      "pass": true
+    },
+    {
+      "check": "Bush gate begins solid",
+      "pass": true
+    },
+    {
+      "check": "Setup safe (2.00, 0.00)",
+      "pass": true
+    },
+    {
+      "check": "Uncut bush blocks cave entry",
+      "pass": true
+    },
+    {
+      "check": "Existing damage paths clear both cave gates",
+      "pass": true
+    },
+    {
+      "check": "34 directed exits inventoried",
+      "pass": true
+    },
+    {
+      "check": "Every exit enabled after clearing cave puzzles",
+      "pass": true
+    },
+    {
+      "check": "Every exit has a reciprocal destination",
+      "pass": true
+    },
+    {
+      "check": "All 12 rooms reachable from start",
+      "pass": true
+    },
+    {
+      "check": "BuildingInterior1 has at least two destinations",
+      "pass": true
+    },
+    {
+      "check": "BuildingInterior1 exits share a connected walkable area",
+      "pass": true
+    },
+    {
+      "check": "BuildingInterior1 perimeter contains the player",
+      "pass": true
+    },
+    {
+      "check": "Room_0_0 has at least two destinations",
+      "pass": true
+    },
+    {
+      "check": "Room_0_0 exits share a connected walkable area",
+      "pass": true
+    },
+    {
+      "check": "Room_0_0 perimeter contains the player",
+      "pass": true
+    },
+    {
+      "check": "Room_0_1 has at least two destinations",
+      "pass": true
+    },
+    {
+      "check": "Room_0_1 exits share a connected walkable area",
+      "pass": true
+    },
+    {
+      "check": "Room_0_1 perimeter contains the player",
+      "pass": true
+    },
+    {
+      "check": "Room_0_-1 has at least two destinations",
+      "pass": true
+    },
+    {
+      "check": "Room_0_-1 exits share a connected walkable area",
+      "pass": true
+    },
+    {
+      "check": "Room_0_-1 perimeter contains the player",
+      "pass": true
+    },
+    {
+      "check": "Room_1_0 has at least two destinations",
+      "pass": true
+    },
+    {
+      "check": "Room_1_0 exits share a connected walkable area",
+      "pass": true
+    },
+    {
+      "check": "Room_1_0 perimeter contains the player",
+      "pass": true
+    },
+    {
+      "check": "Room_-1_0 has at least two destinations",
+      "pass": true
+    },
+    {
+      "check": "Room_-1_0 exits share a connected walkable area",
+      "pass": true
+    },
+    {
+      "check": "Room_-1_0 perimeter contains the player",
+      "pass": true
+    },
+    {
+      "check": "Room_1_1 has at least two destinations",
+      "pass": true
+    },
+    {
+      "check": "Room_1_1 exits share a connected walkable area",
+      "pass": true
+    },
+    {
+      "check": "Room_1_1 perimeter contains the player",
+      "pass": true
+    },
+    {
+      "check": "Room_-1_1 has at least two destinations",
+      "pass": true
+    },
+    {
+      "check": "Room_-1_1 exits share a connected walkable area",
+      "pass": true
+    },
+    {
+      "check": "Room_-1_1 perimeter contains the player",
+      "pass": true
+    },
+    {
+      "check": "Room_1_-1 has at least two destinations",
+      "pass": true
+    },
+    {
+      "check": "Room_1_-1 exits share a connected walkable area",
+      "pass": true
+    },
+    {
+      "check": "Room_1_-1 perimeter contains the player",
+      "pass": true
+    },
+    {
+      "check": "Room_-1_-1 has at least two destinations",
+      "pass": true
+    },
+    {
+      "check": "Room_-1_-1 exits share a connected walkable area",
+      "pass": true
+    },
+    {
+      "check": "Room_-1_-1 perimeter contains the player",
+      "pass": true
+    },
+    {
+      "check": "Room_2_0 has at least two destinations",
+      "pass": true
+    },
+    {
+      "check": "Room_2_0 exits share a connected walkable area",
+      "pass": true
+    },
+    {
+      "check": "Room_2_0 perimeter contains the player",
+      "pass": true
+    },
+    {
+      "check": "Room_Secret_0_2 has at least two destinations",
+      "pass": true
+    },
+    {
+      "check": "Room_Secret_0_2 exits share a connected walkable area",
+      "pass": true
+    },
+    {
+      "check": "Room_Secret_0_2 perimeter contains the player",
+      "pass": true
+    },
+    {
+      "check": "Setup safe (0.00, 100.00)",
+      "pass": true
+    },
+    {
+      "check": "BuildingInterior1/North_To_Reedwater destination",
+      "pass": true
+    },
+    {
+      "check": "BuildingInterior1/North_To_Reedwater correct landing",
+      "pass": true
+    },
+    {
+      "check": "BuildingInterior1/North_To_Reedwater clear of solids and triggers at (36.00, -3.15)",
+      "pass": true
+    },
+    {
+      "check": "BuildingInterior1/North_To_Reedwater camera centered",
+      "pass": true
+    },
+    {
+      "check": "BuildingInterior1/North_To_Reedwater destination active",
+      "pass": true
+    },
+    {
+      "check": "BuildingInterior1/North_To_Reedwater no immediate bounce",
+      "pass": true
+    },
+    {
+      "check": "BuildingInterior1/North_To_Reedwater visited state updated",
+      "pass": true
+    },
+    {
+      "check": "Setup safe (0.00, 100.00)",
+      "pass": true
+    },
+    {
+      "check": "BuildingInterior1/TransitionPoint destination",
+      "pass": true
+    },
+    {
+      "check": "BuildingInterior1/TransitionPoint correct landing",
+      "pass": true
+    },
+    {
+      "check": "BuildingInterior1/TransitionPoint clear of solids and triggers at (0.00, 13.20)",
+      "pass": true
+    },
+    {
+      "check": "BuildingInterior1/TransitionPoint camera centered",
+      "pass": true
+    },
+    {
+      "check": "BuildingInterior1/TransitionPoint destination active",
+      "pass": true
+    },
+    {
+      "check": "BuildingInterior1/TransitionPoint no immediate bounce",
+      "pass": true
+    },
+    {
+      "check": "BuildingInterior1/TransitionPoint visited state updated",
+      "pass": true
+    },
+    {
+      "check": "Setup safe (0.00, 0.00)",
+      "pass": true
+    },
+    {
+      "check": "Room_0_0/Cave_Doorway_1_0 destination",
+      "pass": true
+    },
+    {
+      "check": "Room_0_0/Cave_Doorway_1_0 correct landing",
+      "pass": true
+    },
+    {
+      "check": "Room_0_0/Cave_Doorway_1_0 clear of solids and triggers at (-3600.00, -3.20)",
+      "pass": true
+    },
+    {
+      "check": "Room_0_0/Cave_Doorway_1_0 camera centered",
+      "pass": true
+    },
+    {
+      "check": "Room_0_0/Cave_Doorway_1_0 destination active",
+      "pass": true
+    },
+    {
+      "check": "Room_0_0/Cave_Doorway_1_0 no immediate bounce",
+      "pass": true
+    },
+    {
+      "check": "Room_0_0/Cave_Doorway_1_0 visited state updated",
+      "pass": true
+    },
+    {
+      "check": "Setup safe (0.00, 0.00)",
+      "pass": true
+    },
+    {
+      "check": "Room_0_0/TransitionDown destination",
+      "pass": true
+    },
+    {
+      "check": "Room_0_0/TransitionDown correct landing",
+      "pass": true
+    },
+    {
+      "check": "Room_0_0/TransitionDown clear of solids and triggers at (0.00, -6.50)",
+      "pass": true
+    },
+    {
+      "check": "Room_0_0/TransitionDown camera centered",
+      "pass": true
+    },
+    {
+      "check": "Room_0_0/TransitionDown destination active",
+      "pass": true
+    },
+    {
+      "check": "Room_0_0/TransitionDown no immediate bounce",
+      "pass": true
+    },
+    {
+      "check": "Room_0_0/TransitionDown visited state updated",
+      "pass": true
+    },
+    {
+      "check": "Setup safe (0.00, 0.00)",
+      "pass": true
+    },
+    {
+      "check": "Room_0_0/TransitionLeft destination",
+      "pass": true
+    },
+    {
+      "check": "Room_0_0/TransitionLeft correct landing",
+      "pass": true
+    },
+    {
+      "check": "Room_0_0/TransitionLeft clear of solids and triggers at (-10.50, 0.00)",
+      "pass": true
+    },
+    {
+      "check": "Room_0_0/TransitionLeft camera centered",
+      "pass": true
+    },
+    {
+      "check": "Room_0_0/TransitionLeft destination active",
+      "pass": true
+    },
+    {
+      "check": "Room_0_0/TransitionLeft no immediate bounce",
+      "pass": true
+    },
+    {
+      "check": "Room_0_0/TransitionLeft visited state updated",
+      "pass": true
+    },
+    {
+      "check": "Setup safe (0.00, 0.00)",
+      "pass": true
+    },
+    {
+      "check": "Room_0_0/TransitionRight destination",
+      "pass": true
+    },
+    {
+      "check": "Room_0_0/TransitionRight correct landing",
+      "pass": true
+    },
+    {
+      "check": "Room_0_0/TransitionRight clear of solids and triggers at (10.50, 0.00)",
+      "pass": true
+    },
+    {
+      "check": "Room_0_0/TransitionRight camera centered",
+      "pass": true
+    },
+    {
+      "check": "Room_0_0/TransitionRight destination active",
+      "pass": true
+    },
+    {
+      "check": "Room_0_0/TransitionRight no immediate bounce",
+      "pass": true
+    },
+    {
+      "check": "Room_0_0/TransitionRight visited state updated",
+      "pass": true
+    },
+    {
+      "check": "Setup safe (0.00, 0.00)",
+      "pass": true
+    },
+    {
+      "check": "Room_0_0/TransitionUp destination",
+      "pass": true
+    },
+    {
+      "check": "Room_0_0/TransitionUp correct landing",
+      "pass": true
+    },
+    {
+      "check": "Room_0_0/TransitionUp clear of solids and triggers at (0.00, 6.50)",
+      "pass": true
+    },
+    {
+      "check": "Room_0_0/TransitionUp camera centered",
+      "pass": true
+    },
+    {
+      "check": "Room_0_0/TransitionUp destination active",
+      "pass": true
+    },
+    {
+      "check": "Room_0_0/TransitionUp no immediate bounce",
+      "pass": true
+    },
+    {
+      "check": "Room_0_0/TransitionUp visited state updated",
+      "pass": true
+    },
+    {
+      "check": "Setup safe (0.00, 1.00)",
+      "pass": true
+    },
+    {
+      "check": "Room_0_1/North_To_Miners_Shop destination",
+      "pass": true
+    },
+    {
+      "check": "Room_0_1/North_To_Miners_Shop correct landing",
+      "pass": true
+    },
+    {
+      "check": "Room_0_1/North_To_Miners_Shop clear of solids and triggers at (0.00, 996.80)",
+      "pass": true
+    },
+    {
+      "check": "Room_0_1/North_To_Miners_Shop camera centered",
+      "pass": true
+    },
+    {
+      "check": "Room_0_1/North_To_Miners_Shop destination active",
+      "pass": true
+    },
+    {
+      "check": "Room_0_1/North_To_Miners_Shop no immediate bounce",
+      "pass": true
+    },
+    {
+      "check": "Room_0_1/North_To_Miners_Shop visited state updated",
+      "pass": true
+    },
+    {
+      "check": "Setup safe (0.00, 1.00)",
+      "pass": true
+    },
+    {
+      "check": "Room_0_1/TransitionDown destination",
+      "pass": true
+    },
+    {
+      "check": "Room_0_1/TransitionDown correct landing",
+      "pass": true
+    },
+    {
+      "check": "Room_0_1/TransitionDown clear of solids and triggers at (0.00, 3.50)",
+      "pass": true
+    },
+    {
+      "check": "Room_0_1/TransitionDown camera centered",
+      "pass": true
+    },
+    {
+      "check": "Room_0_1/TransitionDown destination active",
+      "pass": true
+    },
+    {
+      "check": "Room_0_1/TransitionDown no immediate bounce",
+      "pass": true
+    },
+    {
+      "check": "Room_0_1/TransitionDown visited state updated",
+      "pass": true
+    },
+    {
+      "check": "Setup safe (0.00, 1.00)",
+      "pass": true
+    },
+    {
+      "check": "Room_0_1/TransitionLeft destination",
+      "pass": true
+    },
+    {
+      "check": "Room_0_1/TransitionLeft correct landing",
+      "pass": true
+    },
+    {
+      "check": "Room_0_1/TransitionLeft clear of solids and triggers at (-10.50, 10.00)",
+      "pass": true
+    },
+    {
+      "check": "Room_0_1/TransitionLeft camera centered",
+      "pass": true
+    },
+    {
+      "check": "Room_0_1/TransitionLeft destination active",
+      "pass": true
+    },
+    {
+      "check": "Room_0_1/TransitionLeft no immediate bounce",
+      "pass": true
+    },
+    {
+      "check": "Room_0_1/TransitionLeft visited state updated",
+      "pass": true
+    },
+    {
+      "check": "Setup safe (0.00, -1.00)",
+      "pass": true
+    },
+    {
+      "check": "Room_0_-1/TransitionLeft destination",
+      "pass": true
+    },
+    {
+      "check": "Room_0_-1/TransitionLeft correct landing",
+      "pass": true
+    },
+    {
+      "check": "Room_0_-1/TransitionLeft clear of solids and triggers at (-10.50, -10.00)",
+      "pass": true
+    },
+    {
+      "check": "Room_0_-1/TransitionLeft camera centered",
+      "pass": true
+    },
+    {
+      "check": "Room_0_-1/TransitionLeft destination active",
+      "pass": true
+    },
+    {
+      "check": "Room_0_-1/TransitionLeft no immediate bounce",
+      "pass": true
+    },
+    {
+      "check": "Room_0_-1/TransitionLeft visited state updated",
+      "pass": true
+    },
+    {
+      "check": "Setup safe (0.00, 1.00)",
+      "pass": true
+    },
+    {
+      "check": "Room_0_1/TransitionRight destination",
+      "pass": true
+    },
+    {
+      "check": "Room_0_1/TransitionRight correct landing",
+      "pass": true
+    },
+    {
+      "check": "Room_0_1/TransitionRight clear of solids and triggers at (10.50, 10.00)",
+      "pass": true
+    },
+    {
+      "check": "Room_0_1/TransitionRight camera centered",
+      "pass": true
+    },
+    {
+      "check": "Room_0_1/TransitionRight destination active",
+      "pass": true
+    },
+    {
+      "check": "Room_0_1/TransitionRight no immediate bounce",
+      "pass": true
+    },
+    {
+      "check": "Room_0_1/TransitionRight visited state updated",
+      "pass": true
+    },
+    {
+      "check": "Setup safe (0.00, -1.00)",
+      "pass": true
+    },
+    {
+      "check": "Room_0_-1/TransitionRight destination",
+      "pass": true
+    },
+    {
+      "check": "Room_0_-1/TransitionRight correct landing",
+      "pass": true
+    },
+    {
+      "check": "Room_0_-1/TransitionRight clear of solids and triggers at (10.50, -10.00)",
+      "pass": true
+    },
+    {
+      "check": "Room_0_-1/TransitionRight camera centered",
+      "pass": true
+    },
+    {
+      "check": "Room_0_-1/TransitionRight destination active",
+      "pass": true
+    },
+    {
+      "check": "Room_0_-1/TransitionRight no immediate bounce",
+      "pass": true
+    },
+    {
+      "check": "Room_0_-1/TransitionRight visited state updated",
+      "pass": true
+    },
+    {
+      "check": "Setup safe (0.00, -1.00)",
+      "pass": true
+    },
+    {
+      "check": "Room_0_-1/TransitionUp destination",
+      "pass": true
+    },
+    {
+      "check": "Room_0_-1/TransitionUp correct landing",
+      "pass": true
+    },
+    {
+      "check": "Room_0_-1/TransitionUp clear of solids and triggers at (0.00, -3.50)",
+      "pass": true
+    },
+    {
+      "check": "Room_0_-1/TransitionUp camera centered",
+      "pass": true
+    },
+    {
+      "check": "Room_0_-1/TransitionUp destination active",
+      "pass": true
+    },
+    {
+      "check": "Room_0_-1/TransitionUp no immediate bounce",
+      "pass": true
+    },
+    {
+      "check": "Room_0_-1/TransitionUp visited state updated",
+      "pass": true
+    },
+    {
+      "check": "Setup safe (1.00, 0.00)",
+      "pass": true
+    },
+    {
+      "check": "Room_1_0/TransitionDown destination",
+      "pass": true
+    },
+    {
+      "check": "Room_1_0/TransitionDown correct landing",
+      "pass": true
+    },
+    {
+      "check": "Room_1_0/TransitionDown clear of solids and triggers at (18.00, -6.50)",
+      "pass": true
+    },
+    {
+      "check": "Room_1_0/TransitionDown camera centered",
+      "pass": true
+    },
+    {
+      "check": "Room_1_0/TransitionDown destination active",
+      "pass": true
+    },
+    {
+      "check": "Room_1_0/TransitionDown no immediate bounce",
+      "pass": true
+    },
+    {
+      "check": "Room_1_0/TransitionDown visited state updated",
+      "pass": true
+    },
+    {
+      "check": "Setup safe (-1.00, 0.00)",
+      "pass": true
+    },
+    {
+      "check": "Room_-1_0/TransitionDown destination",
+      "pass": true
+    },
+    {
+      "check": "Room_-1_0/TransitionDown correct landing",
+      "pass": true
+    },
+    {
+      "check": "Room_-1_0/TransitionDown clear of solids and triggers at (-18.00, -6.50)",
+      "pass": true
+    },
+    {
+      "check": "Room_-1_0/TransitionDown camera centered",
+      "pass": true
+    },
+    {
+      "check": "Room_-1_0/TransitionDown destination active",
+      "pass": true
+    },
+    {
+      "check": "Room_-1_0/TransitionDown no immediate bounce",
+      "pass": true
+    },
+    {
+      "check": "Room_-1_0/TransitionDown visited state updated",
+      "pass": true
+    },
+    {
+      "check": "Setup safe (1.00, 0.00)",
+      "pass": true
+    },
+    {
+      "check": "Room_1_0/TransitionLeft destination",
+      "pass": true
+    },
+    {
+      "check": "Room_1_0/TransitionLeft correct landing",
+      "pass": true
+    },
+    {
+      "check": "Room_1_0/TransitionLeft clear of solids and triggers at (7.50, 0.00)",
+      "pass": true
+    },
+    {
+      "check": "Room_1_0/TransitionLeft camera centered",
+      "pass": true
+    },
+    {
+      "check": "Room_1_0/TransitionLeft destination active",
+      "pass": true
+    },
+    {
+      "check": "Room_1_0/TransitionLeft no immediate bounce",
+      "pass": true
+    },
+    {
+      "check": "Room_1_0/TransitionLeft visited state updated",
+      "pass": true
+    },
+    {
+      "check": "Setup safe (-1.00, 0.00)",
+      "pass": true
+    },
+    {
+      "check": "Room_-1_0/TransitionRight destination",
+      "pass": true
+    },
+    {
+      "check": "Room_-1_0/TransitionRight correct landing",
+      "pass": true
+    },
+    {
+      "check": "Room_-1_0/TransitionRight clear of solids and triggers at (-7.50, 0.00)",
+      "pass": true
+    },
+    {
+      "check": "Room_-1_0/TransitionRight camera centered",
+      "pass": true
+    },
+    {
+      "check": "Room_-1_0/TransitionRight destination active",
+      "pass": true
+    },
+    {
+      "check": "Room_-1_0/TransitionRight no immediate bounce",
+      "pass": true
+    },
+    {
+      "check": "Room_-1_0/TransitionRight visited state updated",
+      "pass": true
+    },
+    {
+      "check": "Setup safe (1.00, 0.00)",
+      "pass": true
+    },
+    {
+      "check": "Room_1_0/TransitionRight_To_Reedwater destination",
+      "pass": true
+    },
+    {
+      "check": "Room_1_0/TransitionRight_To_Reedwater correct landing",
+      "pass": true
+    },
+    {
+      "check": "Room_1_0/TransitionRight_To_Reedwater clear of solids and triggers at (28.50, 0.00)",
+      "pass": true
+    },
+    {
+      "check": "Room_1_0/TransitionRight_To_Reedwater camera centered",
+      "pass": true
+    },
+    {
+      "check": "Room_1_0/TransitionRight_To_Reedwater destination active",
+      "pass": true
+    },
+    {
+      "check": "Room_1_0/TransitionRight_To_Reedwater no immediate bounce",
+      "pass": true
+    },
+    {
+      "check": "Room_1_0/TransitionRight_To_Reedwater visited state updated",
+      "pass": true
+    },
+    {
+      "check": "Setup safe (1.00, 0.00)",
+      "pass": true
+    },
+    {
+      "check": "Room_1_0/TransitionUp destination",
+      "pass": true
+    },
+    {
+      "check": "Room_1_0/TransitionUp correct landing",
+      "pass": true
+    },
+    {
+      "check": "Room_1_0/TransitionUp clear of solids and triggers at (18.00, 6.50)",
+      "pass": true
+    },
+    {
+      "check": "Room_1_0/TransitionUp camera centered",
+      "pass": true
+    },
+    {
+      "check": "Room_1_0/TransitionUp destination active",
+      "pass": true
+    },
+    {
+      "check": "Room_1_0/TransitionUp no immediate bounce",
+      "pass": true
+    },
+    {
+      "check": "Room_1_0/TransitionUp visited state updated",
+      "pass": true
+    },
+    {
+      "check": "Setup safe (-1.00, 0.00)",
+      "pass": true
+    },
+    {
+      "check": "Room_-1_0/TransitionUp destination",
+      "pass": true
+    },
+    {
+      "check": "Room_-1_0/TransitionUp correct landing",
+      "pass": true
+    },
+    {
+      "check": "Room_-1_0/TransitionUp clear of solids and triggers at (-18.00, 6.50)",
+      "pass": true
+    },
+    {
+      "check": "Room_-1_0/TransitionUp camera centered",
+      "pass": true
+    },
+    {
+      "check": "Room_-1_0/TransitionUp destination active",
+      "pass": true
+    },
+    {
+      "check": "Room_-1_0/TransitionUp no immediate bounce",
+      "pass": true
+    },
+    {
+      "check": "Room_-1_0/TransitionUp visited state updated",
+      "pass": true
+    },
+    {
+      "check": "Setup safe (1.00, 1.00)",
+      "pass": true
+    },
+    {
+      "check": "Room_1_1/TransitionDown destination",
+      "pass": true
+    },
+    {
+      "check": "Room_1_1/TransitionDown correct landing",
+      "pass": true
+    },
+    {
+      "check": "Room_1_1/TransitionDown clear of solids and triggers at (18.00, 3.50)",
+      "pass": true
+    },
+    {
+      "check": "Room_1_1/TransitionDown camera centered",
+      "pass": true
+    },
+    {
+      "check": "Room_1_1/TransitionDown destination active",
+      "pass": true
+    },
+    {
+      "check": "Room_1_1/TransitionDown no immediate bounce",
+      "pass": true
+    },
+    {
+      "check": "Room_1_1/TransitionDown visited state updated",
+      "pass": true
+    },
+    {
+      "check": "Setup safe (-1.00, 1.00)",
+      "pass": true
+    },
+    {
+      "check": "Room_-1_1/TransitionDown destination",
+      "pass": true
+    },
+    {
+      "check": "Room_-1_1/TransitionDown correct landing",
+      "pass": true
+    },
+    {
+      "check": "Room_-1_1/TransitionDown clear of solids and triggers at (-18.00, 3.50)",
+      "pass": true
+    },
+    {
+      "check": "Room_-1_1/TransitionDown camera centered",
+      "pass": true
+    },
+    {
+      "check": "Room_-1_1/TransitionDown destination active",
+      "pass": true
+    },
+    {
+      "check": "Room_-1_1/TransitionDown no immediate bounce",
+      "pass": true
+    },
+    {
+      "check": "Room_-1_1/TransitionDown visited state updated",
+      "pass": true
+    },
+    {
+      "check": "Setup safe (1.00, 1.00)",
+      "pass": true
+    },
+    {
+      "check": "Room_1_1/TransitionLeft destination",
+      "pass": true
+    },
+    {
+      "check": "Room_1_1/TransitionLeft correct landing",
+      "pass": true
+    },
+    {
+      "check": "Room_1_1/TransitionLeft clear of solids and triggers at (7.50, 10.00)",
+      "pass": true
+    },
+    {
+      "check": "Room_1_1/TransitionLeft camera centered",
+      "pass": true
+    },
+    {
+      "check": "Room_1_1/TransitionLeft destination active",
+      "pass": true
+    },
+    {
+      "check": "Room_1_1/TransitionLeft no immediate bounce",
+      "pass": true
+    },
+    {
+      "check": "Room_1_1/TransitionLeft visited state updated",
+      "pass": true
+    },
+    {
+      "check": "Setup safe (1.00, -1.00)",
+      "pass": true
+    },
+    {
+      "check": "Room_1_-1/TransitionLeft destination",
+      "pass": true
+    },
+    {
+      "check": "Room_1_-1/TransitionLeft correct landing",
+      "pass": true
+    },
+    {
+      "check": "Room_1_-1/TransitionLeft clear of solids and triggers at (7.50, -10.00)",
+      "pass": true
+    },
+    {
+      "check": "Room_1_-1/TransitionLeft camera centered",
+      "pass": true
+    },
+    {
+      "check": "Room_1_-1/TransitionLeft destination active",
+      "pass": true
+    },
+    {
+      "check": "Room_1_-1/TransitionLeft no immediate bounce",
+      "pass": true
+    },
+    {
+      "check": "Room_1_-1/TransitionLeft visited state updated",
+      "pass": true
+    },
+    {
+      "check": "Setup safe (-1.00, 1.00)",
+      "pass": true
+    },
+    {
+      "check": "Room_-1_1/TransitionRight destination",
+      "pass": true
+    },
+    {
+      "check": "Room_-1_1/TransitionRight correct landing",
+      "pass": true
+    },
+    {
+      "check": "Room_-1_1/TransitionRight clear of solids and triggers at (-7.50, 10.00)",
+      "pass": true
+    },
+    {
+      "check": "Room_-1_1/TransitionRight camera centered",
+      "pass": true
+    },
+    {
+      "check": "Room_-1_1/TransitionRight destination active",
+      "pass": true
+    },
+    {
+      "check": "Room_-1_1/TransitionRight no immediate bounce",
+      "pass": true
+    },
+    {
+      "check": "Room_-1_1/TransitionRight visited state updated",
+      "pass": true
+    },
+    {
+      "check": "Setup safe (-1.00, -1.00)",
+      "pass": true
+    },
+    {
+      "check": "Room_-1_-1/TransitionRight destination",
+      "pass": true
+    },
+    {
+      "check": "Room_-1_-1/TransitionRight correct landing",
+      "pass": true
+    },
+    {
+      "check": "Room_-1_-1/TransitionRight clear of solids and triggers at (-7.50, -10.00)",
+      "pass": true
+    },
+    {
+      "check": "Room_-1_-1/TransitionRight camera centered",
+      "pass": true
+    },
+    {
+      "check": "Room_-1_-1/TransitionRight destination active",
+      "pass": true
+    },
+    {
+      "check": "Room_-1_-1/TransitionRight no immediate bounce",
+      "pass": true
+    },
+    {
+      "check": "Room_-1_-1/TransitionRight visited state updated",
+      "pass": true
+    },
+    {
+      "check": "Setup safe (1.00, -1.00)",
+      "pass": true
+    },
+    {
+      "check": "Room_1_-1/TransitionUp destination",
+      "pass": true
+    },
+    {
+      "check": "Room_1_-1/TransitionUp correct landing",
+      "pass": true
+    },
+    {
+      "check": "Room_1_-1/TransitionUp clear of solids and triggers at (18.00, -3.50)",
+      "pass": true
+    },
+    {
+      "check": "Room_1_-1/TransitionUp camera centered",
+      "pass": true
+    },
+    {
+      "check": "Room_1_-1/TransitionUp destination active",
+      "pass": true
+    },
+    {
+      "check": "Room_1_-1/TransitionUp no immediate bounce",
+      "pass": true
+    },
+    {
+      "check": "Room_1_-1/TransitionUp visited state updated",
+      "pass": true
+    },
+    {
+      "check": "Setup safe (-1.00, -1.00)",
+      "pass": true
+    },
+    {
+      "check": "Room_-1_-1/TransitionUp destination",
+      "pass": true
+    },
+    {
+      "check": "Room_-1_-1/TransitionUp correct landing",
+      "pass": true
+    },
+    {
+      "check": "Room_-1_-1/TransitionUp clear of solids and triggers at (-18.00, -3.50)",
+      "pass": true
+    },
+    {
+      "check": "Room_-1_-1/TransitionUp camera centered",
+      "pass": true
+    },
+    {
+      "check": "Room_-1_-1/TransitionUp destination active",
+      "pass": true
+    },
+    {
+      "check": "Room_-1_-1/TransitionUp no immediate bounce",
+      "pass": true
+    },
+    {
+      "check": "Room_-1_-1/TransitionUp visited state updated",
+      "pass": true
+    },
+    {
+      "check": "Setup safe (2.00, 0.00)",
+      "pass": true
+    },
+    {
+      "check": "Room_2_0/Concealed_Doorway destination",
+      "pass": true
+    },
+    {
+      "check": "Room_2_0/Concealed_Doorway correct landing",
+      "pass": true
+    },
+    {
+      "check": "Room_2_0/Concealed_Doorway clear of solids and triggers at (-3600.00, 3.10)",
+      "pass": true
+    },
+    {
+      "check": "Room_2_0/Concealed_Doorway camera centered",
+      "pass": true
+    },
+    {
+      "check": "Room_2_0/Concealed_Doorway destination active",
+      "pass": true
+    },
+    {
+      "check": "Room_2_0/Concealed_Doorway no immediate bounce",
+      "pass": true
+    },
+    {
+      "check": "Room_2_0/Concealed_Doorway visited state updated",
+      "pass": true
+    },
+    {
+      "check": "Setup safe (2.00, 0.00)",
+      "pass": true
+    },
+    {
+      "check": "Room_2_0/South_To_Miners_Shop destination",
+      "pass": true
+    },
+    {
+      "check": "Room_2_0/South_To_Miners_Shop correct landing",
+      "pass": true
+    },
+    {
+      "check": "Room_2_0/South_To_Miners_Shop clear of solids and triggers at (1.60, 1003.15)",
+      "pass": true
+    },
+    {
+      "check": "Room_2_0/South_To_Miners_Shop camera centered",
+      "pass": true
+    },
+    {
+      "check": "Room_2_0/South_To_Miners_Shop destination active",
+      "pass": true
+    },
+    {
+      "check": "Room_2_0/South_To_Miners_Shop no immediate bounce",
+      "pass": true
+    },
+    {
+      "check": "Room_2_0/South_To_Miners_Shop visited state updated",
+      "pass": true
+    },
+    {
+      "check": "Setup safe (2.00, 0.00)",
+      "pass": true
+    },
+    {
+      "check": "Room_2_0/TransitionLeft destination",
+      "pass": true
+    },
+    {
+      "check": "Room_2_0/TransitionLeft correct landing",
+      "pass": true
+    },
+    {
+      "check": "Room_2_0/TransitionLeft clear of solids and triggers at (25.50, 0.00)",
+      "pass": true
+    },
+    {
+      "check": "Room_2_0/TransitionLeft camera centered",
+      "pass": true
+    },
+    {
+      "check": "Room_2_0/TransitionLeft destination active",
+      "pass": true
+    },
+    {
+      "check": "Room_2_0/TransitionLeft no immediate bounce",
+      "pass": true
+    },
+    {
+      "check": "Room_2_0/TransitionLeft visited state updated",
+      "pass": true
+    },
+    {
+      "check": "Setup safe (-200.00, 0.00)",
+      "pass": true
+    },
+    {
+      "check": "Room_Secret_0_2/Cave_Doorway_1_0 (1) destination",
+      "pass": true
+    },
+    {
+      "check": "Room_Secret_0_2/Cave_Doorway_1_0 (1) correct landing",
+      "pass": true
+    },
+    {
+      "check": "Room_Secret_0_2/Cave_Doorway_1_0 (1) clear of solids and triggers at (-4.00, 3.60)",
+      "pass": true
+    },
+    {
+      "check": "Room_Secret_0_2/Cave_Doorway_1_0 (1) camera centered",
+      "pass": true
+    },
+    {
+      "check": "Room_Secret_0_2/Cave_Doorway_1_0 (1) destination active",
+      "pass": true
+    },
+    {
+      "check": "Room_Secret_0_2/Cave_Doorway_1_0 (1) no immediate bounce",
+      "pass": true
+    },
+    {
+      "check": "Room_Secret_0_2/Cave_Doorway_1_0 (1) visited state updated",
+      "pass": true
+    },
+    {
+      "check": "Setup safe (-200.00, 0.00)",
+      "pass": true
+    },
+    {
+      "check": "Room_Secret_0_2/Return_To_Reedwater_Hollow destination",
+      "pass": true
+    },
+    {
+      "check": "Room_Secret_0_2/Return_To_Reedwater_Hollow correct landing",
+      "pass": true
+    },
+    {
+      "check": "Room_Secret_0_2/Return_To_Reedwater_Hollow clear of solids and triggers at (31.50, 1.50)",
+      "pass": true
+    },
+    {
+      "check": "Room_Secret_0_2/Return_To_Reedwater_Hollow camera centered",
+      "pass": true
+    },
+    {
+      "check": "Room_Secret_0_2/Return_To_Reedwater_Hollow destination active",
+      "pass": true
+    },
+    {
+      "check": "Room_Secret_0_2/Return_To_Reedwater_Hollow no immediate bounce",
+      "pass": true
+    },
+    {
+      "check": "Room_Secret_0_2/Return_To_Reedwater_Hollow visited state updated",
+      "pass": true
+    },
+    {
+      "check": "Setup safe (0.00, 0.00)",
+      "pass": true
+    },
+    {
+      "check": "Same-frame second transition rejected",
+      "pass": true
+    },
+    {
+      "check": "No enemies after complete traversal",
+      "pass": true
+    }
+  ]
+}

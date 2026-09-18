@@ -309,3 +309,13 @@ These haven't been finalized yet. Marked here so they don't get lost:
 **Tool authorization:** Zerenn explicitly approved the connected Pipeline C# commands for this build and verification after Unity_RunCommand was confirmed unavailable. This is a bounded exception recorded under Z-004, with no Unity_ManageGameObject calls or full Unity object serialization.
 
 **Result:** Implemented and verified; see [Session 07](Sessions/Session-07-Handoff.md). No gameplay architecture, input, damage, or save-system changes were needed.
+
+### Enemy-free world and room connectivity - Session 08, 2026-09-15
+
+**Direction from Zerenn:** Remove placed enemies from the entire playable world while retaining reusable scripts/prefabs and unrelated content. Use cardinal exits, aim for four per room, require at least two usable exits, and verify reciprocal connections and safe arrivals.
+
+**Topology choice:** Keep the existing ten overworld screens, shop, and cave. Add a loop through Room_0_1 north -> shop south and shop north -> Reedwater south, with reciprocal returns. Boundary rooms keep two or three exits; adding four everywhere would require extending or wrapping the finite map. Reedwater has two open routes plus its existing bush-concealed cave route. Both cave puzzles remain intact.
+
+**Arrival and boundary choices:** Ordinary exits use a 1.5-unit inset and one transition per frame. Player Transform/Rigidbody placement stays synchronized. Authored WorldMap resume offsets place the player at `(2,-2)` in the shop and cave, avoiding the table and fountain; save keys remain unchanged. Backstops behind the exit triggers prevent off-screen walking without a room change. Existing room roots remain active.
+
+**Authorization and result:** Zerenn explicitly approved Pipeline eval/run_script for this task. Removed 42 enemies; preserved all 615 original non-enemy GameObjects and the recovery assets. All 34 directed routes and all 12 save/resume destinations passed automated Play-mode checks. [Exit table and evidence](Recon/Z013-World-Connectivity.md).
