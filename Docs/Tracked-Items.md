@@ -1,12 +1,12 @@
 # Zelda Tracked Items
 
-**Owner:** Codex on `Codex`. **Last reconciled:** Session 08 completion, 2026-09-15.
+**Owner:** Codex on `Codex`. **Last reconciled:** Session 09 transfer status, 2026-09-18; gameplay verification remains Session 08.
 
 This is the current open-work queue. The [roadmap](Zerenn-Roadmap.md) retains milestone plans; [decisions](Zerenn-Decisions.md) retain design rationale; handoffs link here instead of maintaining competing task lists.
 
 ## Next task
 
-Z-013 is complete: all 42 placed enemies removed, all 12 playable rooms have at least two usable exits, the shop loop and cave returns work, and all 34 directed transitions passed Play-mode checks. No further task is assigned. [Session 08](Sessions/Session-08-Handoff.md) records the result and local uncommitted changes. Session 07's work is committed in `9f82368`; the desktop fetch matched origin/Codex. The historical zoom report remains Z-001.
+Z-013 is complete: all 42 placed enemies removed, all 12 playable rooms have at least two usable exits, the shop loop and cave returns work, and all 34 directed transitions passed Play-mode checks. No further task is assigned. [Session 08](Sessions/Session-08-Handoff.md) records the implementation; [Session 09](Sessions/Session-09-Handoff.md) owns laptop continuation. Session 07's work is committed in `9f82368`; Session 08's work and evidence are committed in `d829be6`. The desktop working tree was clean before Session 09's documentation update, and the local origin/Codex reference matches HEAD; remote state was not refreshed. Older delivery notes describing these changes as uncommitted are historical. The historical zoom report remains Z-001.
 
 ## Status and maintenance
 
@@ -66,7 +66,7 @@ Use stable `Z-NNN` IDs; do not renumber or reuse an ID. Record the source, next 
 
 - **Status:** Deferred after Zerenn approved the prior 10-room layout for camera recovery.
 - **Source:** [Scene recovery evidence](Recon/S05-Z009-Game-Scene-Conflicts.md).
-- **Preserved data:** The original conflicted scene remains in Git at `b91e1b8:Assets/Scenes/Game.unity` and in the local `Temp/Z009-Recovery-20260915/Game.conflicted.unity.txt` backup. The active scene is now the exact `e2e2322` version.
+- **Preserved data:** The original conflicted scene's recorded Git-history location is `b91e1b8:Assets/Scenes/Game.unity`. The old local `Temp/Z009-Recovery-20260915/Game.conflicted.unity.txt` backup is absent at Session 09's check. The initial recovery used `e2e2322`; the active scene has since received the Session 07 and 08 changes. Preserve the tracked recovery assets.
 - **Next check:** Establish which newer room/layout edits Zerenn wants, then reconstruct them against the working scene. Neither blanket merge-side choice preserves valid references. Temp files are local and may be cleared by Unity; Git is the durable recovery source.
 
 ### Z-007 - Shared beam implementation
@@ -91,7 +91,7 @@ Use stable `Z-NNN` IDs; do not renumber or reuse an ID. Record the source, next 
 - **Connections:** Retained 26 paired ordinary routes; connected Room_0_1 north <-> shop south and shop north <-> Reedwater south; repaired both cave round trips. All 12 rooms have at least two distinct destinations. Cave entrances retain their puzzle gates; Reedwater also has two ungated exits.
 - **Arrivals:** 1.5-unit ordinary arrival inset, same-frame debounce, synchronized Rigidbody placement, safe shop/cave resume offsets, and room perimeter backstops.
 - **Evidence:** 320 traversal checks and 79 save/reload/containment checks passed, covering all 34 directed exits and all 12 rooms. Zero remaining enemies/missing scripts/runtime errors. Compilation passes with the two documented warnings in unchanged source. [Exit table and evidence](Recon/Z013-World-Connectivity.md).
-- **Delivery:** Saved Game scene, Play stopped; gameplay preferences and input settings restored. Local, uncommitted, not pushed. No independent audit or user feel review claimed. No unresolved Z-013 implementation work.
+- **Delivery:** Implementation and evidence committed in `d829be6`, verified during Session 09. Session 08 ended with the Game scene saved and Play stopped, gameplay preferences/input settings restored; Unity was subsequently closed at Zerenn's request. Current remote/laptop state is not verified. No independent audit or user feel review claimed. No unresolved Z-013 implementation work.
 
 ### Z-010 - BoomShroom explosion script reference repaired
 

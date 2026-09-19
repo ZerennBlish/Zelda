@@ -8,19 +8,19 @@ This documentation follows the organization of `C:\IdBidOnThat\Docs`, adapted fo
 
 1. Read [AGENTS.md](../AGENTS.md) for branch ownership, permissions, and game invariants.
 2. Read [About-Me.md](About-Me.md), [Codex.md](Codex.md), and [Workflow.md](Workflow.md).
-3. Read the most recent handoff in [Sessions](Sessions/) and [Tracked-Items.md](Tracked-Items.md). The current handoff is [Session 08](Sessions/Session-08-Handoff.md): enemy removal and connectivity are complete and verified across all 12 playable rooms. Unity is stopped with the saved Game scene clean. Session 07's work is committed in `9f82368`; Session 08 implementation and evidence are local and uncommitted.
+3. Read the most recent handoff in [Sessions](Sessions/) and [Tracked-Items.md](Tracked-Items.md). The current handoff is [Session 09](Sessions/Session-09-Handoff.md): laptop continuation from committed revision `d829be6`, including Session 08's completed enemy removal and connectivity work. The desktop began this handoff with a clean working tree. Remote/laptop synchronization remains for Zerenn to verify; the new handoff documentation is local until committed and published.
 4. Read the technical references relevant to the requested task. Confirm live files and Unity state before relying on a historical description.
 
 If Zerenn has already specified the task, begin that task. A tracker is context, not permission to select a different objective.
 
 ## Moving between desktop and laptop
 
-Use GitHub's `Codex` branch to transfer committed project files and these docs between clones. Follow [Workflow](Workflow.md#switch-computers-or-start-a-new-chat) to verify and synchronize the active clone. Remote control of the desktop still operates on the desktop's files.
+Use GitHub's `Codex` branch to transfer committed project files and these docs between clones. Under Zerenn's current instructions, Git is read-only for Codex: Zerenn performs publication and synchronization. Use [Session 09](Sessions/Session-09-Handoff.md#laptop-continuation) for the current transfer requirements and [Workflow](Workflow.md#switch-computers-or-start-a-new-chat) for the checks. Remote control of the desktop still operates on the desktop's files.
 
 For a new chat in the destination clone, use:
 
 ```text
-Sync this Zelda clone with origin/Codex, preserving any local work. Read AGENTS.md, Docs/Start-Here.md, the latest session handoff, and Docs/Tracked-Items.md. Use those files for context and report the current blocker before starting gameplay changes.
+Verify this Zelda clone on Codex using read-only Git, preserving all local work. Read AGENTS.md, Docs/Start-Here.md, the latest session handoff, and Docs/Tracked-Items.md. Report any synchronization Zerenn needs to perform and any current blocker before gameplay changes. No new gameplay task is assigned by the handoff itself.
 ```
 
 The docs provide context when read; they do not send a notification to another chat. Unity MCP registration is local to each computer and needs its own path verification.
